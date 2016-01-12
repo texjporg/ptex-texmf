@@ -1,23 +1,23 @@
-\newcommand{\cs}[1]{{$\backslash$#1}}
+﻿\newcommand{\cs}[1]{{$\backslash$#1}}
 \documentstyle[twoside]{jarticle}
 \addtolength{\textheight}{.5in}
 \addtolength{\textwidth}{.7in}
 \setlength{\oddsidemargin}{.4in}
 \setlength{\evensidemargin}{.4in}
-\title{\TeX $B%7%9%F%`$NF|K\8l2=(B}
-\author{$BARBt(B $BNI0l(B\\ASCII Corporation}
-\date{$B><OB(B62$BG/(B 3$B7n(B}
+\title{\TeX システムの日本語化}
+\author{倉沢 良一\\ASCII Corporation}
+\date{昭和62年 3月}
 \pagestyle{headings}
 \begin{document}
 \maketitle
 \begin{abstract}
-$B8=:_!"(B\TeX $B%7%9%F%`(B $B$NF|K\8l2=$r?J$a$F$$$k$,!"(B
-$B8=;~E@$G0l1~$NF0:n$,2DG=$H$J$C$?!#(B
-$B$=$3$G!"$3$3$K$=$NJs9p$H6&$K$=$NFbMF$KIU$$$F2r@b$9$k!#(B
-$B$?$@$7!"$3$3$KJs9p$9$kFbMF$K$D$$$F$O!"(B
-$B7h$7$F:G=*E*$J$b$N$G$O$J$/!"(B
-$B8=;~E@$G$N;CDjE*$J$b$N$G$"$k$3$H$r>5CN$7$F$b$i$$$?$$!#(B
-$B>0!"K\9F$O$3$NF|K\8l2=$5$l$?(B\TeX $B%7%9%F%`$G(B\LaTeX $B$rMQ$$$F:n@.$7$?!#(B
+現在、\TeX システム の日本語化を進めているが、
+現時点で一応の動作が可能となった。
+そこで、ここにその報告と共にその内容に付いて解説する。
+ただし、ここに報告する内容については、
+決して最終的なものではなく、
+現時点での暫定的なものであることを承知してもらいたい。
+尚、本稿はこの日本語化された\TeX システムで\LaTeX を用いて作成した。
 \end{abstract}
 %
 \newpage
@@ -26,519 +26,519 @@
 %\listoftables
 %\newpage
 %
-\section{\TeX $B%7%9%F%`F|K\8l2=$NJ}?K(B}
-\TeX $B%7%9%F%`$rF|K\8l2=$9$k$K$"$?$j!"<!$N;v9`$KN10U$7(B
-$B$=$NJ}?K$r7hDj$7$?!#(B
+\section{\TeX システム日本語化の方針}
+\TeX システムを日本語化するにあたり、次の事項に留意し
+その方針を決定した。
 \begin{enumerate}
-\item $B40A4$J%"%C%Q!<%3%s%Q%A%V%k$G$"$k$3$H!#(B
+\item 完全なアッパーコンパチブルであること。
 	\begin{itemize}
-	\item $BF|K\8l2=$K$h$jK\Mh(B\TeX $B$N;}$D5!G=$,B;$J$o$l$k$h$&$J$3$H$,(B
-		$B$"$C$F$O$J$i$J$$!#(B
-	\item $B2$J8!"OBJ8$N6hJL$,L5$/!"F10l$N%7%9%F%`!J%W%m%0%i%`!K$G(B
-		$B07$($k$3$H!#(B
-		$BEvA3$3$l$^$G$K$"$k!"Kt$O$3$l$+$i:n$i$l$k2$J8$N869F$,(B
-		$B07$($k$3$H!#(B
-	\item $BOBJ8$KBP$7$F$b!"2$J8F1MM$N5!G=$,07$($k$3$H(B.
-		$B!J%U%)%s%H!"%^%/%mEy!K(B
+	\item 日本語化により本来\TeX の持つ機能が損なわれるようなことが
+		あってはならない。
+	\item 欧文、和文の区別が無く、同一のシステム（プログラム）で
+		扱えること。
+		当然これまでにある、又はこれから作られる欧文の原稿が
+		扱えること。
+	\item 和文に対しても、欧文同様の機能が扱えること.
+		（フォント、マクロ等）
 	\end{itemize}
-\item $BOBJ8FCM-$NFC<l=hM}$,9T$($k$3$H!#(B
+\item 和文特有の特殊処理が行えること。
 	\begin{itemize}
-	\item $B9TF,!"9TKv6XB'$r<+F0E*$K9T$($k$3$H!#(B
-	\item $BOBJ8!"2$J84V$N%9%Z!<%7%s%0$ND4@0Ey$,<+F0E*$K9T$($k$3$H!#(B
+	\item 行頭、行末禁則を自動的に行えること。
+	\item 和文、欧文間のスペーシングの調整等が自動的に行えること。
 	\end{itemize}
-\item $B;E>e$,$j$,H~$7$$$3$H!#(B\\
-	\TeX $BK\Mh$NL\E*$G$"$k(B``\.$BH~(B\.$B$7(B\.$B$$(B\.$B=P(B\.$BNO(B''$B$,F@$i$l$J$1$l$P!"(B
-	$BF|K\8l2=$r9T$&0UL#$OA4$/L5$/$J$C$F$7$^$&!#(B
-	$B9b@-G=$N=PNO%G%P%$%9$H9bIJ0L$N%U%)%s%H$rMQ$$$k$3$H$K$h$j!"(B
-	$B<L?"5!$KIi$1$J$$=PNO$,F@$i$l$k$3$H!#(B
+\item 仕上がりが美しいこと。\\
+	\TeX 本来の目的である``\.美\.し\.い\.出\.力''が得られなければ、
+	日本語化を行う意味は全く無くなってしまう。
+	高性能の出力デバイスと高品位のフォントを用いることにより、
+	写植機に負けない出力が得られること。
 \end{enumerate}
-1.$B$K4X$7$F$O!"$"$/$^$G$b(B``\TeX $B%7%9%F%`(B''$B$r$=$C$/$j$=$N$^$^(B
-$BF|K\8l4D6-$N2<$G;H$$$?$$$H$$$&MWK>$G$"$k!#(B
-$BOBJ8$KBP$7$F$b!"2$J8$N$h$&$K<+M3$K%U%)%s%H$r@Z$j49$($?$j!"(B
-$B%^%/%mDj5A$,9T$$$?$$$H$$$&$N$OEvA3$G$"$j!"(B
-$B$=$l$,(B\TeX $B$N$h$&$JJ8=q=hM}%7%9%F%`$NL%NO$N(B1$B$D$G$"$k$+$i$G$"$k!#(B\\
-2.$B$KIU$$$F$O!"OBJ8$r07$&>l9g$K$OI,A3E*$KIU$$$F$^$o$kLdBj$G!"(B
-$B$3$l$i$N=hM}$,3N<B$K9T$o$l$J$1$l$P!"$=$NJ8=q=hM}7O$NMxMQ2ACM$O(B
-$BH>8:$7$F$7$^$&$H9M$($i$l$k!#(B\\
-3.$B$NFbMF$O>/$7Bg$2$5$J$h$&$K$b;W$($k$,!"(B
-Don\nolinebreak\ Knuth$B$N(B\TeX $B3+H/$NL\E*$+$i$9$l$P!";j6KEvA3$N$3$H$G$b$"$k!#(B
-$BKt!"$3$l$O(B 1.$B$d(B2.$B$NFbMF$,Bg$-$/4X$o$C$F$$$k$N$O8@$&$^$G$b$J$$$3$H$G$"$k!#(B
+1.に関しては、あくまでも``\TeX システム''をそっくりそのまま
+日本語環境の下で使いたいという要望である。
+和文に対しても、欧文のように自由にフォントを切り換えたり、
+マクロ定義が行いたいというのは当然であり、
+それが\TeX のような文書処理システムの魅力の1つであるからである。\\
+2.に付いては、和文を扱う場合には必然的に付いてまわる問題で、
+これらの処理が確実に行われなければ、その文書処理系の利用価値は
+半減してしまうと考えられる。\\
+3.の内容は少し大げさなようにも思えるが、
+Don\nolinebreak\ Knuthの\TeX 開発の目的からすれば、至極当然のことでもある。
+又、これは 1.や2.の内容が大きく関わっているのは言うまでもないことである。
 
-$B$3$N$h$&$JMW5a$r!"=PMh$k8B$jK~B-$9$k$?$a$K(B
-$B<!$N$h$&$JF|K\8l2=$NJ}:v$r$H$k$3$H$K$7$?!#(B
+このような要求を、出来る限り満足するために
+次のような日本語化の方策をとることにした。
 \begin{itemize}
-\item $BF|K\8l2=$O!"(B\TeX $B$=$N$b$N(B(initex$B!"(Bvirtex)$B$KBP$7$F9T$$!"(B
-	plain$B$d(Blplain$BEy$N%^%/%m$K$O=PMh$l$P0l@Z<j$rIU$1$J$$!#(B
-	$B!JIU$1$?$/$J$$!#!K(B
-\item $B$?$@$7!"DI2C$5$l$?5!G=$N0Y$N%$%K%7%c%i%$%:$d!"%Q%i%a!<%?$N@_Dj!"(B
-	$B4A;z%U%)%s%H$NDj5AEy$O!"(B\TeX $B$N%U%l%-%7%S%j%F%#$rJ]$D$?$a$K$b%^%/%m$G(B
-	$B9T$($k$h$&$K$9$k!#(B
-\item $B2$J8$G9T$($k$3$H$O!"2DG=$J8B$jOBJ8$G$b9T$($k$h$&$K%]!<%F%#%s%0$9$k!#(B
+\item 日本語化は、\TeX そのもの(initex、virtex)に対して行い、
+	plainやlplain等のマクロには出来れば一切手を付けない。
+	（付けたくない。）
+\item ただし、追加された機能の為のイニシャライズや、パラメータの設定、
+	漢字フォントの定義等は、\TeX のフレキシビリティを保つためにもマクロで
+	行えるようにする。
+\item 欧文で行えることは、可能な限り和文でも行えるようにポーティングする。
 \end{itemize}
 %
 \newpage
-\section{\TeX $BF|K\8l2=$N<B:](B}
-$B>e5-$NJ}?K$K4p$E$-F|K\8l2=$r9T$C$?7k2L!"8=;~E@$G0J2<$N$h$&$K<B8=$5$l$F$$$k!#(B
+\section{\TeX 日本語化の実際}
+上記の方針に基づき日本語化を行った結果、現時点で以下のように実現されている。
 %
-\subsection{$B%3!<%IBN7O(B}
-$B%$%s%W%j%a%s%H$NMF0W$5!"8=:_;HMQ$7$F$$$k%[%9%H%^%7%s$N%3!<%I!"(B
-$B>-Mh$N%Q!<%=%J%k%3%s%T%e!<%?$X$N0\?"Ey$r9M$(9g$o$;$?7k2L!"(B
-$BFbIt%3!<%I!"30It%3!<%I6&$K(BASCII$B!"%7%U%H(BJIS$B$NAH$_9g$;$rMQ$$$?!#(B
-$B$?$@$7!"(BDVI$B%U%!%$%kFb$N4A;z%3!<%I$@$1$O!"(BJIS$B%3!<%I$r=PNO$9$k$h$&$K$J$C$F$$$k!#(B
-$B$^$?H>3Q%+%J$N%5%]!<%H$O9T$C$F$$$J$$!#(B
+\subsection{コード体系}
+インプリメントの容易さ、現在使用しているホストマシンのコード、
+将来のパーソナルコンピュータへの移植等を考え合わせた結果、
+内部コード、外部コード共にASCII、シフトJISの組み合せを用いた。
+ただし、DVIファイル内の漢字コードだけは、JISコードを出力するようになっている。
+また半角カナのサポートは行っていない。
 %
-\subsection{$B%W%j%_%F%#%V(B}
-$BF|K\8l2=$KH<$$!"4v$D$+$N%W%j%_%F%#%V$NDI2C$*$h$S3HD%$r9T$C$?!#(B
-$B$3$l$i$O!"6XB'=hM}!"%*!<%H%9%Z!<%7%s%0$*$h$S4A;z%3!<%I$N$?$a$N$b$N$G$"$k!#(B
-$B$3$N;~!"?7$7$/DI2C$9$k%W%j%_%F%#%V$K$D$$$F$O!"F|K\8lFHFC$N?7$7$$=hM}$K(B
-$BBP$9$k$b$N$@$1$K;_$a!"=PMh$k$@$14{B8$N%W%j%_%F%#%V$r3HD%$9$k$h$&$KEX$a$?!#(B
+\subsection{プリミティブ}
+日本語化に伴い、幾つかのプリミティブの追加および拡張を行った。
+これらは、禁則処理、オートスペーシングおよび漢字コードのためのものである。
+この時、新しく追加するプリミティブについては、日本語独特の新しい処理に
+対するものだけに止め、出来るだけ既存のプリミティブを拡張するように努めた。
 %
-\subsubsection{$B%W%j%_%F%#%V$NDI2C(B}
+\subsubsection{プリミティブの追加}
 \label{tbpri}
-Table~\ref{tb:prim}$B$K<($9%W%j%_%F%#%V$,DI2C$5$l$F$$$k!#(B
-$B!J>\$7$/$O!"0J9_$N%;%/%7%g%s$G2r@b$9$k!#!K(B
+Table~\ref{tb:prim}に示すプリミティブが追加されている。
+（詳しくは、以降のセクションで解説する。）
 %
-\subsubsection{$B%W%j%_%F%#%V$N3HD%(B}
-$B4{B8$N%W%j%_%F%#%V$K4X$7$F$O!"=PMhF@$k8B$j2$J8!"OBJ8$N6hJL$r$;$:$K(B
-$B07$($k$h$&3HD%$r9T$C$?!#(B
-$B$^$?FbIt$G07$&%H!<%/%s$KBP$9$kF|K\8l2=$r9T$&$3$H$K$h$C$F!"(B
-$B%W%j%s%F%#%s%0%-%c%i%/%?$N$_$G$J$/!"%^%/%mL>$d%H!<%/%s%j%9%H(B
-$B$K$bA43QJ8;z$rH>3QJ8;z$H:.:_$7$F07$($k$h$&$K$J$C$F$$$k!#(B
+\subsubsection{プリミティブの拡張}
+既存のプリミティブに関しては、出来得る限り欧文、和文の区別をせずに
+扱えるよう拡張を行った。
+また内部で扱うトークンに対する日本語化を行うことによって、
+プリンティングキャラクタのみでなく、マクロ名やトークンリスト
+にも全角文字を半角文字と混在して扱えるようになっている。
 
-\noindent $BNc(B. 
+\noindent 例. 
 \begin{quote}
 \cs{char}''82A0\\
-\cs{accent}''5F`$B$"(B\\
-\cs{def}\cs{$B2~%Z!<%8(B}\{\cs{eject}\}
+\cs{accent}''5F`あ\\
+\cs{def}\cs{改ページ}\{\cs{eject}\}
 \end{quote}
 %
 \begin{table}[htb]
 \begin{tabular}{|l|p{4in}|}	\hline
 \cs{\it prebreakpenalty} &
-	$B;XDj$9$k%-%c%i%/%?%3!<%I$NA0J}$KA^F~$9$k%Z%J%k%F%#$NCM$r@_Dj$9$k!#(B
-	$B9TF,6XB'$N;XDj$H$7$FMQ$$$k!#(B \\
-&	$BNc(B. {\tt\cs{prebreakpenalty}`$B!"(B$=$1000} \\ \hline
+	指定するキャラクタコードの前方に挿入するペナルティの値を設定する。
+	行頭禁則の指定として用いる。 \\
+&	例. {\tt\cs{prebreakpenalty}`、$=$1000} \\ \hline
 \cs{\it postbreakpenalty} &
-	$B;XDj$9$k%-%c%i%/%?%3!<%I$N8eJ}$KA^F~$9$k%Z%J%k%F%#$NCM$r@_Dj$9$k!#(B
-	$B9TKv6XB'$N;XDj$H$7$FMQ$$$k!#(B\\
-&	$BNc(B. {\tt\cs{postbreakpenalty}`$B!N(B$=$1000} \\ \hline
+	指定するキャラクタコードの後方に挿入するペナルティの値を設定する。
+	行末禁則の指定として用いる。\\
+&	例. {\tt\cs{postbreakpenalty}`［$=$1000} \\ \hline
 \cs{\it jis} &
-	$B4A;z%3!<%I$NJQ49$r9T$&$?$a$N%W%j%_%F%#%V$G!"(B
-	JIS$B%3!<%I$+$iFbIt%3!<%I$G$"$k%7%U%H(BJIS$B$KJQ49$9$k!#(B\\
-&	$BNc(B. {\tt\cs{prebreakpenalty}\cs{jis}"2122$=$1000} \\ \hline
+	漢字コードの変換を行うためのプリミティブで、
+	JISコードから内部コードであるシフトJISに変換する。\\
+&	例. {\tt\cs{prebreakpenalty}\cs{jis}"2122$=$1000} \\ \hline
 \cs{\it kuten} &
-	\cs{jis}$B$HF1MM$K6hE@%3!<%I$+$i%7%U%H(BJIS$B$XJQ49$9$k!#(B\\
-&	$BNc(B. {\tt\cs{postbreakpenalty}\cs{kuten}"0146$=$1000} \\ \hline
+	\cs{jis}と同様に区点コードからシフトJISへ変換する。\\
+&	例. {\tt\cs{postbreakpenalty}\cs{kuten}"0146$=$1000} \\ \hline
 \cs{\it sjis} &
-	$B>e5-$N#2$D$HF1MM$G$"$k$,!"FbIt%3!<%I$,%7%U%H(BJIS$B$G$"$k$N$G!"(B
-	$B$=$N$^$^$NCM$r$+$($9!#(B\\ \hline
+	上記の２つと同様であるが、内部コードがシフトJISであるので、
+	そのままの値をかえす。\\ \hline
 \cs{\it kanjiskip} &
-	$BA43Q%3!<%I4V$K<+F0E*$KA^F~$5$l$k%0%k!<$r;}$D%l%8%9%?!#(B\\
-&	$BNc(B. {\tt\cs{kanjiskip}$=$0pt puls .3pt minus .3pt} \\ \hline
+	全角コード間に自動的に挿入されるグルーを持つレジスタ。\\
+&	例. {\tt\cs{kanjiskip}$=$0pt puls .3pt minus .3pt} \\ \hline
 \cs{\it xkanjiskip} &
-	$BA43Q(B--$BH>3Q%3!<%I4V$K<+F0E*$KA^F~$5$l$k%0%k!<$r;}$D%l%8%9%?!#(B\\
-&	$BNc(B. {\tt\cs{xkanjiskip}$=$2.5pt puls 1pt minus 1pt} \\ \hline
+	全角--半角コード間に自動的に挿入されるグルーを持つレジスタ。\\
+&	例. {\tt\cs{xkanjiskip}$=$2.5pt puls 1pt minus 1pt} \\ \hline
 \cs{\it autospacing} &
-	$BA43Q%3!<%I4V$X$N%0%k!<$N<+F0A^F~$r9T$&$?$a$N;XDj!#(B \\ \hline
+	全角コード間へのグルーの自動挿入を行うための指定。 \\ \hline
 \cs{\it noautospacing} &
-	$BA43Q%3!<%I4V$X$N%0%k!<$N<+F0A^F~$r9T$o$J$$$?$a$N;XDj!#(B \\ \hline
+	全角コード間へのグルーの自動挿入を行わないための指定。 \\ \hline
 \cs{\it autoxspacing} &
-	$BA43Q(B--$BH>3Q%3!<%I4V$X$N%0%k!<$N<+F0A^F~$r9T$&$?$a$N;XDj!#(B\\ \hline
+	全角--半角コード間へのグルーの自動挿入を行うための指定。\\ \hline
 \cs{\it noautoxspacing} &
-	$BA43Q(B--$BH>3Q%3!<%I4V$X$N%0%k!<$N<+F0A^F~$r9T$o$J$$$?$a$N;XDj!#(B\\ \hline
+	全角--半角コード間へのグルーの自動挿入を行わないための指定。\\ \hline
 \cs{\it xspcode} &
-	$BA43Q(B--$BH>3Q%3!<%I4V$X$N%0%k!<$N<+F0A^F~$NBP>]$H$J$k(B
-	$BH>3Q%3!<%I$r;XDj$9$k!#(B
-	$B8=:_%G%U%)%k%H$NCM$H$7$F%"%k%U%!%Y%C%H$*$h$S?t;z$KBP$7$F(B
-	$B%9%Z!<%9$,A^F~$5$l$k$h$&$K@_Dj$5$l$F$$$k!#(B \\
-&	$BNc(B. {\tt\cs{xspcode}`A$=$0} \\ \hline
+	全角--半角コード間へのグルーの自動挿入の対象となる
+	半角コードを指定する。
+	現在デフォルトの値としてアルファベットおよび数字に対して
+	スペースが挿入されるように設定されている。 \\
+&	例. {\tt\cs{xspcode}`A$=$0} \\ \hline
 \end{tabular}
-\caption{$BF|K\8l2=$KH<$$DI2C$5$l$?%W%j%_%F%#%V!#(B}
+\caption{日本語化に伴い追加されたプリミティブ。}
 \label{tb:prim}
 \end{table}
 %
-\subsection{$B%i%$%s%V%l!<%/(B}
-$B2$J8$HOBJ8$N=hM}$G8+$+$1>e:G$bBg$-$J0c$$$O!"%i%$%s%V%l!<%/=hM}$G$"$k$H;W$o$l$k!#(B
-``$B8+$+$1>e(B''$B$H8@$&$N$O!"(B\TeX $BFbIt$N=hM}$K$O(B
-$B$5$[$IBg$-$JJQ99$O$$$i$J$$$+$i$G$"$k!#(B
-$B6qBNE*$K$O!"<!$N$h$&$KJ8Cf$N$I$N0LCV$r(B
-$B%V%l!<%/%]%$%s%H$NBP>]$H$9$k$+$NLdBj$G$"$k!#(B
+\subsection{ラインブレーク}
+欧文と和文の処理で見かけ上最も大きな違いは、ラインブレーク処理であると思われる。
+``見かけ上''と言うのは、\TeX 内部の処理には
+さほど大きな変更はいらないからである。
+具体的には、次のように文中のどの位置を
+ブレークポイントの対象とするかの問題である。
 \begin{itemize}
-\item $B2$J8Cf$G$N%i%$%s%V%l!<%/$O!"%O%$%U%M!<%7%g%s=hM}Ey$NFCJL$J>l9g$r=|$$$F!"(B
-$BC18lCf$D$^$jO"B3$9$kJ8;zNsCf$O!"%V%l!<%-%s%0%]%$%s%H$7$FA*Br$5$l$J$$!#(B
-\item $BOBJ8Cf$G$O6XB'$NNc30$r=|$$$F!"(B
-$BA4$F$NJ8;z4V$,%V%l!<%/%]%$%s%H$NBP>]$K$J$jF@$k!#(B
+\item 欧文中でのラインブレークは、ハイフネーション処理等の特別な場合を除いて、
+単語中つまり連続する文字列中は、ブレーキングポイントして選択されない。
+\item 和文中では禁則の例外を除いて、
+全ての文字間がブレークポイントの対象になり得る。
 \end{itemize}
-$B<B:]$K(B\TeX $BFbIt$G$O%Q%i%0%i%UC10L$G%i%$%s%V%l!<%/$N=hM}$,9T$o$l!"(B
-$B$=$l$O(B{\it line\_break}$B$H$$$&%k!<%A%sFb$G!"(B
-$B%V%l!<%/2DG=$J2U=j$rA\$7=P$7!"$=$l$r(B{\it try\_break}
-$B$H$$$&4X?t$KEO$9$3$H$K$h$j9T$o$l$F$$$k!#(B
-$B!JL^O@$3$s$JC1=c$J$b$N$G$O$J$$$,!"4pK\E*$JA`:n$H$7$F$3$&$7$?7A$K$J$C$F$$$k!#(B
-$B>\$7$/$O!"(B\TeX: The Program PART38$B!"(B39 Breaking paragraphs into lines.
-$B$r@'HsFI$s$G$_$k$3$H$r$*4+$a$9$k!#!K(B
-$B$=$3$G!"OBJ8Cf$NJ8;z4V$b%V%l!<%/%]%$%s%H$N8uJd$H$7$F!"(B
-{\it try\_break}$B$KEO$9$h$&JQ99$7$?!#(B
+実際に\TeX 内部ではパラグラフ単位でラインブレークの処理が行われ、
+それは{\it line\_break}というルーチン内で、
+ブレーク可能な箇所を捜し出し、それを{\it try\_break}
+という関数に渡すことにより行われている。
+（勿論こんな単純なものではないが、基本的な操作としてこうした形になっている。
+詳しくは、\TeX: The Program PART38、39 Breaking paragraphs into lines.
+を是非読んでみることをお勧めする。）
+そこで、和文中の文字間もブレークポイントの候補として、
+{\it try\_break}に渡すよう変更した。
 
-$BKt!"K\Mh$J$i$P%i%$%s%V%l!<%/$N=hM}$O!"<!9`$N6XB'=hM}$HL)@\$J4X78$,$"$j(B
-$B$H$F$bJ,$1$F9M$($i$l$k$b$N$G$O$J$$!#(B
-$B$7$+$7$J$,$i!"(B\TeX $B$G$O;v<B>e40A4$KJ,$1$F9M$($F$b:9$7;Y$($,$J$$$h$&$J(B
-$B9=B$$K$J$C$F$$$k!#(B
-$B$=$l$O!"%Z%J%k%F%#$H8F$P$l$k%V%l!<%-%s%0$N$?$a$N(B
-$B0lHLE*$JI>2ACM$,F3F~$5$l$F$$$k$?$a$G$"$j!"(B
-$B%V%l!<%-%s%0%k!<%A%s$G$O$3$NCM$rG!2?$KI>2A$9$k$+(B
-$B$@$1$r9M$($l$PNI$/!"(B
-$B6XB'=hM}%k!<%A%s$G$O!"$3$NCM$rG!2?$K@_Dj$9$k$+$@$1$r9M$($l$PNI$$!#(B
+又、本来ならばラインブレークの処理は、次項の禁則処理と密接な関係があり
+とても分けて考えられるものではない。
+しかしながら、\TeX では事実上完全に分けて考えても差し支えがないような
+構造になっている。
+それは、ペナルティと呼ばれるブレーキングのための
+一般的な評価値が導入されているためであり、
+ブレーキングルーチンではこの値を如何に評価するか
+だけを考えれば良く、
+禁則処理ルーチンでは、この値を如何に設定するかだけを考えれば良い。
 %
-\subsection{$B6XB'=hM}(B}
+\subsection{禁則処理}
 %
-\subsubsection{$B6XB'=hM}$G$N%Z%J%k%F%#$N1~MQ(B}
-$BA0$N%;%/%7%g%s$G$b4JC1$K?($l$?$h$&$K!"(B
-$B6XB'=hM}$b(B\TeX $B$K$H$C$FA4$/?7$7$$35G0$G$O$J$/!"(B
-$B%Z%J%k%F%#$H8@$&7A$GF3F~$5$l$F$$$k!#(B
-$B$3$l$O!">e5-$N%i%$%s%V%l!<%/$d%Z!<%8%V%l!<%/=hM};~$K!"(B
-$B$=$N2U=j$,%V%l!<%/%]%$%s%H$H$7$F!"(B
-$B$I$NDxEYE,@Z!JIiCM$N%Z%J%k%F%#!K$G$"$k$+$"$k$$$O(B
-$BITE,@Z!J@5CM$N%Z%J%k%F%#!K$G$"$k$+$r<($9$?$a$NI>2ACM$G$"$k!#(B
-$B$7$?$,$C$F!"$?$@C1$K$=$N2U=j$G$N%V%l!<%-%s%0$r6X;_$9$k$@$1$G$OL5$/!"(B
-$B6/@)E*$J%V%l!<%-%s%0$d!"6XB'J8;z$,O"B3$9$k$h$&$J>l9g$N(B
-$BM%@h=g0LIU$1$K$bMxMQ$G$-$k!#(B
+\subsubsection{禁則処理でのペナルティの応用}
+前のセクションでも簡単に触れたように、
+禁則処理も\TeX にとって全く新しい概念ではなく、
+ペナルティと言う形で導入されている。
+これは、上記のラインブレークやページブレーク処理時に、
+その箇所がブレークポイントとして、
+どの程度適切（負値のペナルティ）であるかあるいは
+不適切（正値のペナルティ）であるかを示すための評価値である。
+したがって、ただ単にその箇所でのブレーキングを禁止するだけでは無く、
+強制的なブレーキングや、禁則文字が連続するような場合の
+優先順位付けにも利用できる。
 
-$BF|K\8l$N6XB'=hM}$K$3$N%Z%J%k%F%#$r1~MQ$9$k$?$a$K$O<!$N$h$&$K$9$l$P$h$$!#(B
+日本語の禁則処理にこのペナルティを応用するためには次のようにすればよい。
 \begin{list}{}{\setlength{\leftmargin}{2cm}}
-\item[$B9TF,6XB'(B] $B6XB'J8;z$NA0$K@5$N%Z%J%k%F%#$rIU$1$k!#(B
-\item[$B9TKv6XB'(B] $B6XB'J8;z$N8e$m$K@5$N%Z%J%k%F%#$rIU$1$k!#(B
+\item[行頭禁則] 禁則文字の前に正のペナルティを付ける。
+\item[行末禁則] 禁則文字の後ろに正のペナルティを付ける。
 \end{list}
-$B$3$&$7$?7A$G%Z%J%k%F%#$r<+F0E*$KA^F~$5$($G$-$l$P!"(B
-$B8e$O4{B8$N(B\TeX $B$N%k!<%A%s$r$=$N$^$^MxMQ$G$-$k$O$:$G$"$k!#(B
+こうした形でペナルティを自動的に挿入さえできれば、
+後は既存の\TeX のルーチンをそのまま利用できるはずである。
 %
-\subsubsection{$B6XB'%F!<%V%k(B}
-$B$3$N%Z%J%k%F%#$r<+F0E*$KA^F~$9$k$?$a$K!"(B
-\TeX $BFbIt$K6XB'J8;z$H$=$NJ8;z$KBP1~$9$k%Z%J%k%F%#CM$H(B
-$B%Z%J%k%F%#$NA^F~0LCV!J$=$NJ8;z$NA0$KA^F~$9$k$+8e$KA^F~$9$k$+$NJL!K(B
-$B$N%F!<%V%k$r;}$D$3$H$K$7$?!#(B
-$B$=$7$F$3$N%F!<%V%k$K$3$l$i$N>pJs$rEPO?$9$k<jCJ$H$7$F!"(B
-{\bf\cs{pre\-break\-penalty}}$B$H(B{\bf\cs{post\-break\-penalty}}
-$B$N#2$D$N%W%j%_%F%#%V$rDI2C$7$?!#(B
-{\bf\cs{pre\-break\-penalty}}$B$O(B
-$B;XDj$7$?J8;z$ND>A0$K%Z%J%k%F%#$rA^F~$9$k$3$H$r!"(B
-{\bf\cs{post\-break\-penalty}}$B$O(B
-$B;XDj$7$?J8;z$ND>8e$K%Z%J%k%F%#$rA^F~$9$k$3$H$r;XDj$9$k$b$N$G!"(B
-$BA43QJ8;z!"H>3QJ8;z$N6hJLL5$7$K;XDj$G$-$k!#(B
-$B$3$l$i$O!"F10l$NJ8;z$KBP$7$FF1;~$KN>J}$N%Z%J%k%F%#$rA^F~$9$k$h$&$K$O(B
-$B;XDj$G$-$J$$!#(B $B$b$7F10l$NJ8;z$KBP$7$FAPJ}$N;XDj$,$5$l$?>l9g!"(B
-$B8e$+$i$N$b$N$KCV$-49$($i$l$k!#(B
-$BL^O@$3$l$i$O(B``\{\}''$B$K$h$k!"%0%k!<%T%s%05,B'$,E,MQ$5$l$k!#(B
-$BKt!"APJ}$G;XDj$G$-$kJ8;z?t$O:GBg$G(B256$BJ8;z$^$G$G$"$k!#(B
-$B$3$NCM$O!"A43QJ8;z!"H>3QJ8;z$r9g$o$;$F6XB'BP>]$H$J$k$H9M$($i$l$k(B
-$BJ8;z?t$r!"==J,$K%+%P!<$7$F$$$k$H;W$o$l$k!#(B
+\subsubsection{禁則テーブル}
+このペナルティを自動的に挿入するために、
+\TeX 内部に禁則文字とその文字に対応するペナルティ値と
+ペナルティの挿入位置（その文字の前に挿入するか後に挿入するかの別）
+のテーブルを持つことにした。
+そしてこのテーブルにこれらの情報を登録する手段として、
+{\bf\cs{pre\-break\-penalty}}と{\bf\cs{post\-break\-penalty}}
+の２つのプリミティブを追加した。
+{\bf\cs{pre\-break\-penalty}}は
+指定した文字の直前にペナルティを挿入することを、
+{\bf\cs{post\-break\-penalty}}は
+指定した文字の直後にペナルティを挿入することを指定するもので、
+全角文字、半角文字の区別無しに指定できる。
+これらは、同一の文字に対して同時に両方のペナルティを挿入するようには
+指定できない。 もし同一の文字に対して双方の指定がされた場合、
+後からのものに置き換えられる。
+勿論これらは``\{\}''による、グルーピング規則が適用される。
+又、双方で指定できる文字数は最大で256文字までである。
+この値は、全角文字、半角文字を合わせて禁則対象となると考えられる
+文字数を、十分にカバーしていると思われる。
 
-$B$3$N6XB'%F!<%V%k$+$i$NEPO?$N:o=|$O!"(B
-$B%Z%J%k%F%#CM(B`0'$B$r@_Dj$9$k$3$H$K$h$C$F9T$o$l$k$,!"(B
-$B%0%m!<%P%k%l%Y%k$G$N@_Dj$G$J$1$l$P!"(B
-$B$3$N%F!<%V%k$NNN0h$O2rJ|$5$l$J$$$3$H$KCm0U$7$FM_$7$$!#(B
-$B$J$<$J$i!"%m!<%+%k%l%Y%k$GNN0h$r2rJ|$7$F$7$^$($P!"(B
-$B$=$N30B&$N%l%Y%k$KLa$C$?$H$-$K!"$=$N%l%Y%k$G$NCM$r(B
-$B:G@_Dj$9$k$?$a$NNN0h$,3NJ]$5$l$F$$$kJ]>Z$,$J$$$+$i$G$"$k!#(B
+この禁則テーブルからの登録の削除は、
+ペナルティ値`0'を設定することによって行われるが、
+グローバルレベルでの設定でなければ、
+このテーブルの領域は解放されないことに注意して欲しい。
+なぜなら、ローカルレベルで領域を解放してしまえば、
+その外側のレベルに戻ったときに、そのレベルでの値を
+最設定するための領域が確保されている保証がないからである。
 
-$B$3$N%F!<%V%k$,$G$-$l$P!"3FJ8;z$rFI$_9~$`EY$K!"(B
-$B$=$NJ8;z$,$3$N%F!<%V%k$KEPO?$5$l$F$$$k$+$I$&$+$rD4$Y!"(B
-$BEPO?$5$l$F$$$l$P$=$N%Z%J%k%F%#$rJ8;z$NA08eE,@Z$J0LCV$KA^F~$7$F9T$1$PNI$$!#(B
-$B$3$N6XB'%F!<%V%k$N8!:w$K$O%O%C%7%eK!$rMQ$$$F$*$j!"(B
-$B%O%C%7%e4X?t$H$7$F(B
-\label{`$B%O%C%7%e4X?t(B'}
+このテーブルができれば、各文字を読み込む度に、
+その文字がこのテーブルに登録されているかどうかを調べ、
+登録されていればそのペナルティを文字の前後適切な位置に挿入して行けば良い。
+この禁則テーブルの検索にはハッシュ法を用いており、
+ハッシュ関数として
+\label{`ハッシュ関数'}
 \[\left\{ \begin{array}{cl}
-	(C2+(C2<<(C1-0x81)))\,mod 256 & $B4A;z%3!<%I(B\\
-	& C1=$B>e0L%P%$%H!"(BC2=$B2<0L%P%$%H(B\\
+	(C2+(C2<<(C1-0x81)))\,mod 256 & 漢字コード\\
+	& C1=上位バイト、C2=下位バイト\\
 	\\
-	C*2+1 & ASCII$B%3!<%I(B
+	C*2+1 & ASCIIコード
 	\end{array}
 \right. \]
-$B$rMQ$$$F$$$k!#(B
-$B$3$l$O!"$*$=$i$/6XB'$NBP>]$H$J$k$G$"$m$&!"(B
-$BA43Q$N5-9f!"$R$i$,$J%+%?%+%J$N>.J8;z!"(BASCII$B%3!<%I$N5-9fEy(B
-$B$rE,Ev$K;6$i$P$i$;$k$h$&$K9M$($F$"$k!#(B
-$BKt!"$3$N%F!<%V%k$K$O:GBg(B256$BJ8;z$^$GEPO?2DG=$G$"$k$,!"(B
-$B$`$d$_$KB?$/$NJ8;z$rEPO?$7$F%F!<%V%k$rK~$?$9$3$H$O!"(B
-$B6XB'J8;z8!:w$N%*!<%P!<%X%C%I$rBg$-$/$7!"(B
-$B%Q%U%)!<%^%s%9$KBg$-$J1F6A$rM?$($k$N$GCm0U$9$kI,MW$,$"$k!#(B
+を用いている。
+これは、おそらく禁則の対象となるであろう、
+全角の記号、ひらがなカタカナの小文字、ASCIIコードの記号等
+を適当に散らばらせるように考えてある。
+又、このテーブルには最大256文字まで登録可能であるが、
+むやみに多くの文字を登録してテーブルを満たすことは、
+禁則文字検索のオーバーヘッドを大きくし、
+パフォーマンスに大きな影響を与えるので注意する必要がある。
 
-$B$3$&$7$F%Z%J%k%F%#$rE,@Z$KA^F~$5$($7$F$7$^$($P!"(B
-$B8e$O(B\TeX $B$N%i%$%s%V%l!<%/%k!<%A%s$K(B\. $B$*(B\. $B$^(B\. $B$+(B\. $B$;$7$F$7$^$($k!#(B
-$BL^O@!"$3$N%F!<%V%k$K$$$+$K%Z%J%k%F%#$rEPO?$9$k$+$O!"(B
-$B%f!<%6!<$N@UG$$G$"$k$H6&$K!"%Z%J%k%F%#CM$NJQ99$K$h$j<+M3$K(B
-$B6XB'=hM}$KJQ2=$r$D$1$k$3$H$,$G$-$k!#(B
+こうしてペナルティを適切に挿入さえしてしまえば、
+後は\TeX のラインブレークルーチンに\. お\. ま\. か\. せしてしまえる。
+勿論、このテーブルにいかにペナルティを登録するかは、
+ユーザーの責任であると共に、ペナルティ値の変更により自由に
+禁則処理に変化をつけることができる。
 %
-\subsection{$B%9%Z!<%7%s%0(B}
+\subsection{スペーシング}
 {\noautospacing\noautoxspacing
-$B$3$l$^$G$NJQ99$G0lDL$j$NOBJ8$r=PNO$9$k$3$H$O2DG=$G$"$k!#(B
-$B$H$3$m$,$3$l$@$1$G$O$^$@IT==J,$G!"(B
-$B$3$N$^$^$G$O7h$7$F(B\. $BH~(B\. $B$7(B\. $B$$=PNO$OF@$i$l$J$$!#(B
-$B$J$<$J$i!"2$J8$G$OC18lKh$K%9%Z!<%9$,A^F~$5$l!"(B
-$B$=$3$G$N%9%Z!<%7%s%0NL$rD4@0$9$k$3$H$K$h$j!"(B
-$B%8%c%9%F%#%U%!%$%1!<%7%g%s$N=hM}$,9T$o$l$F$$$?!#(B
-$B$H$3$m$,!"$3$l$^$G$NJQ99$@$1$G$O!"(B
-$BOBJ8$KBP$7$F$=$N$h$&$JD4@0$r9T$&ItJ,$,$[$H$s$IL5$$$N$G$"$k!#(B
-$B$3$N>uBV$,$$$C$?$$$I$N$h$&$J$b$N$G$"$k$+(B
-$B;n$7$K!"$3$NCJMn$r>e5-$N(B{\it\cs{noautospacing\/}}$B$H(B
-{\it\cs{noautoxspacing\/}}$B$K$h$C$F!"%9%Z!<%7%s%0$N<+F0A^F~$r(B
-$B$7$J$$$GAH$s$G$_$?!#(B
-$B$3$NA`:n$K$K$h$C$F!"$3$NCJMnCf$K$H$i$l$k%9%Z!<%9$O(B
-$B%T%j%*%I!"%+%s%^$N8e$N%9%Z!<%9$N$_$G$"$k!#(B\par}
+これまでの変更で一通りの和文を出力することは可能である。
+ところがこれだけではまだ不十分で、
+このままでは決して\. 美\. し\. い出力は得られない。
+なぜなら、欧文では単語毎にスペースが挿入され、
+そこでのスペーシング量を調整することにより、
+ジャスティファイケーションの処理が行われていた。
+ところが、これまでの変更だけでは、
+和文に対してそのような調整を行う部分がほとんど無いのである。
+この状態がいったいどのようなものであるか
+試しに、この段落を上記の{\it\cs{noautospacing\/}}と
+{\it\cs{noautoxspacing\/}}によって、スペーシングの自動挿入を
+しないで組んでみた。
+この操作にによって、この段落中にとられるスペースは
+ピリオド、カンマの後のスペースのみである。\par}
 
 %\autospacing\autoxspacing
-$B0lL\$7$F2r$k$h$&$K!"9TKv$K(B1$BJ8;z0J>e$NITB7$$$,=PMh$F$7$C$^$F$$$k!#(B
-$B$3$l$O!"%Q%i%0%i%UA4BN$r%@%$%J%_%C%/$K%V%l!<%-%s%0$9$k$H$$$C$?!"(B
-\TeX $B$ND9=j$,0-$$J}$KF/$$$F$7$^$$!"(B
-$B?t9T@h$N6XB'=hM}$N1F6A$,$=$N$^$^H?1G$5$l$F$$$k$N$G$"$k!#(B
-$B6XB'%Z%J%k%F%#$N%Q%i%a!<%?$NCM$N0-$5$b<jEA$C$F$+!"(B
-$BHa;4$J7k2L$H$J$C$F$7$^$C$F$$$k!#(B
+一目して解るように、行末に1文字以上の不揃いが出来てしっまている。
+これは、パラグラフ全体をダイナミックにブレーキングするといった、
+\TeX の長所が悪い方に働いてしまい、
+数行先の禁則処理の影響がそのまま反映されているのである。
+禁則ペナルティのパラメータの値の悪さも手伝ってか、
+悲惨な結果となってしまっている。
 %
-\subsubsection{$BOBJ8AHHG$K$*$1$k%9%Z!<%7%s%0(B}
-$B$3$l$KBP$7$F0lHL$K9T$o$l$F$$$kOBJ8$NAHHG$G$O!"(B
-$B9TC10L$N$_$G$N%V%l!<%-%s%0$,9T$o$l$F$*$j!"(B
-$B:G0-$N>l9g$G$b$3$N$h$&$J$3$H$O5/$3$i$J$$$h$&$G$"$k!#(B
-$B$^$?AH$_I}$O!"A43Q$N@5?tG\$K$H$i$l$k$?$aF|K\8l$N$_$N(B
-$B9T$G$OI,$:9TKv$,$-$l$$$KB7$&;E3]$K$J$C$F$$$k!#(B
-$B$@$@$7!"6XB'$,@8$8$?$j!"ESCf$K2$J8$,A^F~$5$l$?$j$7$?>l9g$O!"(B
-$B$d$O$j$I$3$+$GD4@0$,I,MW$K$J$C$F$/$k!#(B
-$B$3$&$7$?D4@0$O<!$N$h$&$J2U=j$G9T$o$l$F$$$k$h$&$G$"$k!#(B
+\subsubsection{和文組版におけるスペーシング}
+これに対して一般に行われている和文の組版では、
+行単位のみでのブレーキングが行われており、
+最悪の場合でもこのようなことは起こらないようである。
+また組み幅は、全角の正数倍にとられるため日本語のみの
+行では必ず行末がきれいに揃う仕掛になっている。
+だだし、禁則が生じたり、途中に欧文が挿入されたりした場合は、
+やはりどこかで調整が必要になってくる。
+こうした調整は次のような箇所で行われているようである。
 \begin{itemize}
-\item $B$^$:$3$&$7$?D4@0$KGw$i$l$?>l9g!"DI9~$_$r9M$($k!#(B
-	$BDI9~$_$N$?$a$K!"%+%s%^!"%T%j%*%I!"3g8LEy$NJ8;z$r(B
-	$BH>3QI}$K$^$G=L$a$F$_$k!#(B
-\item $B$=$l$G$bD4@0$7$-$l$:!"9TCf$K2$J8$,B8:_$9$k>l9g$O!"(B
-	$B2$J84V!"OBJ8(B--$B2$J84V$N%9%Z!<%9$rD4@0$9$k!#(B
-\item $B$5$i$KD4@0$,I,MW$J>l9g$O!"$+$JJ8;z4V$N%9%Z!<%9$r(B
-	$BD4@0$9$k!#(B
-\item $B$3$l$G$b$^$@BLL\$J>l9g!"DI$$=P$7$r;n$_$k!#(B
+\item まずこうした調整に迫られた場合、追込みを考える。
+	追込みのために、カンマ、ピリオド、括弧等の文字を
+	半角幅にまで縮めてみる。
+\item それでも調整しきれず、行中に欧文が存在する場合は、
+	欧文間、和文--欧文間のスペースを調整する。
+\item さらに調整が必要な場合は、かな文字間のスペースを
+	調整する。
+\item これでもまだ駄目な場合、追い出しを試みる。
 \end{itemize}
-$B@bL@$,CY$l$F$7$^$C$?$,!"OBJ8(B--$B2$J84V$K$O8+1I$($rNI$/$9$k$?$a$K!"(B
-4$BJ,3+$1$H8F$P$l$kA43QI}$N(B$1/4$$B$N%9%Z!<%9$,A^F~$5$l$k!#(B
-$B<B:]LdBj$H$7$F$O!"6XB'J8;z$,O"B3$G$b$7$J$$8B$j!"(B
-$B9TCf$K(B2$B$D0J>e$N%+%s%^!"%T%j%*%I$NN`$NJ8;z$,B8:_$9$l$P!"(B
-$B:G=i$NCJ3,$GD4@0$OIU$$$F$7$^$&!#(B
+説明が遅れてしまったが、和文--欧文間には見栄えを良くするために、
+4分開けと呼ばれる全角幅の$1/4$のスペースが挿入される。
+実際問題としては、禁則文字が連続でもしない限り、
+行中に2つ以上のカンマ、ピリオドの類の文字が存在すれば、
+最初の段階で調整は付いてしまう。
 
-\subsubsection{\TeX $B$G$N%9%Z!<%7%s%0(B}
-$B$3$l$r(B\TeX $B$K1~MQ$9$k$3$H$r9M$($F$_$k!#(B
+\subsubsection{\TeX でのスペーシング}
+これを\TeX に応用することを考えてみる。
 
-$B$^$:AH$_I}$NLdBj$G$"$k$,!"(B\TeX $B$N>l9g!"2?J8;zI}$H$$$C$?(B
-$B;XDj$b4JC1$K<B8=2DG=$G$O$"$k$,!"4{B8$N%^%/%mEy$NMxMQ$r9M$($k$H(B
-$BAH$_I}$P$+$j$G$J$/!"%$%s%G%s%HEy$NAH$_I}$K4X78$9$kA4$F$N%Q%i%a!<%?(B
-$B$bF1;~$KJQ99$9$kI,MW$,$"$j!"=PMh$l$P<+M3$JAH$_I}$N;XDj$,=PMh$?J}$,NI$$!#(B
-$B$=$&$J$k$H!"%T%j%*%I!"%+%s%^Ey$NJ8;z$,0lJ8;z$bI=$l$J$$$h$&$J9T$KBP$7$F$b(B
-$BAH$_I}$rD4@0$9$k<jCJ$,?7$?$KI,MW$H$J$k!#(B
-$B$7$+$b!"9TCf$K$=$&2?J8;z$bI=$l$J$$$h$&$JJ8;z$K!"(B
-$B$3$&$7$?D"?,9g$o$;$r=8Cf$9$k$N$O!"$"$^$j(B\. $BH~(B\. $B$7(B\. $B$$$3$H$G$O$J$$!#(B
+まず組み幅の問題であるが、\TeX の場合、何文字幅といった
+指定も簡単に実現可能ではあるが、既存のマクロ等の利用を考えると
+組み幅ばかりでなく、インデント等の組み幅に関係する全てのパラメータ
+も同時に変更する必要があり、出来れば自由な組み幅の指定が出来た方が良い。
+そうなると、ピリオド、カンマ等の文字が一文字も表れないような行に対しても
+組み幅を調整する手段が新たに必要となる。
+しかも、行中にそう何文字も表れないような文字に、
+こうした帳尻合わせを集中するのは、あまり\. 美\. し\. いことではない。
 
-$B<!$K!"OBJ8(B--$B2$J84V$N%9%Z!<%9Ey$O869FCf$G$$$A$$$A5$$K$7$J$,$i(B
-$BA^F~$9$k$N$G$OHs>o$KLLE]$G$"$k!#(B $B$3$&$7$?N`$N$b$N$O(B
-$B@^3Q%3%s%T%e!<%?$r;HMQ$7$F$$$k$N$G$"$k$+$i!"(B
-$B<+F0E*$K9T$C$F$[$7$$!#(B
+次に、和文--欧文間のスペース等は原稿中でいちいち気にしながら
+挿入するのでは非常に面倒である。 こうした類のものは
+折角コンピュータを使用しているのであるから、
+自動的に行ってほしい。
 
-$B$3$N$h$&$JMW5a$rK~$?$9$?$a$K<!$N$h$&$JJQ99$r2C$($k$3$H$K$7$?!#(B
+このような要求を満たすために次のような変更を加えることにした。
 \begin{enumerate}
-\item $BA43QJ8;z4V$K$b%0%k!<$r<+F0E*$KA^F~$G$-$k$h$&$K$9$k!#(B
-	$B$3$l$K$h$j%T%j%*%I!"%+%s%^Ey$NJ8;z$,I=$l$J$$9T$G$b(B
-	$B%8%c%9%F%#%U%!%$%1!<%7%g%s$,9T$($k!#(B
-	$B$^$?%+%s%^Ey$N;}$D%9%Z!<%9$@$1$G$J$/!"9TA4BN$G(B
-	$B$=$ND4@0J,$rJ,3d$9$k$?$a!"$h$j<+A3$JAH$_$,<B8=$G$-$k!#(B
-	$BL^O@!"$3$3$G9T$&D4@0$O(B0.$B?t(Bpt$B$H$$$C$?6K$a$FHyNL$ND4@0$G$"$k!#(B
-	$B$5$i$K$3$N%0%k!<$NF3F~$K$h$j!"(B1$B;u5M$a$J$I$H$$$C$?AH$_J}$b(B
-	$B2DG=$K$J$k!#(B
-\item $BOBJ8(B--$B2$J84V$N%9%Z!<%7%s%0$OEvA3(B\TeX $B$,<+F0E*$K9T$C$F(B
-	$B$/$l$k$b$N$@$H9M$(!"$=$N$^$^F3F~$7$?!#(B
-	$B$?$@$7!"A4$F$NOBJ8(B--$B2$J84V!JA43QJ8;z(B--$BH>3QJ8;z4V!K(B
-	$B$KA^F~$7$FNI$$$o$1$G$O$J$$!#(B
-	$BNc$($P!"H>3Q$N%T%j%*%I!"%+%s%^!"3g8LN`5-9f$H(B
-	$BA43QJ8;z4V$K$OM>7W$J%9%Z!<%9$OF~$l$J$$J}$,$h$$!#(B
-\item $B%*%j%8%J%k$N(B\TeX $B$G$O!"2~9T%-%c%i%/%?$rFI$_9~$`$3$H$K$h$j(B
-	$BC18l$N@Z$lL\$HH=CG$7!"%9%Z!<%9$,A^F~$5$l$k!#(B
-	$B$7$+$7!"OBJ8$G$O$3$&$7$?%9%Z!<%9$rA^F~$5$l$k$N$O(B
-	$BITET9g$G$"$k!#(B $B$=$3$GA43QJ8;z$N8e$N2~9T$O(B
-	$B$?$@C1$KFI$_Ht$P$9$@$1$N=hM}$KJQ99$9$kI,MW$,$"$k!#(B
+\item 全角文字間にもグルーを自動的に挿入できるようにする。
+	これによりピリオド、カンマ等の文字が表れない行でも
+	ジャスティファイケーションが行える。
+	またカンマ等の持つスペースだけでなく、行全体で
+	その調整分を分割するため、より自然な組みが実現できる。
+	勿論、ここで行う調整は0.数ptといった極めて微量の調整である。
+	さらにこのグルーの導入により、1歯詰めなどといった組み方も
+	可能になる。
+\item 和文--欧文間のスペーシングは当然\TeX が自動的に行って
+	くれるものだと考え、そのまま導入した。
+	ただし、全ての和文--欧文間（全角文字--半角文字間）
+	に挿入して良いわけではない。
+	例えば、半角のピリオド、カンマ、括弧類記号と
+	全角文字間には余計なスペースは入れない方がよい。
+\item オリジナルの\TeX では、改行キャラクタを読み込むことにより
+	単語の切れ目と判断し、スペースが挿入される。
+	しかし、和文ではこうしたスペースを挿入されるのは
+	不都合である。 そこで全角文字の後の改行は
+	ただ単に読み飛ばすだけの処理に変更する必要がある。
 \end{enumerate}
 
-1.$B$N<B8=J}K!$H$7$F!"(B{\bf\cs{kanjiskip}}$B$H$$$&%0%k!<%l%8%9%?$r(B
-$B?7$?$K@_$1!"$3$N%0%k!<$rA43QJ8;z4V$KA^F~$9$k$h$&$K$7$?!#(B
-$B$?$@$7!"<B:]$KB>$N%0%k!<$HF1$8$h$&$K=hM}$7$?$N$G$O!"(B
-$BA43QJ8;z(B1$BJ8;z$KIU$-(B1$B%0%k!<J,$N%a%b%j$r>CHq$9$k$3$H$K$J$j!"(B
-$BM>$j$K$b%a%b%j8zN($,0-$/$J$k!#(B $B$=$3$G$3$N%0%k!<$K4X$7$F$O!"(B
-$B%i%$%s%V%l!<%/$d!"%\%C%/%9$X$NAH$_9~$_%k!<%A%s(B({\it hpack})
-$BFb$G$NAH$_I}$N7W;;$@$1$G=hM}$9$k$h$&$K$7$F$"$k!#(B
+1.の実現方法として、{\bf\cs{kanjiskip}}というグルーレジスタを
+新たに設け、このグルーを全角文字間に挿入するようにした。
+ただし、実際に他のグルーと同じように処理したのでは、
+全角文字1文字に付き1グルー分のメモリを消費することになり、
+余りにもメモリ効率が悪くなる。 そこでこのグルーに関しては、
+ラインブレークや、ボックスへの組み込みルーチン({\it hpack})
+内での組み幅の計算だけで処理するようにしてある。
 
-2.$B$K4X$7$F$O!"(B\TeX $B$,?t<0Cf$G9T$C$F$$$k$h$&$K!"I,MW$J2U=j$K(B
-$B<B:]$K%0%k!<$rA^F~$9$k!#(B $BA^F~$9$k%0%k!<$O!"(B
-1.$B$HF1$8$h$&$K(B{\bf\cs{kanjixskip}}$B$H$$$&%l%8%9%?$r(B
-$B@_$1!"$=$NCM$r;H$&!#(B
-$B$5$i$K!"A43QJ8;z$NA08e$K8=$l$kH>3QJ8;z$NFb$N2?$l$KBP$7$F!"(B
-$B%9%Z!<%9$rA^F~$9$Y$-$+$r;XDj$9$k$?$a$K!"(B
-$BFbIt$K(B128$BJ8;zJ,$N%F!<%V%k$r@_$1!"$=$3$KEPO?$5$l$F$$$k(B
-$BFbMF$K$h$C$F%9%Z!<%9A^F~$NM-L5$r7hDj$7$F$$$k!#(B
-$B8=:_%G%U%)%k%H$G%"%k%U%!%Y%C%H$*$h$S?t;z$,%9%Z!<%9A^F~$N(B
-$BBP>]$H$J$C$F$$$k!#(B $B$3$N%F!<%V%k$X$NEPO?$O!"(B{\bf\cs{xspcode}}$B$H$$$&(B
-$B%W%j%_%F%#%V$K$h$C$F9T$&!#(B
-$B3F(BASCII$B%-%c%i%/%?$KBP$7$F(B0$B$r@_Dj$9$k$3$H$K$h$j!"(B
-$BA43Q$H$N4V$N%9%Z!<%9$NA^F~$r6X;_$7!"$=$l0J30$NCM$G5v2D$9$k$h$&$K$J$C$F$$$k!#(B
+2.に関しては、\TeX が数式中で行っているように、必要な箇所に
+実際にグルーを挿入する。 挿入するグルーは、
+1.と同じように{\bf\cs{kanjixskip}}というレジスタを
+設け、その値を使う。
+さらに、全角文字の前後に現れる半角文字の内の何れに対して、
+スペースを挿入すべきかを指定するために、
+内部に128文字分のテーブルを設け、そこに登録されている
+内容によってスペース挿入の有無を決定している。
+現在デフォルトでアルファベットおよび数字がスペース挿入の
+対象となっている。 このテーブルへの登録は、{\bf\cs{xspcode}}という
+プリミティブによって行う。
+各ASCIIキャラクタに対して0を設定することにより、
+全角との間のスペースの挿入を禁止し、それ以外の値で許可するようになっている。
 
-$B>0!"(B1.2.$B$K6&DL$9$k=hM}$H$7$F!"$3$l$i$N%l%8%9%?$NCM$O!"(B
-$B$=$N%Q%i%0%i%U!"$"$k$$$O(B{\it hbox}$B$KF~$C$?;~E@$G$NCM$rJ];}$7$F(B
-$B;HMQ$7!"$=$NCf$G$I$s$J$KJQ99$r2C$($F$b=hM}$K$O1F6A$,5Z$P$J$$(B
-$B$h$&$K$J$C$F$$$k!#(B
-$BKt!"$3$l$i$N=hM}$O!"(B{\bf\cs{auto\-spacing}}$B!"(B{\bf\cs{no\-auto\-spacing}}$B!"(B
-{\bf\cs{auto\-xspacing}}$B!"(B{\bf\cs{no\-auto\-xspacing}}$B$K$h$C$F(B
-ON$B!"(BOFF$B$G$-$k$h$&$K$J$C$F$$$k!#(B
+尚、1.2.に共通する処理として、これらのレジスタの値は、
+そのパラグラフ、あるいは{\it hbox}に入った時点での値を保持して
+使用し、その中でどんなに変更を加えても処理には影響が及ばない
+ようになっている。
+又、これらの処理は、{\bf\cs{auto\-spacing}}、{\bf\cs{no\-auto\-spacing}}、
+{\bf\cs{auto\-xspacing}}、{\bf\cs{no\-auto\-xspacing}}によって
+ON、OFFできるようになっている。
 
-3.$B$O(B\TeX $B$N%9%-%c%s%K%s%0%k!<%A%s$rJQ99$9$k$3$H$G!"(B
-$B%9%Z!<%7%s%0%-%c%i%/%?$H$7$F!"@h$N%k!<%A%s$KEO$C$F9T$+$J$$$h$&$K$7$?!#(B
+3.は\TeX のスキャンニングルーチンを変更することで、
+スペーシングキャラクタとして、先のルーチンに渡って行かないようにした。
 %
-\subsection{$B%U%)%s%H(B}
-$B%U%)%s%H$K4X$7$F$b!"$G$-$k$@$12$J8$N$b$N$HF1$807$$$,=PMh$k$h$&$K(B
-$BG[N8$7$?!#(B
-\subsubsection{\TeX $B$G$NF|K\8l%U%)%s%H$N<h$j07$$(B}
-$B%f!<%6%$%s%?%U%'!<%9$+$i$_$?F|K\8l%U%)%s%H$N<h$j07$$$O!"(B
-{\it\cs{mathcode}}$BEy$N?t<04X78$N%U%)%s%H$NDj5ACf$K$O(B
-$B4^$a$k$3$H$,$G$-$J$$$3$H$r=|$/$H$[$H$s$IF1$8$h$&$K$7$F07$($k!#(B
-$B0[$J$kE@$O!"H>3QJ8;z$HA43QJ8;z$H$r;H$$J,$1$kEY$K(B
-$B%U%)%s%H$N@Z$j49$($r9T$&$N$OHs>o$KHK;($J$N$G!"(B
-$B%+%l%s%H%U%)%s%H$H$7$F$3$l$^$G$NH>3QJ8;zMQ$NB>$K(B
-$BA43QJ8;zMQ$bFHN)$7$F;}$D$h$&$K$7$?$3$H$G$"$k!#(B
-$B$3$l$K$h$C$FFC$K%U%)%s%H$NJQ99$r9T$&I,MW$,$J$1$l$P!"(B
-$BA43Q!"H>3Q$N6hJL$r0U<1$9$k$3$H$J$7$K869F$rF~NO$9$k$3$H$,=PMh$k!#(B
-$B6qBNE*$K$O<!$N$h$&$K;XDj$9$l$PNI$$!#(B
+\subsection{フォント}
+フォントに関しても、できるだけ欧文のものと同じ扱いが出来るように
+配慮した。
+\subsubsection{\TeX での日本語フォントの取り扱い}
+ユーザインタフェースからみた日本語フォントの取り扱いは、
+{\it\cs{mathcode}}等の数式関係のフォントの定義中には
+含めることができないことを除くとほとんど同じようにして扱える。
+異なる点は、半角文字と全角文字とを使い分ける度に
+フォントの切り換えを行うのは非常に繁雑なので、
+カレントフォントとしてこれまでの半角文字用の他に
+全角文字用も独立して持つようにしたことである。
+これによって特にフォントの変更を行う必要がなければ、
+全角、半角の区別を意識することなしに原稿を入力することが出来る。
+具体的には次のように指定すれば良い。
 \begin{quote}
 \tt \cs{font}\cs{jfont}=min10\\
 \cs{jfont}
 \end{quote}
-$B$3$l$r8+$F$o$+$k$h$&$K!"$3$l$^$G$HA4$/F1$8$h$&$K$7$F;XDj$G$-$k!#(B
-$B$3$N;~;XDj$5$l$?(B\cs{jfont}$B$,4A;z%U%)%s%H$G$"$l$P!"(B
-$B4A;zMQ$N%+%l%s%H%U%)%s%H$rJQ99$9$k!#(B
-$B4A;z%U%)%s%H$H1Q;z%U%)%s%H$NH=JL$O!"(BTFM$B%U%!%$%k$K$h$j9T$C$F$$$k!#(B
+これを見てわかるように、これまでと全く同じようにして指定できる。
+この時指定された\cs{jfont}が漢字フォントであれば、
+漢字用のカレントフォントを変更する。
+漢字フォントと英字フォントの判別は、TFMファイルにより行っている。
 
-$BKt!"?t<0Cf$G$N%U%)%s%H$r;XDj$9$k!"%U%!%_%j!<$KIU$$$F$b(B
-$BF1MM$K!"A43QMQ$N%+%l%s%H%U%!%_%j!<$r3HD%$7$?!#(B
-$B$3$l$K$h$j!"A43QJ8;z$KBP$7$F$b!">eIU$-J8;z$d2<IU$-J8;z$N<h$j07$$$,(B
-$B2DG=$K$J$k!#(B
-$BL^O@!"H>3Q!"A43Q$r0U<1$9$kI,MW$O$J$$!#(B
-$B$?$@A43QMQ%+%l%s%H%U%!%_%j!<$,H>3QMQ$H0[$J$kE@$O!"(B
-$BH>3QMQ$N%+%l%s%H%U%!%_%j!<$O!"%^%9%b!<%I$K(B
-$B@Z$jBX$o$C$?;~E@$G(B-1$B$K%;%C%H$5$l$k$N$KBP$7!"(B
-$BA43QMQ$N%+%l%s%H%U%!%_%j!<$O!"$=$N$^$^$NCM$rJ]$D$3$H$G$"$k!#(B
-$B!J%^%9%b!<%ICf$G$N%U%)%s%H@Z$j49$($N%a%+%K%:%`$KIU$$$F$O!"(B
-\TeX book p.154$BEy$r;2>H$N$3$H!#!K(B
-$B$3$l$O!"?t<04X78$N%U%)%s%HDj5A$rF|K\8l%U%)%s%H$K$^$G(B
-$B3HD%$7$F$$$J$$$?$a$NA<CV$G$"$k$,!"(B
-$B?t<0MQ%U%)%s%H$K4X$7$F$O!"A43QJ8;z$K3HD%$7$F$b$[$H$s$I(B
-$B0UL#$,$J$$$N$G!"$3$&$7$?7A$r$H$C$?!#(B
+又、数式中でのフォントを指定する、ファミリーに付いても
+同様に、全角用のカレントファミリーを拡張した。
+これにより、全角文字に対しても、上付き文字や下付き文字の取り扱いが
+可能になる。
+勿論、半角、全角を意識する必要はない。
+ただ全角用カレントファミリーが半角用と異なる点は、
+半角用のカレントファミリーは、マスモードに
+切り替わった時点で-1にセットされるのに対し、
+全角用のカレントファミリーは、そのままの値を保つことである。
+（マスモード中でのフォント切り換えのメカニズムに付いては、
+\TeX book p.154等を参照のこと。）
+これは、数式関係のフォント定義を日本語フォントにまで
+拡張していないための措置であるが、
+数式用フォントに関しては、全角文字に拡張してもほとんど
+意味がないので、こうした形をとった。
 %
-\subsection{TFM$B%U%!%$%k$H(Bchar$B%N!<%I(B}
-\TeX $BFbIt$G$O0u;z%G!<%?$r(Bchar$B%N!<%I$H8F$P$l$k%N!<%ICf$K(B
-$B$=$N%U%)%s%H$N<oN`$H6&$K3JG<$9$k!#(B
-$BKt!"(B\TeX $B%7%9%F%`$K$O!"(BTFM$B%U%!%$%k$H8F$P$l$k%U%!%$%k$,%U%)%s%H$N<oN`Kh$K(B
-$BMQ0U$5$l$F$*$j!"(B
-$B$=$3$K3F%U%)%s%HFb$K4^$^$l$k%-%c%i%/%?$N!"3F<o%5%$%:Ey$N>pJs$,CV$+$l$F$$$k!#(B
+\subsection{TFMファイルとcharノード}
+\TeX 内部では印字データをcharノードと呼ばれるノード中に
+そのフォントの種類と共に格納する。
+又、\TeX システムには、TFMファイルと呼ばれるファイルがフォントの種類毎に
+用意されており、
+そこに各フォント内に含まれるキャラクタの、各種サイズ等の情報が置かれている。
 
-\TeX $B$N%i%$%s%V%l!<%/Ey$N=hM}$O!"$3$N(Bchar$B%N!<%ICf$N%-%c%i%/%?%G!<%?$+$i(B
-TFM$B%U%!%$%k$N;zI}>pJsEy$r8!:w$7$F=hM}$9$k;EAH$_$K$J$C$F$$$k!#(B
-$B$7$?$,$C$F!"(B\TeX $B$rF|K\8l2=$9$k:]$K$O!"$3$l$i$r$I$N$h$&$K(B
-$B3HD%$7!"$I$N$h$&$KBP1~IU$1$k$+$,%-!<%]%$%s%H$H$J$k!#(B
+\TeX のラインブレーク等の処理は、このcharノード中のキャラクタデータから
+TFMファイルの字幅情報等を検索して処理する仕組みになっている。
+したがって、\TeX を日本語化する際には、これらをどのように
+拡張し、どのように対応付けるかがキーポイントとなる。
 %
-\subsubsection{TFM$B%U%!%$%k$N3HD%(B}
-$B$^$:(BTFM$B%U%!%$%k$G$"$k$,!"$3$NCf$K$O(B{\it char\_info}$B$H8F$P$l$k(B
-$B$=$N%U%)%s%HCf$KB8:_$9$k%-%c%i%/%?$N%3!<%I$H(B1$BBP(B1$B$KBP1~$9$k%F!<%V%k$,(B
-$BCV$+$l$F$$$k!#(B
-$B$3$N%F!<%V%kCf$K$O(B{\it width\/$B!"(Bheight\/$B!"(Bdepth}$BEy$NB>$N%F!<%V%k$X$N(B
-$B%$%s%G%C%/%9$,@_Dj$5$l$F$*$j!"$3$N%$%s%G%C%/%9$rMQ$$$F(B
-$B$=$l$>$l$N%Q%i%a!<%?$r;2>H$9$k;EAH$_$K$J$C$F$$$k!#(B
+\subsubsection{TFMファイルの拡張}
+まずTFMファイルであるが、この中には{\it char\_info}と呼ばれる
+そのフォント中に存在するキャラクタのコードと1対1に対応するテーブルが
+置かれている。
+このテーブル中には{\it width\/、height\/、depth}等の他のテーブルへの
+インデックスが設定されており、このインデックスを用いて
+それぞれのパラメータを参照する仕組みになっている。
 
-$B$?$@$7!"$3$N%$%s%G%C%/%9$N%5%$%:$+$i!"(B
-1$B%U%)%s%HFb$K4^$^$l$k%-%c%i%/%?$N%5%$%:$N<oN`$,@)8B$5$l$F$7$^$C$F$$$k!#(B
-$B$7$+$7!"4A;z%U%)%s%H$O(B1$B%U%)%s%HFb$N?t$OB?$$$,!"$=$N%5%$%:$O5-9fEy$r(B
-$B=|$$$F$[$H$s$IF1$8$G$"$j!"$3$N@)LsFb$K==J,$K<}$^$k$HH=CG$7$?!#(B
-$B$=$3$G$3$N(B{\it char\_info}$B$H$=$NB>$N%F!<%V%k$N;EAH$_$O!"(B
-$B$=$N$^$^MxMQ$9$k$3$H$K$7!"(B{\it char\_info}$B%F!<%V%k$H4A;z$N(B2$B%P%$%H%3!<%I$r!"(B
-$BBP1~IU$1$k$?$a$NJ}:v$r9M$($k$3$H$K$7$?!#(B
+ただし、このインデックスのサイズから、
+1フォント内に含まれるキャラクタのサイズの種類が制限されてしまっている。
+しかし、漢字フォントは1フォント内の数は多いが、そのサイズは記号等を
+除いてほとんど同じであり、この制約内に十分に収まると判断した。
+そこでこの{\it char\_info}とその他のテーブルの仕組みは、
+そのまま利用することにし、{\it char\_info}テーブルと漢字の2バイトコードを、
+対応付けるための方策を考えることにした。
 
-$B$=$N<jCJ$H$7$F4A;z%3!<%I$H(B{\it char\_info}$B$X$N%$%s%G%C%/%9$r;}$D%F!<%V%k$r(B
-$BIU$12C$($k$3$H$K$7$?!#(B
-$B$H$3$m$,!"4A;z%U%)%s%H$O(B1$B%U%)%s%HCf$KLs(B7000$BJ8;z$b$N?t$,$"$j!"(B
-$B$=$N$^$^%F!<%V%k$K;}$D$N$OF@:v$G$O$J$$!#(B
-$B$3$N2r7h:v$H$7$F!"(B1$B%U%)%s%HFb$N%-%c%i%/%?$NBgItJ,$,F1$8%5%$%:$r;}$D$H$$$&(B
-$B4A;z$NFCD'$+$i!"%G%U%)%k%H%5%$%:$r5,Dj$7!"$3$l$H0[$J$k$b$N$@$1$r!"(B
-$B$=$N%3!<%I$H(B{\it char\_info}$B$X$N%$%s%G%C%/%9$NBP$H$$$&7A$G(B
-$B%F!<%V%k$r;}$D$h$&$K$7$?!#(B
-$B$5$i$K!"8!:w$N%*!<%P%X%C%I$r7Z8:$9$k$?$a$K!"(B
-$B%F!<%V%k$r4A;z%3!<%I=g$K%=!<%F%#%s%0$7$?7A$G;}$D$h$&$K5,Dj$7$?!#(B
+その手段として漢字コードと{\it char\_info}へのインデックスを持つテーブルを
+付け加えることにした。
+ところが、漢字フォントは1フォント中に約7000文字もの数があり、
+そのままテーブルに持つのは得策ではない。
+この解決策として、1フォント内のキャラクタの大部分が同じサイズを持つという
+漢字の特徴から、デフォルトサイズを規定し、これと異なるものだけを、
+そのコードと{\it char\_info}へのインデックスの対という形で
+テーブルを持つようにした。
+さらに、検索のオーバヘッドを軽減するために、
+テーブルを漢字コード順にソーティングした形で持つように規定した。
 
-$BKt!"=>Mh$N(BTFM$B%U%!%$%k$H6hJL$9$k$?$a$K%5%U%#%C%/%9$r(B``{\bf JFM}''
-$B$HJQ99$7$?!#(B
+又、従来のTFMファイルと区別するためにサフィックスを``{\bf JFM}''
+と変更した。
 %
-\subsubsection{char$B%N!<%I$H(BJFM$B%U%!%$%k$NBP1~IU$1(B}
-char$B%N!<%I$O!">e5-$7$?$H$*$j$=$3$K%U%)%s%H$H%-%c%i%/%?%3!<%I$r(B
-$B;}$A!"$5$i$K<!$N%N!<%I$X$N%]%$%s%?$r4^$s$G$$$k!#(B
-$B$3$l$rF|K\8l$N$?$a$K3HD%$9$k$?$a$K$O!"%N!<%I%5%$%:$rJQ99$9$k$+!"(B
-$BJ#?t$N%N!<%I$K$h$C$F(B1$B$D$N%-%c%i%/%?$rI=8=$9$k$+$N(B2$BDL$j$,(B
-$B9M$($i$l$k!#(B
-$B=hM}$N8zN($+$i9M$($k$H!"A0<T$NJ}$,$h$jNI$$$N$G$"$k$,!"(B
-$B$=$N$?$a$K$O(B\TeX $B$N%a%b%j4IM}%k!<%A%s$NBgJQ99$r$7$J$1$l$P(B
-$B$J$i$:!":#2s$OCGG0$7$?!#(B
+\subsubsection{charノードとJFMファイルの対応付け}
+charノードは、上記したとおりそこにフォントとキャラクタコードを
+持ち、さらに次のノードへのポインタを含んでいる。
+これを日本語のために拡張するためには、ノードサイズを変更するか、
+複数のノードによって1つのキャラクタを表現するかの2通りが
+考えられる。
+処理の効率から考えると、前者の方がより良いのであるが、
+そのためには\TeX のメモリ管理ルーチンの大変更をしなければ
+ならず、今回は断念した。
 
-$B$3$3$G:NMQ$7$?J}K!$O!"(B\TeX : The program $B$K$b4JC1$K=q$+$l$F$$$?$H$*$j!"(B
-$BO"B3$9$k(B2$B$D$N(Bchar$B%N!<%I$r;H$C$FF|K\8l(B1$BJ8;z$rI=$9$b$N$G$"$k!#(B
-$B6qBNE*$K$O!"(B2$B$DL\$N%N!<%I$K%-%c%i%/%?%3!<%I$r3JG<$7!"(B
-1$B$DL\$N%N!<%I$K$O!"%U%)%s%H$H(BTFM$B$N(B{\it char\_info}$B$X$N(B
-$B%$%s%G%C%/%9$r3JG<$9$k$h$&$K$7$F$"$k!#(B
-$B$D$^$j!"(Bchar$B%N!<%I$r@8@.$9$kCJ3,$G!"(BTFM$B%U%!%$%k$K3HD%$7$?%F!<%V%k$+$i!"(B
-{\it char\_info}$B$X$N%$%s%G%C%/%9$r8!:w$7$F$7$^$&$N$G$"$k!#(B
-$B$3$&$9$k$3$H$K$h$j!"$3$N(B1$B$DL\$N(Bchar$B%N!<%I$O!"(B
-$B4{B8$N2$J8%-%c%i%/%?$N(Bchar$B%N!<%I$HA4$/F10l$K07$($k!#(B
-2$B$DL\$N%N!<%I$O!":G8e$K(BDVI$B%U%!%$%k$K=PNO$9$k;~$d!"(B
-$B%(%i!<$,@8$8$?>l9g$KI,MW$K$J$k$@$1$G!"(B
-$B0lHL$NFbIt=hM}$G$OFI$_Ht$P$7$F$d$j$5$($9$l$PNI$$!#(B
+ここで採用した方法は、\TeX : The program にも簡単に書かれていたとおり、
+連続する2つのcharノードを使って日本語1文字を表すものである。
+具体的には、2つ目のノードにキャラクタコードを格納し、
+1つ目のノードには、フォントとTFMの{\it char\_info}への
+インデックスを格納するようにしてある。
+つまり、charノードを生成する段階で、TFMファイルに拡張したテーブルから、
+{\it char\_info}へのインデックスを検索してしまうのである。
+こうすることにより、この1つ目のcharノードは、
+既存の欧文キャラクタのcharノードと全く同一に扱える。
+2つ目のノードは、最後にDVIファイルに出力する時や、
+エラーが生じた場合に必要になるだけで、
+一般の内部処理では読み飛ばしてやりさえすれば良い。
 
-$B$"$k(Bchar$B%N!<%I$,F|K\8lMQ$N$b$N$G$"$k$+$I$&$+$O!"(B
-char$B%N!<%IFb$N%U%)%s%H$rD4$Y!"$=$l$,4A;z%U%)%s%H$G$"$k$+$I$&$+$K$h$C$F(B
-$BH=CG$9$k!#(B
-$B$3$N=hM}$r4JC1$KG=N(NI$/9T$&$?$a$K!"(B
-$B%U%)%s%H$,4A;z$+$I$&$+$N%F!<%V%k$r(B\TeX $BFbIt$K@_$1$F$"$k!#(B
+あるcharノードが日本語用のものであるかどうかは、
+charノード内のフォントを調べ、それが漢字フォントであるかどうかによって
+判断する。
+この処理を簡単に能率良く行うために、
+フォントが漢字かどうかのテーブルを\TeX 内部に設けてある。
 %
-\subsection{$B?t<0Cf$G$NF|K\8l$N;HMQ(B}
-$B%U%)%s%H$N9`$G$b4JC1$K?($l$?$H$*$j!"(B
-$B?t<0Cf$K$*$$$F$bF|K\8l$,07$($k$h$&$KJQ99$r9T$C$F$"$k!#(B
-$B$3$l$O!"?t<0Cf$KD>@\F|K\8l$,4^$^$l$k$h$&$J(B
-$B;H$$J}$O4u$G$"$k$,!"(B
-\ref{`$B%O%C%7%e4X?t(B'}$BCf$N<0$N$h$&$K!"(B
-$B4JC1$J@bL@Ey$rIU$12C$($?$$$3$H$ONI$/$"$k$+$i$G$"$k!#(B
+\subsection{数式中での日本語の使用}
+フォントの項でも簡単に触れたとおり、
+数式中においても日本語が扱えるように変更を行ってある。
+これは、数式中に直接日本語が含まれるような
+使い方は希であるが、
+\ref{`ハッシュ関数'}中の式のように、
+簡単な説明等を付け加えたいことは良くあるからである。
 %
 \newpage
-\section{$B:#8e$NM=Dj(B}
-$B8=;~E@$^$G$N(B\TeX $B$NF|K\8l$N>uBV$r0lDL$jI=LLE*$JItJ,$N$_$G(B
-$B$"$k$,2r@b$7$F$_$?!#(B
-$BL^O@!"$^$@IT==J,$JE@$OB?!9$"$k$,!"(B
-$B<B:]$K$3$N869F$r:n$C$F$_$F!"==J,;HMQ$KBQ$($k$3$H$O3N?.$G$-$?!#(B
-$BFC$K(B\LaTeX $B$,$=$N$^$^F|K\8l$G;HMQ$G$-$k$3$H$O!"(B
-$B467c$K2A$9$k!#(B
-$B:#$N$H$3$m!"(B\LaTeX $B$N%3%^%s%I$G;HMQ$G$-$J$$$b$N$OL5$$$h$&$G$"$k!#(B
+\section{今後の予定}
+現時点までの\TeX の日本語の状態を一通り表面的な部分のみで
+あるが解説してみた。
+勿論、まだ不十分な点は多々あるが、
+実際にこの原稿を作ってみて、十分使用に耐えることは確信できた。
+特に\LaTeX がそのまま日本語で使用できることは、
+感激に価する。
+今のところ、\LaTeX のコマンドで使用できないものは無いようである。
 
-$B:#8e$NM=Dj$H$7$F<!$N$h$&$J$3$H$r9M$($F$$$k!#(B
+今後の予定として次のようなことを考えている。
 \begin{itemize}
-\item $B<+F0E*$KA^F~$5$l$k!"A43Q4V$*$h$SA43Q(B--$BH>3Q4V$N%9%Z!<%9$O!"(B
-	{\bf\cs{kanji\-skip}}$B!"(B{\bf\cs{xkanji\-skip}}$B$NCM$,I,$:(B
-	$B;H$o$l$F$7$^$&$,!"$3$l$O(BJFM$B%U%!%$%kCf$K!"%G%U%)%k%HCM$r(B
-	$B@_Dj=PMh$k$h$&$K$7$F!"%U%)%s%H$NJQ99$H6&$K:GE,CM$r(B
-	$B;HMQ$G$-$k$h$&$K$7$?$$!#(B
-\item $BA43Q$N5-9fEy$O!"A43QI}8GDj$G$O$J$/!"4pK\E*$K$O$=$NJ8;z$N;}$D(B
-	$B<B:]$NI}$G<h$j07$($J$1$l$P!"9TF,$d9TKv$K$*$+$l$k>l9g!"(B
-	$B9T$>$m$($,@53N$K9T$($:(B\. $BH~(B\. $B$7(B\. $B$/(B\. $B$J(B\. $B$$!#(B
-	$B$3$&$7$?5-9fN`$O4A;z%U%)%s%H$G$"$C$F$b!"(B
-	$BFH<+$N;zI}>pJs$r;}$D$h$&$K$7$?$$!#(B
-\item $BA43QJ8;z$KBP$7$F$b!"J8;z$NAH$_9g$;$K$h$k%+!<%K%s%0$r(B
-	$B9T$&$Y$-$G$"$k!#(B $BFC$K$R$i$,$J%+%?%+%J$N8e$K!"%T%j%*%I!"(B
-	$B%+%s%^$NN`$NJ8;z$,B3$$$?>l9g$N!"(B
-	$B%9%Z!<%9$N6u$-J}$,IT<+A3$J$3$H$,>l9g$,$"$j!"(B
-	$BD4@0$G$-$k$h$&$K$9$kI,MW$,$"$k!#(B
+\item 自動的に挿入される、全角間および全角--半角間のスペースは、
+	{\bf\cs{kanji\-skip}}、{\bf\cs{xkanji\-skip}}の値が必ず
+	使われてしまうが、これはJFMファイル中に、デフォルト値を
+	設定出来るようにして、フォントの変更と共に最適値を
+	使用できるようにしたい。
+\item 全角の記号等は、全角幅固定ではなく、基本的にはその文字の持つ
+	実際の幅で取り扱えなければ、行頭や行末におかれる場合、
+	行ぞろえが正確に行えず\. 美\. し\. く\. な\. い。
+	こうした記号類は漢字フォントであっても、
+	独自の字幅情報を持つようにしたい。
+\item 全角文字に対しても、文字の組み合せによるカーニングを
+	行うべきである。 特にひらがなカタカナの後に、ピリオド、
+	カンマの類の文字が続いた場合の、
+	スペースの空き方が不自然なことが場合があり、
+	調整できるようにする必要がある。
 \end{itemize}
 %
-%\appendix{TFM$B%U%!%$%k$N9=B$(B}
+%\appendix{TFMファイルの構造}
 %\begin{tabular}{|cp{2in}|} \hline
 %lf & lh \\ \hline
 %bc & ec \\ \hline
@@ -549,14 +549,14 @@ char$B%N!<%IFb$N%U%)%s%H$rD4$Y!"$=$l$,4A;z%U%)%s%H$G$"$k$+$I$&$+$K$h$C$F(B
 %\multicolumn{2}{|c|}{} \\ hline
 \newpage
 \appendix
-\section{$B6XB'%Z%J%k%F%#$N@_DjNc(B}
-$B6XB'%Z%J%k%F%#$N@_DjNc$H$7$F!"(B
-$B$3$N%F%-%9%H@):n;~$K;HMQ$7$?@_Dj$r>e$2$F$*$/!#(B
+\section{禁則ペナルティの設定例}
+禁則ペナルティの設定例として、
+このテキスト制作時に使用した設定を上げておく。
 
 \vspace{15pt}
 {\tt\noindent
 \begin{tabular}{lll}
-%$BH>3QJ8;z(B
+%半角文字
 \cs{prebreakpenalty}`.=1000 &
 \cs{prebreakpenalty}`,=1000 &
 \cs{prebreakpenalty}`\}=1000 \\
@@ -575,50 +575,50 @@ char$B%N!<%IFb$N%U%)%s%H$rD4$Y!"$=$l$,4A;z%U%)%s%H$G$"$k$+$I$&$+$K$h$C$F(B
 \cs{prebreakpenalty}`;=500 &
 \cs{prebreakpenalty}`?=500 &
 \cs{prebreakpenalty}`:=500 \\
-%$BA43QJ8;z(B
-\cs{prebreakpenalty}`$B!"(B=1000 &
-\cs{prebreakpenalty}`$B!#(B=1000 &
-\cs{prebreakpenalty}`$B!$(B=1000 \\
-\cs{prebreakpenalty}`$B!%(B=1000 &
-\cs{prebreakpenalty}`$B!&(B=1000 &
-\cs{prebreakpenalty}`$B!'(B=500 \\
-\cs{prebreakpenalty}`$B!((B=500 &
-\cs{prebreakpenalty}`$B!)(B=500 &
-\cs{prebreakpenalty}`$B!*(B=500 \\
-\cs{prebreakpenalty}`$B!K(B=800 &
-\cs{postbreakpenalty}`$B!J(B=800 &
-\cs{prebreakpenalty}`$B!Q(B=800 \\
-\cs{postbreakpenalty}`$B!P(B=800 &
-\cs{prebreakpenalty}`$B!N(B=800 &
-\cs{postbreakpenalty}`$B!O(B=800 \\
-\cs{postbreakpenalty}`$B!F(B=1000 &
-\cs{prebreakpenalty}`$B!G(B=1000 &
-\cs{prebreakpenalty}`$B!<(B=200 \\
-\cs{prebreakpenalty}`$B!\(B=200 &
-\cs{prebreakpenalty}`$B!](B=200 &
-\cs{prebreakpenalty}`$B!a(B=200 \\
-\cs{postbreakpenalty}`$B!t(B=200 &
-\cs{postbreakpenalty}`$B!p(B=200 &
-\cs{postbreakpenalty}`$B!s(B=200 \\
-\cs{postbreakpenalty}`$B!u(B=200 &
-\cs{prebreakpenalty}`$B$!(B=150 &
-\cs{prebreakpenalty}`$B$#(B=150 \\
-\cs{prebreakpenalty}`$B$%(B=150 &
-\cs{prebreakpenalty}`$B$'(B=150 &
-\cs{prebreakpenalty}`$B$)(B=150 \\
-\cs{prebreakpenalty}`$B$C(B=150 &
-\cs{prebreakpenalty}`$B$c(B=150 &
-\cs{prebreakpenalty}`$B$e(B=150 \\
-\cs{prebreakpenalty}`$B$g(B=150 &
-\cs{prebreakpenalty}`$B%!(B=150 &
-\cs{prebreakpenalty}`$B%#(B=150 \\
-\cs{prebreakpenalty}`$B%%(B=150 &
-\cs{prebreakpenalty}`$B%'(B=150 &
-\cs{prebreakpenalty}`$B%)(B=150 \\
-\cs{prebreakpenalty}`$B%C(B=150 &
-\cs{prebreakpenalty}`$B%c(B=150 &
-\cs{prebreakpenalty}`$B%e(B=150 \\
-\cs{prebreakpenalty}`$B%g(B=150 \\
+%全角文字
+\cs{prebreakpenalty}`、=1000 &
+\cs{prebreakpenalty}`。=1000 &
+\cs{prebreakpenalty}`，=1000 \\
+\cs{prebreakpenalty}`．=1000 &
+\cs{prebreakpenalty}`・=1000 &
+\cs{prebreakpenalty}`：=500 \\
+\cs{prebreakpenalty}`；=500 &
+\cs{prebreakpenalty}`？=500 &
+\cs{prebreakpenalty}`！=500 \\
+\cs{prebreakpenalty}`）=800 &
+\cs{postbreakpenalty}`（=800 &
+\cs{prebreakpenalty}`｝=800 \\
+\cs{postbreakpenalty}`｛=800 &
+\cs{prebreakpenalty}`［=800 &
+\cs{postbreakpenalty}`］=800 \\
+\cs{postbreakpenalty}`‘=1000 &
+\cs{prebreakpenalty}`’=1000 &
+\cs{prebreakpenalty}`ー=200 \\
+\cs{prebreakpenalty}`＋=200 &
+\cs{prebreakpenalty}`−=200 &
+\cs{prebreakpenalty}`＝=200 \\
+\cs{postbreakpenalty}`＃=200 &
+\cs{postbreakpenalty}`＄=200 &
+\cs{postbreakpenalty}`％=200 \\
+\cs{postbreakpenalty}`＆=200 &
+\cs{prebreakpenalty}`ぁ=150 &
+\cs{prebreakpenalty}`ぃ=150 \\
+\cs{prebreakpenalty}`ぅ=150 &
+\cs{prebreakpenalty}`ぇ=150 &
+\cs{prebreakpenalty}`ぉ=150 \\
+\cs{prebreakpenalty}`っ=150 &
+\cs{prebreakpenalty}`ゃ=150 &
+\cs{prebreakpenalty}`ゅ=150 \\
+\cs{prebreakpenalty}`ょ=150 &
+\cs{prebreakpenalty}`ァ=150 &
+\cs{prebreakpenalty}`ィ=150 \\
+\cs{prebreakpenalty}`ゥ=150 &
+\cs{prebreakpenalty}`ェ=150 &
+\cs{prebreakpenalty}`ォ=150 \\
+\cs{prebreakpenalty}`ッ=150 &
+\cs{prebreakpenalty}`ャ=150 &
+\cs{prebreakpenalty}`ュ=150 \\
+\cs{prebreakpenalty}`ョ=150 \\
 \end{tabular}
 \begin{tabular}{ll}
 \cs{prebreakpenalty}\cs{jis}"212B=1000 &

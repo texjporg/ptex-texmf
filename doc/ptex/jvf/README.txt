@@ -1,4 +1,4 @@
-日本語VF生成ツール makejvf ver.1.1a
+﻿日本語VF生成ツール makejvf ver.1.1a
                                             株式会社アスキー  出版技術グループ
                                                           www-ptex@ascii.co.jp
 
