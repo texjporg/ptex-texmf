@@ -33,6 +33,11 @@ following commands will be helpful:
   dvipdfmx pldoc.dvi
 ~~~~
 
+## License
+
+The bundle may be modified or distributed under the terms of the
+3-clause BSD license (see LICENSE).
+
 Copyright (c) 2010 ASCII MEDIA WORKS
 
 Copyright (c) 2016 Japanese TeX Development Community
