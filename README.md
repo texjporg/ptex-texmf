@@ -20,7 +20,7 @@ The original ASCII edition can be obtained from:
 ## Documentation
 
 A brief exposition of pLaTeX2e is provided in platex.pdf.
-The document can be obtained by executing following commands:
+The document can be obtained by executing the following commands:
 
 ~~~~
   platex platex.dtx
@@ -29,7 +29,7 @@ The document can be obtained by executing following commands:
 
 The comprehensive explanation of pLaTeX2e source is included in
 pldoc.pdf. If you are interested in typesetting pldoc.tex yourself,
-following commands will be helpful:
+the following commands will be helpful:
 
 ~~~~
   platex Xins.ins
