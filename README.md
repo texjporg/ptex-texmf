@@ -1,13 +1,17 @@
 # ptex-texmf
 
-A set of additions to a standard TEXMF tree, for typesetting Japanese
-publications using pTeX. The bundle includes fonts, Japanese BibTeX
-styles, and Japanese versions of LaTeX classes and the like.
+The ptex-texmf tree provides a set of additions to a standard TEXMF
+tree for typesetting Japanese publications using pTeX. The bundle
+includes fonts, Japanese BibTeX styles, Japanese versions of LaTeX
+classes and macros (called pLaTeX2e), and the like.
 
-This bundle is a community edition, not the same as the original ASCII
-edition. The bundle is maintained in the GitHub repository:
+The bundle is a community edition, not the same as the original ASCII
+edition. The GitHub repository
 
 - https://github.com/texjporg/ptex-texmf
+
+is now maintained by Japanese TeX Development Community
+(http://texjp.org).
 
 The original ASCII edition can be obtained from:
 
@@ -15,16 +19,16 @@ The original ASCII edition can be obtained from:
 
 ## Documentation
 
-The consise information about pLaTeX2e is provided in platex.pdf.
-This document can be obtained by executing following commands:
+A brief exposition of pLaTeX2e is provided in platex.pdf.
+The document can be obtained by executing following commands:
 
 ~~~~
   platex platex.dtx
   dvipdfmx platex.dvi
 ~~~~
 
-The conprehensive explanation of pLaTeX2e source is also included in
-pldoc.pdf. If you are interested in typesettinng pldoc.tex yourself,
+The comprehensive explanation of pLaTeX2e source is included in
+pldoc.pdf. If you are interested in typesetting pldoc.tex yourself,
 following commands will be helpful:
 
 ~~~~
