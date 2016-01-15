@@ -22,19 +22,19 @@
    (EXTRASHRINK R 0.114551)
    )
 (CHARSINTYPE O 1
-   ‘ “ （ 〔 ［ ｛ 〈 《 「 『 【 
+   ‘ “ （ 〔 ［ ｛ 〈 《 「 『 【 
    )                     (COMMENT TYPE O 01 [ 0 16])
 (CHARSINTYPE O 2
-   、 ， ’ ” ） 〕 ］ ｝ 〉 》 」 』 】 
+   、 ， ’ ” ） 〕 ］ ｝ 〉 》 」 』 】 
    )                     (COMMENT TYPE O 02 [16  0])
 (CHARSINTYPE O 3
-   ・ ： ； 
+   ・ ： ； 
    )                     (COMMENT TYPE O 03 [ 8  8])
 (CHARSINTYPE O 4
-   。 ． 
+   。 ． 
    )                     (COMMENT TYPE O 04 [16  0])
 (CHARSINTYPE O 5
-   ― … ‥ 
+   ― … ‥ 
    )                     (COMMENT TYPE O 05 [16 16])
 (TYPE O 0 (CHARWD R 0.962216) (CHARHT R 0.777588) (CHARDP R 0.138855))
 (TYPE O 1 (CHARWD R 0.481108) (CHARHT R 0.777588) (CHARDP R 0.138855))
