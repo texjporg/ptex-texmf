@@ -72,9 +72,9 @@ function proc_line(proc, direct) {
 	}
 	return direct;
     }else if($0 ~ /^%/ ) {
-	return ""	# ƒRƒƒ“ƒg‚ÍŠî–{“I‚É‚Ííœ‚·‚é
+	return ""	# ã‚³ãƒ¡ãƒ³ãƒˆã¯åŸºæœ¬çš„ã«ã¯å‰Šé™¤ã™ã‚‹
     }else if($0 ~ /^	%/ ) {
-	sub(/	/,"")	# ‚±‚ÌŒ`®‚ÌƒRƒƒ“ƒg‚Ío—Í‚·‚é
+	sub(/	/,"")	# ã“ã®å½¢å¼ã®ã‚³ãƒ¡ãƒ³ãƒˆã¯å‡ºåŠ›ã™ã‚‹
 	print $0
 	return ""
     }else {

@@ -117,7 +117,7 @@
   \setlength{\@tombowwidth}{\z@}%
   \maketombowbox}
 \DeclareOption{tate}{%
-  \AtBeginDocument{\tate\message{$B!T=DAH%b!<%I!U(B}%
+  \AtBeginDocument{\tate\message{《縦組モード》}%
                    \adjustbaseline}%
 }
 \DeclareOption{oneside}{\@twosidefalse}
@@ -837,45 +837,45 @@
 \@addtoreset{footnote}{chapter}
 \newcommand\@makefntext[1]{\parindent 1em
   \noindent\hbox to 1.8em{\hss\@makefnmark}#1}
-\newif\if$B@>Nq(B \$B@>Nq(Bfalse
-\def\$B@>Nq(B{\$B@>Nq(Btrue}
-\def\$BOBNq(B{\$B@>Nq(Bfalse}
+\newif\if西暦 \西暦false
+\def\西暦{\西暦true}
+\def\和暦{\西暦false}
 \newcount\heisei \heisei\year \advance\heisei-1988\relax
 \def\today{{%
   \iftdir
-    \if$B@>Nq(B
-      \kansuji\number\year $BG/(B
-      \kansuji\number\month $B7n(B
-      \kansuji\number\day $BF|(B
+    \if西暦
+      \kansuji\number\year 年
+      \kansuji\number\month 月
+      \kansuji\number\day 日
     \else
-      $BJ?@.(B\ifnum\heisei=1 $B85G/(B\else\kansuji\number\heisei $BG/(B\fi
-      \kansuji\number\month $B7n(B
-      \kansuji\number\day $BF|(B
+      平成\ifnum\heisei=1 元年\else\kansuji\number\heisei 年\fi
+      \kansuji\number\month 月
+      \kansuji\number\day 日
     \fi
   \else
-    \if$B@>Nq(B
-      \number\year~$BG/(B
-      \number\month~$B7n(B
-      \number\day~$BF|(B
+    \if西暦
+      \number\year~年
+      \number\month~月
+      \number\day~日
     \else
-      $BJ?@.(B\ifnum\heisei=1 $B85G/(B\else\number\heisei~$BG/(B\fi
-      \number\month~$B7n(B
-      \number\day~$BF|(B
+      平成\ifnum\heisei=1 元年\else\number\heisei~年\fi
+      \number\month~月
+      \number\day~日
     \fi
   \fi}}
-\newcommand{\prepartname}{$BBh(B}
-\newcommand{\postpartname}{$BIt(B}
-\newcommand{\prechaptername}{$BBh(B}
-\newcommand{\postchaptername}{$B>O(B}
-\newcommand{\contentsname}{$BL\(B $B<!(B}
-\newcommand{\listfigurename}{$B?^(B $BL\(B $B<!(B}
-\newcommand{\listtablename}{$BI=(B $BL\(B $B<!(B}
-\newcommand{\bibname}{$B4XO"?^=q(B}
-\newcommand{\indexname}{$B:w(B $B0z(B}
-\newcommand{\figurename}{$B?^(B}
-\newcommand{\tablename}{$BI=(B}
-\newcommand{\appendixname}{$BIU(B $BO?(B}
-\newcommand{\abstractname}{$B35(B $BMW(B}
+\newcommand{\prepartname}{第}
+\newcommand{\postpartname}{部}
+\newcommand{\prechaptername}{第}
+\newcommand{\postchaptername}{章}
+\newcommand{\contentsname}{目 次}
+\newcommand{\listfigurename}{図 目 次}
+\newcommand{\listtablename}{表 目 次}
+\newcommand{\bibname}{関連図書}
+\newcommand{\indexname}{索 引}
+\newcommand{\figurename}{図}
+\newcommand{\tablename}{表}
+\newcommand{\appendixname}{付 録}
+\newcommand{\abstractname}{概 要}
 \pagestyle{plain}
 \pagenumbering{arabic}
 \raggedbottom

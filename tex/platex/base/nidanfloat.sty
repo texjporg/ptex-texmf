@@ -508,22 +508,22 @@
     \@chkdblfloatht\global\advance\@colht-\@floatht
   \else
     \global\@firstcolumntrue
-    \if@balance % $B:81&%+%i%`$r6QEy$KJ,3d(B
+    \if@balance % 左右カラムを均等に分割
       \@tempdima\baselineskip
       \advance\@tempdima-\topskip
-      % $BO"7k(B
+      % 連結
       \setbox\@combinebox=\vbox{%
           \unvbox\@leftcolumn\vskip\@tempdima\unvbox\@outputbox}%
       \@tempdima\ht\@combinebox
       \advance\@tempdima\dp\@combinebox
       \divide\@tempdima\tw@
-      % $BJ,3d(B
+      % 分割
       \vbadness=\@M \splittopskip=\topskip \splitmaxdepth=\maxdepth
       \setbox\@leftcolumn=\vsplit\@combinebox to\@tempdima
       \setbox\@outputbox=\vtop{\unvbox\@combinebox}
       \setbox\@leftcolumn=\vtop{\unvbox\@leftcolumn}
     \fi
-    % $B@07A(B
+    % 整形
     \@tempdima\ht\@leftcolumn
     \setbox\@outputbox\vbox to\@tempdima{%
       \hb@xt@\textwidth{%

@@ -15,7 +15,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \maketitle parameters.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\title{p\LaTeX~$B%K%e!<%9(B}
+\title{p\LaTeX~ニュース}
 \newcommand{\@titlefont}{\normalfont\Huge}
 
 \newcommand{\publicationmonth}{\renewcommand{\@month}}
@@ -35,9 +35,9 @@
    \twocolumn[{%
       \parbox[t][7\baselineskip]{\textwidth}{%
          \@titlefont\@title\hspace{3mm}%
-         \normalsize $BBh(B{\@issue}$B9f(B\\[\medskipamount]
-         \normalfont{\@year}$BG/(B{\@month}$B7n(B~$BH/9T(B\\
-         $B:n@.<T!'(B\begin{tabular}[t]{l}
+         \normalsize 第{\@issue}号\\[\medskipamount]
+         \normalfont{\@year}年{\@month}月~発行\\
+         作成者：\begin{tabular}[t]{l}
                  \@author
                  \end{tabular}%
       }%
@@ -47,8 +47,8 @@
 \newcommand{\ps@titlepage}{%
    \renewcommand{\@oddhead}{\hfill}%
    \renewcommand{\@evenhead}{\hfill}%
-   \renewcommand{\@oddfoot}{\@title~$BBh(B{\@issue}$B9f(B\hfil\thepage}%
-   \renewcommand{\@evenfoot}{\@title~$BBh(B{\@issue}$B9f(B\hfil\thepage}%
+   \renewcommand{\@oddfoot}{\@title~第{\@issue}号\hfil\thepage}%
+   \renewcommand{\@evenfoot}{\@title~第{\@issue}号\hfil\thepage}%
 }
 \pagestyle{titlepage}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

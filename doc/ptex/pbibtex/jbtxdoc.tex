@@ -12,110 +12,110 @@
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 
 \def\JBibTeX{\leavevmode\lower .5ex\hbox{{\rm J}}\kern-0.15em\BibTeX}
-\def\trnote#1{\footnote{\parindent=16pt\hskip-15pt\hang\indent $BLuCm!'(B#1\parindent=10pt}}
+\def\trnote#1{\footnote{\parindent=16pt\hskip-15pt\hang\indent 訳注：#1\parindent=10pt}}
 
-\title{B\kern-.05em{\large I}\kern-.025em{\large B}\kern-.08em\TeX ing$B!'(B
-B\kern-.05em{\large I}\kern-.025em{\large B}\kern-.08em\TeX $B$N;H$$J}(B
-\footnote{$BK]Lu$NItJ,$O86Cx<T$N5v2D$rF@$FG[I[$9$k$b$N$G$"$j!$K]Lu$K$D$$$F!$(B
-\JBibTeX\ $B$K4X$9$k5-=R$K$D$$$F$O>>0f$KLd$$9g$o$;$i$l$?$$!%(B}
-\ $^,$\footnote{\JBibTeX\ (version 0.30)$B$N@bL@$b4^$`!%(B}}
-\author{Oren Patashnik($BLu!'>>0f@50l(B)}
-\date{January 31, 1988($BK]LuHG!'(B1991$BG/(B1$B7n(B1$BF|(B)}
+\title{B\kern-.05em{\large I}\kern-.025em{\large B}\kern-.08em\TeX ing：
+B\kern-.05em{\large I}\kern-.025em{\large B}\kern-.08em\TeX の使い方
+\footnote{翻訳の部分は原著者の許可を得て配布するものであり，翻訳について，
+\JBibTeX\ に関する記述については松井に問い合わせられたい．}
+\ $^,$\footnote{\JBibTeX\ (version 0.30)の説明も含む．}}
+\author{Oren Patashnik(訳：松井正一)}
+\date{January 31, 1988(翻訳版：1991年1月1日)}
 
 \begin{document}
 \baselineskip=17pt
 
 \maketitle
 
-\section{$B35MW(B}
+\section{概要}
 
-[$B$3$NJ8=q$O(B\BibTeX\ version 1.00$B$,40@.$7$?;~$K3H=<$5$l$k!%(B
-$B%?%$%W%_%9!$7gMn!$IT@53N$JItJ,!$FC$K!$J,$+$j$K$/$$ItJ,$K$D$$$F!$(B
-$BCx<T$^$GO"Mm$5$l$?$$(B({\tt patashnik@SCORE.STANFORD.EDU}, $BF|K\8l$*$h$S(B
-\JBibTeX\ $B$K4X$9$kItJ,$O(B{\tt matsui@denken.or.jp})$B!%(B
-$B2~A1$K4X$9$k0U8+$r4?7^$9$k!%(B]
+[この文書は\BibTeX\ version 1.00が完成した時に拡充される．
+タイプミス，欠落，不正確な部分，特に，分かりにくい部分について，
+著者まで連絡されたい({\tt patashnik@SCORE.STANFORD.EDU}, 日本語および
+\JBibTeX\ に関する部分は{\tt matsui@denken.or.jp})．
+改善に関する意見を歓迎する．]
 
-$B$3$l$O(B\BibTeX\ version 0.99a\trnote{version 0.99a$B0J9_$N(B
-$B0UL#$G$"$j!$(B\JBibTeX $B$N4p$K$J$C$F$$$k(B0.99c$B$b4^$^$l$k!%(B}
-$B$NMxMQ<T$N$?$a$N$b$N$G$"$j(B\trnote{\JBibTeX $BMxMQ<T$N$?$a$G$b$"$k!%(B
-\JBibTeX $B$K$D$$$F$O(B\cite{jbibtex}$B$b;2>H$5$l$?$$!%(B}$B!$(B
-$B;29MJ88%%9%?%$%k$N@_7W<T(B($B@=:n<T(B)$B$O$3$NJ8=q$rFI$s$@8e!$@=:n<T$N$?$a$@$1$K(B
-$B=q$+$l$F$$$k(B ``Designing \BibTeX\ Styles''~\cite{btxhak}$B$rFI$`I,MW$,$"$k!%(B
+これは\BibTeX\ version 0.99a\trnote{version 0.99a以降の
+意味であり，\JBibTeX の基になっている0.99cも含まれる．}
+の利用者のためのものであり\trnote{\JBibTeX 利用者のためでもある．
+\JBibTeX については\cite{jbibtex}も参照されたい．}，
+参考文献スタイルの設計者(製作者)はこの文書を読んだ後，製作者のためだけに
+書かれている ``Designing \BibTeX\ Styles''~\cite{btxhak}を読む必要がある．
 
-$BK\9F$O0J2<$N(B3$B@a$+$i$J$k!%(B
-$BBh(B\ref{$BAj0cE@(B} $B@a$G(B \BibTeX $B$N(Bversion 0.98i$B$H(B0.99a$B$NAj0cE@$r!$(B
-$B3F!9$KBP1~$9$kI8=`%9%?%$%k%U%!%$%k$NAj0cE@$H$H$b$K=R$Y$k!%(B
-$BBh(B\ref{latex-appendix} $B@a$O(B\LaTeX\ book~\cite{latex}$B$NIUO?(BB.2$B$N=$@5$G$"$j!$(B
-$BBh(B\ref{odds-and-ends} $B@a$GB>$NJ8=q$K$O=q$+$l$F$$$J$$0lHLE*;v9`!$FC<l;v9`$K(B
-$B$D$$$F=R$Y$k!%(B
-$BK\9F$NFI<T$O(B\LaTeX\ book$B$N4XO"$9$k@a$K@:DL$7$F$$$k$3$H$,K>$^$l$k!%(B
+本稿は以下の3節からなる．
+第\ref{相違点} 節で \BibTeX のversion 0.98iと0.99aの相違点を，
+各々に対応する標準スタイルファイルの相違点とともに述べる．
+第\ref{latex-appendix} 節は\LaTeX\ book~\cite{latex}の付録B.2の修正であり，
+第\ref{odds-and-ends} 節で他の文書には書かれていない一般的事項，特殊事項に
+ついて述べる．
+本稿の読者は\LaTeX\ bookの関連する節に精通していることが望まれる．
 
-$B$3$NJ8=q$O(B\BibTeX\ $B$rAv$i$;$k:n6H$r=u$1$k$?$a$NF~NONc$H$7$F$NLr3d$b;}$D!%(B
-$BB?$/$NJ8=q$HF1$8$/$3$NJ8=q$b;29MJ88%$N0zMQ$r4^$s$G$$$k!%;29MJ88%%j%9%H$r(B
-$B:n$k$?$a$K$O!$(B
-$B$3$NJ8=q<+?H$r=hM}$9$k$?$a$K$O!$(B
-$B@h$:(B({\tt aux}$B%U%!%$%k$r:n$k$?$a$K(B)\LaTeX\ $B$r<B9T$7!$(B
-$B<!$K(B({\tt bbl}$B%U%!%$%k$r:n$k$?$a$K(B)\BibTeX\ $B$r<B9T$7!$(B
-$B:G8e$K(B\LaTeX $B$r$b$&(B2$B2s<B9T$9$k(B(1$B2s$O(B{\tt bbl}$B%U%!%$%kCf$N>pJs$r(B
-$B<h$j9~$`$?$a$G$"$j!$$b$&(B1$B2s$OA0J};2>H$r2r7h$9$k$?$a$G$"$k(B)$B!%(B
-$B$a$C$?$K5/$3$i$J$$$3$H$G$O$"$k$,!$$5$i$K$b$&(B1$B2s(B
-\BibTeX/\LaTeX\ $B$rAv$i$;$J$1$l$P$J$i$J$$$3$H$b$"$k(B.
+この文書は\BibTeX\ を走らせる作業を助けるための入力例としての役割も持つ．
+多くの文書と同じくこの文書も参考文献の引用を含んでいる．参考文献リストを
+作るためには，
+この文書自身を処理するためには，
+先ず({\tt aux}ファイルを作るために)\LaTeX\ を実行し，
+次に({\tt bbl}ファイルを作るために)\BibTeX\ を実行し，
+最後に\LaTeX をもう2回実行する(1回は{\tt bbl}ファイル中の情報を
+取り込むためであり，もう1回は前方参照を解決するためである)．
+めったに起こらないことではあるが，さらにもう1回
+\BibTeX/\LaTeX\ を走らせなければならないこともある.
 
-\BibTeX\ version 0.99a$B$O!$(Bclosed$B;29MJ88%=q<0$rI8=`$H$7$F$$$k!%(B
-\LaTeX\ version 2.09$B$H$H$b$K;H$&I,MW$,$"$k(B\trnote{\JBibTeX\ $B$O(B
-\JLaTeX\ $B$H$H$b$K;H$&!%(B}$B!%(B
-open$B;29MJ88%=q<0$K$9$k$?$a$K$O%*%W%7%g%sJ8=q%9%?%$%k$N(B{\tt openbib}
-$B$r;H$&I,MW$,$"$k!%(B
-(open$B=q<0$G$O<g%V%m%C%/$N4V$G2~9T$,9T$o$l$k$,!$(Bclosed$B$G$O9T$o$l$J$$!%(B)
+\BibTeX\ version 0.99aは，closed参考文献書式を標準としている．
+\LaTeX\ version 2.09とともに使う必要がある\trnote{\JBibTeX\ は
+\JLaTeX\ とともに使う．}．
+open参考文献書式にするためにはオプション文書スタイルの{\tt openbib}
+を使う必要がある．
+(open書式では主ブロックの間で改行が行われるが，closedでは行われない．)
 
-{\dg $BCm0U(B}$B!'(B\BibTeX\ 0.99a$B$G$O8E$$%9%?%$%k%U%!%$%k$O;H$($J$$!$F1MM$K(B
-\BibTeX\ 0.98i$B$G$O?7$7$$%9%?%$%k%U%!%$%k$O;H$($J$$!%(B 
-($B$7$+$7?7$7$$(B\BibTeX\ $B$G8E$$%G!<%?%Y!<%9%U%!%$%k$r;H$&$3$H$O$G$-$k!%(B)
+{\dg 注意}：\BibTeX\ 0.99aでは古いスタイルファイルは使えない，同様に
+\BibTeX\ 0.98iでは新しいスタイルファイルは使えない． 
+(しかし新しい\BibTeX\ で古いデータベースファイルを使うことはできる．)
 
-{\dg $B%$%s%W%j%a%s%?$X$NCm0U(B}$B!'(B\BibTeX\ $B$K$O(B
-$B;29MJ88%%9%?%$%k%U%!%$%k$NF~NO%G%#%l%/%H%j$N$?$a$N(B{\tt TEXINPUTS:}$B$H!$(B
-$B%G!<%?%Y!<%9%U%!%$%k$NF~NO%G%#%l%/%H%j$N$?$a$N(B{\tt BIBINPUTS:}
-$B$N(B2$B$D$NO@M}L>(B\trnote{UNIX/MS-DOS$B$G$O$=$l$>$l(B{\tt TEXINPUTS}$B$H(B
-{\tt BIBINPUTS}$B$N4D6-JQ?t(B}$B$,MQ0U$5$l$F$$$k!%(B
+{\dg インプリメンタへの注意}：\BibTeX\ には
+参考文献スタイルファイルの入力ディレクトリのための{\tt TEXINPUTS:}と，
+データベースファイルの入力ディレクトリのための{\tt BIBINPUTS:}
+の2つの論理名\trnote{UNIX/MS-DOSではそれぞれ{\tt TEXINPUTS}と
+{\tt BIBINPUTS}の環境変数}が用意されている．
 
 \vskip\baselineskip
-{\dg\bf\JBibTeX\ $B$G$NCm0UE@(B}$B!'(B
-$B4A;z%3!<%I7O$O(B{\tt BIBTERMCODE, BIBFILECODE}$B$N(B2$B$D$N(B
-$B4D6-JQ?t$GJQ992DG=$G$"$j!$(B\JTeX\ $B$N(B \verb|\kanjiterminaltype, \kanjifiletype|$B$K(B
-$B;XDj$9$k$N$HF1$8$b$N$r;XDj$9$k!%(BUNIX$BHG$G$O%5%$%HKh$KI8=`%3!<%I$,@_Dj$5$l$F(B
-$B$$$k$O$:$G$"$j!$(BMS-DOS$BHG$G$O(BSJIS$B$,I8=`$G$"$k!%(B
+{\dg\bf\JBibTeX\ での注意点}：
+漢字コード系は{\tt BIBTERMCODE, BIBFILECODE}の2つの
+環境変数で変更可能であり，\JTeX\ の \verb|\kanjiterminaltype, \kanjifiletype|に
+指定するのと同じものを指定する．UNIX版ではサイト毎に標準コードが設定されて
+いるはずであり，MS-DOS版ではSJISが標準である．
 
 \newpage
-\section{$BJQ99E@(B}
-\label{$BAj0cE@(B}
-$BK\@a$G$O(B\BibTeX\ versions 0.98i$B$H(B0.99a$B$N0c$$$H!$3F!9$N%P!<%8%g%s$KBP1~$9$k(B
-$B%9%?%$%k$N0c$$$K$D$$$F=R$Y$k!%(B0.98i$B$H(B0.99a$B$N4V$K$O(B
-$BB?$/$NAj0cE@$,$"$k$,(B0.99$B$H(B1.00$B$N4V$G$O$b$C$H$:$C$H>/$J$/$J$k$G$"$m$&!%(B
+\section{変更点}
+\label{相違点}
+本節では\BibTeX\ versions 0.98iと0.99aの違いと，各々のバージョンに対応する
+スタイルの違いについて述べる．0.98iと0.99aの間には
+多くの相違点があるが0.99と1.00の間ではもっとずっと少なくなるであろう．
 
-\subsection{\BibTeX\ $B$N?75!G=(B}
+\subsection{\BibTeX\ の新機能}
 \label{features}
 
-$B0J2<$K(B\BibTeX\ $B$N?75!G=$H$=$N;H$$J}$rNs5s$9$k(B\trnote{\JBibTeX\ $B$N5!G=$G$b(B
-$B$"$k!%(B}$B!%(B
+以下に\BibTeX\ の新機能とその使い方を列挙する\trnote{\JBibTeX\ の機能でも
+ある．}．
 
 \begin{enumerate}
 
 \item
-$B8D!9$NJ88%Kh$K(B \verb|\cite|,  \verb|\nocite|$B$rL@<(E*$K;XDj(B
-$B$7$J$/$F$b!$(B `\verb|\nocite{*}|' $B%3%^%s%I$R$H$D$G!$(B
-$B%G!<%?%Y!<%9Cf$N$9$Y$F$NJ88%$rJB$Y$?%j%9%H$r:n$k$3$H$,$G$-$k!%(B
-$B$3$l$O!$$3$N%3%^%s%I$r(B
-$B;H$C$?>l=j$G!$%G!<%?%Y!<%9Cf$N$9$Y$F$N%(%s%H%j$r$=$N(B
-$B=gHV$G(B \verb|\nocite|$B$9$k$3$H$KAjEv$9$k!%(B
+個々の文献毎に \verb|\cite|,  \verb|\nocite|を明示的に指定
+しなくても， `\verb|\nocite{*}|' コマンドひとつで，
+データベース中のすべての文献を並べたリストを作ることができる．
+これは，このコマンドを
+使った場所で，データベース中のすべてのエントリをその
+順番で \verb|\nocite|することに相当する．
 
 \item
 \label{concat}
-$B%U%#!<%k%I(B($B$"$k$$$O(B{\tt @STRING}$B$NDj5ACf$G(B)$BJ8;zNs$NO"7k$r;XDj$G$-$k!%(B
-$BNc$($P!$<!$N$h$&$KDj5A$7$F$*$/$H!$(B
+フィールド(あるいは{\tt @STRING}の定義中で)文字列の連結を指定できる．
+例えば，次のように定義しておくと，
 \begin{verbatim}
     @STRING( WGA = " World Gnus Almanac" )
 \end{verbatim}
-$BJL!9$G$O$"$k$,;w$?$h$&$J(B{\tt title}$B%(%s%H%j$r4JC1$K:n$l$k!%(B
+別々ではあるが似たような{\tt title}エントリを簡単に作れる．
 \begin{verbatim}
   @BOOK(almanac-66,
     title = 1966 # WGA,
@@ -123,22 +123,22 @@ open$B;29MJ88%=q<0$K$9$k$?$a$K$O%*%W%7%g%sJ8=q%9%?%$%k$N(B{\tt openbib}
   @BOOK(almanac-67,
     title = 1967 # WGA,
 \end{verbatim}
-$B<!$N$h$&$J;H$$J}$b2DG=$G$"$k!%(B
+次のような使い方も可能である．
 \begin{verbatim}
     month = "1~" # jan,
 \end{verbatim}
-$B$3$N;~!$%9%?%$%k%U%!%$%kCf$G$N(B{\tt jan}$B$N>JN,7A$NDj5A$K$h$C$F0[$J$k$,!$(B
-{\tt bbl}$B%U%!%$%kCf$G$O(B `\verb|1~Jan.|' $B$"$k$$$O(B
-`\verb|1~January|' $B$N$h$&$K$J$k!%(B
-($B%U%#!<%k%I$N%G!<%?D9$K$O>e8B$,$"$k$,(B) `{\tt\#}' $B$K$h$C$F(B
-$BG$0U$N?t$NJ8;zNs$rO"7k$G$-$k!%(B
-`{\tt\#}' $B$NA08e$K$O!$%9%Z!<%9(B\trnote{$B4A;z%3!<%I$N(B
-$B%9%Z!<%9(B($B6uGr(B)$B$G$O%@%a(B!}$B$+2~9T$rCV$/$3$H$rK:$l$F$O$J$i$J$$!%(B
+この時，スタイルファイル中での{\tt jan}の省略形の定義によって異なるが，
+{\tt bbl}ファイル中では `\verb|1~Jan.|' あるいは
+`\verb|1~January|' のようになる．
+(フィールドのデータ長には上限があるが) `{\tt\#}' によって
+任意の数の文字列を連結できる．
+`{\tt\#}' の前後には，スペース\trnote{漢字コードの
+スペース(空白)ではダメ!}か改行を置くことを忘れてはならない．
 
 \item
-\BibTeX\ $B$K?7$?$JAj8_;2>H5!G=$rIU$12C$($?!%$3$l$rNc$K$=$C$F@bL@$9$k!%(B
-$BJ8=qCf$K(B \verb|\cite{no-gnats}|$B$H;XDj$7!$(B
-$B%G!<%?%Y!<%9Cf$K<!$N(B2$B$D$N%(%s%H%j$,$"$k$H$7$h$&!%(B
+\BibTeX\ に新たな相互参照機能を付け加えた．これを例にそって説明する．
+文書中に \verb|\cite{no-gnats}|と指定し，
+データベース中に次の2つのエントリがあるとしよう．
 \begin{verbatim}
   @INPROCEEDINGS(no-gnats,
     crossref = "gg-proceedings",
@@ -151,227 +151,227 @@ open$B;29MJ88%=q<0$K$9$k$?$a$K$O%*%W%7%g%sJ8=q%9%?%$%k$N(B{\tt openbib}
     title = "The Gnats and Gnus 1988 Proceedings",
     booktitle = "The Gnats and Gnus 1988 Proceedings")
 \end{verbatim}
-$B$3$N;~!$<!$K=R$Y$k(B2$B$D$N$3$H$,$*$3$k!%(B
-$BBh(B1$B$K!$FCJL$J0UL#$r;}$D%U%#!<%k%I(B{\tt crossref}$B$O!$(B{\tt no-gnats}
-$B%(%s%H%j$G7gMn$7$F$$$k%U%#!<%k%I$r!$(B
-$B0zMQ$7$F$$$k(B{\tt gg-proceedings}$B$+$i7Q>5$9$k$3$H$r(B\BibTeX $B$K(B
-$BEA$($k!%@h$NNc$G$$$($P(B{\tt editor}$B$H(B{\tt booktitle}$B$N(B2$B$D$r(B
-$B7Q>5$9$k!%(B
-$B$?$@$7!$I8=`$N%9%?%$%k$G$O(B{\tt booktitle}$B%U%#!<%k%I$O(B
-{\tt PROCEEDINGS}$B7?$N%(%s%H%j$G$O0UL#$r;}$?$J$$!%(B
-$B$3$NNc$N(B{\tt gg-proceedings}$B%(%s%H%j$N(B{\tt booktitle}$B%U%#!<%k%I$O!$(B
-$B$3$l$r;2>H$7$F$$$k(B
-$B$b$N$,$3$N%U%#!<%k%I$r7Q>5$G$-$k$h$&$K$9$k$?$a$@$1$N$b$N$G$"$k!%(B
-$B$3$N2q5D$NO@J8$,$I$s$J$KB?$/%G!<%?%Y!<%9Cf$K$"$C$F$b!$(B
-$B$3$N(B{\tt booktitle}$B%U%#!<%k%I$O(B1$B2s$@$1=q$1$P$h$$!%(B
+この時，次に述べる2つのことがおこる．
+第1に，特別な意味を持つフィールド{\tt crossref}は，{\tt no-gnats}
+エントリで欠落しているフィールドを，
+引用している{\tt gg-proceedings}から継承することを\BibTeX に
+伝える．先の例でいえば{\tt editor}と{\tt booktitle}の2つを
+継承する．
+ただし，標準のスタイルでは{\tt booktitle}フィールドは
+{\tt PROCEEDINGS}型のエントリでは意味を持たない．
+この例の{\tt gg-proceedings}エントリの{\tt booktitle}フィールドは，
+これを参照している
+ものがこのフィールドを継承できるようにするためだけのものである．
+この会議の論文がどんなに多くデータベース中にあっても，
+この{\tt booktitle}フィールドは1回だけ書けばよい．
 
-$BBh(B2$B$K(B, {\tt gg-proceedings}$B%(%s%H%j$r(B \verb|\cite|$B$"$k$$(B
-$B$O(B \verb|\nocite|$B$G0zMQ$7$F$$$k(B
-2$B$D0J>e$NO@J8$,;2>H$7$F$$$k$H(B, $B$3$N%(%s%H%j(B
-$B<+?H$,(B \verb|\cite|$B$"$k$$$O(B \verb|\nocite|$B$5$l$F$$$J$/$F$b!$(B
-\BibTeX $B$O<+F0E*$K(B{\tt gg-proceedings}$B%(%s%H%j$r;29MJ88%%j%9%H$K(B
-$B2C$($k!%$D$^$j(B{\tt no-gnats}$B$NB>$K(B1$B$D0J>e$NO@J8$,(B\linebreak {\tt gg-proceedings}$B$r(B
-$B;2>H$7$F$$$k$H!$<+F0E*$K;29MJ88%%j%9%H$K2C$($i$l$k!%(B
+第2に, {\tt gg-proceedings}エントリを \verb|\cite|あるい
+は \verb|\nocite|で引用している
+2つ以上の論文が参照していると, このエントリ
+自身が \verb|\cite|あるいは \verb|\nocite|されていなくても，
+\BibTeX は自動的に{\tt gg-proceedings}エントリを参考文献リストに
+加える．つまり{\tt no-gnats}の他に1つ以上の論文が\linebreak {\tt gg-proceedings}を
+参照していると，自動的に参考文献リストに加えられる．
 
-$B$?$@$7!$>e5-$N7k2L$H$J$k$3$H$rJ]>Z$9$k$?$a$K$O!$(B
-$BAj8_;2>H$5$l$F$$$k%(%s%H%j$O!$(B
-$B$=$l$r0zMQ$7$F$$$k$9$Y$F$N%(%s%H%j$h$j%G!<%?%Y!<%9%U%!%$%kCf$G(B
-$B8e$m$K$J$1$l$P$J$i$J$$!%(B
-$B=>$C$F!$Aj8_;2>H$5$l$F$$$k%(%s%H%j$O:G8e$KCV$/$3$H$K$J$k!%(B
-($B$5$i$K!$;DG0$J$3$H$@$,!$%M%9%H$5$l$?Aj8_;2>H(B
-$B$O$&$^$/07$($J$$!%$9$J$o$A!$Aj8_;2>H$7$F$$$k@h$,$5$i$KB>$r;2>H$7$F$$$k(B
-$B>l9g$K$O$&$^$/F0:n$7$J$$$3$H$,$"$k!%(B)
+ただし，上記の結果となることを保証するためには，
+相互参照されているエントリは，
+それを引用しているすべてのエントリよりデータベースファイル中で
+後ろになければならない．
+従って，相互参照されているエントリは最後に置くことになる．
+(さらに，残念なことだが，ネストされた相互参照
+はうまく扱えない．すなわち，相互参照している先がさらに他を参照している
+場合にはうまく動作しないことがある．)
 
 
-$B:G8e$NCm0U!'(B
-$B$3$NAj8_;2>H5!G=$O!$8=:_$G$bMxMQ$G$-$k!$8E$$(B\BibTeX $B$N(B
-$B;2>H$N5!G=$H$OA4$/4X78$,$J$$!%(B
-$B$9$J$o$A!$<!$N$h$&$J;H$$J}$O?7$7$$5!G=$+$i2?$N1F6A$b<u$1$J$$!%(B
+最後の注意：
+この相互参照機能は，現在でも利用できる，古い\BibTeX の
+参照の機能とは全く関係がない．
+すなわち，次のような使い方は新しい機能から何の影響も受けない．
 \begin{verbatim}
     note = "Jones \cite{jones-proof} improves the result"
 \end{verbatim}
 
 
 \item
-\BibTeX\ $B$O%"%/%;%s%HIU$-J8;z(B(accented character)$B$r07$($k$h$&$K$J$C$?!%(B
-$BNc$($P<!$N$h$&$J(B2$B$D$N%U%#!<%k%I$+$i$J$k%(%s%H%j$,$"$j!$(B
+\BibTeX\ はアクセント付き文字(accented character)を扱えるようになった．
+例えば次のような2つのフィールドからなるエントリがあり，
 \begin{verbatim}
     author = "Kurt G{\"o}del",
     year = 1931,
 \end{verbatim}
-$B;29MJ88%%9%?%$%k$H$7$F(B{\tt alpha}$B$r;H$C$?$H$9$k$H!$(B
-\BibTeX\ $B$O$3$N%(%s%H%j$N%i%Y%k$r$"$J$?$NK>$_DL$j$K(B [G{\"o}d31] $B$H$9$k!%(B
-$B$3$N$h$&$J7k2L$rF@$k$?$a$K$O(B\verb|{\"o}|$B$"$k$$$O(B\verb|{\"{o}}|$B$N$h$&$K(B
-$B%"%/%;%s%HIU$-J8;zNs$rCf3g8L(B($B%V%l!<%9(B; \verb|{}|)$B$G0O$s$G$d$kI,MW$,$"$k!%(B
-$B$5$i$K!$$3$N$?$a$K;H$&Cf3g8L$O!$%U%#!<%k%I$d%(%s%H%j$N6h@Z$j0J30$NCf3g8L$N(B
-$BCf$K4^$^$l$F$O$J$i$J$$$7!$Cf3g8L$NCf$N0lHV:G=i$NJ8;z$O%P%C%/%9%i%C%7%e(B
-$B$G$J$1$l$P$J$i$J$$!%=>$C$F$3$NNc$G$$$($P(B\verb|{G{\"{o}}del}|
-$B$G$b(B\verb|{G\"{o}del}|$B$G$b$&$^$/$f$+$J$$!%(B
+参考文献スタイルとして{\tt alpha}を使ったとすると，
+\BibTeX\ はこのエントリのラベルをあなたの望み通りに [G{\"o}d31] とする．
+このような結果を得るためには\verb|{\"o}|あるいは\verb|{\"{o}}|のように
+アクセント付き文字列を中括弧(ブレース; \verb|{}|)で囲んでやる必要がある．
+さらに，このために使う中括弧は，フィールドやエントリの区切り以外の中括弧の
+中に含まれてはならないし，中括弧の中の一番最初の文字はバックスラッシュ
+でなければならない．従ってこの例でいえば\verb|{G{\"{o}}del}|
+でも\verb|{G\"{o}del}|でもうまくゆかない．
 
-$B$3$N5!G=$O(B\LaTeX~book$B$NI=(B3.1$B$HI=(B3.2$B$K$"$k!$%P%C%/%9%i%C%7%e$NIU$+$J$$(B
-$B309qJ8;z(B(foreign symbols)$B$r=|$/!$$9$Y$F$N%"%/%;%s%HIU$-J8;z$r07$&$3$H$,$G$-$k!%(B
-$B$3$N5!G=$OMxMQ<T$,Dj5A$9$k!V%"%/%;%s%HIU$-J8;z!W$G$b;H$($k!%$9$08e$GNc$r<($9!%(B
-$B%i%Y%k$NJ8;z?t$r?t$($k>l9g$K$O!$(B\BibTeX\ $B$OCf3g8L$NCf$N(B
-$BJ8;zNs$r$^$H$a$F(B1$BJ8;z$H?t$($k!%(B
+この機能は\LaTeX~bookの表3.1と表3.2にある，バックスラッシュの付かない
+外国文字(foreign symbols)を除く，すべてのアクセント付き文字を扱うことができる．
+この機能は利用者が定義する「アクセント付き文字」でも使える．すぐ後で例を示す．
+ラベルの文字数を数える場合には，\BibTeX\ は中括弧の中の
+文字列をまとめて1文字と数える．
 
 
 \item
-\BibTeX\ $B$O%O%$%U%sIU$-$N?ML>$b07$&$3$H$,$G$-$k!%Nc$($P!$<!$N$h$&$J(B
-$B%(%s%H%j!$(B
+\BibTeX\ はハイフン付きの人名も扱うことができる．例えば，次のような
+エントリ，
 \begin{verbatim}
     author = "Jean-Paul Sartre",
 \end{verbatim}
-$B$G(B{\tt abbrv}$B%9%?%$%k$r;H$&$H!$7k2L$O(B `J.-P. Sartre' $B$H$J$k!%(B
+で{\tt abbrv}スタイルを使うと，結果は `J.-P. Sartre' となる．
 
 \item
 \label{preamble}
-$B%G!<%?%Y!<%9%U%!%$%kCf$K(B\verb|@PREAMBLE|$B$r=q$/$3$H$,$G$-$k!%(B
-$B%3%^%s%I$O!$J8;zNs$+$i$J$j!$L>A0$HEy9f5-9f$,$J$$$3$H$r(B
-$B=|$1$P(B\verb|@STRING|$B$HF1$8$G$"$k!%0J2<$KNc$r<($9!%(B
+データベースファイル中に\verb|@PREAMBLE|を書くことができる．
+コマンドは，文字列からなり，名前と等号記号がないことを
+除けば\verb|@STRING|と同じである．以下に例を示す．
 \begin{verbatim}
     @PREAMBLE{ "\newcommand{\noopsort}[1]{} "
              # "\newcommand{\singleletter}[1]{#1} " }
 \end{verbatim}
-($B$3$3$G$bJ8;zNsO"7k$N5!G=$,;H$o$l$F$$$k$3$H$KCm0U$7$h$&(B)$B!%(B
-$BI8=`$N%9%?%$%k$G$O!$$3$3$K=q$$$?J8;zNs(B($BB?$/$N>l9g(B\LaTeX\ $B$N%^%/%m(B)
-$B$r$=$N$^$^(B{\tt bbl}$B%U%!%$%k$K=q$-=P$9!%(B
-$B>e$K<($7$?(B \verb|\noopsort|$B%3%^%s%I$rNc$K!$;H$$J}$r<($9!%(B
+(ここでも文字列連結の機能が使われていることに注意しよう)．
+標準のスタイルでは，ここに書いた文字列(多くの場合\LaTeX\ のマクロ)
+をそのまま{\tt bbl}ファイルに書き出す．
+上に示した \verb|\noopsort|コマンドを例に，使い方を示す．
 
-$B%=!<%F%#%s%0$9$k(B($B%"%k%U%!%Y%C%H=g$KJB$Y$k(B)$B$3$H$r9M$($h$&!%(B
-\BibTeX\ $B$O3d$H$&$^$/JB$Y$F$/$l$k$,!$>r7o$K$h$C$F$O(B\BibTeX\ $B$,(B
-$B:.Mp$9$k$3$H$,$"$k!%(B
-$B%G!<%?%Y!<%9$NCf$KF10lCx<T$K$h$k(B2$B4,$+$i$J$kK\$N%(%s%H%j$,$"$j!$(B
-$B;29MJ88%%j%9%H$G$OBh(B1$B4,$,Bh(B2$B4,$ND>A0$KJB$s$GM_$7$$$H$7$h$&!%(B
-$B$5$i$KBh(B1$B4,$K$O(B1973$BG/$KH/4)$5$l$?Bh(B2$BHG$,$"$j!$Bh(B2$B4,$K$OBh(B1$BHG$7$+$J$/(B
-$B$=$NH/4)$O(B1971$BG/$G$"$C$?$H$7$h$&!%(B
-$BI8=`%9%?%$%k(B{\tt plain}$B$OCx<TL>$HH/4)G/$G%=!<%H%-!<$r:n$j!$(B
-$BBh(B2$B4,$NJ}$,H/4)$,Aa$$$?$a$K!$(B\BibTeX\ $B$r=u$1$F$d$i$J$$8B$j!$Bh(B2$B4,(B
-$B$NJ}$,@h$K$J$i$s$G$7$^$&!%(B
-$B$3$N$?$a$K$O$3$N(B2$B$D$N(B{\tt year}$B%U%#!<%k%I$r<!$N$h$&$K$9$k!%(B
+ソーティングする(アルファベット順に並べる)ことを考えよう．
+\BibTeX\ は割とうまく並べてくれるが，条件によっては\BibTeX\ が
+混乱することがある．
+データベースの中に同一著者による2巻からなる本のエントリがあり，
+参考文献リストでは第1巻が第2巻の直前に並んで欲しいとしよう．
+さらに第1巻には1973年に発刊された第2版があり，第2巻には第1版しかなく
+その発刊は1971年であったとしよう．
+標準スタイル{\tt plain}は著者名と発刊年でソートキーを作り，
+第2巻の方が発刊が早いために，\BibTeX\ を助けてやらない限り，第2巻
+の方が先にならんでしまう．
+このためにはこの2つの{\tt year}フィールドを次のようにする．
 \begin{verbatim}
     year = "{\noopsort{a}}1973"
     .  .  .
     year = "{\noopsort{b}}1971"
 \end{verbatim}
-\verb|\noopsort|$B$NDj5A$+$i!$(B
-\LaTeX\ $B$OG/$H$7$F$OK\Ev$NG/0J30$O0u:~$7$J$$!%(B
-$B$7$+$7(B\BibTeX\ $B$O(B \verb|\noopsort|$B$N;XDj$,(B `a', `b' $B$r(B
-$B=$>~$9$k$b$N$H$_$J$9$N$G!$%=!<%H$N;~$K$O$"$?$+$b(B `a1973' $B$H(B `b1971'
-$B$,G/$N$h$&$K07$&!%(B`a' $B$O(B `b' $B$h$jA0$J$N$G!$K>$_DL$jBh(B1$B4,$,Bh(B2$B4,$NA0$KJB$V!%(B
-$B$H$3$m$G!$$b$7$3$NCx<T$NJL$NCx:n$,%G!<%?%Y!<%9Cf$K$"$k>l9g$K$O(B
-$BB>$NCx:n$H$N4X78$r@5$7$/$9$k$?$a$K(B\verb|{\noopsort{1968a}}1973|$B$H(B
-\verb|{\noopsort{1968b}}1971|$B$H$$$C$?$h$&$K=q$+$M$P$J$i$J$$$3$H$b$"$k!%(B
-($B$3$3$G$OBh(B1$B4,$NBh(B1$BHG$NH/4)G/$,(B1968$BG/$G$"$k$3$H$+$i!$$3$l$G@5$7$$(B
-$B>l=j$KJB$V$b$N$H9M$($F$$$k!%(B)
+\verb|\noopsort|の定義から，
+\LaTeX\ は年としては本当の年以外は印刷しない．
+しかし\BibTeX\ は \verb|\noopsort|の指定が `a', `b' を
+修飾するものとみなすので，ソートの時にはあたかも `a1973' と `b1971'
+が年のように扱う．`a' は `b' より前なので，望み通り第1巻が第2巻の前に並ぶ．
+ところで，もしこの著者の別の著作がデータベース中にある場合には
+他の著作との関係を正しくするために\verb|{\noopsort{1968a}}1973|と
+\verb|{\noopsort{1968b}}1971|といったように書かねばならないこともある．
+(ここでは第1巻の第1版の発刊年が1968年であることから，これで正しい
+場所に並ぶものと考えている．)
 
-$B;H$($k(B\verb|@PREAMBLE|$B%3%^%s%I$N?t$K$O>e8B$,$"$k$,!$(B\verb|@PREAMBLE|
-$B$N?t$r(B1$B$D$N%G!<%?%Y!<%9$K$D$-(B1$B$D$K$7$F$*$1$P!$>e8B$rD6$($k$3$H$O$J$$!%(B
-$B$7$?$,$C$F!$9`L\(B\ref{concat} $B$G=R$Y$?!$J8;zNs$NO"7k5!G=$r;H$($P(B
-$B$3$N@)8B$OBg$7$?LdBj$G$O$J$$!%(B
-
-\item
-\BibTeX\ $B$N%=!<%F%#%s%0;;K!$O0BDj(B(stable)$B$J$b$N$H$J$C$?!%$D$^$j!$(B
-2$B$D$N0[$J$k%(%s%H%j$,F10l$N%=!<%H%-!<$r;}$D>l9g$K$O!$(B
-$B0zMQ=g$KJB$V$h$&$K$J$C$?!%(B
-($B;29MJ88%%9%?%$%k$,$3$l$i$N%=!<%H%-!<!$DL>o$OCx<TL>$N8e$KG/$H(B
-$BI=Bj$rIU2C$7$?$b$N!$$r:n$k(B\trnote{$BF|K\8lMQ$N%9%?%$%k$G$O!$(B
-yomi$B$H$$$&%U%#!<%k%I$,$"$l$P$=$l$rCx<TL>$NBe$o$j$K;H$&$3$H$G!$FI$_$N(B
-$B%"%k%U%!%Y%C%H=g$KJB$V$h$&$K$7$F$$$k!%(B})
+使える\verb|@PREAMBLE|コマンドの数には上限があるが，\verb|@PREAMBLE|
+の数を1つのデータベースにつき1つにしておけば，上限を超えることはない．
+したがって，項目\ref{concat} で述べた，文字列の連結機能を使えば
+この制限は大した問題ではない．
 
 \item
-\BibTeX\ $B$O%U%!%$%kL>$N>.J8;z(B/$BBgJ8;zJQ49$r9T$o$J$$$h$&$K$J$C$?!%(B
-$B$3$l$K$h$j!$Nc$($P(BUNIX$B%7%9%F%`>e$K(B\BibTeX\ $B$r%$%s%9%H!<%k$9$k$N$,4JC1$K$J$C$?!%(B
+\BibTeX\ のソーティング算法は安定(stable)なものとなった．つまり，
+2つの異なるエントリが同一のソートキーを持つ場合には，
+引用順に並ぶようになった．
+(参考文献スタイルがこれらのソートキー，通常は著者名の後に年と
+表題を付加したもの，を作る\trnote{日本語用のスタイルでは，
+yomiというフィールドがあればそれを著者名の代わりに使うことで，読みの
+アルファベット順に並ぶようにしている．})
 
 \item
-$B%3%^%s%I%i%$%s$N(B{\tt aux}$B%U%!%$%kL>$N=hM}$r9T$&%3!<%I$rIU2C$9$k$3$H$,(B
-$B4JC1$K9T$($k$h$&$K$J$C$?!%(B
+\BibTeX\ はファイル名の小文字/大文字変換を行わないようになった．
+これにより，例えばUNIXシステム上に\BibTeX\ をインストールするのが簡単になった．
+
+\item
+コマンドラインの{\tt aux}ファイル名の処理を行うコードを付加することが
+簡単に行えるようになった．
 
 \end{enumerate}
 
 
-\subsection{$BI8=`%9%?%$%k$NJQ99E@(B}
+\subsection{標準スタイルの変更点}
 
-$BK\@a$G$O!$0lHLMxMQ<T$K4X78$9$kI8=`%9%?%$%k(B
+本節では，一般利用者に関係する標準スタイル
 ({\tt plain}, {\tt unsrt}, {\tt alpha}, {\tt abbrv})
-$B$NJQ99E@$K$D$$$F=R$Y$k(B\trnote{$BBP1~$9$kF|K\8lMQ$N%9%?%$%k$O(B
-$B3F!9(B{\tt jplain}, {\tt junsrt},{\tt jalpha}, {\tt jabbrv}$B$G$"$k!%(B}$B!%(B
-$B%9%?%$%k:n@.<T$K4X78$7$?JQ99E@$O(B
-``Designing \BibTeX\ Styles''~\cite{btxhak}$B$K=R$Y$i$l$F$$$k!%(B
+の変更点について述べる\trnote{対応する日本語用のスタイルは
+各々{\tt jplain}, {\tt junsrt},{\tt jalpha}, {\tt jabbrv}である．}．
+スタイル作成者に関係した変更点は
+``Designing \BibTeX\ Styles''~\cite{btxhak}に述べられている．
 
 \begin{enumerate}
 
 \item
-$B0lHL$K%=!<%F%#%s%0$O@h$:(B ``author'' $B$G!$<!$KG/!$:G8e$KI=Bj$G9T$&!%(B
-$B8E$$%P!<%8%g%s$G$OG/$,;H$o$l$F$$$J$+$C$?!%(B
-($B$7$+$7(B{\tt alpha}$B%9%?%$%k$G$O@h$:%i%Y%k(B
-$B$G%=!<%H$7$?8e!$>e5-$N%=!<%H$r9T$&(B)$B!%(B
-author$B$NA08e$K0zMQId$,IU$$$F$$$k$N$O!$(Beditor, organization$B$J$I$N(B
-$BB>$N%U%#!<%k%I$,;H$o$l$k$3$H$b$"$k$+$i$G$"$k!%(B
+一般にソーティングは先ず ``author'' で，次に年，最後に表題で行う．
+古いバージョンでは年が使われていなかった．
+(しかし{\tt alpha}スタイルでは先ずラベル
+でソートした後，上記のソートを行う)．
+authorの前後に引用符が付いているのは，editor, organizationなどの
+他のフィールドが使われることもあるからである．
 
 \item
-$BB?$/$NITI,MW$J%?%$(B(\verb|~|)$B$r<h$j=|$$$?!%(B
-$B$3$l$K$h$j!$;29MJ88%%j%9%H$r%U%)!<%^%C%H$7$?;~$K!$(B
-\LaTeX\ $B$+$i=PNO$5$l$k(B `\hbox{\tt Underfull} \verb|\hbox|'
-$B$N?t$,>/$J$/$J$C$?!%(B
+多くの不必要なタイ(\verb|~|)を取り除いた．
+これにより，参考文献リストをフォーマットした時に，
+\LaTeX\ から出力される `\hbox{\tt Underfull} \verb|\hbox|'
+の数が少なくなった．
 
 \item
-$B%$%?%j%C%/;XDj(B(\hbox{\verb|{\it ...}|})$B$r(B
-$B6/D4;XDj(B(\hbox{\verb|{\em ...}|})$B$KCV$-49$($?!%(B
-$B=PNO$OJQ2=$7$J$$$O$:$G$"$k!%(B
+イタリック指定(\hbox{\verb|{\it ...}|})を
+強調指定(\hbox{\verb|{\em ...}|})に置き換えた．
+出力は変化しないはずである．
 
 \item
-{\tt alpha}$B%9%?%$%k$G$O!$%i%Y%k$r:n$k:]$KCx<TL>$N$$$/$D$+$r>JN,$7$?(B
-$B$3$H$r<($95-9f$r(B `*' $B$+$i(B `$^{+}$' $B$KJQ99$7$?!%(B
-$B$7$+$7!$0JA0$N7A<0$NJ}$,9%$-!$$"$k$$$O$3$s$J5-9f$,ITMW$J>l9g$G$b(B
-$B%9%?%$%k%U%!%$%k$N=$@5$OITMW$G$"$k!%(B
-{\tt alpha}$B%9%?%$%k$,(B(\verb|\thebibliography| environment$B$ND>A0$K(B)
-{\tt bbl}$B%U%!%$%k$K=q$-=P$9(B \verb|\etalchar|
-$B%3%^%s%I$r!$A0@a$NBh(B\ref{preamble} $B9`L\$G=R$Y$?$h$&$K!$(B
-$B%G!<%?%Y!<%9Cf$N(B{\tt @PREAMBLE}$B$r;H$C$F!$(B
-\LaTeX\ $B$N(B \verb|\renewcommand|$B$rMQ$$$FDj5A$7D>$;$P!$(B`$^{+}$'
-$B$N7A<0$rJQ99$G$-$k!%(B
+{\tt alpha}スタイルでは，ラベルを作る際に著者名のいくつかを省略した
+ことを示す記号を `*' から `$^{+}$' に変更した．
+しかし，以前の形式の方が好き，あるいはこんな記号が不要な場合でも
+スタイルファイルの修正は不要である．
+{\tt alpha}スタイルが(\verb|\thebibliography| environmentの直前に)
+{\tt bbl}ファイルに書き出す \verb|\etalchar|
+コマンドを，前節の第\ref{preamble} 項目で述べたように，
+データベース中の{\tt @PREAMBLE}を使って，
+\LaTeX\ の \verb|\renewcommand|を用いて定義し直せば，`$^{+}$'
+の形式を変更できる．
 
 \item
-{\tt abbrv}$B%9%?%$%k$G$O!$7nL>$H$7$F(B`March'$B$H(B`Sep.'
-$B$NBX$o$j$K(B`Mar.'$B$H(B`Sept.'$B$r;H$&$h$&$K$J$C$?!%(B
+{\tt abbrv}スタイルでは，月名として`March'と`Sep.'
+の替わりに`Mar.'と`Sept.'を使うようになった．
 
 \item
-$BI8=`%9%?%$%k$G$O!$(B
-\BibTeX\ $B$N?7$7$$Aj8_;2>H5!G=$r;H$C$F$$$k>l9g$K$O!$(B
-$BB>$NJ88%$r;2>H$7$F$$$k%(%s%H%j$KBP$7$F$O!$(B
-$B;2>H@h$K5-=R$5$l$F$$$k%U%#!<%k%I$N$[$H$s$IA4$F$r(B
-$B>JN,$7!$(B \verb|\cite|$B$r;H$C$F;2>H$r<($9$h$&$K$J$C$F$$$k!%(B
+標準スタイルでは，
+\BibTeX\ の新しい相互参照機能を使っている場合には，
+他の文献を参照しているエントリに対しては，
+参照先に記述されているフィールドのほとんど全てを
+省略し， \verb|\cite|を使って参照を示すようになっている．
 
-$B$3$l$O;2>H85$,BgIt$JCx:n$N0lItJ,$G$"$k>l9g$K;H$&!%(B
-$B$3$N$h$&$J>u67$H$7$F$O0J2<$N(B5$B$D$,9M$($i$l$k!%(B
+これは参照元が大部な著作の一部分である場合に使う．
+このような状況としては以下の5つが考えられる．
 (1) {\tt INPROCEEDINGS}
-($B$"$k$$$O(B{\tt CONFERENCE}, $B$I$A$i$bF1$8$3$H(B)
-$B$,(B{\tt PROCEEDINGS}$B$r;2>H$7$F$$$k(B;
+(あるいは{\tt CONFERENCE}, どちらも同じこと)
+が{\tt PROCEEDINGS}を参照している;
 (2) {\tt BOOK}, (3) {\tt INBOOK},
-$B$"$k$$$O(B(4) {\tt INCOLLECTION}
-$B$,(B{\tt BOOK}$B$r;2>H$7$F$$$k(B
-($BJ#?t4,$+$i$J$k=qJ*$NCf$N$"$k(B1$B4,$,;2>H$7$F$$$k(B);
-(5) {\tt ARTICLE}$B$,(B{\tt ARTICLE}$B$r;2>H$7$F$$$k!%(B
-($B$3$N>l9g$K$O!$;2>H$5$l$F$$$k$b$N$O<B$OO@J8;oA4BN$G$"$k$,!$(B
-$B%(%s%H%j7?$H$7$F(B{\tt JOURNAL}$B$,$J$$$+$i$3$&$9$k!%(B
-$B$3$N;~$K$OO@J8;o$N(B{\tt author}$B$H(B{\tt title}$B$,$J$$$H$$$&(B
-$B7Y9p%a%C%;!<%8$,=PNO$5$l$k$,!$$3$N%a%C%;!<%8$OL5;k$9$l$P$h$$(B)$B!%(B
+あるいは(4) {\tt INCOLLECTION}
+が{\tt BOOK}を参照している
+(複数巻からなる書物の中のある1巻が参照している);
+(5) {\tt ARTICLE}が{\tt ARTICLE}を参照している．
+(この場合には，参照されているものは実は論文誌全体であるが，
+エントリ型として{\tt JOURNAL}がないからこうする．
+この時には論文誌の{\tt author}と{\tt title}がないという
+警告メッセージが出力されるが，このメッセージは無視すればよい)．
 
 \item
-{\tt MASTERSTHESIS}$B$H(B{\tt PHDTHESIS}
-$B%(%s%H%j7?$G$O!$G$0U%U%#!<%k%I$H$7$F(B{\tt type}$B$r=q$1$k$h$&$K$J$C$?!%(B
-$B$3$l$K$h$j!$(B
+{\tt MASTERSTHESIS}と{\tt PHDTHESIS}
+エントリ型では，任意フィールドとして{\tt type}を書けるようになった．
+これにより，
 \begin{verbatim}
     type = "{Ph.D.} dissertation"
 \end{verbatim}
-$B$H%G!<%?%Y!<%9Cf$K=q$/$3$H$G!$I8=`$N(B `PhD thesis' $B$NBX$o$j$K(B
-`Ph.D.\ dissertation' $B$H$G$-$k$h$&$K$J$C$?!%(B
+とデータベース中に書くことで，標準の `PhD thesis' の替わりに
+`Ph.D.\ dissertation' とできるようになった．
 
 \item
-$BF1MM$K(B{\tt INBOOK}$B$H(B{\tt INCOLLECTION}
-$B%(%s%H%j7?$G$O!$G$0U%U%#!<%k%I$H$7$F(B{\tt type}$B$r=q$1$k$h$&$K$J$C$?!%(B
-$B$3$l$r;H$($P!$<!$N$h$&$K%G!<%?%Y!<%9$K=q$$$F$*$1$P!$(B
-$BI8=`$N(B `chapter~1.2' $B$NBX$o$j$K!$(B`section~1.2' $B$H$G$-$k!%(B
+同様に{\tt INBOOK}と{\tt INCOLLECTION}
+エントリ型では，任意フィールドとして{\tt type}を書けるようになった．
+これを使えば，次のようにデータベースに書いておけば，
+標準の `chapter~1.2' の替わりに，`section~1.2' とできる．
 \begin{verbatim}
     chapter = "1.2",
     type = "Section"
@@ -379,684 +379,684 @@ author$B$NA08e$K0zMQId$,IU$$$F$$$k$N$O!$(Beditor, organization$B$J$I$N(B
 
 \item
 {\tt BOOKLET}, {\tt MASTERSTHESIS},
-{\tt TECHREPORT}$B%(%s%H%j7?$G$O!$(B
-{\tt BOOK}$B$N(B{\tt title}$B$N$h$&$K$G$O$J$/!$(B
-{\tt ARTICLE}$B$N(B{\tt title}$B$N$h$&$K!$(B
-$BI=Bj$r%U%)!<%^%C%H(B($B%?%$%W%;%C%H(B)$B$9$k$h$&$K$J$C$?!%(B
+{\tt TECHREPORT}エントリ型では，
+{\tt BOOK}の{\tt title}のようにではなく，
+{\tt ARTICLE}の{\tt title}のように，
+表題をフォーマット(タイプセット)するようになった．
 
 \item
-{\tt PROCEEDINGS}$B$H(B{\tt INPROCEEDINGS}
-$B%(%s%H%j7?$G$O!$(B{\tt address}$B%U%#!<%k%I$r=PHG<R!$<g:E<T$N=;=j$r(B
-$B<($9$?$a$K;H$&$N$G$O$J$/!$2q5D$N3+:E$5$l$?>l=j$r<($9$?$a$K;H$&$h$&$K(B
-$B$J$C$?!%(B
-$B=PHG<R!$3+:E<T$N=;=j$rF~$l$?$$$N$G$"$l$P!$(B
-{\tt publisher}$B$+(B{\tt organization}$B%U%#!<%k%I$KF~$l$k$3$H!%(B
+{\tt PROCEEDINGS}と{\tt INPROCEEDINGS}
+エントリ型では，{\tt address}フィールドを出版社，主催者の住所を
+示すために使うのではなく，会議の開催された場所を示すために使うように
+なった．
+出版社，開催者の住所を入れたいのであれば，
+{\tt publisher}か{\tt organization}フィールドに入れること．
 
 \item
 {\tt BOOK}, {\tt INBOOK}, {\tt INCOLLECTION},
-{\tt PROCEEDINGS}$B%(%s%H%j7?$G$O!$(B{\tt volume}$B$@$1$r(B
-$B5v$9$N$G$O$J$/!$(B
-{\tt volume}$B$+(B{\tt number}$B$N$$$:$l$+0lJ}$r5v$9$h$&$K$J$C$?!%(B
+{\tt PROCEEDINGS}エントリ型では，{\tt volume}だけを
+許すのではなく，
+{\tt volume}か{\tt number}のいずれか一方を許すようになった．
 
 \item
-{\tt INCOLLECTION}$B%(%s%H%j7?$G$O!$(B{\tt series}$B$H(B{\tt edition}
-$B%U%#!<%k%I$r5v$9$h$&$K$J$C$?!%(B
+{\tt INCOLLECTION}エントリ型では，{\tt series}と{\tt edition}
+フィールドを許すようになった．
 
 \item
-{\tt INPROCEEDINGS}$B$H(B{\tt PROCEEDINGS}
-$B%(%s%H%j7?$G$O!$(B
-{\tt volume}$B$^$?$O(B{\tt number}$B$H(B
-{\tt series}$B$r5v$9$h$&$K$J$C$?!%(B
+{\tt INPROCEEDINGS}と{\tt PROCEEDINGS}
+エントリ型では，
+{\tt volume}または{\tt number}と
+{\tt series}を許すようになった．
 
 \item
-{\tt UNPUBLISHED} $B%(%s%H%j7?$G$O!$F|IU>pJs$r8e$KIU$1$F!$(B
-{\tt note}$B%U%#!<%k%I$r(B1$B$D$N%V%m%C%/$H$7$F=PNO$9$k$h$&$K$J$C$?!%(B
+{\tt UNPUBLISHED} エントリ型では，日付情報を後に付けて，
+{\tt note}フィールドを1つのブロックとして出力するようになった．
 
 \item
-{\tt MANUAL}$B%(%s%H%j7?$G$O!$(B{\tt author}$B%U%#!<%k%I$,(B
-$B6u$G$"$l$P!$(B{\tt organization}$B%U%#!<%k%I$rBh(B1$B%V%m%C%/$H$7$F(B
-$B=PNO$9$k$h$&$K$J$C$?!%(B
+{\tt MANUAL}エントリ型では，{\tt author}フィールドが
+空であれば，{\tt organization}フィールドを第1ブロックとして
+出力するようになった．
 
 \item
-{\tt MISC}$B%(%s%H%j7?$G$O!$A4$F$NG$0U%U%#!<%k%I(B
-($B$9$J$o$AA4$F$N%U%#!<%k%I(B)$B$,6u$N;~$K$O(B
-$B7Y9p%a%C%;!<%8$r=PNO$9$k$h$&$K$J$C$?!%(B
+{\tt MISC}エントリ型では，全ての任意フィールド
+(すなわち全てのフィールド)が空の時には
+警告メッセージを出力するようになった．
 
 \end{enumerate}
 
-\subsection{\JBibTeX\ $B$NI8=`%9%?%$%k(B}
+\subsection{\JBibTeX\ の標準スタイル}
 
-\JBibTeX\ $B$NI8=`%9%?%$%k$H$7$F$O(B{\tt plain, alpha, abbrv, unsrt}$B$KBP1~$7$F(B
-{\tt jplain, jalpha, jabbrv,\linebreak junsrt}$B$,:n@.$5$l$F$$$k!%$^$?>pJs=hM}3X2q(B
-$BO@J8;o(B{\tt tipsj}, $B>pJs=hM}3X2q2$J8O@J8;o(B{\tt jipsj}, $BEE;R>pJsDL?.3X2qO@J8;o(B{\tt tieice}, 
-$BF|K\%*%Z%l!<%7%g%s%:%j%5!<%A3X2qO@J8;o(B{\tt jorsj},
-$B?M9)CNG=3X2q(B{\tt jsai}, $B%=%U%H%&%'%"3X2q;o(B{\tt jssst}$BMQ$N%9%?%$%k$b:n@.$5$l$F(B
-$B$$$k!%$3$l$i$N%9%?%$%k$G9T$J$C$F$$$kF|K\8lBP1~$O0J2<$NDL$j$G$"$k(B({\tt jipsj}
-$B$O1Q8l$J$N$G!$JQ99$OI,$:$7$bF|K\8lBP1~$N$?$a$@$1$G$O$J$$(B)$B!%(B
+\JBibTeX\ の標準スタイルとしては{\tt plain, alpha, abbrv, unsrt}に対応して
+{\tt jplain, jalpha, jabbrv,\linebreak junsrt}が作成されている．また情報処理学会
+論文誌{\tt tipsj}, 情報処理学会欧文論文誌{\tt jipsj}, 電子情報通信学会論文誌{\tt tieice}, 
+日本オペレーションズリサーチ学会論文誌{\tt jorsj},
+人工知能学会{\tt jsai}, ソフトウェア学会誌{\tt jssst}用のスタイルも作成されて
+いる．これらのスタイルで行なっている日本語対応は以下の通りである({\tt jipsj}
+は英語なので，変更は必ずしも日本語対応のためだけではない)．
 
 \begin{enumerate}
-\item $BCx<TL>$,F|K\8l$+$I$&$+$GL>A0$N%U%)!<%^%C%H$NJ}K!$rJQ$($k!%(B
+\item 著者名が日本語かどうかで名前のフォーマットの方法を変える．
 
-\item $BCx:nL>$KF|K\8l$,4^$^$l$k>l9g$K$O6/D4;XDj$rIU$1$J$$!%(B
+\item 著作名に日本語が含まれる場合には強調指定を付けない．
 
-\item $B%Z!<%8HO0O;XDj$r(B{\tt Page}, {\tt Pages}$B$+$i(B{\tt p.}, {\tt pp.}$B$K(B
-$BJQ99$7$?!%%J%s%P!<;XDj!$%\%j%e!<%`;XDj$r(B{\tt No.}, {\tt Vol.}$B$KJQ99$7$?!%(B
+\item ページ範囲指定を{\tt Page}, {\tt Pages}から{\tt p.}, {\tt pp.}に
+変更した．ナンバー指定，ボリューム指定を{\tt No.}, {\tt Vol.}に変更した．
 
-\item $B%=!<%F%#%s%0%-!<$r:n$k;~$K$O!$(B{\tt yomi}$B%U%#!<%k%I$,$"$l$P$=$N>pJs$r(B
-$BCx<TL>!$JT=8<TL>$NBe$j$K;H$&!%(B
+\item ソーティングキーを作る時には，{\tt yomi}フィールドがあればその情報を
+著者名，編集者名の代りに使う．
 \end{enumerate}
 
-\section{$B%G!<%?%Y!<%9$N%(%s%H%j(B}
+\section{データベースのエントリ}
 \label{latex-appendix}
 
-$BK\@a$O(B\LaTeX\ book~\cite{latex},
-\copyright~1986, by Addison-Wesley $B$NIUO?(BB.2$B$NC1$J$k=$@5HG$G$"$k!%(B
-$B4pK\9=@.$OF1$8$G$"$j!$:YL\$,>/$7JQ99$5$l$F$$$k!%(B
+本節は\LaTeX\ book~\cite{latex},
+\copyright~1986, by Addison-Wesley の付録B.2の単なる修正版である．
+基本構成は同じであり，細目が少し変更されている．
 
-\subsection{$B%(%s%H%j$N7?(B}
+\subsection{エントリの型}
 
-$B;29MJ88%$r%G!<%?%Y!<%9$KEPO?$9$k>l9g$K0lHV:G=i$K7h$a$J$1$l$P(B
-$B$J$i$J$$$3$H$O!$$=$N7?(B($B<oN`(B)$B$G$"$k!%40A4$J7h$^$C$?$d$jJ}$O$J$$$,!$(B
-\BibTeX\ $B$[$H$s$I$9$Y$F$NJ88%$r9gM}E*$K07$&$?$a$N%(%s%H%j$N7?$r(B
-$BMQ0U$7$F$$$k!%(B
+参考文献をデータベースに登録する場合に一番最初に決めなければ
+ならないことは，その型(種類)である．完全な決まったやり方はないが，
+\BibTeX\ ほとんどすべての文献を合理的に扱うためのエントリの型を
+用意している．
 
-$BJ88%$N=PHG7ABV$,0[$J$l$P$=$l$,;}$C$F$$$k>pJs$b0[$J$k!%(B
-$BO@J8;o$KH/I=$5$l$?$b$N$K$OO@J8;o$N4,?t(B(volume)$B$HHV9f(B(number)$B$,$"$k$,!$(B
-$BK\$N>l9g$K$O$3$l$i$ODL>o0UL#$,$J$$!%(B
-$B=>$C$F0[$J$C$?%(%s%H%j7?Kh$K0[$J$C$?%U%#!<%k%I$,$"$k!%(B
-$B%(%s%H%j$N7?Kh$K%U%#!<%k%I$O0J2<$N(B3$B$D$KJ,N`$5$l$k!%(B
+文献の出版形態が異なればそれが持っている情報も異なる．
+論文誌に発表されたものには論文誌の巻数(volume)と番号(number)があるが，
+本の場合にはこれらは通常意味がない．
+従って異なったエントリ型毎に異なったフィールドがある．
+エントリの型毎にフィールドは以下の3つに分類される．
 \begin{description}
 
-\item[$BI,?\(B]
-$B$3$l$,7gMn$7$F$$$k$H7Y9p%a%C%;!<%8$,=PNO$5$l!$$^$l$K$G$O$"$k$,(B
-$BJ88%%j%9%H$,JQ$J7A$K=PNO$5$l$k!%(B
-$B$b$7I,?\$J>pJs$,0UL#$r;}$?$J$$$N$G$"$l$P!$4V0c$C$?7?$r;XDj$7$F$$$k$N$G$"$k!%(B
-$BI,?\$J>pJs$,0UL#$r;}$D$N$G$"$k$,!$B>$N%U%#!<%k%I$K$=$l$,5-=R$5$l$F$$$k(B
-$B>l9g$K$O7Y9p%a%C%;!<%8$rL5;k$9$l$P$h$$!%(B
+\item[必須]
+これが欠落していると警告メッセージが出力され，まれにではあるが
+文献リストが変な形に出力される．
+もし必須な情報が意味を持たないのであれば，間違った型を指定しているのである．
+必須な情報が意味を持つのであるが，他のフィールドにそれが記述されている
+場合には警告メッセージを無視すればよい．
 
-\item[$BG$0U(B]
-$B$3$N%U%#!<%k%I$O!$$b$7$"$l$P;H$o$l$k$,!$2?$NLdBj$b$J$7$K>JN,$G$-$k!%(B
-$B$b$7$3$l$i$N%U%#!<%k%I$N>pJs$,FI<T$r=u$1$k$N$G$"$l$P!$(B
-$B$3$l$r>JN,$7$J$$J}$,$h$$!%(B
+\item[任意]
+このフィールドは，もしあれば使われるが，何の問題もなしに省略できる．
+もしこれらのフィールドの情報が読者を助けるのであれば，
+これを省略しない方がよい．
 
-\item[$BL5;k$5$l$k(B]
-$B$3$N%U%#!<%k%I$OL5;k$5$l$k!%(B
-\BibTeX\ $B$OI,?\$"$k$$$OG$0U$N%U%#!<%k%I0J30$OL5;k$9$k$+$i!$(B{\tt bib}$B%U%!%$%k(B
-$B$K$O9%$-$J%U%#!<%k%I$r=q$$$F$h$$!%(B
-$B;29MJ88%%j%9%H$K$O=PNO$5$l$J$$$+$b$7$l$J$$$,!$(B
-$BJ88%$K4XO"$9$k$9$Y$F$N>pJs$r(B{\tt bib}$B%U%!%$%k$K=q$$$F$*$/$H$h$$!%(B
-$BNc$($P!$O@J8$N%"%V%9%H%i%/%H$r%3%s%T%e!<%?$N%U%!%$%k$K$H$C$F$*$/$N$G$"$l$P!$(B
-{\tt bib}$B%U%!%$%kCf$N(B{\tt abstract}$B%U%#!<%k%I$KF~$l$F$*$1$P$h$$!%(B
-{\tt bib}$B%U%!%$%k$O%"%V%9%H%i%/%H$rF~$l$FCV$/$K$A$g$&$I$h$$>l=j$G$"$j!$(B
-$B%"%V%9%H%i%/%HIU$-$NJ88%%j%9%H$r:n@.$9$k%9%?%$%k$r:n$k$3$H$b$G$-$k!%(B
+\item[無視される]
+このフィールドは無視される．
+\BibTeX\ は必須あるいは任意のフィールド以外は無視するから，{\tt bib}ファイル
+には好きなフィールドを書いてよい．
+参考文献リストには出力されないかもしれないが，
+文献に関連するすべての情報を{\tt bib}ファイルに書いておくとよい．
+例えば，論文のアブストラクトをコンピュータのファイルにとっておくのであれば，
+{\tt bib}ファイル中の{\tt abstract}フィールドに入れておけばよい．
+{\tt bib}ファイルはアブストラクトを入れて置くにちょうどよい場所であり，
+アブストラクト付きの文献リストを作成するスタイルを作ることもできる．
 
-{\dg $BCm0U(B}$B!'%U%#!<%k%IL>$r%_%9%9%Z%k$9$k$H$=$N%U%#!<%k%I$OL5;k$5$l$k!%(B
-$BFC$KG$0U%U%#!<%k%I$N>l9g$K$O(B\BibTeX\ $B$O7Y9p%a%C%;!<%8$r=P$5$J$$$+$i!$(B
-$B%?%$%W%_%9$KCm0U$7$J$1$l$P$J$i$J$$!%(B
+{\dg 注意}：フィールド名をミススペルするとそのフィールドは無視される．
+特に任意フィールドの場合には\BibTeX\ は警告メッセージを出さないから，
+タイプミスに注意しなければならない．
 
 \end{description}
 
-$B0J2<$G3F!9$N%(%s%H%j$N7?$K$D$$$F@bL@$r9T$&!%(B
-$BF1;~$K!$J88%%j%9%H$N9`L\$H$7$FJB$Y$i$l$k=gHV$K(B
-($B%(%s%H%j7?$K$h$C$F$OFCDj$N%U%#!<%k%I$N$"$k$J$7$G<c43=gHV$,0[$J$k$3$H$b$"$k$,(B)
-$BI,?\%U%#!<%k%I!$G$0U%U%#!<%k%I$r<($9!%(B
-$B$3$l$i%(%s%H%j$N7?$O!$(B{\em Scribe}$B%7%9%F%`$N$?$a$K(BBrian Reid$B$,(B
-$B:NMQ$7$?(Bvan~Leunen~\cite{van-leunen}$B$NJ,N`$HF1$8$b$N$G$"$k!%(B
-$B8D!9$N%U%#!<%k%I$N0UL#$K$D$$$F$O<!@a$G@bL@$9$k!%(B
-$BI8=`0J30$N%9%?%$%k$G$OG$0U%U%#!<%k%I$N$$$/$D$+$rL5;k$9$k$3$H$,$"$k!%(B
-{\tt bib}$B%U%!%$%kCf$G$O%(%s%H%j$N7?$NA0$K(B{\tt @}$BJ8;z$r(B
-$BIU$1$k$N$rK:$l$F$O$J$i$J$$!%(B
+以下で各々のエントリの型について説明を行う．
+同時に，文献リストの項目として並べられる順番に
+(エントリ型によっては特定のフィールドのあるなしで若干順番が異なることもあるが)
+必須フィールド，任意フィールドを示す．
+これらエントリの型は，{\em Scribe}システムのためにBrian Reidが
+採用したvan~Leunen~\cite{van-leunen}の分類と同じものである．
+個々のフィールドの意味については次節で説明する．
+標準以外のスタイルでは任意フィールドのいくつかを無視することがある．
+{\tt bib}ファイル中ではエントリの型の前に{\tt @}文字を
+付けるのを忘れてはならない．
 
 
 \begin{description}
 \sloppy
 
-\item[article\hfill] $BO@J8;oCf$NO@J8!$;(;o$N5-;v!%(B
-$BI,?\%U%#!<%k%I!'(B{\tt author}, {\tt title}, {\tt journal},
+\item[article\hfill] 論文誌中の論文，雑誌の記事．
+必須フィールド：{\tt author}, {\tt title}, {\tt journal},
 {\tt year}.
-$BG$0U%U%#!<%k%I!'(B{\tt volume}, {\tt number},
+任意フィールド：{\tt volume}, {\tt number},
 {\tt pages}, {\tt month}, {\tt note}.
 
-\item[book\hfill] $B=PHG<gBN$,L@3N$JK\!%(B
-$BI,?\%U%#!<%k%I!'(B{\tt author}$B$^$?$O(B{\tt editor},
+\item[book\hfill] 出版主体が明確な本．
+必須フィールド：{\tt author}または{\tt editor},
 {\tt title}, {\tt publisher}, {\tt year}.
-$BG$0U%U%#!<%k%I!'(B{\tt volume}$B$^$?$O(B{\tt number}, {\tt series},
+任意フィールド：{\tt volume}または{\tt number}, {\tt series},
 {\tt address}, {\tt edition}, {\tt month},
 {\tt note}.
 
-\item[booklet\hfill] $B0u:~!$@=K\$5$l$F$$$k$,!$=PHG<T$"$k$$$O%9%]%s%5!<(B
-$B$NL>A0$,$J$$$b$N!%(B
-$BI,?\%U%#!<%k%I!'(B{\tt title}.
-$BG$0U%U%#!<%k%I!'(B{\tt author}, {\tt howpublished},
+\item[booklet\hfill] 印刷，製本されているが，出版者あるいはスポンサー
+の名前がないもの．
+必須フィールド：{\tt title}.
+任意フィールド：{\tt author}, {\tt howpublished},
 {\tt address}, {\tt month}, {\tt year}, {\tt note}.
 
-\item[conference\hfill] {\tt INPROCEEDINGS}$B$HF1$8!%(B
-{\em Scribe\/}$B$H$N8_49@-$N$?$a!%(B
+\item[conference\hfill] {\tt INPROCEEDINGS}と同じ．
+{\em Scribe\/}との互換性のため．
 
-\item[inbook\hfill] $B>O(B($B$"$k$$$O@a$J$I$N(B)$BK\$N0lItJ,$+$D(B/$B$^$?$O(B(and/or)
-$BK\$N$"$k%Z!<%8HO0O!%(B
-$BI,?\%U%#!<%k%I!'(B{\tt author}$B$"$k$$$O(B{\tt editor}, {\tt title},
-{\tt chapter}$B$+$D(B/$B$^$?$O(B{\tt pages}, {\tt publisher},
+\item[inbook\hfill] 章(あるいは節などの)本の一部分かつ/または(and/or)
+本のあるページ範囲．
+必須フィールド：{\tt author}あるいは{\tt editor}, {\tt title},
+{\tt chapter}かつ/または{\tt pages}, {\tt publisher},
 {\tt year}.
-$BG$0U%U%#!<%k%I!'(B{\tt volume}$B$^$?$O(B{\tt number}, {\tt series},
+任意フィールド：{\tt volume}または{\tt number}, {\tt series},
 {\tt type}, {\tt address},
 {\tt edition}, {\tt month}, {\tt note}.
 
-\item[incollection\hfill] $B$=$l<+?H$NI=Bj$r;}$DK\$N0lIt!%(B
-$BI,?\%U%#!<%k%I!'(B{\tt author}, {\tt title}, {\tt booktitle},
+\item[incollection\hfill] それ自身の表題を持つ本の一部．
+必須フィールド：{\tt author}, {\tt title}, {\tt booktitle},
 {\tt publisher}, {\tt year}.
-$BG$0U%U%#!<%k%I!'(B{\tt editor}, {\tt volume}$B$^$?$O(B{\tt number},
+任意フィールド：{\tt editor}, {\tt volume}または{\tt number},
 {\tt series}, {\tt type}, {\tt chapter}, {\tt pages},
 {\tt address}, {\tt edition}, {\tt month}, {\tt note}.
 
-\item[inproceedings\hfill] $B2q5DO?Cf$NO@J8!%(B
-$BI,?\%U%#!<%k%I!'(B{\tt author}, {\tt title}, {\tt booktitle},
+\item[inproceedings\hfill] 会議録中の論文．
+必須フィールド：{\tt author}, {\tt title}, {\tt booktitle},
 {\tt year}.
-$BG$0U%U%#!<%k%I!'(B{\tt editor}, {\tt volume}$B$^$?$O(B{\tt number},
+任意フィールド：{\tt editor}, {\tt volume}または{\tt number},
 {\tt series}, {\tt pages}, {\tt address}, {\tt month},
 {\tt organization}, {\tt publisher}, {\tt note}.
 
-\item[manual\hfill] $B%^%K%e%"%k!%(B
-$BI,?\%U%#!<%k%I!'(B{\tt title}.
-$BG$0U%U%#!<%k%I!'(B{\tt author}, {\tt organization},
+\item[manual\hfill] マニュアル．
+必須フィールド：{\tt title}.
+任意フィールド：{\tt author}, {\tt organization},
 {\tt address}, {\tt edition}, {\tt month}, {\tt year},
 {\tt note}.
 
-\item[mastersthesis\hfill] $B=$;NO@J8!%(B
-$BI,?\%U%#!<%k%I!'(B{\tt author}, {\tt title}, {\tt school},
+\item[mastersthesis\hfill] 修士論文．
+必須フィールド：{\tt author}, {\tt title}, {\tt school},
 {\tt year}.
-$BG$0U%U%#!<%k%I!'(B{\tt type}, {\tt address}, {\tt month},
+任意フィールド：{\tt type}, {\tt address}, {\tt month},
 {\tt note}.
 
-\item[misc\hfill] $BB>$N$I$l$bEv$F$O$^$i$J$$;~$K;H$&!%(B
-$BI,?\%U%#!<%k%I!'$J$7!%(B
-$BG$0U%U%#!<%k%I!'(B{\tt author}, {\tt title}, {\tt howpublished},
+\item[misc\hfill] 他のどれも当てはまらない時に使う．
+必須フィールド：なし．
+任意フィールド：{\tt author}, {\tt title}, {\tt howpublished},
 {\tt month}, {\tt year}, {\tt note}.
 
-\item[phdthesis\hfill] $BGn;NO@J8!%(B
-$BI,?\%U%#!<%k%I!'(B{\tt author}, {\tt title}, {\tt school},
+\item[phdthesis\hfill] 博士論文．
+必須フィールド：{\tt author}, {\tt title}, {\tt school},
 {\tt year}.
-$BG$0U%U%#!<%k%I!'(B{\tt type}, {\tt address}, {\tt month},
+任意フィールド：{\tt type}, {\tt address}, {\tt month},
 {\tt note}.
 
-\item[proceedings\hfill] $B2q5DO?!%(B
-$BI,?\%U%#!<%k%I!'(B{\tt title}, {\tt year}.
-$BG$0U%U%#!<%k%I!'(B{\tt editor}, {\tt volume}$B$^$?$O(B{\tt number},
+\item[proceedings\hfill] 会議録．
+必須フィールド：{\tt title}, {\tt year}.
+任意フィールド：{\tt editor}, {\tt volume}または{\tt number},
 {\tt series}, {\tt address}, {\tt month},
 {\tt organization}, {\tt publisher}, {\tt note}.
 
 
-\item[techreport\hfill] $B3X9;$J$I$GH/9T$5$l$F$$$k%F%/%K%+%k%l%]!<%H$G$"$j!$(B
-$BDL>o$ODLHV$r;}$D!%(B
-$BI,?\%U%#!<%k%I!'(B{\tt author},
+\item[techreport\hfill] 学校などで発行されているテクニカルレポートであり，
+通常は通番を持つ．
+必須フィールド：{\tt author},
 {\tt title}, {\tt institution}, {\tt year}.
-$BG$0U%U%#!<%k%I!'(B{\tt type}, {\tt number}, {\tt address},
+任意フィールド：{\tt type}, {\tt number}, {\tt address},
 {\tt month}, {\tt note}.
 
-\item[unpublished\hfill] $B@5<0$K$O<gHG$5$l$F$$$J$$$,!$Cx<T!$I=Bj$N$"$kCx:nJ*!%(B
-$BI,?\%U%#!<%k%I!'(B{\tt author}, {\tt title}, {\tt note}.
-$BG$0U%U%#!<%k%I!'(B{\tt month}, {\tt year}.
+\item[unpublished\hfill] 正式には主版されていないが，著者，表題のある著作物．
+必須フィールド：{\tt author}, {\tt title}, {\tt note}.
+任意フィールド：{\tt month}, {\tt year}.
 
 \end{description}
 
-$B>e$K<($7$?%U%#!<%k%I$K2C$($F!$3F!9$N%(%s%H%j7?$G$OG$0U%U%#!<%k%I$H$7$F(B
-{\tt key}$B$,$"$j!$%9%?%$%k$K$h$C$F$OJB$YBX$(!$Aj8_;2>H!$(B
-$B$"$k$$$O(B \verb|\bibitem|$B$r:n$k$N$K;H$o$l$k!%(B
-$B$^$?!$!VCx<T!W>pJs$,7g$1$F$$$k%(%s%H%j$KBP$7$F$OI,$:(B{\tt key}$B%U%#!<%k%I(B
-$B$rF~$l$F$*$+$J$$$H$$$1$J$$!%(B
-$B!VCx<T!W$ODL>o$O(B{\tt author}$B%U%#!<%k%I$K=q$/$,!$(B
-$B%(%s%H%j$N7?$K$h$C$F$O!$(B{\tt editor}$B%U%#!<%k%I(B
-$B$G$"$C$?$j!$$"$k$$$O(B{\tt organization}$B%U%#!<%k%I$G$"$C$?$j$b$9$k(B
-($BBh(B\ref{odds-and-ends} $B@a$G$b$C$H>\$7$/@bL@$9$k(B)$B!%(B
-{\tt key}$B%U%#!<%k%I$r(B \verb|\cite|$B$K8=$l$k%G!<%?%Y!<%9$N%(%s%H%j$N(B $B:G=i$K=q$/%-!<$H:.F1$7$F$O$J$i$J$$!%$3$N9`L\$,(B ``key'' $B$H$$$&L>A0(B
-$B$J$N$O(B{\it Scribe}$B$H$N8_49@-$N$?$a$G$"$k!%(B
+上に示したフィールドに加えて，各々のエントリ型では任意フィールドとして
+{\tt key}があり，スタイルによっては並べ替え，相互参照，
+あるいは \verb|\bibitem|を作るのに使われる．
+また，「著者」情報が欠けているエントリに対しては必ず{\tt key}フィールド
+を入れておかないといけない．
+「著者」は通常は{\tt author}フィールドに書くが，
+エントリの型によっては，{\tt editor}フィールド
+であったり，あるいは{\tt organization}フィールドであったりもする
+(第\ref{odds-and-ends} 節でもっと詳しく説明する)．
+{\tt key}フィールドを \verb|\cite|に現れるデータベースのエントリの 最初に書くキーと混同してはならない．この項目が ``key'' という名前
+なのは{\it Scribe}との互換性のためである．
 
 \vskip\baselineskip
-{\dg\bf \JBibTeX\ $B$G$NCm0U(B}$B!'(B\JBibTeX\ $B$NI8=`%9%?%$%k$G$O(B
-$B0J2<$K<($5$l$F$$$k%U%#!<%k%I$NB>$K!$G$0U%U%#!<%k%I$H$7$F!$(B
-$B4A;z%3!<%II=5-$5$l$?Cx<TL>$N!VFI$_!W$r=q$/$?$a$N%U%#!<%k%I$H$7$F(B
-{\tt yomi}$B$,$"$k!%(B
+{\dg\bf \JBibTeX\ での注意}：\JBibTeX\ の標準スタイルでは
+以下に示されているフィールドの他に，任意フィールドとして，
+漢字コード表記された著者名の「読み」を書くためのフィールドとして
+{\tt yomi}がある．
 
-\subsection{$B%U%#!<%k%I(B}
+\subsection{フィールド}
 
-$BI8=`%9%?%$%k$GG'<1$5$l$k%U%#!<%k%I$r0J2<$K<($9!%(B
-$BI8=`%9%?%$%k$G$OL5;k$5$l$k$,!$$3$NB>$NG$0U$N%U%#!<%k%I$r(B
-$B=q$$$F$b$h$$(B\trnote{\JBibTeX\ $B$NI8=`%9%?%$%kMQ$K(B{\tt yomi}$B%U%#!<%k%I$,(B
-$BDI2C$5$l$F$$$k!%(B}
+標準スタイルで認識されるフィールドを以下に示す．
+標準スタイルでは無視されるが，この他の任意のフィールドを
+書いてもよい\trnote{\JBibTeX\ の標準スタイル用に{\tt yomi}フィールドが
+追加されている．}
 
 \begin{description}
 
 \item[address\hfill]
-$BDL>o$O(B{\tt publisher}$B$J$I$N=;=j$r=q$/!%(B
-van~Leunen$B$O!$Bg$-$J=PHG<R$KBP$7$F$O$3$l$r>JN,$9$k$3$H$r4+$a$F$$$k!%(B
-$BB>J}!$>.$5$J=PHG<R$KBP$7$F$O!$FI<T$NJX$r9M$($F!$40A4$J=;=j$r=q$/$H$h$$!%(B
+通常は{\tt publisher}などの住所を書く．
+van~Leunenは，大きな出版社に対してはこれを省略することを勧めている．
+他方，小さな出版社に対しては，読者の便を考えて，完全な住所を書くとよい．
 
 \item[annote\hfill]
-$BCm<a!%(B
-$BI8=`$N%9%?%$%k$G$O;H$o$l$J$$$,!$B>$NCm<a$D$-$N;29MJ88%%9%?%$%k$G;H$o$l$k!%(B
+注釈．
+標準のスタイルでは使われないが，他の注釈つきの参考文献スタイルで使われる．
 
 \item[author\hfill]
-$BCx<TL>$G$"$j!$(B\LaTeX\ book$B$K@bL@$5$l$F$$$k$h$&$K=q$/(B\trnote{\JBibTeX\ $B$G$O!$(B
-$B4A;z%3!<%ICx<TL>$N@+$HL>$N4V$K$O%9%Z!<%9(B($BH>3Q$G$bA43Q$G$b(B)$B$rCV$/$3$H$,(B
-$BK>$^$7$$(B($B%9%Z!<%9$,$J$$$H(B{\tt jabbrv}$B%9%?%$%k$J$I>JN,7A$,4pK\$N%9%?%$%k$N(B
-$B;~$K@+$@$1$K$J$i$J$$(B)$B!%(B}$B!%(B
+著者名であり，\LaTeX\ bookに説明されているように書く\trnote{\JBibTeX\ では，
+漢字コード著者名の姓と名の間にはスペース(半角でも全角でも)を置くことが
+望ましい(スペースがないと{\tt jabbrv}スタイルなど省略形が基本のスタイルの
+時に姓だけにならない)．}．
 
 \item[booktitle\hfill]
-$B0lItJ,$r0zMQ$9$kK\$NI=Bj!%(B
-$B5-=R$NJ}K!$K$D$$$F$O(B\LaTeX\ book$B$r;2>H$N$3$H!%(B
-$B%(%s%H%j7?$,K\(B({\tt book})$B$N>l9g$K$O(B{\tt title}$B$r;H$&!%(B
+一部分を引用する本の表題．
+記述の方法については\LaTeX\ bookを参照のこと．
+エントリ型が本({\tt book})の場合には{\tt title}を使う．
 
 \item[chapter\hfill]
-$B>O(B($B$"$k$$$O@a$J$I$N(B)$BHV9f!%(B
+章(あるいは節などの)番号．
 
 \item[crossref\hfill]
-$B;2>H$9$kJ88%$N%G!<%?%Y!<%9%-!<!%(B
+参照する文献のデータベースキー．
 
 \item[edition\hfill]
-$BK\$NHG(B---$BNc$($P(B ``Second''$B!%(B
-($BF|K\8l0J30$G$O(B)$B=g=x?t$G=q$/$3$H!$$^$?:G=i$NJ8;z$O>e5-$NNc$N$h$&$K(B
-$BBgJ8;z$N$3$H!%I,MW$G$"$l$PI8=`%9%?%$%k$,<+F0E*$K>.J8;z$KJQ49$9$k!%(B
+本の版---例えば ``Second''．
+(日本語以外では)順序数で書くこと，また最初の文字は上記の例のように
+大文字のこと．必要であれば標準スタイルが自動的に小文字に変換する．
 
 \item[editor\hfill]
-$BJT=8<T$NL>A0$r(B\LaTeX\ book$B$N@bL@$N$h$&$K=q$/!%(B
-{\tt author}$B%U%#!<%k%I$b$"$k>l9g$K$O!$$3$3$K$OO@J8$,:\$C$F$$$k(B
-$BK\$"$k$$$OO@J8=8$NJT=8<TL>$r=q$/(B\trnote{\JBibTeX\ $B$G$O!$(B
-$BJT=8<TL>$N@+$HL>$N4V$K$O%9%Z!<%9$rCV$/$3$H$,K>$^$7$$(B($B%9%Z!<%9$,(B
-$B$J$$$H(B{\tt jabbrv}$B%9%?%$%k$N;~$K@+$@$1$K$J$i$J$$(B)$B!%(B}$B!%(B
+編集者の名前を\LaTeX\ bookの説明のように書く．
+{\tt author}フィールドもある場合には，ここには論文が載っている
+本あるいは論文集の編集者名を書く\trnote{\JBibTeX\ では，
+編集者名の姓と名の間にはスペースを置くことが望ましい(スペースが
+ないと{\tt jabbrv}スタイルの時に姓だけにならない)．}．
 
 \item[howpublished\hfill]
-$B$3$N4qL/$JCx:n$,$I$N$h$&$K$7$F=PHG$5$l$?$+!%(B
-$B:G=i$NJ8;z$OBgJ8;z$G$J$1$l$P$J$i$J$$!%(B
+この奇妙な著作がどのようにして出版されたか．
+最初の文字は大文字でなければならない．
 
 \item[institution\hfill]
-$B%F%/%K%+%k%l%]!<%H$N%9%]%s%5!<L>!%(B
+テクニカルレポートのスポンサー名．
 
 \item[journal\hfill]
-$BO@J8;o$NL>A0!%(B
-$BB?$/$NO@J8;o$N>JN,7A$,MQ0U$5$l$F$$$k!%(B
-{\it Local Guide}$B$r;2>H$N$3$H!%(B
+論文誌の名前．
+多くの論文誌の省略形が用意されている．
+{\it Local Guide}を参照のこと．
 
 \item[key\hfill]
-$BCx<T$K4X$9$k>pJs(B($BBh(B\ref{odds-and-ends} $B@a;2>H(B)$B$,$J$$;~$K(B
-$B%=!<%F%#%s%0!$Aj8_;2>H!$%i%Y%k:n@.$N=hM}$K;H$o$l$k!%(B
-$B$3$N%U%#!<%k%I$r!$%G!<%?%Y!<%9%(%s%H%j$N(B
-$B:G=i$N9`L\$G$"$k(B \verb|\cite|$B$G;H$&%-!<$H:.F1$7$F$O$J$i$J$$!%(B
+著者に関する情報(第\ref{odds-and-ends} 節参照)がない時に
+ソーティング，相互参照，ラベル作成の処理に使われる．
+このフィールドを，データベースエントリの
+最初の項目である \verb|\cite|で使うキーと混同してはならない．
 
 \item[month\hfill]
-$BCx:nJ*$,=PHG$5$l$?7n!%L$=PHG$G$"$l$P=q$+$l$?7n!%(B
-\LaTeX\ book$B$NIUO?(BB.1.3$B$K<($5$l$F$$$k(B3$BJ8;z$N>JN,7A$r;H$&$3$H(B\trnote{
-$BG0$N$?$a$KNs5s$9$k$H(B{\tt jan, feb, mar, apr, may, jun, 
-jul, aug, sep, oct, nov, dec}}$B!%(B
+著作物が出版された月．未出版であれば書かれた月．
+\LaTeX\ bookの付録B.1.3に示されている3文字の省略形を使うこと\trnote{
+念のために列挙すると{\tt jan, feb, mar, apr, may, jun, 
+jul, aug, sep, oct, nov, dec}}．
 
 \item[note\hfill]
-$BFI<T$r=u$1$kIU2CE*$J>pJs$r5-=R$9$k!%(B
-$B:G=i$NJ8;z$OBgJ8;z$G$J$1$l$P$J$i$J$$!%(B
+読者を助ける付加的な情報を記述する．
+最初の文字は大文字でなければならない．
 
 \item[number\hfill]
-$BO@J8;o!$;(;o!$%F%/%K%+%k%l%]!<%H$"$k$$$O0lO"$NCx:n$NHV9f!%(B
-$BDL>o!$O@J8;o!$;(;o$NFCDj$N9f$O4,?t$HHV9f$G<1JL$5$l!$%F%/%K%+%k%l%]!<%H(B
-$B$rH/9T$7$F$$$k5!4X$O%l%]!<%H$KHV9f$r?6$C$F$$$k!%$^$?%7%j!<%:$N(B
-$BK\$K$bHV9f$,$"$k!%(B
+論文誌，雑誌，テクニカルレポートあるいは一連の著作の番号．
+通常，論文誌，雑誌の特定の号は巻数と番号で識別され，テクニカルレポート
+を発行している機関はレポートに番号を振っている．またシリーズの
+本にも番号がある．
 
 \item[organization\hfill]
-$B2q5D$N%9%]%s%5!<$"$k$$$O%^%K%e%"%k(B{\tt manual}$B$r=PHG$7$?5!4X$NL>>N!%(B
+会議のスポンサーあるいはマニュアル{\tt manual}を出版した機関の名称．
 
 \item[pages\hfill]
-{\tt 42--111}, {\tt 7,41,73--97}, {\tt 43+}$B$J$I$N(B($B$$$/$D$+$N(B)$B%Z!<%8$"$k$$$O(B
-$B%Z!<%8HO0O(B($B:G8e$NNc$O8eB3%Z!<%8$,C1=c$JHO0O$G$J$$$3$H$r<($9(B)$B!%(B
-{\em Scribe}$B8_49$N%G!<%?%Y!<%9$N0];}$r4JC1$K$9$k$?$a!$I8=`$N%9%?%$%k$G$O(B
-{\tt 7-33}$B$N$h$&$J%@%C%7%e(B1$B$D$N7A<0$r(B\TeX\ $B$G$N?tCMHO0O$N;XDj7A<0$G$"$k(B
-{\tt 7--33}$B$N$h$&$J%@%C%7%e(B2$B$D$K<+F0E*$KJQ49$9$k!%(B
+{\tt 42--111}, {\tt 7,41,73--97}, {\tt 43+}などの(いくつかの)ページあるいは
+ページ範囲(最後の例は後続ページが単純な範囲でないことを示す)．
+{\em Scribe}互換のデータベースの維持を簡単にするため，標準のスタイルでは
+{\tt 7-33}のようなダッシュ1つの形式を\TeX\ での数値範囲の指定形式である
+{\tt 7--33}のようなダッシュ2つに自動的に変換する．
 
 \item[publisher\hfill]
-$B=PHG<gBN$NL>>N!%(B
+出版主体の名称．
 
 \item[school\hfill]
-$B=$;NO@J8!$Gn;NO@J8$,=q$+$l$?(B($BDs=P$5$l$?(B)$BBg3XL>!%(B
+修士論文，博士論文が書かれた(提出された)大学名．
 
 \item[series\hfill]
-$B0lO"$N=qJ*$N%7%j!<%:L>!$%;%C%HL>!%(B
-$BK\A4BN$r0zMQ$9$k>l9g$K$O!$(B{\tt title}$B%U%#!<%k%I$K$=$NK\$N(B
-$BI=Bj$r=q$-!$G$0U%U%#!<%k%I$G$"$k(B{\tt series}$B$K%7%j!<%:L>(B
-$B$"$k$$$OJ#?t4,$N=qJ*$NBjL>$r=q$/!%(B
+一連の書物のシリーズ名，セット名．
+本全体を引用する場合には，{\tt title}フィールドにその本の
+表題を書き，任意フィールドである{\tt series}にシリーズ名
+あるいは複数巻の書物の題名を書く．
 
 \item[title\hfill]
-$BCx:n$NI=Bj!%(B\LaTeX\ book$B$N@bL@$N$h$&$K%?%$%W%;%C%H$5$l$k!%(B
+著作の表題．\LaTeX\ bookの説明のようにタイプセットされる．
 
 \item[type\hfill]
-$B%F%/%K%+%k%l%]!<%H$N<oN`(B---$BNc$($P(B ``Research Note''$B!%(B
+テクニカルレポートの種類---例えば ``Research Note''．
 
 \item[volume\hfill]
-$BO@J8;o$"$k$$$OJ#?t4,$N=qJ*$N4,?t!%(B
+論文誌あるいは複数巻の書物の巻数．
 
 \item[year\hfill]
-$BCx:nJ*$,=PHG$5$l$?G/!%L$=PHG$G$"$l$P=q$+$l$?G/!%(B
-$BI8=`%9%?%$%k$O!$(B`{(about 1984)}' $B$N$h$&$J!$$I$s$J7A$G$b(B{\tt year}$B%U%#!<%k%I(B
-$B$K5v$9$,!$6h@Z$jJ8;z0J30$N:G8e$N(B4$BJ8;z$O!$(B
-$BDL>o$O(B{\tt 1984}$B$N$h$&$J(B4$B$D$N?t;z$+$i9=@.$5$l$F$$$J$/$F$O$J$i$J$$!%(B
+著作物が出版された年．未出版であれば書かれた年．
+標準スタイルは，`{(about 1984)}' のような，どんな形でも{\tt year}フィールド
+に許すが，区切り文字以外の最後の4文字は，
+通常は{\tt 1984}のような4つの数字から構成されていなくてはならない．
 
-\item[yomi\hfill]{\dg\bf\JBibTeX\ $B$N$_$G0UL#$r;}$D(B}$B!%(B
-$BCx<T(B($BJT=8<T(B)$BL>$,F|K\8lJ8;z$N;~$K%=!<%H!$%i%Y%k:n@.$,$&$^$/$$$/$h$&$K(B
-$B4A;z%3!<%I;aL>$NBe$j$K;H$&%U%#!<%k%I$G$"$j!$%m!<%^;zI=5-$7$?@+L>$rCx<TL>$J$I$H(B
-$BF1$8=q$-J}$G5-=R$9$k(B($B$R$i$,$J$G=q$$$F8^==2;=g$K%=!<%H$7$?$j$b$G$-$k(B)$B!%(B
-$BNc$r<($9!%(B
+\item[yomi\hfill]{\dg\bf\JBibTeX\ のみで意味を持つ}．
+著者(編集者)名が日本語文字の時にソート，ラベル作成がうまくいくように
+漢字コード氏名の代りに使うフィールドであり，ローマ字表記した姓名を著者名などと
+同じ書き方で記述する(ひらがなで書いて五十音順にソートしたりもできる)．
+例を示す．
 \begin{verbatim}
-         author="$B>>0f(B $B@50l(B and $B9b66(B $B@?(B",
+         author="松井 正一 and 高橋 誠",
          yomi="Shouichi Matsui and Makoto Takahasi"
 \end{verbatim}
 \end{description}
 \newpage
 
-\section{$B%R%s%H(B}
+\section{ヒント}
 \label{odds-and-ends}
 
-$BK\@a$G$O!$B>$G$O>\$7$/@bL@$5$l$F$$$J$$;v9`$r2r@b$9$k!%(B
-$B4JC1$J$b$N$+$i=g$K@bL@$9$k!%(B
-$B$=$NA0$K@h$:8}>e$r=R$Y$?$$!%(B
+本節では，他では詳しく説明されていない事項を解説する．
+簡単なものから順に説明する．
+その前に先ず口上を述べたい．
 
-$B;29MJ88%$N%?%$%W%;%C%H%9%?%$%k$NA*Br$NM>CO$O>/$J$$!%O@J8;o(B$X$$B$O(B$Y$$B$N(B
-$B%9%?%$%k$r;XDj$9$k$7!$$^$?JL$NO@J8;o$OJL$N$b$N$r;XDj$9$k!%(B
-$B$7$+$7!$A*Br$NM>CO$,$"$k$N$G$"$l$P!$(B{\tt plain}$BI8=`%9%?%$%k$r;H$&$3$H$r(B
-$B4+$a$k!%(B
-$B$3$N%9%?%$%k$O!$B>$N$b$N$h$j6qBNE*$G@8$-@8$-$7$?!$$h$jNI$$Cx:n$H(B
-$B$J$k$H(Bvan~Leunen~\cite{van-leunen}$B$O<gD%$7$F$$$k!%(B
+参考文献のタイプセットスタイルの選択の余地は少ない．論文誌$X$は$Y$の
+スタイルを指定するし，また別の論文誌は別のものを指定する．
+しかし，選択の余地があるのであれば，{\tt plain}標準スタイルを使うことを
+勧める．
+このスタイルは，他のものより具体的で生き生きした，より良い著作と
+なるとvan~Leunen~\cite{van-leunen}は主張している．
 
-$BB>J}$G!$(B
+他方で，
 {\em The Chicago Manual of Style\/}~\cite{chicago},
-$B$O0zMQ$,K\J8Cf$K(B `(Jones, 1986)' $B$N$h$&$K(B
-$B8=$l$k!VCx<T(B-$BG/7nF|7A<0(B(author-date)$B!W$r?d>)$7$F$$$k!%(B
-$B$7$+$7!$;d$O$3$N$h$&$JJ}<0$O4XO"$9$k(B/$B$7$J$$>pJs$,;6Mp$9$k$@$1$G$J$/!$(B
-$BK\J8$,GyA3$H$7!$$?$$$7$?$3$H$G$O$J$$$+$bCN$l$J$$$,<uF0BV$d[#Kf$JJ8$,B?$/$J$k$H(B
-$B9M$($k!%$5$i$K%3%s%T%e!<%?%?%$%W%;%C%H$N=P8=$K$h$j!$(B
-$B!V$3$l$,:G$b<BMQE*$JJ}K!$G$"$k!W$H$$$C$?5DO@$O(B
-$B$^$C$?$/0UL#$N$J$$$b$N$H$J$C$?$H9M$($k!%(B
-$BNc$($P!$(B{\em Chicago Manual\/}$B$N(B401$B%Z!<%8$NCf$4$m$K=R$Y$i$l$F$$$k!$(B
-$B!V(B{\tt plain}$B$N$h$&$J%9%?%$%k$N7gE@$O!$%?%$%W$7$?8e$G$O!$(B
-$B0zMQJ88%$NDI2C!&:o=|$N$?$a$K$O!$(B
-$B;29MJ88%%j%9%H$N=$@5$@$1$G$J$/!$K\J8Cf$NHV9f$N=$@5$,I,MW$J$3$H$G$"$k!W(B
-$B$H$$$C$?<gD%$O$^$C$?$/$N;~Be:x8m$H$$$($k!%(B
-\LaTeX\ $B$r;H$($P7gE@$G$O$J$$$3$H$OL@$i$+$G$"$k!%(B
+は引用が本文中に `(Jones, 1986)' のように
+現れる「著者-年月日形式(author-date)」を推奨している．
+しかし，私はこのような方式は関連する/しない情報が散乱するだけでなく，
+本文が漠然とし，たいしたことではないかも知れないが受動態や曖昧な文が多くなると
+考える．さらにコンピュータタイプセットの出現により，
+「これが最も実用的な方法である」といった議論は
+まったく意味のないものとなったと考える．
+例えば，{\em Chicago Manual\/}の401ページの中ごろに述べられている，
+「{\tt plain}のようなスタイルの欠点は，タイプした後では，
+引用文献の追加・削除のためには，
+参考文献リストの修正だけでなく，本文中の番号の修正が必要なことである」
+といった主張はまったくの時代錯誤といえる．
+\LaTeX\ を使えば欠点ではないことは明らかである．
 
-$B:G8e$K!$(B
-$B!VCx<TL>(B-$BG/7nF|7A<0!W$NO@M}E*7g4Y$O$=$N$?$a$N%W%m%0%i%`$r:n@.$7$F$_$k$H(B
-$BHs>o$KL@Gr$K$J$k!%Nc$($P!$B??t$N;29MJ88%%j%9%H$rIaDL$K%"%k%U%!%Y%C%H=g(B
-$B$KJB$Y$?;~$K!$(B`(Aho et~al., 1983b)' $B$,(B `(Aho et~al., 1983a)' $B$NH>%Z!<%8(B
-$B$b8e$KJB$V$3$H$,$"$k!%(B
-$B$3$l$r=$@5$9$k$H$b$C$H0-$/$J$k$3$H$b$"$k!%(B
-$B$J$s$F$3$C$?!%(B
-($BHa$7$$$3$H$K!$;d$O$=$&$$$C$?%9%?%$%k$r%W%m%0%i%`$7$?$3$H$,$"$k!%(B
-$B0$Jr$J=PHG<T$N$;$$$G!$$"$k$$$O;d$N<gD%$KF1D4$;$:$K!$$3$N$h$&$J(B
-$B%9%?%$%k$r;H$$$?$$$N$G$"$l$P!$(B
-$B$3$NJ}<0$N%9%?%$%k$O(BRochester style collection$B$+$iF~<j2DG=$G$"$k!%(B)
+最後に，
+「著者名-年月日形式」の論理的欠陥はそのためのプログラムを作成してみると
+非常に明白になる．例えば，多数の参考文献リストを普通にアルファベット順
+に並べた時に，`(Aho et~al., 1983b)' が `(Aho et~al., 1983a)' の半ページ
+も後に並ぶことがある．
+これを修正するともっと悪くなることもある．
+なんてこった．
+(悲しいことに，私はそういったスタイルをプログラムしたことがある．
+阿呆な出版者のせいで，あるいは私の主張に同調せずに，このような
+スタイルを使いたいのであれば，
+この方式のスタイルはRochester style collectionから入手可能である．)
 
-$BA08}>e$,D9$/$J$C$F$7$^$C$?$,!$;d$N5$J,$ONI$/$J$j!$7l05$b@5>o$KLa$C$?!%(B
-$B0J2<$KI8=`%9%?%$%k$G(B\BibTeX\ $B$r;H$&;~$N%R%s%H$r<($9(B($BI8=`0J30$N%9%?%$%k$G$b(B
-$BB?$/$N;vJA$,$"$F$O$^$k(B)$B!%(B
+前口上が長くなってしまったが，私の気分は良くなり，血圧も正常に戻った．
+以下に標準スタイルで\BibTeX\ を使う時のヒントを示す(標準以外のスタイルでも
+多くの事柄があてはまる)．
 
 \begin{enumerate}
 
 \item
-\BibTeX\ $B$N%9%?%$%k@_7W8@8l$r;H$($P!$;29MJ88%$N%j%9%H:n@.0J30$K$b!$(B
-$B0lHLE*$J%G!<%?%Y!<%9A`:n$N$?$a$N%W%m%0%i%`$r:n$k$3$H$,$G$-$k!%(B
-$B$3$l$r;H$C$F%G!<%?%Y!<%9Cf$N$9$Y$F$NJ88%$N%G!<%?%Y!<%9%-!<(B/$BCx<T$N(B
-$B:w0z$r@8@.$9$k%W%m%0%i%`$r:n$k$3$H$O!$$3$N8@8l$K@:DL$7$F$$$l$P4JC1$J(B
-$B$3$H$G$"$k!%(B
-$B$I$s$J%D!<%k$,MQ0U$5$l$F$$$k$+$K$D$$$F$O(B{\em Local Guide\/}
-$B$r;2>H$5$l$?$$!%(B
+\BibTeX\ のスタイル設計言語を使えば，参考文献のリスト作成以外にも，
+一般的なデータベース操作のためのプログラムを作ることができる．
+これを使ってデータベース中のすべての文献のデータベースキー/著者の
+索引を生成するプログラムを作ることは，この言語に精通していれば簡単な
+ことである．
+どんなツールが用意されているかについては{\em Local Guide\/}
+を参照されたい．
 
 \item
-$BI8=`%9%?%$%k$G;H$C$F$$$k(B13$B8D$N%(%s%H%j7?$G$[$H$s$I$NJ88%$r$&$^$/(B
-$B%U%)!<%^%C%H$G$-$k$,!$(B13$B8D$@$1$G$J$s$G$b$&$^$/$G$-$k$o$1$G$O$J$$!%(B
-$B$7$?$,$C$F!$%(%s%H%j7?$N;H$$J,$1$r9)IW$9$k$H$h$$(B($B$7$+$7!$(B
-$BM>$j$K$$$m$s$J7?$r;n$7$F$_$J$$$H$&$^$/$$$+$J$$$N$O!$(B
-$B%(%s%H%j$N7?$,4V0c$C$F$$$k$3$H$,B?$$(B)$B!%(B
+標準スタイルで使っている13個のエントリ型でほとんどの文献をうまく
+フォーマットできるが，13個だけでなんでもうまくできるわけではない．
+したがって，エントリ型の使い分けを工夫するとよい(しかし，
+余りにいろんな型を試してみないとうまくいかないのは，
+エントリの型が間違っていることが多い)．
 
 \item
-$B%U%#!<%k%IL>$O873J$K9M$($J$/$F$h$$!%(B
-$BNc$($P!$=PHG<T$N=;=j$r(B{\tt address}$B%U%#!<%k%I$G$O$J$/!$(B
-$BL>A0$H$H$b$K(B{\tt publisher}$B%U%#!<%k%I$KF~$l$k$3$H$b$G$-$k!%(B
-$B$"$k$$$O!$J#;($J7A<0$NJ88%$K$O(B{\tt note}$B%U%#!<%k%I$r$&$^$/;H$&$3$H$G(B
-$BBP=h$G$-$k!%(B
+フィールド名は厳格に考えなくてよい．
+例えば，出版者の住所を{\tt address}フィールドではなく，
+名前とともに{\tt publisher}フィールドに入れることもできる．
+あるいは，複雑な形式の文献には{\tt note}フィールドをうまく使うことで
+対処できる．
 
 \item
-$B7Y9p%a%C%;!<%8$O?<9o$K9M$($kI,MW$O$J$$!%(B
-$BNc$($P(B{\em The 1966 World Gnus Almanac}$B$N$h$&$K!$I=Bj$KG/$,(B
-$BF~$C$F$$$kJ88%$G$O!$(B{\tt year}$B%U%#!<%k%I$O>JN,$7$?J}$,$h$/!$(B
-\BibTeX\ $B$N7Y9p%a%C%;!<%8$OL5;k$7$F$h$$!%(B
+警告メッセージは深刻に考える必要はない．
+例えば{\em The 1966 World Gnus Almanac}のように，表題に年が
+入っている文献では，{\tt year}フィールドは省略した方がよく，
+\BibTeX\ の警告メッセージは無視してよい．
 
 \item
-{\tt author}, {\tt editor}$B$NL>A0$,M>$j$KB?$$;~$K$OL>A0%j%9%H$r(B
-``and others'' $B$G=*$j$K$7$F$*$1$P!$I8=`%9%?%$%k$G$O(B
-``et~al.'' $B$K<+F0E*$KJQ49$5$l$k(B\trnote{\JBibTeX $B$G$O!$(B
-$B4A;z%3!<%ICx<T$J$i(B ``$B$[$+(B'' $B$KJQ49$5$l$k!%(B}$B!%(B
+{\tt author}, {\tt editor}の名前が余りに多い時には名前リストを
+``and others'' で終りにしておけば，標準スタイルでは
+``et~al.'' に自動的に変換される\trnote{\JBibTeX では，
+漢字コード著者なら ``ほか'' に変換される．}．
 
 \item
-$B0lHL$K!$(B\BibTeX\ $B$,BgJ8;z$r>.J8;z$K<+F0E*$KJQ49$9$k$N$r(B
-$B;_$a$5$;$?$+$C$?$i!$Cf3g8L(B({\tt \{ \}})$B$G0O$a$P$h$$!%(B
-$B$7$+$7!$:8Cf3g8L$KB3$/:G=i$NJ8;z$,%P%C%/%9%i%C%7%e$G$"$k$H!$(B
-$BJQ49$5$l$k$3$H$b$"$k!%(B
-$B!VFC<lJ8;z!W$N$H$3$m$G:F$S@bL@$9$k!%(B
+一般に，\BibTeX\ が大文字を小文字に自動的に変換するのを
+止めさせたかったら，中括弧({\tt \{ \}})で囲めばよい．
+しかし，左中括弧に続く最初の文字がバックスラッシュであると，
+変換されることもある．
+「特殊文字」のところで再び説明する．
 
 \item
-{\em Scribe\/}$B$H$N8_49@-$N$?$a!$%G!<%?%Y!<%9%U%!%$%kCf$K(B {\tt @COMMENT}
-$B%3%^%s%I$r=q$/$3$H$,$G$-$k!%(B
-\BibTeX\ $B$O%G!<%?%Y!<%9%U%!%$%kCf$G$O%(%s%H%j$NFbB&(B
-$B0J30$J$i$I$3$K$G$b%3%a%s%H$r=q$/$3$H$r5v$9$+$i!$(B
-$B<B:]$K$O$3$N%3%^%s%I$OITMW$G$"$k!%(B
-$B$"$k%(%s%H%j$r%3%a%s%H%"%&%H$9$k$K$O!$C1$K%(%s%H%j$N7?$N(B
-$BA0$N(B{\tt @}$BJ8;z$r<h$j=|$1$P$h$$!%(B
+{\em Scribe\/}との互換性のため，データベースファイル中に {\tt @COMMENT}
+コマンドを書くことができる．
+\BibTeX\ はデータベースファイル中ではエントリの内側
+以外ならどこにでもコメントを書くことを許すから，
+実際にはこのコマンドは不要である．
+あるエントリをコメントアウトするには，単にエントリの型の
+前の{\tt @}文字を取り除けばよい．
 
 \item
-$BI8=`%9%?%$%k%U%!%$%kCf$K$O7W;;5!2J3X4X78$NO@J8;o$N(B
-$B>JN,7A$,$$$/$D$+F~$l$F$"$k$,!$$3$l$O$"$/$^$G$bNc$G$"$k!%(B
-$B$3$l$H0[$J$kO@J8;o$N>JN,7A$O(B {\tt @STRING}$B%3%^%s%I$r(B
-$B;H$C$F!$8D?M$N%G!<%?%Y!<%9$GDj5A$9$k$N$,$h$$!%(B
-$B$=$7$F(B\LaTeX\ $B$N(B \verb|\bibliography|$B;XDj$N:G=i$N0z?t$H$7$F!$(B
-$B$3$N>JN,7A$NF~$C$?%G!<%?%Y!<%9$r5-=R$9$l$P$h$$!%(B
+標準スタイルファイル中には計算機科学関係の論文誌の
+省略形がいくつか入れてあるが，これはあくまでも例である．
+これと異なる論文誌の省略形は {\tt @STRING}コマンドを
+使って，個人のデータベースで定義するのがよい．
+そして\LaTeX\ の \verb|\bibliography|指定の最初の引数として，
+この省略形の入ったデータベースを記述すればよい．
 
 \item
-$B!V7n!W$K4X$7$F$O!$<+J,$G7nL>$r=q$+$:$K!$(B3$BJ8;z$N>JN,7A$r;H$&$N$,$h$$!%(B
-$B$=$&$9$l$P@09gE*$J7A<0$H$J$k!%(B
-$B!VF|!W$N>pJs$b4^$a$?$$>l9g$K$O(B{\tt month}$B%U%#!<%k%I$K=q$/!%Nc$($P!$(B
+「月」に関しては，自分で月名を書かずに，3文字の省略形を使うのがよい．
+そうすれば整合的な形式となる．
+「日」の情報も含めたい場合には{\tt month}フィールドに書く．例えば，
 \begin{verbatim}
     month = jul # "~4,"
 \end{verbatim}
-$B$H$9$l$P!$K>$_$N7k2L$,F@$i$l$k!%(B
+とすれば，望みの結果が得られる．
 
 \item
-($B;29MJ88%$,0zMQ=g$KNs5s$5$l$k(B) {\tt unsrt}$B%9%?%$%k$r(B \verb|\nocite{*}|
-($B%G!<%?%Y!<%9$N$9$Y$F$NJ88%$,Ns5s$5$l$k(B)$B$H(B
-$B6&$K;H$&>l9g$K$O!$J8=qCf$N(B \verb|\nocite{*}|$B%3%^%s%I$N0LCV$G(B
-$B0zMQJ88%$NJB$V=gHV$,7h$^$k!%(B
-$BBh(B\ref{features} $B@a$G<($7$?5,B'$K$h$l$P!$(B
-$B%3%^%s%I$,J8=q$N@hF,$K$"$l$P!$%G!<%?%Y!<%9Cf$N=gHV$=$N$b$N$K$J$j!$(B
-$B:G8e$K$"$l$P!$(B \verb|\cite|$B$"$k$$$O(B \verb|\nocite|$B$GL@<(E*$K0zMQ$7$?(B
-$BJ88%$,0zMQ=g$KJB$S!$$=$N8e$K$=$l0J30$N$b$N$,%G!<%?%Y!<%9Cf$N=gHV$G(B
-$BJB$V!%(B
+(参考文献が引用順に列挙される) {\tt unsrt}スタイルを \verb|\nocite{*}|
+(データベースのすべての文献が列挙される)と
+共に使う場合には，文書中の \verb|\nocite{*}|コマンドの位置で
+引用文献の並ぶ順番が決まる．
+第\ref{features} 節で示した規則によれば，
+コマンドが文書の先頭にあれば，データベース中の順番そのものになり，
+最後にあれば， \verb|\cite|あるいは \verb|\nocite|で明示的に引用した
+文献が引用順に並び，その後にそれ以外のものがデータベース中の順番で
+並ぶ．
 
 \item
-$B3X0L$r<xM?$9$k$N$OBg3X$G$"$j3XIt$G$O$J$$$+$i!$(B
-$B3X0LO@J8$KBP$7$F$O!$(Bvan Leunen$B$O3X0L$N8e$K3XItL>$r=q$+$J$$$3$H$r(B
-$B?d>)$7$F$$$k!%(B
-$B3XItL>$r=q$$$?J}$,FI<T$,O@J8$r8+$D$1$d$9$$$H9M$($k$N$G$"$l$P!$(B
-$B3XItL>$O(B{\tt address}$B%U%#!<%k%I$K=q$/$H$h$$!%(B
+学位を授与するのは大学であり学部ではないから，
+学位論文に対しては，van Leunenは学位の後に学部名を書かないことを
+推奨している．
+学部名を書いた方が読者が論文を見つけやすいと考えるのであれば，
+学部名は{\tt address}フィールドに書くとよい．
 
 \item
-{\tt MASTERSTHESIS}$B$H(B{\tt PHDTHESIS}$B$N%(%s%H%j7A$O(B
-{\em Scribe\/}$B$H$N8_49@-$N$?$a$KIU$1$?L>>N$G$"$j!$(B
-{\tt MINORTHESIS}$B$H(B{\tt MAJORTHESIS}$B$NJ}$,NI$$L>A0$+$bCN$l$J$$!%(B
-$B=>$C$F%"%a%j%+0J30$G$N3X0LO@J8$G$O$3$N$3$H$rG0F,$K$*$/$3$H!%(B
+{\tt MASTERSTHESIS}と{\tt PHDTHESIS}のエントリ形は
+{\em Scribe\/}との互換性のために付けた名称であり，
+{\tt MINORTHESIS}と{\tt MAJORTHESIS}の方が良い名前かも知れない．
+従ってアメリカ以外での学位論文ではこのことを念頭におくこと．
 
 \item
-$B$"$kCx<T$N(B2$B$D$NCx:n$NCx<TL>$,<c430[$J$k>l9g$NBP=h$NJ}K!!%(B
-2$B$D$NO@J8$,<!$N$h$&$G$"$C$?$H$7$h$&!%(B
+ある著者の2つの著作の著者名が若干異なる場合の対処の方法．
+2つの論文が次のようであったとしよう．
 \begin{verbatim}
     author = "Donald E. Knuth"
     .  .  .
     author = "D. E. Knuth"
 \end{verbatim}
-2$B$D$N$d$jJ}$,9M$($i$l$k!%(B
-(1)$B$3$N$^$^$K$9$k!$(B(2)$B$3$l$OF10l?MJ*$G$"$k$G$"$k$3$H$,$O$C$-$j$H(B
-$BJ,$+$C$F$$$k$N$G!$Cx<T$N9%$_$N7A<0(B($BNc$($P!$(B`Donald~E.\ Knuth')$B$KE}0l$9$k!%(B
-$B:G=i$NJ}K!$G$OJ88%$NJB$V=gHV$,@5$7$/$J$/$J$k$+$b$7$l$J$$$7!$(B
-2$BHVL\$NJ}K!$G$OL>A0$r>/$7JQ$($?$3$H$G!$C/$+$,EE;RE*$K8!:w$7$?;~$K(B
-$B$X$^$r$d$k$+$b$7$l$J$$!%(B
-$B;d9%$_$NBh(B3$B$NJ}K!$,$"$k!%(B
-2$BHVL\$NO@J8$N%U%#!<%k%I$r<!$N$h$&$KJQ49$9$k!%(B
+2つのやり方が考えられる．
+(1)このままにする，(2)これは同一人物であるであることがはっきりと
+分かっているので，著者の好みの形式(例えば，`Donald~E.\ Knuth')に統一する．
+最初の方法では文献の並ぶ順番が正しくなくなるかもしれないし，
+2番目の方法では名前を少し変えたことで，誰かが電子的に検索した時に
+へまをやるかもしれない．
+私好みの第3の方法がある．
+2番目の論文のフィールドを次のように変換する．
 \begin{verbatim}
     author = "D[onald] E. Knuth"
 \end{verbatim}
-\BibTeX\ $B$O$+$.3g8L$,$J$$$H$7$F%=!<%H$9$k$7!$(B
-$B$+$.3g8L$K$h$C$FFI<T$O40A4$J!VL>!W$O85$NO@J8$K$O$J$+$C$?$H9M$($k(B
-$B$+$i!$A0=R$NLdBj$,2r7h$G$-$k!%(B
-$B$b$A$m$s(B `D[onald]~E.\ Knuth' $B$O$_$C$H$b$J$$$H$$$&JL$NLdBj$,@8$:$k$,!$(B
-$B;d$O$3$N>l9g$K$O@53N$5$N$?$a$K$OH~$7$5$r5>@7$K$7$F$h$$$H9M$($k!%(B
+\BibTeX\ はかぎ括弧がないとしてソートするし，
+かぎ括弧によって読者は完全な「名」は元の論文にはなかったと考える
+から，前述の問題が解決できる．
+もちろん `D[onald]~E.\ Knuth' はみっともないという別の問題が生ずるが，
+私はこの場合には正確さのためには美しさを犠牲にしてよいと考える．
 
 \item
-\LaTeX\ $B$N%3%a%s%HJ8;z(B `{\tt\%}' $B$O%G!<%?%Y!<%9%U%!%$%kCf$G$O(B
-$B%3%a%s%HJ8;z$G$O$J$$!%(B
+\LaTeX\ のコメント文字 `{\tt\%}' はデータベースファイル中では
+コメント文字ではない．
 
 \item
-$BA0@a$G$U$l$?!VCx<T!W$K$D$$$F$b$C$H>\$7$/@bL@$7$h$&!%(B
-$B$[$H$s$I$9$Y$F$N%(%s%H%j$G$O!VCx<T!W$OC1$K(B{\tt author}$B%U%#!<%k%I$N(B
-$B>pJs$G$"$k!%(B
-$B$7$+$7$J$,$i!$(B
-{\tt BOOK}$B$H(B{\tt INBOOK}$B%(%s%H%j7?$G$O!$(B
-{\tt author}$B$KCx<T$,$J$1$l$P(B{\tt editor}$B%U%#!<%k%I$,;H$o$l!$(B
-{\tt MANUAL}$B$G$O!$(B
-{\tt author}$B$KCx<T$,$J$1$l$P(B{\tt organization}$B%U%#!<%k%I$,;H$o$l!$(B
-{\tt PROCEEDINGS}$B$G$O!$(B
-{\tt editor}$B$KCx<T$J$1$l$P(B{\tt organization}$B%U%#!<%k%I$,;H$o$l$k!%(B
+前節でふれた「著者」についてもっと詳しく説明しよう．
+ほとんどすべてのエントリでは「著者」は単に{\tt author}フィールドの
+情報である．
+しかしながら，
+{\tt BOOK}と{\tt INBOOK}エントリ型では，
+{\tt author}に著者がなければ{\tt editor}フィールドが使われ，
+{\tt MANUAL}では，
+{\tt author}に著者がなければ{\tt organization}フィールドが使われ，
+{\tt PROCEEDINGS}では，
+{\tt editor}に著者なければ{\tt organization}フィールドが使われる．
 
 \item
-$B%i%Y%k$N:n@.$N;~$K!$(B{\tt alpha}$B%9%?%$%k$G$O>e=R$N!VCx<T!W$r;H$&$,!$(B
-{\tt MANUAL}$B$H(B{\tt PROCEEDINGS}$B%(%s%H%j7?$G$O(B
-{\tt key}$B%U%#!<%k%I$,(B{\tt organization}$B%U%#!<%k%I$h$jM%@h$9$k!%(B
-$B$3$l$O<!$N$h$&$J>l9g$KLrN)$D!%(B
+ラベルの作成の時に，{\tt alpha}スタイルでは上述の「著者」を使うが，
+{\tt MANUAL}と{\tt PROCEEDINGS}エントリ型では
+{\tt key}フィールドが{\tt organization}フィールドより優先する．
+これは次のような場合に役立つ．
 \begin{verbatim}
    organization = "The Association for Computing Machinery",
    key = "ACM"
 \end{verbatim}
-{\tt key}$B%U%#!<%k%I$,$J$$$H(B{\tt alpha}$B%9%?%$%k$O(B{\tt organization}$B%U%#!<%k%I(B
-$B$N>pJs$+$i(B3$BJ8;z$N%i%Y%k$r:n$k!%(B
-{\tt alpha}$B%9%?%$%k$O(B `{\tt The}' $B$r<h$j=|$/$,!$$=$l$G$b(B
-$B%i%Y%k$O(B `\hbox{[Ass86]}' $B$H$J$C$F$7$^$$!$;EAH$_DL$j$G$O$"$k$,!$M-1W$J(B
-$B$b$N$G$O$J$$!%(B
-$B>e$N$h$&$K(B{\tt key}$B%U%#!<%k%I$rF~$l$k$3$H$G!$$b$C$H$h$$%i%Y%k(B
-`\hbox{[ACM86]}' $B$H$G$-$k!%(B
+{\tt key}フィールドがないと{\tt alpha}スタイルは{\tt organization}フィールド
+の情報から3文字のラベルを作る．
+{\tt alpha}スタイルは `{\tt The}' を取り除くが，それでも
+ラベルは `\hbox{[Ass86]}' となってしまい，仕組み通りではあるが，有益な
+ものではない．
+上のように{\tt key}フィールドを入れることで，もっとよいラベル
+`\hbox{[ACM86]}' とできる．
 
-$B$7$+$7!$(B{\tt organization}$B%U%#!<%k%I$rL58z$K$9$k$?$a$K(B
-{\tt key}$B%U%#!<%k%I$,>o$KI,MW$J$o$1$G$O$J$$!%(B
-$BNc$($P!$(B
+しかし，{\tt organization}フィールドを無効にするために
+{\tt key}フィールドが常に必要なわけではない．
+例えば，
 \begin{verbatim}
     organization = "Unilogic, Ltd.",
 \end{verbatim}
-$B$H$7$F$*$1$P!$(B{\tt alpha}$B%9%?%$%k$O(B `\hbox{[Uni86]}' $B$H$$$C$?(B
-$B9gM}E*$J%i%Y%k$r@8@.$9$k!%(B
+としておけば，{\tt alpha}スタイルは `\hbox{[Uni86]}' といった
+合理的なラベルを生成する．
 
 \item
-$BBh(B\ref{features} $B@a$G%"%/%;%s%HIU$-J8;z$r@bL@$7$?!%(B
-\BibTeX\ $B$K$H$C$F$O%"%/%;%s%HIU$-J8;z$O!$(B
-$B%H%C%W%l%Y%k$N:8Cf3g8L$ND>8e$NJ8;z$,%P%C%/%9%i%C%7%e$G$"$k(B
-$BCf3g8L$G3g$i$l$F$$$kJ8;zNs!$$9$J$o$A(B
-$B!VFC<lJ8;z!W$NFCJL$J>l9g$K$9$.$J$$!%(B
-$BNc$($P!$(B
+第\ref{features} 節でアクセント付き文字を説明した．
+\BibTeX\ にとってはアクセント付き文字は，
+トップレベルの左中括弧の直後の文字がバックスラッシュである
+中括弧で括られている文字列，すなわち
+「特殊文字」の特別な場合にすぎない．
+例えば，
 \begin{verbatim}
     author = "\AA{ke} {Jos{\'{e}} {\'{E}douard} G{\"o}del"
 \end{verbatim}
-$B$K$O(B `\verb|{\'{E}douard}|' $B$H(B `\verb|{\"o}|'$B$N(B2$B$D$NFC<lJ8;z$,$"$k!%(B
-($B>e$NNc$G!$%U%#!<%k%I$N6h@Z$jJ8;z$G$"$k%@%V%k%/%*!<%H$r(B
-$BCf3g8L$GCV$-49$($?$b$N$G$bF1$8$3$H$G$"$k(B)$B!%(B
-$B0lHL$K(B\BibTeX\ $B$OFC<lJ8;zCf$N(B\TeX\ $B$"$k$$$O(B\LaTeX\ $B%3%^%s%I$KBP$7$F$O(B
-$B2?$NA`:n$b$[$I$3$5$J$$$,!$$=$&$G$J$$>l9g$K$OA`:n$r(B{\dg $B$[$I$3$9(B}$B!%(B
-$B$7$?$,$C$FI=Bj$r>.J8;z$KJQ49$9$k%9%?%$%k$G$O(B
+には `\verb|{\'{E}douard}|' と `\verb|{\"o}|'の2つの特殊文字がある．
+(上の例で，フィールドの区切り文字であるダブルクオートを
+中括弧で置き換えたものでも同じことである)．
+一般に\BibTeX\ は特殊文字中の\TeX\ あるいは\LaTeX\ コマンドに対しては
+何の操作もほどこさないが，そうでない場合には操作を{\dg ほどこす}．
+したがって表題を小文字に変換するスタイルでは
 \begin{verbatim}
     The {\TeX BOOK\NOOP} Experience
 \end{verbatim}
-$B$r(B
+を
 \begin{verbatim}
     The {\TeX book\NOOP} experience
 \end{verbatim}
-$B$KJQ49$9$k!%(B
-($B$7$+$7!$(B`{\tt The}' $B$OI=Bj$N:G=i$NC18l$G$"$k$N$G(B
-$B$=$l$O$=$N$^$^$G$"$k(B)$B!%(B
+に変換する．
+(しかし，`{\tt The}' は表題の最初の単語であるので
+それはそのままである)．
 
-$BFC<lJ8;z$O%"%/%;%s%HIU$-J8;z$r07$&$N$KLrN)$A!$(B
-\BibTeX\ $B$K$"$J$?$NK>$_DL$j$N=gHV$GJ88%$rJB$Y$5$;$k$N$KLrN)$D!%(B
-$B$^$?(B\BibTeX\ $B$OFC<lJ8;z$r$9$Y$F$r$^$H$a$F(B1$BJ8;z$H?t$($k$+$i!$%i%Y%k$NCf$K(B
-$BJ8;z$rDI2C$9$k$N$KLrN)$D!%(B
-\BibTeX\ $B$H$H$b$KG[I[$5$l$F$$$k(B{\tt XAMPL.BIB}$B%U%!%$%kCf$K$9$Y$F$N;H$$J}$N(B
-$BNc$,$"$k!%(B
+特殊文字はアクセント付き文字を扱うのに役立ち，
+\BibTeX\ にあなたの望み通りの順番で文献を並べさせるのに役立つ．
+また\BibTeX\ は特殊文字をすべてをまとめて1文字と数えるから，ラベルの中に
+文字を追加するのに役立つ．
+\BibTeX\ とともに配布されている{\tt XAMPL.BIB}ファイル中にすべての使い方の
+例がある．
 
 \item
-$BK\@a$N:G8e$N9`L\$H$7$F(B({\tt author}, {\tt editor}$B%U%#!<%k%I$NCf$K(B
-$B5-=R$9$k(B)$BL>A0$K$D$$$F!$(B\LaTeX\ book$B$NIUO?(BB$B$h$j>/$7>\$7$/@bL@$9$k!%(B
-$B0J2<$G$O!VL>A0!W$O8D?M$KBP1~$9$k$b$N$H$7$h$&!%(B
-($BJ#?t$NCx<T$r(B1$B$D$N%U%#!<%k%I$KF~$l$k$K$O!$Cf3g8L$KF~$l$J$$$G!$(B
-$BA08e$K%9%Z!<%9$rF~$l$F(B ``and'' $B$G$D$J$0!%(B
-$B$3$3$G$O(B1$B$D$NL>A0$@$1$r9M$($k(B)$B!%(B
+本節の最後の項目として({\tt author}, {\tt editor}フィールドの中に
+記述する)名前について，\LaTeX\ bookの付録Bより少し詳しく説明する．
+以下では「名前」は個人に対応するものとしよう．
+(複数の著者を1つのフィールドに入れるには，中括弧に入れないで，
+前後にスペースを入れて ``and'' でつなぐ．
+ここでは1つの名前だけを考える)．
 
-$BL>A0$O!$@+(B(Last)$B!$(Bvon, $BL>(B(First)$B$H(BJr$B$N(B4$B$D$NItJ,$+$i$J$j!$(B
-$B$=$l$>$l$O(B($B6u$+$b$7$l$J$$$,(B)$BJ8;zNs(B($B%H!<%/%s(B)$B$N%j%9%H$+$i$J$k!%(B
-$B6u$G$J$$L>A0$N@+$O6u$G$J$$!$$9$J$o$A(B1$B$D$NJ8;zNs$+$i$J$kL>A0(B
-$B$O@+$@$1$N$b$N$H$J$k(B\trnote{$B4A;z%3!<%II=5-$5$l$?L>A0$G$O!$@+$HL>$N4V$K(B
-$B%9%Z!<%9(B($BH>3Q$G$bA43Q$G$b(B)$B$rF~$l$F$*$1$P!$(BFamily name$B$H(BLast-token$B$+$i(B
-$B$J$k$b$N$H$5$l!$%9%Z!<%9$,$J$1$l$P(BLast-token$B$N$_$+$i$J$k$H$5$l$k!%(B}$B!%(B
+名前は，姓(Last)，von, 名(First)とJrの4つの部分からなり，
+それぞれは(空かもしれないが)文字列(トークン)のリストからなる．
+空でない名前の姓は空でない，すなわち1つの文字列からなる名前
+は姓だけのものとなる\trnote{漢字コード表記された名前では，姓と名の間に
+スペース(半角でも全角でも)を入れておけば，Family nameとLast-tokenから
+なるものとされ，スペースがなければLast-tokenのみからなるとされる．}．
 
 
-Per Brinch~Hansen$B$NL>A0$O<!$N$h$&$K%?%$%W$7$J$1$l$P$J$i$J$$!%(B
+Per Brinch~Hansenの名前は次のようにタイプしなければならない．
 \begin{verbatim}
     "Brinch Hansen, Per"
 \end{verbatim}
-$B$3$NL>A0$NL>$O(B ``Per'' $B$N(B1$B$D$N%H!<%/%s$+$i$J$j!$(B
-$B@+$O(B ``Brinch'' $B$H(B ``Hansen'' $B$N(B2$B$D$N%H!<%/%s$+$i$J$j!$(B
-von, Jr$B$NItJ,$O$J$$!%(B
-$B$b$7<!$N$h$&$K%?%$%W$7$?$H$9$k$H!$(B
+この名前の名は ``Per'' の1つのトークンからなり，
+姓は ``Brinch'' と ``Hansen'' の2つのトークンからなり，
+von, Jrの部分はない．
+もし次のようにタイプしたとすると，
 \begin{verbatim}
     "Per Brinch Hansen"
 \end{verbatim}
-\BibTeX\ $B$O(B($B8m$C$F(B)$B!$(B``John~Paul Jones'' $B$NL>%H!<%/%s$,(B ``Paul'' $B$G$"$k$N$H(B
-$BF1$8$h$&$K(B ``Brinch'' $B$,L>$N%H!<%/%s$G$"$k$H9M$(!$(B2$B$D$NL>%H!<%/%s$H(B
-1$B$D$N@+%H!<%/%s$+$i$J$k$b$N$H$9$k!%(B
+\BibTeX\ は(誤って)，``John~Paul Jones'' の名トークンが ``Paul'' であるのと
+同じように ``Brinch'' が名のトークンであると考え，2つの名トークンと
+1つの姓トークンからなるものとする．
 
-$B$b$&(B1$B$DNc$r<($=$&!%(B
+もう1つ例を示そう．
 \begin{verbatim}
     "Charles Louis Xavier Joseph de la Vall{\'e}e Poussin"
 \end{verbatim}
-$B$3$NL>A0$K$O(B4$B$D$NL>%H!<%/%s$H!$(B2$B$D$N(Bvon$B%H!<%/%s$H!$(B2$B$D$N@+%H!<%/%s$,$"$k!%(B
-von$B%Q!<%H$O>.J8;z$G;O$^$k$3$H$+$i!$(B\BibTeX\ $B$O3F!9$NItJ,$,$I$3$+$i;O$^$j!$(B
-$B$I$3$G=*$k$+$,$o$+$k!%(B
+この名前には4つの名トークンと，2つのvonトークンと，2つの姓トークンがある．
+vonパートは小文字で始まることから，\BibTeX\ は各々の部分がどこから始まり，
+どこで終るかがわかる．
 
-$B0lHL$KCf3g8L$N%l%Y%k$,(B0$B$N$H$3$m$G>.J8;z$G;O$^$k$b$N$O(Bvon$B%H!<%/%s$H$5$l$k!%(B
-$B5;=QE*$K$O!VFC<lJ8;z!W$OCf3g8L$N%l%Y%k(B0$B$G$"$k$+$i!$(B\TeX\ $B$N%3%^%s%I(B
-$BJ8;zNs$NBgJ8;z!$>.J8;z$rJ]$D$h$&$J%@%_!<$NFC<lJ8;z$r;H$&$3$H$G!$(B
-\BibTeX\ $B$,(Bvon$B%H!<%/%s$H$7$F07$&$h$&$K(B/$B07$o$J$$$h$&$K$G$-$k!%(B
+一般に中括弧のレベルが0のところで小文字で始まるものはvonトークンとされる．
+技術的には「特殊文字」は中括弧のレベル0であるから，\TeX\ のコマンド
+文字列の大文字，小文字を保つようなダミーの特殊文字を使うことで，
+\BibTeX\ がvonトークンとして扱うように/扱わないようにできる．
 
-$B$^$H$a$k$H!$(B\BibTeX\ $B$OL>A0$N=q$-J}$H$7$F<!$N(B3$B$D$N7A<0$r5v$9!%(B
+まとめると，\BibTeX\ は名前の書き方として次の3つの形式を許す．
 \begin{verbatim}
     "First von Last"
     "von Last, First"
     "von Last, Jr, First"
 \end{verbatim}
-Jr$B%Q!<%H$,$"$k>l9g!$$"$k$$$O@+$,J#?t$N9=@.MWAG$+$i$J$k>l9g0J30$G$O(B
-$B0lHV:G=i$N=q$-J}$r;H$&$N$,IaDL$G$"$k!%(B
+Jrパートがある場合，あるいは姓が複数の構成要素からなる場合以外では
+一番最初の書き方を使うのが普通である．
 
 \item
-\JBibTeX\ $B$G$O4A;z%3!<%IL>$N>l9g$K$O@+$HL>$N4V$K%9%Z!<%9(B($BH>3Q$G$bA43Q$G$b(B)$B$r(B
-$BCV$/$3$H$rI8=`$H$9$k$,!$%9%Z!<%9$,$J$/$F$b!$(B{\tt jabbrv}$B%9%?%$%k$J$I$G=PNO(B
-$B$5$l$kL>A0$,@+$N$_$K$J$i$J$$$J$I$NLdBj$7$+@8$8$J$$!%$^$?!$J#?t$N;aL>$rJB$Y$k(B
-$B;~$K$O(B \verb*| and | $B$NBe$o$j$K!$A43Q$N6gE@(B ``$B!$(B'' $B$"$k$$$O(B ``$B!"(B'' $B$r;H$&(B
-$B$3$H$b$G$-$k!%(B
+\JBibTeX\ では漢字コード名の場合には姓と名の間にスペース(半角でも全角でも)を
+置くことを標準とするが，スペースがなくても，{\tt jabbrv}スタイルなどで出力
+される名前が姓のみにならないなどの問題しか生じない．また，複数の氏名を並べる
+時には \verb*| and | の代わりに，全角の句点 ``，'' あるいは ``、'' を使う
+こともできる．
 
-\item $B%"%k%U%!%Y%C%H=g$G$J$/!$8^==2;=g$K%=!<%H$7$?$1$l$P(B{\tt yomi}$B%U%#!<%k%I$K(B
-$B!V$R$i$,$J!W$G!VFI$_!W$r=q$$$F$*$1$P$h$$!%(B
-{\tt jplain}, {\tt jabbrv}$B$G%"%k%U%!%Y%C%HI=5-$NCx<T$O%"%k%U%!%Y%C%H=g$K(B
-$BJB$Y!$$=$N8e$KF|K\8lCx<TL>$N$b$N$r8^==2;=g$KJB$Y$?$$>l9g$J$I$K!$(B
-$B$R$i$,$JI=5-$NFI$_$r;H$($P$h$$!%(B
+\item アルファベット順でなく，五十音順にソートしたければ{\tt yomi}フィールドに
+「ひらがな」で「読み」を書いておけばよい．
+{\tt jplain}, {\tt jabbrv}でアルファベット表記の著者はアルファベット順に
+並べ，その後に日本語著者名のものを五十音順に並べたい場合などに，
+ひらがな表記の読みを使えばよい．
 
-$B$?$@$7(B{\tt jalpha}$B%9%?%$%k$G$O%i%Y%k$r$&$^$/:n$j=P$9$K$O9)IW$,I,MW$G$"$k!%(B
-{\tt jalpha}$B%9%?%$%k$r;H$C$?;~$K$O!$8^==2;=g$K%=!<%H$9$k$3$H$O$J$$$G$"$m$&$,!$(B
-$B<!$NNc$N$h$&$K$9$l$P$h$$!%(B
+ただし{\tt jalpha}スタイルではラベルをうまく作り出すには工夫が必要である．
+{\tt jalpha}スタイルを使った時には，五十音順にソートすることはないであろうが，
+次の例のようにすればよい．
 
 {\baselineskip=11pt
 \begin{verbatim}
@@ -1070,19 +1070,19 @@ Jr$B%Q!<%H$,$"$k>l9g!$$"$k$$$O@+$,J#?t$N9=@.MWAG$+$i$J$k>l9g0J30$G$O(B
         title="Decision Support Systems: Theory and Application",
         publisher="North-Holland", year=1987}
   @INCOLLECTION{goto,
-        author="$B8eF#1Q0l(B", title="$B7W;;5!$K$h$k?t<0=hM}$H$O(B",
-        yomi="{\noop{$B$4$H$&(B}$B8e(B}$BF#(B",
+        author="後藤英一", title="計算機による数式処理とは",
+        yomi="{\noop{ごとう}後}藤",
         crossref="reduce", pages="4--6", year=1986 }
-  @UNPUBLISHED{$B0k:j(B,
-        author="$B0k:j(B $B=(<y(B",title="How To Use {\JLaTeX}",
-        yomi="{\noop{$B$$$=$6$-(B}$B0k(B}$B:j(B",
+  @UNPUBLISHED{磯崎,
+        author="磯崎 秀樹",title="How To Use {\JLaTeX}",
+        yomi="{\noop{いそざき}磯}崎",
         note="memo for {\JLaTeX}", year=1987}
 \end{verbatim}
 }
 
-$B$3$&$7$F$*$1$P!$3F!9$N%i%Y%k$O(B[Kow86], [HW87], 
-[$B8eF#(B86], [$B0k:j(B87]$B$H$J$j!$%"%k%U%!%Y%C%H=g$K(B[HW87], [Kow86]$B$HJB$s$@8e$K!$(B
-$B8^==2;=g$K(B[$B0k:j(B87], [$B8eF#(B86]$B$HJB$V!%(B
+こうしておけば，各々のラベルは[Kow86], [HW87], 
+[後藤86], [磯崎87]となり，アルファベット順に[HW87], [Kow86]と並んだ後に，
+五十音順に[磯崎87], [後藤86]と並ぶ．
 \end{enumerate}
 
 \bibliography{jbtxdoc}
