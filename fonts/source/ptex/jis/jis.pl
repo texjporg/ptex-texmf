@@ -34,7 +34,7 @@
    。 ． 
    )                     (COMMENT TYPE O 04 [16  0])
 (CHARSINTYPE O 5
-   — … ‥ 
+   ― … ‥ 
    )                     (COMMENT TYPE O 05 [16 16])
 (TYPE O 0 (CHARWD R 0.962216) (CHARHT R 0.777588) (CHARDP R 0.138855))
 (TYPE O 1 (CHARWD R 0.481108) (CHARHT R 0.777588) (CHARDP R 0.138855))

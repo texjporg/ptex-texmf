@@ -135,7 +135,7 @@
    ？ ！ 
    )
 (CHARSINTYPE D 5
-   — … ‥ 
+   ― … ‥ 
    )
 (CHARSINTYPE D 6
    ‘ “ （ 〔 ［ ｛ 〈 《 「 『 【 
@@ -249,7 +249,7 @@
 (TYPE D 5
    (COMMENT						全角約物
       (CHARSINTYPE D 5
-         — … ‥ 
+         ― … ‥ 
          )
       )
    (CHARWD R 0.962216)
