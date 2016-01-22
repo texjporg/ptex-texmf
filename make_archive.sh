@@ -6,13 +6,13 @@ PREFIX=$PROJECT-`date '+%y%m%d%H%M%S'`
 
 git archive --format=tar --prefix=$PREFIX/ HEAD | (cd $TMP && tar xf -)
 rm $TMP/$PREFIX/make_archive.sh
-echo " * Preprocess: iconv from UTF-8 to ISO-2022-JP"
+echo " * Preprocess: iconv -f UTF-8 -t ISO-2022-JP"
 for f in `find $TMP/$PREFIX | sort`; do
-         if file $f | fgrep -q 'UTF-8' ; then
-             iconv -f UTF-8 -t ISO-2022-JP $f > $f.conv
-             mv $f.conv $f
-             echo "iconv: $f"
-         fi
+    if file $f | fgrep -q 'text' ; then
+        iconv -f UTF-8 -t ISO-2022-JP $f > $f.conv
+        mv $f.conv $f
+        echo "iconv: $f"
+    fi
 done
 
 echo
