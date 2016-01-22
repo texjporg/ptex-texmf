@@ -1,6 +1,5 @@
-%% e-TeX V2.0;2
 %% e-pTeX macro
-%% derived from $TEXMF/tex/plain/etex/etex.src
+%% derived from $TEXMF/tex/plain/etex/etex.src (V2.1;0 01-FEB-1999)
 %% e-pTeX:   eptex *eptex.tex
 
 % Assume a purely IniTeX environment and set up a minimal \catcode r\'egime
