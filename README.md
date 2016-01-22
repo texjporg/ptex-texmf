@@ -39,8 +39,8 @@ the following commands will be helpful:
 
 ## License
 
-The bundle may be modified or distributed under the terms of the
-3-clause BSD license (see LICENSE).
+The bundle may be distributed and/or modified under the terms of
+the 3-clause BSD license (see LICENSE).
 
 Copyright (c) 2010 ASCII MEDIA WORKS
 
