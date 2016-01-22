@@ -1,6 +1,5 @@
-%% e-TeX V2.0;2
 %% e-pTeXlib
-%% derived from $TEXMF/tex/plain/etex/etexdefs.lib
+%% derived from $TEXMF/tex/plain/etex/etexdefs.lib (V2.0;8 24-MAR-1998)
 
 \module {grouptypes}
 \def \grouptypes #1{\csname gr@up: #1\endcsname}
