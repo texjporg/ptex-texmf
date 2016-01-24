@@ -17,6 +17,8 @@ The original ASCII edition can be obtained from:
 
 - http://ascii.asciimw.jp/pb/ptex/
 
+## Changes from the original ASCII edition
+
 ## Documentation
 
 A brief exposition of pLaTeX2e is provided in platex.pdf.
@@ -36,6 +38,12 @@ the following commands will be helpful:
   sh mkpldoc.sh
   dvipdfmx pldoc.dvi
 ~~~~
+
+## Character encoding
+
+All the text files containing Japanese characters in ptex-texmf are
+encoded in ISO-2022-JP. This is because ISO-2022-JP encoded texts
+are most suitable for the traditional pTeX engine.
 
 ## License
 
