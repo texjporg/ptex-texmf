@@ -568,7 +568,9 @@
 %        \$TEXMF/tex/latex2e/base directory.}
 %    \begin{macrocode}
 %<*shprog>
-rm pldoc.toc pldoc.idx pldoc.glo
+for f in pldoc.toc pldoc.idx pldoc.glo ; do
+if [ -e $f ]; then rm $f; fi
+done
 %    \end{macrocode}
 % そして、\file{ltxdoc.cfg}を空にします。
 % このファイルは、\file{jltxdoc.cls}の定義を変更するものですが、
