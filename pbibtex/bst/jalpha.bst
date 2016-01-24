@@ -14,7 +14,7 @@
 	%
 	% Please notify Shouichi MATSUI(matsui@denken.or.jp) of any bugs in
 	% these standard styles or in this documentation file.
-	% 松井 正一  (財) 電力中央研究所　情報システム部
+	% $B>>0f(B $B@50l(B  ($B:b(B) $BEENOCf1{8&5f=j!!>pJs%7%9%F%`It(B
 
 
 
@@ -263,7 +263,7 @@ FUNCTION {format.names}
 
  		{ s is.kanji.str$
 
- 			{"ほか" * }
+ 			{"$B$[$+(B" * }
 
 
  			{", et~al." * }
@@ -313,12 +313,12 @@ FUNCTION {format.editors}
       editor num.names$ #1 >
  	{ editor is.kanji.str$
 
- 		{"（編）" * } {", editors" * } if$
+ 		{"$B!JJT!K(B" * } {", editors" * } if$
 
  	}
  	{ editor is.kanji.str$
 
- 		{"（編）" *} {", editor" * } if$
+ 		{"$B!JJT!K(B" *} {", editor" * } if$
 
  	}
       if$
@@ -404,7 +404,7 @@ FUNCTION {format.bvolume}
     { volume is.kanji.str$
 	{ volume }
 	{ is.kanji.entry
-	    {"第" volume * "巻" *}
+	    {"$BBh(B" volume * "$B4,(B" *}
 	    {"Vol." volume tie.or.space.connect}
 	  if$
 	}
@@ -457,7 +457,7 @@ FUNCTION {format.edition}
     { edition is.kanji.str$
 	{ edition }
         { is.kanji.entry
-	    {"第" edition * "版" *}
+	    {"$BBh(B" edition * "$BHG(B" *}
 	    { output.state mid.sentence =
 	      { edition "l" change.case$ " edition" * }
 	      { edition "t" change.case$ " edition" * }
@@ -554,7 +554,7 @@ FUNCTION {format.chapter.pages}
 	{ chapter is.kanji.str$
 	    { "" }
 	    { is.kanji.entry
-		{"章"}
+		{"$B>O(B"}
 		{"chapter"}
 	      if$
 	    }
@@ -563,7 +563,7 @@ FUNCTION {format.chapter.pages}
 	{ type "l" change.case$ }
       if$
       chapter is.kanji.str$ not is.kanji.entry and
-          {"第" chapter * swap$ *}
+          {"$BBh(B" chapter * swap$ *}
           { chapter is.kanji.str$
 		{chapter *}
 		{chapter tie.or.space.connect}
@@ -678,7 +678,7 @@ FUNCTION {format.crossref.editor}
   #2 >
     { editor is.kanji.str$
 
-	  {pop$ "ほか" *} {pop$ ", et~al." * } if$
+	  {pop$ "$B$[$+(B" *} {pop$ ", et~al." * } if$
 
     }
     { #2 <
@@ -688,7 +688,7 @@ FUNCTION {format.crossref.editor}
 
  	    { editor is.kanji.str$
 
- 		{"ほか" *} {", et~al." * } if$
+ 		{"$B$[$+(B" *} {", et~al." * } if$
 
  	    }
  	    { editor is.kanji.str$
@@ -723,7 +723,7 @@ FUNCTION {format.book.crossref}
     { volume is.kanji.str$
 	{ volume }
 	{ is.kanji.entry
-	    {"第" volume * "巻" *}
+	    {"$BBh(B" volume * "$B4,(B" *}
 	    {"Vol." volume tie.or.space.connect " of " *  }
 	  if$
 	}
@@ -1166,8 +1166,8 @@ MACRO {toms} {"ACM Transactions on Mathematical Software"}
 MACRO {toois} {"ACM Transactions on Office Information Systems"}
 MACRO {toplas} {"ACM Transactions on Programming Languages and Systems"}
 MACRO {tcs} {"Theoretical Computer Science"}
-MACRO {tieice} {"電子情報通信学会論文誌"}
-MACRO {tipsj}  {"情報処理学会論文誌"}
+MACRO {tieice} {"$BEE;R>pJsDL?.3X2qO@J8;o(B"}
+MACRO {tipsj}  {"$B>pJs=hM}3X2qO@J8;o(B"}
 MACRO {jipsj}  {"Journal of Informatin Processing Society of Japan"}
 MACRO {jorsj}  {"Journal of the Operations Research Society of Japan"}
 
@@ -1366,7 +1366,7 @@ FUNCTION {sort.format.names}
       nameptr numnames = t "others" = and
  	{ s is.kanji.str$
 
- 		{"ほか" * }
+ 		{"$B$[$+(B" * }
 
  		{"et~al." *}
 	  if$

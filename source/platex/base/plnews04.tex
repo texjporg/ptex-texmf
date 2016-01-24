@@ -1,85 +1,85 @@
 %% <1998/09/01>
 \documentclass{plnews}
 
-\publicationyear{1998}% 発行年
-\publicationmonth{9}% 発行月
-\publicationissue{4}% 番号
-\author{中野 賢（\texttt{<ken-na at ascii.co.jp>}）
-     \& 富樫 秀昭（\texttt{<hideak-t at ascii.co.jp>}）
+\publicationyear{1998}% $BH/9TG/(B
+\publicationmonth{9}% $BH/9T7n(B
+\publicationissue{4}% $BHV9f(B
+\author{$BCfLn(B $B8-!J(B\texttt{<ken-na at ascii.co.jp>}$B!K(B
+     \& $BIY3_(B $B=(><!J(B\texttt{<hideak-t at ascii.co.jp>}$B!K(B
 }
 
 \begin{document}
 
 \maketitle
 
-\section{この文書について}
-この文書は、p\LaTeXe{}\texttt{<1998/09/01>}版について、
-p\LaTeXe{}\texttt{<1998/02/17>}版からの更新箇所をまとめたものです。
-これまでの変更点については、\textsf{plnews*.tex}やChanges.txtを
-参照してください。
+\section{$B$3$NJ8=q$K$D$$$F(B}
+$B$3$NJ8=q$O!"(Bp\LaTeXe{}\texttt{<1998/09/01>}$BHG$K$D$$$F!"(B
+p\LaTeXe{}\texttt{<1998/02/17>}$BHG$+$i$N99?72U=j$r$^$H$a$?$b$N$G$9!#(B
+$B$3$l$^$G$NJQ99E@$K$D$$$F$O!"(B\textsf{plnews*.tex}$B$d(BChanges.txt$B$r(B
+$B;2>H$7$F$/$@$5$$!#(B
 
-このp\LaTeXe{}は、\LaTeX{}\texttt{<1998/06/01>}版に対応しています。
-\LaTeX{}レベルでの更新箇所は、\LaTeX{}に付属のltnewsファイルを
-参照してください。
+$B$3$N(Bp\LaTeXe{}$B$O!"(B\LaTeX{}\texttt{<1998/06/01>}$BHG$KBP1~$7$F$$$^$9!#(B
+\LaTeX{}$B%l%Y%k$G$N99?72U=j$O!"(B\LaTeX{}$B$KIUB0$N(Bltnews$B%U%!%$%k$r(B
+$B;2>H$7$F$/$@$5$$!#(B
 
-\section{NFSS2関連}
+\section{NFSS2$B4XO"(B}
 \begin{itemize}
-\item |DeclareFixedCommand|をプリアンブル部でしか使えないようにしていたのを
-修正しました。
+\item |DeclareFixedCommand|$B$r%W%j%"%s%V%kIt$G$7$+;H$($J$$$h$&$K$7$F$$$?$N$r(B
+$B=$@5$7$^$7$?!#(B
 \end{itemize}
 
-\section{パッチの取り込み}
-\texttt{<1998/02/17>}版へのパッチとして提供していた、
-つぎの修正を取り込みました。
+\section{$B%Q%C%A$N<h$j9~$_(B}
+\texttt{<1998/02/17>}$BHG$X$N%Q%C%A$H$7$FDs6!$7$F$$$?!"(B
+$B$D$.$N=$@5$r<h$j9~$_$^$7$?!#(B
 \begin{itemize}
-\item \textsf{jclasses.dtx}：
-	\verb|\rightmark|コマンドの引数に\verb|today|コマンドを修正した
-	とき、出力される日付が「平成元年」になってしまうのを修正
-	（\textsf{pl980409.patch}）。
-\item \textsf{jclasses.dtx}：
-	reportとbookクラスで、番号の付かない見出しレベルのペナルティを
-	\verb|\@M|に修正（\textsf{pl980323.patch}）。
-\item \textsf{tascmac.sty}：
-	calcパッケージとともに用いたとき、
-	\verb|screen|環境、\verb|itembox|環境、\verb|boxnote|環境が
-	エラーになるのを修正（\textsf{pl980227.patch}）。
+\item \textsf{jclasses.dtx}$B!'(B
+	\verb|\rightmark|$B%3%^%s%I$N0z?t$K(B\verb|today|$B%3%^%s%I$r=$@5$7$?(B
+	$B$H$-!"=PNO$5$l$kF|IU$,!VJ?@.85G/!W$K$J$C$F$7$^$&$N$r=$@5(B
+	$B!J(B\textsf{pl980409.patch}$B!K!#(B
+\item \textsf{jclasses.dtx}$B!'(B
+	report$B$H(Bbook$B%/%i%9$G!"HV9f$NIU$+$J$$8+=P$7%l%Y%k$N%Z%J%k%F%#$r(B
+	\verb|\@M|$B$K=$@5!J(B\textsf{pl980323.patch}$B!K!#(B
+\item \textsf{tascmac.sty}$B!'(B
+	calc$B%Q%C%1!<%8$H$H$b$KMQ$$$?$H$-!"(B
+	\verb|screen|$B4D6-!"(B\verb|itembox|$B4D6-!"(B\verb|boxnote|$B4D6-$,(B
+	$B%(%i!<$K$J$k$N$r=$@5!J(B\textsf{pl980227.patch}$B!K!#(B
 \end{itemize}
 
 
 
-\section{フォーマットファイル作成時の注意}
-現在のp\TeX{}では、8ビットコードの連続を16ビットコードと認識して
-しまう場合があります。そのため、フランス語やキリル文字などの
-8ビットコードが連続するハイフンパターンはまず使えせん。
-例えばcmcyraltパッケージでは、途中でつぎのようなエラーになります。
+\section{$B%U%)!<%^%C%H%U%!%$%k:n@.;~$NCm0U(B}
+$B8=:_$N(Bp\TeX{}$B$G$O!"(B8$B%S%C%H%3!<%I$NO"B3$r(B16$B%S%C%H%3!<%I$HG'<1$7$F(B
+$B$7$^$&>l9g$,$"$j$^$9!#$=$N$?$a!"%U%i%s%98l$d%-%j%kJ8;z$J$I$N(B
+8$B%S%C%H%3!<%I$,O"B3$9$k%O%$%U%s%Q%?!<%s$O$^$:;H$($;$s!#(B
+$BNc$($P(Bcmcyralt$B%Q%C%1!<%8$G$O!"ESCf$G$D$.$N$h$&$J%(%i!<$K$J$j$^$9!#(B
 
 \begin{verbatim}
 (/usr/local/share/texmf/tex/latex/contrib/
 other/cmcyralt/rhyphen.tex Russian hyphena
 tion
 ! Bad \patterns.
-l.107  . え
+l.107  . $B$((B
            2
 ?
 \end{verbatim}
 
-このときは、``|?|''のプロンプトに対して``|x|''で終了してください。
-残念ながら、このハイフンパターンをp\TeX{}で利用することはできません。
+$B$3$N$H$-$O!"(B``|?|''$B$N%W%m%s%W%H$KBP$7$F(B``|x|''$B$G=*N;$7$F$/$@$5$$!#(B
+$B;DG0$J$,$i!"$3$N%O%$%U%s%Q%?!<%s$r(Bp\TeX{}$B$GMxMQ$9$k$3$H$O$G$-$^$;$s!#(B
 
-そこで、hyphen.cfgを用意して、不用意に他のハイフンパターンを
-読み込まないようにしてあります。詳しくはREADME2.txtをご覧ください。
+$B$=$3$G!"(Bhyphen.cfg$B$rMQ0U$7$F!"ITMQ0U$KB>$N%O%$%U%s%Q%?!<%s$r(B
+$BFI$_9~$^$J$$$h$&$K$7$F$"$j$^$9!#>\$7$/$O(BREADME2.txt$B$r$4Mw$/$@$5$$!#(B
 
-\section{その他}
-p\TeX{}やp\LaTeXe{}に関する最新情報は、p\TeX{}ホームページ
+\section{$B$=$NB>(B}
+p\TeX{}$B$d(Bp\LaTeXe{}$B$K4X$9$k:G?7>pJs$O!"(Bp\TeX{}$B%[!<%`%Z!<%8(B
 \begin{verbatim}
     http://www.ascii.co.jp/pb/ptex
 \end{verbatim}
-より、入手することができます。
+$B$h$j!"F~<j$9$k$3$H$,$G$-$^$9!#(B
 
-バグ報告やお問い合わせなどは、電子メールで
+$B%P%0Js9p$d$*Ld$$9g$o$;$J$I$O!"EE;R%a!<%k$G(B
 \begin{verbatim}
-    www-ptex＠ascii.co.jp
+    www-ptex$B!w(Bascii.co.jp
 \end{verbatim}
-までお願いします。
+$B$^$G$*4j$$$7$^$9!#(B
 
 \end{document}

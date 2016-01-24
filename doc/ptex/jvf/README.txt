@@ -1,125 +1,125 @@
-日本語VF生成ツール makejvf ver.1.1a
-                                            株式会社アスキー  出版技術グループ
+$BF|K\8l(BVF$B@8@.%D!<%k(B makejvf ver.1.1a
+                                            $B3t<02q<R%"%9%-!<(B  $B=PHG5;=Q%0%k!<%W(B
                                                           www-ptex@ascii.co.jp
 
-  makejvf は(株)アスキーで日本語化された dvips を使用する際に必要なVFファイルを
-生成するためのツールです。
+  makejvf $B$O(B($B3t(B)$B%"%9%-!<$GF|K\8l2=$5$l$?(B dvips $B$r;HMQ$9$k:]$KI,MW$J(BVF$B%U%!%$%k$r(B
+$B@8@.$9$k$?$a$N%D!<%k$G$9!#(B
 
-  makejvf の使用および配布に関しては、付属の COPYRIGHT ファイルを参照してくださ
-い。
+  makejvf $B$N;HMQ$*$h$SG[I[$K4X$7$F$O!"IUB0$N(B COPYRIGHT $B%U%!%$%k$r;2>H$7$F$/$@$5(B
+$B$$!#(B
 
-  dvips で日本語を扱う場合、DVIを作る際に使用する和文TFMに記述してある文字幅と、
-和文PSフォントの文字幅が異なるため、文字位置を調整するVF(Virtual Font)というファ
-イルが必要になります。makejvf はこのVFを生成するためのツールです。
-  また、縦書き時にはシングルクォート(‘’)、ダブルクォート(“”)をそれぞれシング
-ルミニュート(′とこれを180度回転させたもの)とダブルミニュート(″とこれを180度回
-転させたもの)に変換して出力します。
+  dvips $B$GF|K\8l$r07$&>l9g!"(BDVI$B$r:n$k:]$K;HMQ$9$kOBJ8(BTFM$B$K5-=R$7$F$"$kJ8;zI}$H!"(B
+$BOBJ8(BPS$B%U%)%s%H$NJ8;zI}$,0[$J$k$?$a!"J8;z0LCV$rD4@0$9$k(BVF(Virtual Font)$B$H$$$&%U%!(B
+$B%$%k$,I,MW$K$J$j$^$9!#(Bmakejvf $B$O$3$N(BVF$B$r@8@.$9$k$?$a$N%D!<%k$G$9!#(B
+  $B$^$?!"=D=q$-;~$K$O%7%s%0%k%/%)!<%H(B($B!F!G(B)$B!"%@%V%k%/%)!<%H(B($B!H!I(B)$B$r$=$l$>$l%7%s%0(B
+$B%k%_%K%e!<%H(B($B!l$H$3$l$r(B180$BEY2sE>$5$;$?$b$N(B)$B$H%@%V%k%_%K%e!<%H(B($B!m$H$3$l$r(B180$BEY2s(B
+$BE>$5$;$?$b$N(B)$B$KJQ49$7$F=PNO$7$^$9!#(B
 
 ----------------------------------------
-VFについて
+VF$B$K$D$$$F(B
 
-  VF(Virtual Font)とは、フォントを合成して仮想的なフォントとして扱うためのファイ
-ルです。
-  欧文フォントではアクセント記号を持たないフォントに他のフォントのアクセント記号
-を追加して1つのフォントとして扱ったり、任意のフォントの小文字部分を縮小した大文
-字に置き換えて SmallCaps フォントのように扱うのに使用します。
-  VFファイルの中身はDVIファイルと似ており、各文字についての出力方法がDVI命令に
-よって記述されています。文字の位置を変えることも可能です。
-  dvips でのVFとTFMの関係は次のようになっています。
+  VF(Virtual Font)$B$H$O!"%U%)%s%H$r9g@.$7$F2>A[E*$J%U%)%s%H$H$7$F07$&$?$a$N%U%!%$(B
+$B%k$G$9!#(B
+  $B2$J8%U%)%s%H$G$O%"%/%;%s%H5-9f$r;}$?$J$$%U%)%s%H$KB>$N%U%)%s%H$N%"%/%;%s%H5-9f(B
+$B$rDI2C$7$F(B1$B$D$N%U%)%s%H$H$7$F07$C$?$j!"G$0U$N%U%)%s%H$N>.J8;zItJ,$r=L>.$7$?BgJ8(B
+$B;z$KCV$-49$($F(B SmallCaps $B%U%)%s%H$N$h$&$K07$&$N$K;HMQ$7$^$9!#(B
+  VF$B%U%!%$%k$NCf?H$O(BDVI$B%U%!%$%k$H;w$F$*$j!"3FJ8;z$K$D$$$F$N=PNOJ}K!$,(BDVI$BL?Na$K(B
+$B$h$C$F5-=R$5$l$F$$$^$9!#J8;z$N0LCV$rJQ$($k$3$H$b2DG=$G$9!#(B
+  dvips $B$G$N(BVF$B$H(BTFM$B$N4X78$O<!$N$h$&$K$J$C$F$$$^$9!#(B
 
-    TeX がTFMを参照して組版
-              ↓
-    dvips がDVI中のTFMと同じ名前のVFを参照(なければ文字合成なし)
-              ↓
-    VF中に記述されている各文字の定義(文字毎にフォントを設定できる)を参照
-              ↓
-    文字定義に従って dvips が各文字を置換
+    TeX $B$,(BTFM$B$r;2>H$7$FAHHG(B
+              $B"-(B
+    dvips $B$,(BDVI$BCf$N(BTFM$B$HF1$8L>A0$N(BVF$B$r;2>H(B($B$J$1$l$PJ8;z9g@.$J$7(B)
+              $B"-(B
+    VF$BCf$K5-=R$5$l$F$$$k3FJ8;z$NDj5A(B($BJ8;zKh$K%U%)%s%H$r@_Dj$G$-$k(B)$B$r;2>H(B
+              $B"-(B
+    $BJ8;zDj5A$K=>$C$F(B dvips $B$,3FJ8;z$rCV49(B
 
-  dvipsで日本語を扱う場合、min10 や goth10 の文字位置と和文PSフォントの文字位置
-の違いが問題になります。
-  例えば "（" のような、左に空きがある括弧類の場合、和文PSフォントでは左の空きも
-含んだ文字として扱いますが、min10 や goth10 では左の空きは文字として扱わず、「空
-き+"("」のような扱いになります。そのため min10 の "（" をそのままPSの "（" に置
-き換えてしまうと、想定した位置より右に出力されてしまいます。
-  そこでVF中に「"（" は左にずらして置き換える」という記述をしておき、dvips がVF
-を参照して位置調整を行うようになっています。
+  dvips$B$GF|K\8l$r07$&>l9g!"(Bmin10 $B$d(B goth10 $B$NJ8;z0LCV$HOBJ8(BPS$B%U%)%s%H$NJ8;z0LCV(B
+$B$N0c$$$,LdBj$K$J$j$^$9!#(B
+  $BNc$($P(B "$B!J(B" $B$N$h$&$J!":8$K6u$-$,$"$k3g8LN`$N>l9g!"OBJ8(BPS$B%U%)%s%H$G$O:8$N6u$-$b(B
+$B4^$s$@J8;z$H$7$F07$$$^$9$,!"(Bmin10 $B$d(B goth10 $B$G$O:8$N6u$-$OJ8;z$H$7$F07$o$:!"!V6u(B
+$B$-(B+"("$B!W$N$h$&$J07$$$K$J$j$^$9!#$=$N$?$a(B min10 $B$N(B "$B!J(B" $B$r$=$N$^$^(BPS$B$N(B "$B!J(B" $B$KCV(B
+$B$-49$($F$7$^$&$H!"A[Dj$7$?0LCV$h$j1&$K=PNO$5$l$F$7$^$$$^$9!#(B
+  $B$=$3$G(BVF$BCf$K!V(B"$B!J(B" $B$O:8$K$:$i$7$FCV$-49$($k!W$H$$$&5-=R$r$7$F$*$-!"(Bdvips $B$,(BVF
+$B$r;2>H$7$F0LCVD4@0$r9T$&$h$&$K$J$C$F$$$^$9!#(B
 ----------------------------------------
 
-コンパイルおよびインストール:
+$B%3%s%Q%$%k$*$h$S%$%s%9%H!<%k(B:
 
-  makejvf のインストール先を Makefile の DISTDIR に指定しておいて下さい。
-  make を実行すると makejvf が作られ、さらに make install を実行すると
-  DISTDIR で指定したディレクトリにインストールされます。
+  makejvf $B$N%$%s%9%H!<%k@h$r(B Makefile $B$N(B DISTDIR $B$K;XDj$7$F$*$$$F2<$5$$!#(B
+  make $B$r<B9T$9$k$H(B makejvf $B$,:n$i$l!"$5$i$K(B make install $B$r<B9T$9$k$H(B
+  DISTDIR $B$G;XDj$7$?%G%#%l%/%H%j$K%$%s%9%H!<%k$5$l$^$9!#(B
 
-必要なファイル:
+$BI,MW$J%U%!%$%k(B:
 
-  min10.tfm や goth10.tfm 等、pTeXで使用する和文TFMファイル。縦書き用(tmin10.tfm
-等)も扱えます。
+  min10.tfm $B$d(B goth10.tfm $BEy!"(BpTeX$B$G;HMQ$9$kOBJ8(BTFM$B%U%!%$%k!#=D=q$-MQ(B(tmin10.tfm
+$BEy(B)$B$b07$($^$9!#(B
 
-使用方法:
+$B;HMQJ}K!(B:
 
-  % makejvf <和文TFMファイル名> <和文PSフォントTFM名>
+  % makejvf <$BOBJ8(BTFM$B%U%!%$%kL>(B> <$BOBJ8(BPS$B%U%)%s%H(BTFM$BL>(B>
 
-  <和文TFMファイル名>:   pTeX で使用する和文TFMの名前。カレントディレクトリ
-                         に用意しておく。この名前の拡張子を`.vf'にしたものが
-                         VFファイルとして生成される。
-  <和文PSフォントTFM名>: 実際に出力される和文PSフォントの文字幅情報を記述した
-                         TFMの名前。makejvf により生成される。また、この名前
-                         がVF中に記述される。
+  <$BOBJ8(BTFM$B%U%!%$%kL>(B>:   pTeX $B$G;HMQ$9$kOBJ8(BTFM$B$NL>A0!#%+%l%s%H%G%#%l%/%H%j(B
+                         $B$KMQ0U$7$F$*$/!#$3$NL>A0$N3HD%;R$r(B`.vf'$B$K$7$?$b$N$,(B
+                         VF$B%U%!%$%k$H$7$F@8@.$5$l$k!#(B
+  <$BOBJ8(BPS$B%U%)%s%H(BTFM$BL>(B>: $B<B:]$K=PNO$5$l$kOBJ8(BPS$B%U%)%s%H$NJ8;zI}>pJs$r5-=R$7$?(B
+                         TFM$B$NL>A0!#(Bmakejvf $B$K$h$j@8@.$5$l$k!#$^$?!"$3$NL>A0(B
+                         $B$,(BVF$BCf$K5-=R$5$l$k!#(B
 
-  オプション:
+  $B%*%W%7%g%s(B:
     -C
-        長体（左右の幅を縮めた書体）のTFMを元にVFを作成する場合に使用します。
-        長体VF作成時に-Cを付けないと、単に小さいフォントのTFMとして扱われて
-        しまいます。
+        $BD9BN!J:81&$NI}$r=L$a$?=qBN!K$N(BTFM$B$r85$K(BVF$B$r:n@.$9$k>l9g$K;HMQ$7$^$9!#(B
+        $BD9BN(BVF$B:n@.;~$K(B-C$B$rIU$1$J$$$H!"C1$K>.$5$$%U%)%s%H$N(BTFM$B$H$7$F07$o$l$F(B
+        $B$7$^$$$^$9!#(B
 
-    -K <和文PSフォントTFM名>
-        非漢字部のPSフォントTFMを指定します。これにより、１書体で漢字部と非
-        漢字部で異なるフォントが使用できます。
+    -K <$BOBJ8(BPS$B%U%)%s%H(BTFM$BL>(B>
+        $BHs4A;zIt$N(BPS$B%U%)%s%H(BTFM$B$r;XDj$7$^$9!#$3$l$K$h$j!"#1=qBN$G4A;zIt$HHs(B
+        $B4A;zIt$G0[$J$k%U%)%s%H$,;HMQ$G$-$^$9!#(B
 
-    -b <数値>
-        ベースライン補正の数値を指定します。文字の高さを1000として整数で指定、
-        プラスで文字が下がり、マイナスで文字が上がります。
+    -b <$B?tCM(B>
+        $B%Y!<%9%i%$%sJd@5$N?tCM$r;XDj$7$^$9!#J8;z$N9b$5$r(B1000$B$H$7$F@0?t$G;XDj!"(B
+        $B%W%i%9$GJ8;z$,2<$,$j!"%^%$%J%9$GJ8;z$,>e$,$j$^$9!#(B
 
     -m
-        縦書き時にクオート類（’”）をミニュート（′″）へ変換します。
+        $B=D=q$-;~$K%/%*!<%HN`!J!G!I!K$r%_%K%e!<%H!J!l!m!K$XJQ49$7$^$9!#(B
 
-  ---以下２つは正式にサポートされているオプションではありません---
+  ---$B0J2<#2$D$O@5<0$K%5%]!<%H$5$l$F$$$k%*%W%7%g%s$G$O$"$j$^$;$s(B---
 
-    -a  <AFMファイル名>
-        PSフォントのAFMファイル名を指定します。
-       かな詰めフォント作成時に使用します。
+    -a  <AFM$B%U%!%$%kL>(B>
+        PS$B%U%)%s%H$N(BAFM$B%U%!%$%kL>$r;XDj$7$^$9!#(B
+       $B$+$J5M$a%U%)%s%H:n@.;~$K;HMQ$7$^$9!#(B
 
-    -k  <数値>
-        かな詰めマージンを指定します。文字幅を1000として整数で指定。
-        -aオプションと共に使用します。
+    -k  <$B?tCM(B>
+        $B$+$J5M$a%^!<%8%s$r;XDj$7$^$9!#J8;zI}$r(B1000$B$H$7$F@0?t$G;XDj!#(B
+        -a$B%*%W%7%g%s$H6&$K;HMQ$7$^$9!#(B
 
-例1: min10 をリュウミン-Lとして使用する場合:
+$BNc(B1: min10 $B$r%j%e%&%_%s(B-L$B$H$7$F;HMQ$9$k>l9g(B:
 
-  % makejvf min10.tfm rml  (min10.vf と rml.tfm が生成される)
+  % makejvf min10.tfm rml  (min10.vf $B$H(B rml.tfm $B$,@8@.$5$l$k(B)
 
-  こうして生成されたVFおよびTFMを $TEXMF 以下の検索パスが通る場所に置きます。
-さらに、rml が出力機のリュウミン-Lであることを宣言するために、$TEXMF/dvips 以下
-にある psfonts.map に次のような記述を追加します。
+  $B$3$&$7$F@8@.$5$l$?(BVF$B$*$h$S(BTFM$B$r(B $TEXMF $B0J2<$N8!:w%Q%9$,DL$k>l=j$KCV$-$^$9!#(B
+$B$5$i$K!"(Brml $B$,=PNO5!$N%j%e%&%_%s(B-L$B$G$"$k$3$H$r@k8@$9$k$?$a$K!"(B$TEXMF/dvips $B0J2<(B
+$B$K$"$k(B psfonts.map $B$K<!$N$h$&$J5-=R$rDI2C$7$^$9!#(B
 
     rml Ryumin-Light-H
 
-  これで min10 を使用した箇所が dvips によりリュウミン-Lに置きかえられます。
-Ryumin-Light-H を ShinGo-Bold-H にすれば新ゴ-Bに、FutoMinA101-Bold-H にすれば
-太ミンに置きかえられます。
-  このようなVFおよびTFMを多数作成することで多書体の使用が可能になります。なお、
-元になるTFMは min10.tfm を別の名前にコピーして使用します。
+  $B$3$l$G(B min10 $B$r;HMQ$7$?2U=j$,(B dvips $B$K$h$j%j%e%&%_%s(B-L$B$KCV$-$+$($i$l$^$9!#(B
+Ryumin-Light-H $B$r(B ShinGo-Bold-H $B$K$9$l$P?7%4(B-B$B$K!"(BFutoMinA101-Bold-H $B$K$9$l$P(B
+$BB@%_%s$KCV$-$+$($i$l$^$9!#(B
+  $B$3$N$h$&$J(BVF$B$*$h$S(BTFM$B$rB??t:n@.$9$k$3$H$GB?=qBN$N;HMQ$,2DG=$K$J$j$^$9!#$J$*!"(B
+$B85$K$J$k(BTFM$B$O(B min10.tfm $B$rJL$NL>A0$K%3%T!<$7$F;HMQ$7$^$9!#(B
 
-例2: 非漢字部に見出しミン、漢字部に太ゴを使用する場合:
+$BNc(B2: $BHs4A;zIt$K8+=P$7%_%s!"4A;zIt$KB@%4$r;HMQ$9$k>l9g(B:
 
   % makejvf -K midashimin-ma31 jcomic.tfm futogo-b
 
-  漫画の台詞のような、かなを明朝書体、漢字をゴシック書体で使用する例です。
-jcomic.tfm にはあらかじめ min10.tfm をコピーしておきます。psfonts.map には次の
-ような記述を追加します。
+  $BL!2h$NBf;l$N$h$&$J!"$+$J$rL@D+=qBN!"4A;z$r%4%7%C%/=qBN$G;HMQ$9$kNc$G$9!#(B
+jcomic.tfm $B$K$O$"$i$+$8$a(B min10.tfm $B$r%3%T!<$7$F$*$-$^$9!#(Bpsfonts.map $B$K$O<!$N(B
+$B$h$&$J5-=R$rDI2C$7$^$9!#(B
 
     midashimin-ma31 MidashiMin-MA31-H
     futogo-b FutoGoB101-Bold-H
 
-これで jcomic.tfm を使用すると、生成された jcomic.vf によって非漢字部は見出しミ
-ン、漢字部は太ゴで出力されます。
+$B$3$l$G(B jcomic.tfm $B$r;HMQ$9$k$H!"@8@.$5$l$?(B jcomic.vf $B$K$h$C$FHs4A;zIt$O8+=P$7%_(B
+$B%s!"4A;zIt$OB@%4$G=PNO$5$l$^$9!#(B

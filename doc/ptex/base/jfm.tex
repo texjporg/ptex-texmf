@@ -5,98 +5,98 @@
 \pagestyle{headings}
 \begin{document}
 \section{JFM file format}
-%JFMファイルフォーマット
-JFMファイルのフォーマットは、
-基本的にはTFMファイルのフォーマットに準拠しており、
-TFMを拡張した形になっている。
-ここでは、主にその拡張部分について説明を行い、
-その他の部分に関しては、
-\TeX\ the program等のTFMの説明を参照してもらいたい。
-\subsection{JFMファイルの構成}
-JFMファイル全体の構成は、
-Table\ref{構成}(\pageref{構成}ページ)に示すとおりである。 \\
-ここでTFMと異なるのは次の点である。
+%JFM$B%U%!%$%k%U%)!<%^%C%H(B
+JFM$B%U%!%$%k$N%U%)!<%^%C%H$O!"(B
+$B4pK\E*$K$O(BTFM$B%U%!%$%k$N%U%)!<%^%C%H$K=`5r$7$F$*$j!"(B
+TFM$B$r3HD%$7$?7A$K$J$C$F$$$k!#(B
+$B$3$3$G$O!"<g$K$=$N3HD%ItJ,$K$D$$$F@bL@$r9T$$!"(B
+$B$=$NB>$NItJ,$K4X$7$F$O!"(B
+\TeX\ the program$BEy$N(BTFM$B$N@bL@$r;2>H$7$F$b$i$$$?$$!#(B
+\subsection{JFM$B%U%!%$%k$N9=@.(B}
+JFM$B%U%!%$%kA4BN$N9=@.$O!"(B
+Table\ref{$B9=@.(B}(\pageref{$B9=@.(B}$B%Z!<%8(B)$B$K<($9$H$*$j$G$"$k!#(B \\
+$B$3$3$G(BTFM$B$H0[$J$k$N$O<!$NE@$G$"$k!#(B
 \begin{enumerate}
-\item {\it char\_type}のテーブルが付け加えられたこと。
-\item {\it ligature}の換わりに{\it glue}のテーブルが設けられたこと。
-\item 2に関連して、{\it lig\_kern}から{\it glue\_kern}テーブルへ変更されたこと。
-\item これらに伴い、先頭のファイル内の各部分を規定する
-	パラメータ表が変更されている。
-	また、オリジナルのTFMとの区別のためにidを付加している。
+\item {\it char\_type}$B$N%F!<%V%k$,IU$12C$($i$l$?$3$H!#(B
+\item {\it ligature}$B$N49$o$j$K(B{\it glue}$B$N%F!<%V%k$,@_$1$i$l$?$3$H!#(B
+\item 2$B$K4XO"$7$F!"(B{\it lig\_kern}$B$+$i(B{\it glue\_kern}$B%F!<%V%k$XJQ99$5$l$?$3$H!#(B
+\item $B$3$l$i$KH<$$!"@hF,$N%U%!%$%kFb$N3FItJ,$r5,Dj$9$k(B
+	$B%Q%i%a!<%?I=$,JQ99$5$l$F$$$k!#(B
+	$B$^$?!"%*%j%8%J%k$N(BTFM$B$H$N6hJL$N$?$a$K(Bid$B$rIU2C$7$F$$$k!#(B
 \end{enumerate}
 
 \subsection{char\_type}
-今回の\TeX の日本語化においては、同一の文字幅、
-高さ前後に挿入されるグルー等、その文字が持つ属性全てが
-同じものを、1つの{\it `char\_type'}として英字フォントの1キャラクタと
-同様にして扱うようにしている。
-そこで、漢字の2バイトコードとこの{\it char\_type}との対応付けを
-このテーブルを使って行う。
+$B:#2s$N(B\TeX $B$NF|K\8l2=$K$*$$$F$O!"F10l$NJ8;zI}!"(B
+$B9b$5A08e$KA^F~$5$l$k%0%k!<Ey!"$=$NJ8;z$,;}$DB0@-A4$F$,(B
+$BF1$8$b$N$r!"(B1$B$D$N(B{\it `char\_type'}$B$H$7$F1Q;z%U%)%s%H$N(B1$B%-%c%i%/%?$H(B
+$BF1MM$K$7$F07$&$h$&$K$7$F$$$k!#(B
+$B$=$3$G!"4A;z$N(B2$B%P%$%H%3!<%I$H$3$N(B{\it char\_type}$B$H$NBP1~IU$1$r(B
+$B$3$N%F!<%V%k$r;H$C$F9T$&!#(B
 
-このテーブルの各エントリーは1ワードで構成され、
-上位半ワードに漢字コード、下位半ワードに{\it char\_type}を持ち、
-テーブル内にはコードの値の順番に収められていなければならない。
-またこのテーブルの先頭には、デフォルトのインデックスとして
-漢字コード及び{\it char\_type}の項が0のものが、
-必ず1つ存在しなければならず、このテーブルに登録されていない文字は、
-$char\_type = 0$として扱う。
-つまり、このデフォルト以外の文字幅、カーン等の属性を持つキャラクタ
-のコードとタイプが2番目以降のエントリーとして存在しなければならない。
+$B$3$N%F!<%V%k$N3F%(%s%H%j!<$O(B1$B%o!<%I$G9=@.$5$l!"(B
+$B>e0LH>%o!<%I$K4A;z%3!<%I!"2<0LH>%o!<%I$K(B{\it char\_type}$B$r;}$A!"(B
+$B%F!<%V%kFb$K$O%3!<%I$NCM$N=gHV$K<}$a$i$l$F$$$J$1$l$P$J$i$J$$!#(B
+$B$^$?$3$N%F!<%V%k$N@hF,$K$O!"%G%U%)%k%H$N%$%s%G%C%/%9$H$7$F(B
+$B4A;z%3!<%I5Z$S(B{\it char\_type}$B$N9`$,(B0$B$N$b$N$,!"(B
+$BI,$:(B1$B$DB8:_$7$J$1$l$P$J$i$:!"$3$N%F!<%V%k$KEPO?$5$l$F$$$J$$J8;z$O!"(B
+$char\_type = 0$$B$H$7$F07$&!#(B
+$B$D$^$j!"$3$N%G%U%)%k%H0J30$NJ8;zI}!"%+!<%sEy$NB0@-$r;}$D%-%c%i%/%?(B
+$B$N%3!<%I$H%?%$%W$,(B2$BHVL\0J9_$N%(%s%H%j!<$H$7$FB8:_$7$J$1$l$P$J$i$J$$!#(B
 
 \subsection{char\_info}
-{\it char\_type}をインデックスとしてこのテーブルを
-参照することにより、各{\it char\_type}の属性を検索する。
-各テーブルへのインデックス等の情報を次の順番でパッキング
-して1ワードに収めてある。
+{\it char\_type}$B$r%$%s%G%C%/%9$H$7$F$3$N%F!<%V%k$r(B
+$B;2>H$9$k$3$H$K$h$j!"3F(B{\it char\_type}$B$NB0@-$r8!:w$9$k!#(B
+$B3F%F!<%V%k$X$N%$%s%G%C%/%9Ey$N>pJs$r<!$N=gHV$G%Q%C%-%s%0(B
+$B$7$F(B1$B%o!<%I$K<}$a$F$"$k!#(B
 \begin{description}
-\item{width\_index(8bits)} width\_table へのインデックス
-\item{height\_index(4bits)} height\_table へのインデックス
-\item{depth\_index(4bits)} depth\_table へのインデックス
-\item{italic\_index(6bits)} italic\_table へのインデックス
+\item{width\_index(8bits)} width\_table $B$X$N%$%s%G%C%/%9(B
+\item{height\_index(4bits)} height\_table $B$X$N%$%s%G%C%/%9(B
+\item{depth\_index(4bits)} depth\_table $B$X$N%$%s%G%C%/%9(B
+\item{italic\_index(6bits)} italic\_table $B$X$N%$%s%G%C%/%9(B
 \item{tag(2bits)}
 	\begin{description}
-	\item{tag=0} {\it remainder}の項は無効であり使用しないことを示す。
-	\item{tag=1} {\it glue\_kern}プログラムが{\it glue\_kern[remender]}
-		からに収めれれていることを示す。
-	\item{tag=2、3} 使用しない。
+	\item{tag=0} {\it remainder}$B$N9`$OL58z$G$"$j;HMQ$7$J$$$3$H$r<($9!#(B
+	\item{tag=1} {\it glue\_kern}$B%W%m%0%i%`$,(B{\it glue\_kern[remender]}
+		$B$+$i$K<}$a$l$l$F$$$k$3$H$r<($9!#(B
+	\item{tag=2$B!"(B3} $B;HMQ$7$J$$!#(B
 	\end{description}
 \item{remainder(8bits)}
 \end{description}
 %
 \subsection{glue\_kern}
-特定のキャラクタタイプの組み合せ時に挿入すべきglue又はkernを
-簡単なプログラム言語によって指定する。
-各命令は、以下の4バイトで構成される。
+$BFCDj$N%-%c%i%/%?%?%$%W$NAH$_9g$;;~$KA^F~$9$Y$-(Bglue$BKt$O(Bkern$B$r(B
+$B4JC1$J%W%m%0%i%`8@8l$K$h$C$F;XDj$9$k!#(B
+$B3FL?Na$O!"0J2<$N(B4$B%P%$%H$G9=@.$5$l$k!#(B
 \begin{description}
-\item{第1バイト} 128以上の時、このワードでプログラム終了。
-\item{第2バイト}
+\item{$BBh(B1$B%P%$%H(B} 128$B0J>e$N;~!"$3$N%o!<%I$G%W%m%0%i%`=*N;!#(B
+\item{$BBh(B2$B%P%$%H(B}
 	\begin{itemize}
-	\item 次の文字のキャラクタタイプが、
-		このバイトで示すキャラクタタイプと同じ場合、
-		第3バイトの処理を実行し、プログラム終了。
-	\item そうでなければ次のステップへ。
+	\item $B<!$NJ8;z$N%-%c%i%/%?%?%$%W$,!"(B
+		$B$3$N%P%$%H$G<($9%-%c%i%/%?%?%$%W$HF1$8>l9g!"(B
+		$BBh(B3$B%P%$%H$N=hM}$r<B9T$7!"%W%m%0%i%`=*N;!#(B
+	\item $B$=$&$G$J$1$l$P<!$N%9%F%C%W$X!#(B
 	\end{itemize}
-\item{第3バイト}
-	この値によってグルーを扱うかカーンを扱うかを規定する。
+\item{$BBh(B3$B%P%$%H(B}
+	$B$3$NCM$K$h$C$F%0%k!<$r07$&$+%+!<%s$r07$&$+$r5,Dj$9$k!#(B
 	\begin{itemize}
-	\item 127以下の場合{\it glue[remainder$\times$3]}のグルーを挿入。
-	\item 128以上の場合{\it kern[remainder]}のカーンを挿入。
+	\item 127$B0J2<$N>l9g(B{\it glue[remainder$\times$3]}$B$N%0%k!<$rA^F~!#(B
+	\item 128$B0J>e$N>l9g(B{\it kern[remainder]}$B$N%+!<%s$rA^F~!#(B
 	\end{itemize}
-\item{第4バイト} remainder
+\item{$BBh(B4$B%P%$%H(B} remainder
 \end{description}
-\subsection{glueテーブル}
-3ワードで1つのグルーを構成する。
-各値は、$design size\times2^{-20}$を単位として表す。
+\subsection{glue$B%F!<%V%k(B}
+3$B%o!<%I$G(B1$B$D$N%0%k!<$r9=@.$9$k!#(B
+$B3FCM$O!"(B$design size\times2^{-20}$$B$rC10L$H$7$FI=$9!#(B
 \begin{description}
-\item{第1ワード} width
-\item{第2ワード} stretch
-\item{第3ワード} shrink
+\item{$BBh(B1$B%o!<%I(B} width
+\item{$BBh(B2$B%o!<%I(B} stretch
+\item{$BBh(B3$B%o!<%I(B} shrink
 \end{description}
-\subsection{paramテーブル}
+\subsection{param$B%F!<%V%k(B}
 \begin{description}
-\item{param[1]} italic slant。
-\item{param[2][3][4]} 漢字フォント間に挿入するグルーのデフォルト値。
-\item{param[5][6][7]} 漢字--英字フォント間に挿入するグルーのデフォルト値。
+\item{param[1]} italic slant$B!#(B
+\item{param[2][3][4]} $B4A;z%U%)%s%H4V$KA^F~$9$k%0%k!<$N%G%U%)%k%HCM!#(B
+\item{param[5][6][7]} $B4A;z(B--$B1Q;z%U%)%s%H4V$KA^F~$9$k%0%k!<$N%G%U%)%k%HCM!#(B
 \end{description}
 \newpage
 \begin{table}[h]
@@ -163,6 +163,6 @@ $ng=$ number of words in the glue table. \\
 $np=$ number of font parameter words. \\
 \end{tabular}
 \end{minipage}
-\caption{JFMファイルの構成\label{構成}}
+\caption{JFM$B%U%!%$%k$N9=@.(B\label{$B9=@.(B}}
 \end{table}
 \end{document}

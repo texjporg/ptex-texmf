@@ -30,9 +30,9 @@
 % \StopEventually{}
 %
 % \iffalse
-% \changes{v1.0a}{1997/01/23}{\LaTeX \texttt{!<1996/12/01!>}への対応に
-%     合わせて修正}
-% \changes{v1.0b}{1997/07/29}{\cs{}と\texttt{"}の\cs{xspcode}を変更}
+% \changes{v1.0a}{1997/01/23}{\LaTeX \texttt{!<1996/12/01!>}$B$X$NBP1~$K(B
+%     $B9g$o$;$F=$@5(B}
+% \changes{v1.0b}{1997/07/29}{\cs{}$B$H(B\texttt{"}$B$N(B\cs{xspcode}$B$rJQ99(B}
 % \fi
 %
 % \iffalse
@@ -42,9 +42,9 @@
 %<*driver>
 \documentclass{jltxdoc}
 \GetFileInfo{jltxdoc.cls}
-\title{p\LaTeXe{}ドキュメント記述用クラス\space\fileversion}
+\title{p\LaTeXe{}$B%I%-%e%a%s%H5-=RMQ%/%i%9(B\space\fileversion}
 \author{Ken Nakano}
-\date{作成日：\filedate}
+\date{$B:n@.F|!'(B\filedate}
 \begin{document}
    \maketitle
    \DocInput{\filename}
@@ -52,8 +52,8 @@
 %</driver>
 % \fi
 %
-% \file{jltxdoc}クラスは、\file{ltxdoc}をテンプレートにして、日本語用の
-% 修正を加えています。
+% \file{jltxdoc}$B%/%i%9$O!"(B\file{ltxdoc}$B$r%F%s%W%l!<%H$K$7$F!"F|K\8lMQ$N(B
+% $B=$@5$r2C$($F$$$^$9!#(B
 %    \begin{macrocode}
 %<*class>
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{ltxdoc}}
@@ -64,10 +64,10 @@
 % \begin{macro}{\normalsize}
 % \begin{macro}{\small}
 % \begin{macro}{\parindent}
-% \changes{v1.0a}{1997/01/23}{\cs{normalsize}, \cs{small}などの再定義}
-% \file{ltxdoc}からロードされる\file{article}クラスでの行間などの設定値で、
-% 日本語の文章を組版すると、行間が狭いように思われるので、多少広くするように
-% 再設定します。また、段落先頭での字下げ量を全角一文字分とします。
+% \changes{v1.0a}{1997/01/23}{\cs{normalsize}, \cs{small}$B$J$I$N:FDj5A(B}
+% \file{ltxdoc}$B$+$i%m!<%I$5$l$k(B\file{article}$B%/%i%9$G$N9T4V$J$I$N@_DjCM$G!"(B
+% $BF|K\8l$NJ8>O$rAHHG$9$k$H!"9T4V$,69$$$h$&$K;W$o$l$k$N$G!"B?>/9-$/$9$k$h$&$K(B
+% $B:F@_Dj$7$^$9!#$^$?!"CJMn@hF,$G$N;z2<$2NL$rA43Q0lJ8;zJ,$H$7$^$9!#(B
 %    \begin{macrocode}
 \renewcommand{\normalsize}{%
     \@setfontsize\normalsize\@xpt{15}%
@@ -94,42 +94,42 @@
 % \end{macro}
 %
 % \begin{macro}{\file}
-% |\file|マクロは、ファイル名を示すのに用います。
+% |\file|$B%^%/%m$O!"%U%!%$%kL>$r<($9$N$KMQ$$$^$9!#(B
 %    \begin{macrocode}
 \providecommand*{\file}[1]{\texttt{#1}}
 %    \end{macrocode}
 % \end{macro}
 %
 % \begin{macro}{\pstyle}
-% |\pstyle|マクロは、ページスタイル名を示すのに用います。
+% |\pstyle|$B%^%/%m$O!"%Z!<%8%9%?%$%kL>$r<($9$N$KMQ$$$^$9!#(B
 %    \begin{macrocode}
 \providecommand*{\pstyle}[1]{\textsl{#1}}
 %    \end{macrocode}
 % \end{macro}
 %
 % \begin{macro}{\Lcount}
-% |\Lcount|マクロは、カウンタ名を示すのに用います。
+% |\Lcount|$B%^%/%m$O!"%+%&%s%?L>$r<($9$N$KMQ$$$^$9!#(B
 %    \begin{macrocode}
 \providecommand*{\Lcount}[1]{\textsl{\small#1}}
 %    \end{macrocode}
 % \end{macro}
 %
 % \begin{macro}{\Lopt}
-% |\Lopt|マクロは、クラスオプションやパッケージオプションを示すのに用います。
+% |\Lopt|$B%^%/%m$O!"%/%i%9%*%W%7%g%s$d%Q%C%1!<%8%*%W%7%g%s$r<($9$N$KMQ$$$^$9!#(B
 %    \begin{macrocode}
 \providecommand*{\Lopt}[1]{\textsf{#1}}
 %    \end{macrocode}
 % \end{macro}
 %
 % \begin{macro}{\dst}
-% |\dst|マクロは、``\dst''を出力する。
+% |\dst|$B%^%/%m$O!"(B``\dst''$B$r=PNO$9$k!#(B
 %    \begin{macrocode}
 \providecommand\dst{{\normalfont\scshape docstrip}}
 %    \end{macrocode}
 % \end{macro}
 %
 % \begin{macro}{\NFSS}
-% |\NFSS|マクロは、``\NFSS''を出力します。
+% |\NFSS|$B%^%/%m$O!"(B``\NFSS''$B$r=PNO$7$^$9!#(B
 %    \begin{macrocode}
 \providecommand\NFSS{\textsf{NFSS}}
 %    \end{macrocode}
@@ -137,10 +137,10 @@
 %
 % \begin{macro}{\c@clineno}
 % \begin{macro}{\mlineplus}
-% |\mlineplus|マクロは、その時点でのマクロコードの行番号に、引数に指定された
-% 行数だけを加えた数値を出力します。たとえば|\mlineplus{3}|とすれば、
-% 直前のマクロコードの行番号(\arabic{CodelineNo})に3を加えた数、
-% ``\mlineplus{3}''が出力されます。
+% |\mlineplus|$B%^%/%m$O!"$=$N;~E@$G$N%^%/%m%3!<%I$N9THV9f$K!"0z?t$K;XDj$5$l$?(B
+% $B9T?t$@$1$r2C$($??tCM$r=PNO$7$^$9!#$?$H$($P(B|\mlineplus{3}|$B$H$9$l$P!"(B
+% $BD>A0$N%^%/%m%3!<%I$N9THV9f(B(\arabic{CodelineNo})$B$K(B3$B$r2C$($??t!"(B
+% ``\mlineplus{3}''$B$,=PNO$5$l$^$9!#(B
 %    \begin{macrocode}
 \newcounter{@clineno}
 \def\mlineplus#1{\setcounter{@clineno}{\arabic{CodelineNo}}%
@@ -150,10 +150,10 @@
 % \end{macro}
 %
 % \begin{environment}{tsample}
-% |tsample|環境は、環境内に指定された内容を罫線で囲って出力をします。
-% 第一引数は、出力するボックスの高さです。
-% \file{plext.dtx}の中で使用しています。
-% このマクロ内では縦組になることに注意してください。
+% |tsample|$B4D6-$O!"4D6-Fb$K;XDj$5$l$?FbMF$r7S@~$G0O$C$F=PNO$r$7$^$9!#(B
+% $BBh0l0z?t$O!"=PNO$9$k%\%C%/%9$N9b$5$G$9!#(B
+% \file{plext.dtx}$B$NCf$G;HMQ$7$F$$$^$9!#(B
+% $B$3$N%^%/%mFb$G$O=DAH$K$J$k$3$H$KCm0U$7$F$/$@$5$$!#(B
 %    \begin{macrocode}
 \def\tsample#1{%
   \hbox to\linewidth\bgroup\vrule width.1pt\hss
@@ -170,9 +170,9 @@
 %
 % \begin{macro}{\DisableCrossrefs}
 % \begin{macro}{\EnableCrossrefs}
-% \file{jclasses.dtx}を処理するときに、|\if西暦|の部分でエラーになるため、
-% 一時的にクロスリファレンスの機能をオフにします。
-% しかし、デフォルトの定義では完全に制御できないので、ここで再定義をします。
+% \file{jclasses.dtx}$B$r=hM}$9$k$H$-$K!"(B|\if$B@>Nq(B|$B$NItJ,$G%(%i!<$K$J$k$?$a!"(B
+% $B0l;~E*$K%/%m%9%j%U%!%l%s%9$N5!G=$r%*%U$K$7$^$9!#(B
+% $B$7$+$7!"%G%U%)%k%H$NDj5A$G$O40A4$K@)8f$G$-$J$$$N$G!"$3$3$G:FDj5A$r$7$^$9!#(B
 %    \begin{macrocode}
 \def\DisableCrossrefs{\@bsphack\scan@allowedfalse\@esphack}
 \def\EnableCrossrefs{\@bsphack\scan@allowedtrue
@@ -182,9 +182,9 @@
 % \end{macro}
 %
 % \begin{macro}{\xspcode}
-% コマンド名の|\|と16進数を示すための|"|の前にもスペースが入るよう、
-% これらの|\xspcode|の値を変更します。
-% \changes{v1.0b}{1997/07/29}{\cs{}と\texttt{"}の\cs{xspcode}を変更}
+% $B%3%^%s%IL>$N(B|\|$B$H(B16$B?J?t$r<($9$?$a$N(B|"|$B$NA0$K$b%9%Z!<%9$,F~$k$h$&!"(B
+% $B$3$l$i$N(B|\xspcode|$B$NCM$rJQ99$7$^$9!#(B
+% \changes{v1.0b}{1997/07/29}{\cs{}$B$H(B\texttt{"}$B$N(B\cs{xspcode}$B$rJQ99(B}
 %    \begin{macrocode}
 \xspcode"5C=3 %% \
 \xspcode"22=3 %% "

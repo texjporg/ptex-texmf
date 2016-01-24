@@ -1,56 +1,56 @@
-JBibTeX(C Version)の概要（暫定版）
-				（財）電力中央研究所　松井正一
+JBibTeX(C Version)$B$N35MW!J;CDjHG!K(B
+				$B!J:b!KEENOCf1{8&5f=j!!>>0f@50l(B
 						matsui@denken.or.jp
 
 
-　JBibTeX は BibTeX 0.99c(C Version) を基に NTT 版 JTeX に対応して
-bib ファイル中に漢字を使えるように変更を加えたものである。
+$B!!(BJBibTeX $B$O(B BibTeX 0.99c(C Version) $B$r4p$K(B NTT $BHG(B JTeX $B$KBP1~$7$F(B
+bib $B%U%!%$%kCf$K4A;z$r;H$($k$h$&$KJQ99$r2C$($?$b$N$G$"$k!#(B
 
-　主な変更は以下の通りである。
+$B!!<g$JJQ99$O0J2<$NDL$j$G$"$k!#(B
 
- (1) 漢字は内部的には EUC で表現する。ファイルから一行を読み込む時点で、
-　　EUC ならそのまま、 JIS 漢字は EUC にコード変換する。
-    端末、ファイルへの出力コード系は、コンパイル時に指定するが、
-    利用者単位にも、それぞれ次の環境変数で指定できる。
-	端末		BIBTERMCODE
-	ファイル	BIBFILECODE
-    指定は、JTeXの\kanjitermicalcode, \kanjifilecodeと同じ、
+ (1) $B4A;z$OFbItE*$K$O(B EUC $B$GI=8=$9$k!#%U%!%$%k$+$i0l9T$rFI$_9~$`;~E@$G!"(B
+$B!!!!(BEUC $B$J$i$=$N$^$^!"(B JIS $B4A;z$O(B EUC $B$K%3!<%IJQ49$9$k!#(B
+    $BC<Kv!"%U%!%$%k$X$N=PNO%3!<%I7O$O!"%3%s%Q%$%k;~$K;XDj$9$k$,!"(B
+    $BMxMQ<TC10L$K$b!"$=$l$>$l<!$N4D6-JQ?t$G;XDj$G$-$k!#(B
+	$BC<Kv(B		BIBTERMCODE
+	$B%U%!%$%k(B	BIBFILECODE
+    $B;XDj$O!"(BJTeX$B$N(B\kanjitermicalcode, \kanjifilecode$B$HF1$8!"(B
 	1,2,3,4,5,6,10,20
-    で行う。
+    $B$G9T$&!#(B
 
- (2) 漢字を通すように BibTeX の Chage File を変更して, 文字を 7bits から
-　　8bits に変更した（これに合せて bibext.c も変更されている)。
+ (2) $B4A;z$rDL$9$h$&$K(B BibTeX $B$N(B Chage File $B$rJQ99$7$F(B, $BJ8;z$r(B 7bits $B$+$i(B
+$B!!!!(B8bits $B$KJQ99$7$?!J$3$l$K9g$;$F(B bibext.c $B$bJQ99$5$l$F$$$k(B)$B!#(B
 
- (3) 組込み関数の中で substring$, text.prefix$ に対しては、
-　　漢字の間で (1byte 目と 2byte 目の真ん中で)文字列が切られないようにした。
-　　  例えば、"漢字" の先頭から 3 文字を抜出すと "字"の 2byte 目がなくなって
-    しまうので、このような場合には、4byte 目まで切出すようにした。
+ (3) $BAH9~$_4X?t$NCf$G(B substring$, text.prefix$ $B$KBP$7$F$O!"(B
+$B!!!!4A;z$N4V$G(B (1byte $BL\$H(B 2byte $BL\$N??$sCf$G(B)$BJ8;zNs$,@Z$i$l$J$$$h$&$K$7$?!#(B
+$B!!!!(B  $BNc$($P!"(B"$B4A;z(B" $B$N@hF,$+$i(B 3 $BJ8;z$rH4=P$9$H(B "$B;z(B"$B$N(B 2byte $BL\$,$J$/$J$C$F(B
+    $B$7$^$&$N$G!"$3$N$h$&$J>l9g$K$O!"(B4byte $BL\$^$G@Z=P$9$h$&$K$7$?!#(B
  
- (4) (3)との関係で、 chr.to.int$ は stack top が漢字ならば single character
-　  でなくても warning を出さず、 1byte 目の値を返すようにした。
+ (4) (3)$B$H$N4X78$G!"(B chr.to.int$ $B$O(B stack top $B$,4A;z$J$i$P(B single character
+$B!!(B  $B$G$J$/$F$b(B warning $B$r=P$5$:!"(B 1byte $BL\$NCM$rJV$9$h$&$K$7$?!#(B
 
- (5) 漢字を含む文字列であるかどうかの判定ように、組み込み関数として
-     is.kanji.str$ を追加した。
+ (5) $B4A;z$r4^$`J8;zNs$G$"$k$+$I$&$+$NH=Dj$h$&$K!"AH$_9~$_4X?t$H$7$F(B
+     is.kanji.str$ $B$rDI2C$7$?!#(B
 
- (6) bib file の項目のどこに漢字を使ってよいかは、 test.bib を参照されたい。
+ (6) bib file $B$N9`L\$N$I$3$K4A;z$r;H$C$F$h$$$+$O!"(B test.bib $B$r;2>H$5$l$?$$!#(B
 
- (7) style ファイル中の漢字著者名の姓と名の間にはスペースを置くことを標準と
-     した．
+ (7) style $B%U%!%$%kCf$N4A;zCx<TL>$N@+$HL>$N4V$K$O%9%Z!<%9$rCV$/$3$H$rI8=`$H(B
+     $B$7$?!%(B
 
-インストールの手順
+$B%$%s%9%H!<%k$N<j=g(B
 
- (1) 最新版のjtexのdirectory下にcjbibtexなどというdirectoryを作り、
-     配布キット(1/3, 2/3, 3/3)の内容を
+ (1) $B:G?7HG$N(Bjtex$B$N(Bdirectory$B2<$K(Bcjbibtex$B$J$I$H$$$&(Bdirectory$B$r:n$j!"(B
+     $BG[I[%-%C%H(B(1/3, 2/3, 3/3)$B$NFbMF$r(B
           atob |compress -d |unshar -
-     で元に戻す
+     $B$G85$KLa$9(B
 
- (2) そこに bibtex.web をコピーする。
-     site dependentな漢字コード系の設定は bibext.c 中の
+ (2) $B$=$3$K(B bibtex.web $B$r%3%T!<$9$k!#(B
+     site dependent$B$J4A;z%3!<%I7O$N@_Dj$O(B bibext.c $BCf$N(B
 	DEFAULT_TERM_CODE
 	DEFAULT_FILE_CODE
-     の #defineを変更すればよい．
+     $B$N(B #define$B$rJQ99$9$l$P$h$$!%(B
 
- (3) make する。
-　
+ (3) make $B$9$k!#(B
+$B!!(B
 
 

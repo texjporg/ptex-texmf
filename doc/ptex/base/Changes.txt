@@ -1,139 +1,139 @@
 2009/08/17: (p3.1.11)
-    ptex: 2バイト文字間のグルーがおかしくなるバグを修正
-          \{y|t}baselineshift が数式にも反映されるように修正
-	    (ありがとうございます 角藤さん、土村さん)
+    ptex: 2$B%P%$%HJ8;z4V$N%0%k!<$,$*$+$7$/$J$k%P%0$r=$@5(B
+          \{y|t}baselineshift $B$,?t<0$K$bH?1G$5$l$k$h$&$K=$@5(B
+	    ($B$"$j$,$H$&$4$6$$$^$9(B $B3QF#$5$s!"EZB<$5$s(B)
 
 2006/07/18: (p3.1.10)
-	ptex, tftopl, pltotf, jbibtex: -kanji オプションが -version オプションの
-		漢字コード情報に反映されるよう修正。
-	Makefile.in: texmf.cnf 中のパス記述が teTeX-3.0 の記法に近くなるように修正
-	    (ありがとうございます 土村さん)
-	ptex: 変数の初期化忘れのため、環境によって組版結果が異なる症状を修正
-	    (ありがとうございます 土村さん、角藤さん)
-	pltotf, tftopl: 16区の漢字の扱いに失敗する不具合を修正
-	    (ありがとうございます TANAKA Takujiさん)
+	ptex, tftopl, pltotf, jbibtex: -kanji $B%*%W%7%g%s$,(B -version $B%*%W%7%g%s$N(B
+		$B4A;z%3!<%I>pJs$KH?1G$5$l$k$h$&=$@5!#(B
+	Makefile.in: texmf.cnf $BCf$N%Q%95-=R$,(B teTeX-3.0 $B$N5-K!$K6a$/$J$k$h$&$K=$@5(B
+	    ($B$"$j$,$H$&$4$6$$$^$9(B $BEZB<$5$s(B)
+	ptex: $BJQ?t$N=i4|2=K:$l$N$?$a!"4D6-$K$h$C$FAHHG7k2L$,0[$J$k>I>u$r=$@5(B
+	    ($B$"$j$,$H$&$4$6$$$^$9(B $BEZB<$5$s!"3QF#$5$s(B)
+	pltotf, tftopl: 16$B6h$N4A;z$N07$$$K<:GT$9$kIT6q9g$r=$@5(B
+	    ($B$"$j$,$H$&$4$6$$$^$9(B TANAKA Takuji$B$5$s(B)
 
 2005/10/17: (p3.1.9)
-	mkconf: platex の検索パスに tex/platex を入れないように修正
-	ptex: 単語の先頭で LIG/ を行うようなTFMを使用するとベースラインシフトが
-		0でない場合に異常終了するバグを修正
+	mkconf: platex $B$N8!:w%Q%9$K(B tex/platex $B$rF~$l$J$$$h$&$K=$@5(B
+	ptex: $BC18l$N@hF,$G(B LIG/ $B$r9T$&$h$&$J(BTFM$B$r;HMQ$9$k$H%Y!<%9%i%$%s%7%U%H$,(B
+		0$B$G$J$$>l9g$K0[>o=*N;$9$k%P%0$r=$@5(B
 
 2005/03/07: (p3.1.8)
-	Makefile.in: make install の最後に mktexlsr の実行を追加
-	Makefile.in, INSTALL.txt: teTeX-3.0のTEXMFディレクトリの変更に伴い修正
-	    (ありがとうございます、角藤さん)。
+	Makefile.in: make install $B$N:G8e$K(B mktexlsr $B$N<B9T$rDI2C(B
+	Makefile.in, INSTALL.txt: teTeX-3.0$B$N(BTEXMF$B%G%#%l%/%H%j$NJQ99$KH<$$=$@5(B
+	    ($B$"$j$,$H$&$4$6$$$^$9!"3QF#$5$s(B)$B!#(B
 
 2004/12/14: (p3.1.8)
-	ptex: コントロールシーケンス名の処理誤りを修正。
-		(例：\Te^^5e^58 ⇒ \Te^^58 となり、\TeX として評価されない)
-	ptex: コントロールシーケンス直後の ^^形式が漢字として認識されて
-		しまう場合があるのを修正 (例：\TeX^^83A ⇒ \TeXア)
-		(以上、ありがとうございます、井上さん)。
-	ptex: 端末やログファイルでの改行位置のタイミングの修正
-	    (ありがとうございます、角藤さん)。
+	ptex: $B%3%s%H%m!<%k%7!<%1%s%9L>$N=hM}8m$j$r=$@5!#(B
+		($BNc!'(B\Te^^5e^58 $B"M(B \Te^^58 $B$H$J$j!"(B\TeX $B$H$7$FI>2A$5$l$J$$(B)
+	ptex: $B%3%s%H%m!<%k%7!<%1%s%9D>8e$N(B ^^$B7A<0$,4A;z$H$7$FG'<1$5$l$F(B
+		$B$7$^$&>l9g$,$"$k$N$r=$@5(B ($BNc!'(B\TeX^^83A $B"M(B \TeX$B%"(B)
+		($B0J>e!"$"$j$,$H$&$4$6$$$^$9!"0f>e$5$s(B)$B!#(B
+	ptex: $BC<Kv$d%m%0%U%!%$%k$G$N2~9T0LCV$N%?%$%_%s%0$N=$@5(B
+	    ($B$"$j$,$H$&$4$6$$$^$9!"3QF#$5$s(B)$B!#(B
 
 2004/12/09: (p3.1.7)
-	ptex: ^^形式を含むコントロールシーケンス名の処理誤りを修正。
-	ptex: 表示不可能文字の範囲を3.1.4と同じにした。
-        (Missing character では ^^ 形式で出力)。
-	mkconf: sjis,jis,eucの各エンコード名のTEXINPUTSを作成するようにした。
-	    また、TEXINPUTS.xetex の次に作成するようにした。
+	ptex: ^^$B7A<0$r4^$`%3%s%H%m!<%k%7!<%1%s%9L>$N=hM}8m$j$r=$@5!#(B
+	ptex: $BI=<(IT2DG=J8;z$NHO0O$r(B3.1.4$B$HF1$8$K$7$?!#(B
+        (Missing character $B$G$O(B ^^ $B7A<0$G=PNO(B)$B!#(B
+	mkconf: sjis,jis,euc$B$N3F%(%s%3!<%IL>$N(BTEXINPUTS$B$r:n@.$9$k$h$&$K$7$?!#(B
+	    $B$^$?!"(BTEXINPUTS.xetex $B$N<!$K:n@.$9$k$h$&$K$7$?!#(B
 
 2004/12/02: (p3.1.6)
-	ptex: tetex-2.99.4.20041128-beta に対応(ありがとうございます、角藤さん)。
-	INSTALL.txt: ファイル名とTDSに関するコメントを追加
-	    (ありがとうございます、角藤さん)。
+	ptex: tetex-2.99.4.20041128-beta $B$KBP1~(B($B$"$j$,$H$&$4$6$$$^$9!"3QF#$5$s(B)$B!#(B
+	INSTALL.txt: $B%U%!%$%kL>$H(BTDS$B$K4X$9$k%3%a%s%H$rDI2C(B
+	    ($B$"$j$,$H$&$4$6$$$^$9!"3QF#$5$s(B)$B!#(B
 
 2004/11/29: (p3.1.5)
-	ptex: コントロールシーケンス名の、^^形式の文字と次の文字を漢字と
-	   してみなす場合があるのを修正(ありがとうございます、井上さん)。
-	ptex: Missing character などのメッセージでの表示不可能文字を
-	   ^^ 形式で出力するように修正。
+	ptex: $B%3%s%H%m!<%k%7!<%1%s%9L>$N!"(B^^$B7A<0$NJ8;z$H<!$NJ8;z$r4A;z$H(B
+	   $B$7$F$_$J$9>l9g$,$"$k$N$r=$@5(B($B$"$j$,$H$&$4$6$$$^$9!"0f>e$5$s(B)$B!#(B
+	ptex: Missing character $B$J$I$N%a%C%;!<%8$G$NI=<(IT2DG=J8;z$r(B
+	   ^^ $B7A<0$G=PNO$9$k$h$&$K=$@5!#(B
 	
 2004/11/08: (p3.1.5)
-	ptex: JISエンコーディングファイルを読み込んだ後、`漢字イン' の状態が
-	  ファイルの終わりを越えて有効になってしまう場合があるのを修正
-	  (ありがとうございます、井上さん)。
+	ptex: JIS$B%(%s%3!<%G%#%s%0%U%!%$%k$rFI$_9~$s$@8e!"(B`$B4A;z%$%s(B' $B$N>uBV$,(B
+	  $B%U%!%$%k$N=*$o$j$r1[$($FM-8z$K$J$C$F$7$^$&>l9g$,$"$k$N$r=$@5(B
+	  ($B$"$j$,$H$&$4$6$$$^$9!"0f>e$5$s(B)$B!#(B
 
 2004/10/12:
-	pltotf: SJISコードのPLファイルから、TFMファイルを正しく作れない
-	  のを修正(ありがとうございます、角藤さん、青木さん)。
+	pltotf: SJIS$B%3!<%I$N(BPL$B%U%!%$%k$+$i!"(BTFM$B%U%!%$%k$r@5$7$/:n$l$J$$(B
+	  $B$N$r=$@5(B($B$"$j$,$H$&$4$6$$$^$9!"3QF#$5$s!"@DLZ$5$s(B)$B!#(B
 
 2004/09/02: (p3.1.4)
-	ptex: 行末記号を漢字の第1バイトに当たる文字にした場合、行の次の文字
-	  と共に漢字にしようとしてしまうのを修正。
-	ptex: 1バイト文字のうち、漢字の第1バイトに当たる文字のカテゴリー
-	  コードが無効な文字となってしまうのを修正。
-	ptex: ^^形式で入力された文字コードが漢字の第1バイトに当たる場合、
-	  次の文字と共に漢字にしようとしてしまうのを修正。
-	ptex: \string で扱う文字の漢字判定を厳密化。
-	jbibtex: 改行コードCRに対応。
-      (以上、ありがとうございます、井上さん)
-	ptex: 数式内で \char を使用した場合に1バイト文字が漢字と誤認識される
-		バグを修正。
-      (ありがとうございます、角藤さん)
-	契約条文和訳を修正。
+	ptex: $B9TKv5-9f$r4A;z$NBh(B1$B%P%$%H$KEv$?$kJ8;z$K$7$?>l9g!"9T$N<!$NJ8;z(B
+	  $B$H6&$K4A;z$K$7$h$&$H$7$F$7$^$&$N$r=$@5!#(B
+	ptex: 1$B%P%$%HJ8;z$N$&$A!"4A;z$NBh(B1$B%P%$%H$KEv$?$kJ8;z$N%+%F%4%j!<(B
+	  $B%3!<%I$,L58z$JJ8;z$H$J$C$F$7$^$&$N$r=$@5!#(B
+	ptex: ^^$B7A<0$GF~NO$5$l$?J8;z%3!<%I$,4A;z$NBh(B1$B%P%$%H$KEv$?$k>l9g!"(B
+	  $B<!$NJ8;z$H6&$K4A;z$K$7$h$&$H$7$F$7$^$&$N$r=$@5!#(B
+	ptex: \string $B$G07$&J8;z$N4A;zH=Dj$r87L)2=!#(B
+	jbibtex: $B2~9T%3!<%I(BCR$B$KBP1~!#(B
+      ($B0J>e!"$"$j$,$H$&$4$6$$$^$9!"0f>e$5$s(B)
+	ptex: $B?t<0Fb$G(B \char $B$r;HMQ$7$?>l9g$K(B1$B%P%$%HJ8;z$,4A;z$H8mG'<1$5$l$k(B
+		$B%P%0$r=$@5!#(B
+      ($B$"$j$,$H$&$4$6$$$^$9!"3QF#$5$s(B)
+	$B7@Ls>rJ8OBLu$r=$@5!#(B
 
 2003/10/07: (p3.1.3)
-	ptex: -kanji=sjis のとき、\kansujichar で、期待した文字が設定され
-	  ないのを修正(ありがとう、角藤さん)。
+	ptex: -kanji=sjis $B$N$H$-!"(B\kansujichar $B$G!"4|BT$7$?J8;z$,@_Dj$5$l(B
+	  $B$J$$$N$r=$@5(B($B$"$j$,$H$&!"3QF#$5$s(B)$B!#(B
 
 2003/09/30:
-	ptex: 端末/ログへのメッセージで、印字できない文字が出力されることが
-	  あるのに対処。
+	ptex: $BC<Kv(B/$B%m%0$X$N%a%C%;!<%8$G!"0u;z$G$-$J$$J8;z$,=PNO$5$l$k$3$H$,(B
+	  $B$"$k$N$KBP=h!#(B
 
 2003/08/05:
-	pconvert: usage メッセージの変更。pltotf, tftopl, pdvitype のとき、
-	  fixwrites にオプション($target)を指定するようにした。
+	pconvert: usage $B%a%C%;!<%8$NJQ99!#(Bpltotf, tftopl, pdvitype $B$N$H$-!"(B
+	  fixwrites $B$K%*%W%7%g%s(B($target)$B$r;XDj$9$k$h$&$K$7$?!#(B
 
 2003/06/23: (p3.1.2)
-	configure: mktempを使わないように修正
+	configure: mktemp$B$r;H$o$J$$$h$&$K=$@5(B
 
 2003/06/17: (p3.1.2)
-	Makefile.in: BSD版 make で texmf.cnf の作成に失敗しているのを修正
+	Makefile.in: BSD$BHG(B make $B$G(B texmf.cnf $B$N:n@.$K<:GT$7$F$$$k$N$r=$@5(B
 
 2003/02/18: (p3.1.2)
-    ptex: \kansuji プリミティブを復活させた。
-	ptex: \kansujichar プリミティブにより、\kansuji で出力される文字を設定
-	  可能にした。
+    ptex: \kansuji $B%W%j%_%F%#%V$rI|3h$5$;$?!#(B
+	ptex: \kansujichar $B%W%j%_%F%#%V$K$h$j!"(B\kansuji $B$G=PNO$5$l$kJ8;z$r@_Dj(B
+	  $B2DG=$K$7$?!#(B
 
 2003/02/14: (p3.1.1)
-    ptex: 漢字が ^^ 形式でコンソールに表示されるのを修正。
-	ptex: \uppercase, \lowercase で core を出す場合があるのを修正。
+    ptex: $B4A;z$,(B ^^ $B7A<0$G%3%s%=!<%k$KI=<($5$l$k$N$r=$@5!#(B
+	ptex: \uppercase, \lowercase $B$G(B core $B$r=P$9>l9g$,$"$k$N$r=$@5!#(B
 
 2003/02/13: (p3.1)
-	ptex: main_memory、hash_extra を大きくし、膨大なマクロ定義をすると、
-	  「!Missing control sequence inserted.」のエラーになるのを修正。
+	ptex: main_memory$B!"(Bhash_extra $B$rBg$-$/$7!"KDBg$J%^%/%mDj5A$r$9$k$H!"(B
+	  $B!V(B!Missing control sequence inserted.$B!W$N%(%i!<$K$J$k$N$r=$@5!#(B
 
 2003/02/03: (p3.0.6)
-	ptex: tetex-2.0 への対応
-	ptex: sjis 動作以外のとき、\char\sjis が正しく動かないのを修正
-	ptex: 実験的に入れてあったプリミティブ（\kansuji、\tozen）を取り除いた
-	ptexextra.h: BANNER 文字列の更新
-	ptexextra.c: tetex-2.0 への対応
+	ptex: tetex-2.0 $B$X$NBP1~(B
+	ptex: sjis $BF0:n0J30$N$H$-!"(B\char\sjis $B$,@5$7$/F0$+$J$$$N$r=$@5(B
+	ptex: $B<B83E*$KF~$l$F$"$C$?%W%j%_%F%#%V!J(B\kansuji$B!"(B\tozen$B!K$r<h$j=|$$$?(B
+	ptexextra.h: BANNER $BJ8;zNs$N99?7(B
+	ptexextra.c: tetex-2.0 $B$X$NBP1~(B
 
 2002/11/22:
-	Makefile.in: euc(jis), sjis 用フォーマットを作成するよう修正
-		platex 用のリンクを作成するようにした
-	mkconf: iniptex の記述を削除
+	Makefile.in: euc(jis), sjis $BMQ%U%)!<%^%C%H$r:n@.$9$k$h$&=$@5(B
+		platex $BMQ$N%j%s%/$r:n@.$9$k$h$&$K$7$?(B
+	mkconf: iniptex $B$N5-=R$r:o=|(B
 
 2002/11/15: (p3.0.5)
-	ptexextra.c: web2c-7.3.11 (teTeX-beta-20021114) への対応
+	ptexextra.c: web2c-7.3.11 (teTeX-beta-20021114) $B$X$NBP1~(B
 
 2002/10/29: (p3.0.4)
-    --version の１行目のフォーマットを変更
-	jbibtex: 認識できないオプションで core を出すのを修正
+    --version $B$N#19TL\$N%U%)!<%^%C%H$rJQ99(B
+	jbibtex: $BG'<1$G$-$J$$%*%W%7%g%s$G(B core $B$r=P$9$N$r=$@5(B
 
 2002/10/28: (p3.0.3)
-    ptex: バナーのフォーマットを変更
-	tftopl.ch: pTeX用のHELPを使っていないのを修正
-	pltotf.ch: pTeX用のHELPを使っていないのを修正
+    ptex: $B%P%J!<$N%U%)!<%^%C%H$rJQ99(B
+	tftopl.ch: pTeX$BMQ$N(BHELP$B$r;H$C$F$$$J$$$N$r=$@5(B
+	pltotf.ch: pTeX$BMQ$N(BHELP$B$r;H$C$F$$$J$$$N$r=$@5(B
 
 2002/10/24: (p3.0.2)
-	web2c-7.3.9 に対応。
+	web2c-7.3.9 $B$KBP1~!#(B
 
 2002/01/18: (p3.0.1)
-	以下のソースを用いたたときでもコンパイルできるようにした。
+	$B0J2<$N%=!<%9$rMQ$$$?$?$H$-$G$b%3%s%Q%$%k$G$-$k$h$&$K$7$?!#(B
 		* tetex-supp.tar.gz
 		* web2c-7.3.3.tar.gz
 		* teTeX-src-beta-20011202.tar.gz

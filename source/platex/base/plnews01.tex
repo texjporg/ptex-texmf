@@ -4,206 +4,206 @@
 \publicationmonth{2}
 \publicationyear{1997}
 \publicationissue{1}
-\author{中野 賢（\texttt{ken-na at ascii.co.jp}）}
+\author{$BCfLn(B $B8-!J(B\texttt{ken-na at ascii.co.jp}$B!K(B}
 
 \begin{document}
 
 \maketitle
 
-\section{この文書について}
-この文書は、p\LaTeXe{}の以前のバージョンからの更新箇所をまとめたものです。
+\section{$B$3$NJ8=q$K$D$$$F(B}
+$B$3$NJ8=q$O!"(Bp\LaTeXe{}$B$N0JA0$N%P!<%8%g%s$+$i$N99?72U=j$r$^$H$a$?$b$N$G$9!#(B
 
-現在のp\LaTeXe{}は、\LaTeX{}\texttt{<1996/12/01>}版に対応しています。
-\LaTeX{}レベルでの更新箇所は、\LaTeX{}に付属のltnewsファイルを
-参照してください。
+$B8=:_$N(Bp\LaTeXe{}$B$O!"(B\LaTeX{}\texttt{<1996/12/01>}$BHG$KBP1~$7$F$$$^$9!#(B
+\LaTeX{}$B%l%Y%k$G$N99?72U=j$O!"(B\LaTeX{}$B$KIUB0$N(Bltnews$B%U%!%$%k$r(B
+$B;2>H$7$F$/$@$5$$!#(B
 
-\section{docstripバッチファイル}
-p\LaTeXe{}の.dtxファイルから内容を取り出すための
-\textsf{docstrip}用バッチファイルをいくつかのファイルに分割しました。
+\section{docstrip$B%P%C%A%U%!%$%k(B}
+p\LaTeXe{}$B$N(B.dtx$B%U%!%$%k$+$iFbMF$r<h$j=P$9$?$a$N(B
+\textsf{docstrip}$BMQ%P%C%A%U%!%$%k$r$$$/$D$+$N%U%!%$%k$KJ,3d$7$^$7$?!#(B
 
-.insファイルと作成されるファイルの関係は、つぎのとおりです。
+.ins$B%U%!%$%k$H:n@.$5$l$k%U%!%$%k$N4X78$O!"$D$.$N$H$*$j$G$9!#(B
 
 \begin{quote}
 \begin{description}
 \item[plcore.ins]\mbox{}\\
-    全体を展開するときに用いる。
-    以下の{.ins}ファイルを展開するのと同等。
+    $BA4BN$rE83+$9$k$H$-$KMQ$$$k!#(B
+    $B0J2<$N(B{.ins}$B%U%!%$%k$rE83+$9$k$N$HF1Ey!#(B
 \item[plfmt.ins]\mbox{}\\
-    カーネル部分や付属パッケージファイルを作成するのに用いる。
+    $B%+!<%M%kItJ,$dIUB0%Q%C%1!<%8%U%!%$%k$r:n@.$9$k$N$KMQ$$$k!#(B
 \item[plcls.ins]\mbox{}\\
-    標準クラスファイルを作成するのに用いる。
+    $BI8=`%/%i%9%U%!%$%k$r:n@.$9$k$N$KMQ$$$k!#(B
 \item[pldocs.ins]\mbox{}\\
-    付属の文書ファイルを処理するためのファイルを作成するのに用いる。
+    $BIUB0$NJ8=q%U%!%$%k$r=hM}$9$k$?$a$N%U%!%$%k$r:n@.$9$k$N$KMQ$$$k!#(B
 \item[pl209.ins]\mbox{}\\
-    2.09互換モードで用いるファイルを作成するのに用いる。
+    2.09$B8_49%b!<%I$GMQ$$$k%U%!%$%k$r:n@.$9$k$N$KMQ$$$k!#(B
 \end{description}
 \end{quote}
 
-たとえば、クラスファイルだけを再度、作成したい場合は、つぎのように
-platexコマンドでplcls.insファイルを処理します。
+$B$?$H$($P!"%/%i%9%U%!%$%k$@$1$r:FEY!":n@.$7$?$$>l9g$O!"$D$.$N$h$&$K(B
+platex$B%3%^%s%I$G(Bplcls.ins$B%U%!%$%k$r=hM}$7$^$9!#(B
 
 \begin{verbatim}
     platex plcls.ins
 \end{verbatim}
 
-すると、jarticle.clsやtarticle.clsなどの標準クラスファイルと、
-jsize10.cloなどの補助クラスファイルがカレントディレクトリに作成されます。
+$B$9$k$H!"(Bjarticle.cls$B$d(Btarticle.cls$B$J$I$NI8=`%/%i%9%U%!%$%k$H!"(B
+jsize10.clo$B$J$I$NJd=u%/%i%9%U%!%$%k$,%+%l%s%H%G%#%l%/%H%j$K:n@.$5$l$^$9!#(B
 
 
-\section{クラスファイル}
-標準クラスファイル\{j,t\}\{aritlce,book,report\}クラスに対して行なわれた
-変更はつぎのとおりです。
+\section{$B%/%i%9%U%!%$%k(B}
+$BI8=`%/%i%9%U%!%$%k(B\{j,t\}\{aritlce,book,report\}$B%/%i%9$KBP$7$F9T$J$o$l$?(B
+$BJQ99$O$D$.$N$H$*$j$G$9!#(B
 
-\subsection{本文領域の広いレイアウト}
-j\LaTeX~2.09やp\LaTeX~2.09とともに使われていた、
-|a4j|, |a5j|, |b4j|,|b5j|, |a4p|, |a5p|, |b4p|,|b5p|のスタイルファイルと
-同等のレイアウトをするためのクラスオプションを追加しました。
-これらのオプションを指定すると、デフォルトで設定されている本文領域よりも
-広いレイアウトで文章を作成することができます。
+\subsection{$BK\J8NN0h$N9-$$%l%$%"%&%H(B}
+j\LaTeX~2.09$B$d(Bp\LaTeX~2.09$B$H$H$b$K;H$o$l$F$$$?!"(B
+|a4j|, |a5j|, |b4j|,|b5j|, |a4p|, |a5p|, |b4p|,|b5p|$B$N%9%?%$%k%U%!%$%k$H(B
+$BF1Ey$N%l%$%"%&%H$r$9$k$?$a$N%/%i%9%*%W%7%g%s$rDI2C$7$^$7$?!#(B
+$B$3$l$i$N%*%W%7%g%s$r;XDj$9$k$H!"%G%U%)%k%H$G@_Dj$5$l$F$$$kK\J8NN0h$h$j$b(B
+$B9-$$%l%$%"%&%H$GJ8>O$r:n@.$9$k$3$H$,$G$-$^$9!#(B
 
-オプション名は、以前のスタイルファイル名と同じです。
-最後が``j''で終わるものは横組専用、``p''で終わるものは縦横両用のスタイル
-でしたが、p\LaTeXe{}ではとくに区別をしていません。
-``j''で終わるオプションも``p''で終わるオプションも縦横両用です。
+$B%*%W%7%g%sL>$O!"0JA0$N%9%?%$%k%U%!%$%kL>$HF1$8$G$9!#(B
+$B:G8e$,(B``j''$B$G=*$o$k$b$N$O2#AH@lMQ!"(B``p''$B$G=*$o$k$b$N$O=D2#N>MQ$N%9%?%$%k(B
+$B$G$7$?$,!"(Bp\LaTeXe{}$B$G$O$H$/$K6hJL$r$7$F$$$^$;$s!#(B
+``j''$B$G=*$o$k%*%W%7%g%s$b(B``p''$B$G=*$o$k%*%W%7%g%s$b=D2#N>MQ$G$9!#(B
 
-上記の8つのクラスオプションは、用紙サイズの設定も含んでいます。
-つまり``b5j''を指定したときには用紙サイズがB5になります。
-これらのクラスオプションを指定するときは、p\LaTeXe{}で標準の|b5paper|など
-の用紙サイズを指定するクラスオプションを省略することができます。
+$B>e5-$N(B8$B$D$N%/%i%9%*%W%7%g%s$O!"MQ;f%5%$%:$N@_Dj$b4^$s$G$$$^$9!#(B
+$B$D$^$j(B``b5j''$B$r;XDj$7$?$H$-$K$OMQ;f%5%$%:$,(BB5$B$K$J$j$^$9!#(B
+$B$3$l$i$N%/%i%9%*%W%7%g%s$r;XDj$9$k$H$-$O!"(Bp\LaTeXe{}$B$GI8=`$N(B|b5paper|$B$J$I(B
+$B$NMQ;f%5%$%:$r;XDj$9$k%/%i%9%*%W%7%g%s$r>JN,$9$k$3$H$,$G$-$^$9!#(B
 
-なお、上記のスタイルファイルでサポートしていた、ランドスケープ時の指定は
-まだサポートしていません。
+$B$J$*!">e5-$N%9%?%$%k%U%!%$%k$G%5%]!<%H$7$F$$$?!"%i%s%I%9%1!<%W;~$N;XDj$O(B
+$B$^$@%5%]!<%H$7$F$$$^$;$s!#(B
 
-\subsection{数式内での日本語文字}
-フォントファミリに日本語フォントを用いないようにするための
-クラスオプション|disablejfam|を導入しました。
-ただし、p\LaTeX~2.09互換モードでは|disablejfam|オプションを認識しません。
-指定した場合はエラーになります。
+\subsection{$B?t<0Fb$G$NF|K\8lJ8;z(B}
+$B%U%)%s%H%U%!%_%j$KF|K\8l%U%)%s%H$rMQ$$$J$$$h$&$K$9$k$?$a$N(B
+$B%/%i%9%*%W%7%g%s(B|disablejfam|$B$rF3F~$7$^$7$?!#(B
+$B$?$@$7!"(Bp\LaTeX~2.09$B8_49%b!<%I$G$O(B|disablejfam|$B%*%W%7%g%s$rG'<1$7$^$;$s!#(B
+$B;XDj$7$?>l9g$O%(%i!<$K$J$j$^$9!#(B
 
-このオプションを指定すると、数式内に日本語を直接、記述できなくなります。
-また、数式文字を切り替える|\mathmc|と|\mathgt|コマンドが宣言されませんので、
-これらのコマンドを使うとエラーになります。|disablejfam|を指定した状態で、
-数式内に日本語を記述する場合は|\textmc|や|\textgt|コマンドを用いてください。
-|\textmc|と|\textgt|はp\LaTeXe{}のフォーマットファイル内で宣言されています。
+$B$3$N%*%W%7%g%s$r;XDj$9$k$H!"?t<0Fb$KF|K\8l$rD>@\!"5-=R$G$-$J$/$J$j$^$9!#(B
+$B$^$?!"?t<0J8;z$r@Z$jBX$($k(B|\mathmc|$B$H(B|\mathgt|$B%3%^%s%I$,@k8@$5$l$^$;$s$N$G!"(B
+$B$3$l$i$N%3%^%s%I$r;H$&$H%(%i!<$K$J$j$^$9!#(B|disablejfam|$B$r;XDj$7$?>uBV$G!"(B
+$B?t<0Fb$KF|K\8l$r5-=R$9$k>l9g$O(B|\textmc|$B$d(B|\textgt|$B%3%^%s%I$rMQ$$$F$/$@$5$$!#(B
+|\textmc|$B$H(B|\textgt|$B$O(Bp\LaTeXe{}$B$N%U%)!<%^%C%H%U%!%$%kFb$G@k8@$5$l$F$$$^$9!#(B
 
-p\LaTeXe{}では、article, book, reportクラスなど、\LaTeX{}のクラスを用いても
-文書を作成することもできますが、これらのクラスには数式内に日本語を直接記述
-する仕組みが用意されていません。
-これはp\LaTeXe{}のクラスで|disablejfam|を指定したのと同じ状態です。
-この場合も、|\textmc|や|\textgt|コマンドを用いれば数式内に日本語を記述する
-ことはできます。ただし、日本語を用いた文書ファイルはp\LaTeXe{}以外では
-処理できませんので、その文書ファイルの配布には注意してください。
+p\LaTeXe{}$B$G$O!"(Barticle, book, report$B%/%i%9$J$I!"(B\LaTeX{}$B$N%/%i%9$rMQ$$$F$b(B
+$BJ8=q$r:n@.$9$k$3$H$b$G$-$^$9$,!"$3$l$i$N%/%i%9$K$O?t<0Fb$KF|K\8l$rD>@\5-=R(B
+$B$9$k;EAH$_$,MQ0U$5$l$F$$$^$;$s!#(B
+$B$3$l$O(Bp\LaTeXe{}$B$N%/%i%9$G(B|disablejfam|$B$r;XDj$7$?$N$HF1$8>uBV$G$9!#(B
+$B$3$N>l9g$b!"(B|\textmc|$B$d(B|\textgt|$B%3%^%s%I$rMQ$$$l$P?t<0Fb$KF|K\8l$r5-=R$9$k(B
+$B$3$H$O$G$-$^$9!#$?$@$7!"F|K\8l$rMQ$$$?J8=q%U%!%$%k$O(Bp\LaTeXe{}$B0J30$G$O(B
+$B=hM}$G$-$^$;$s$N$G!"$=$NJ8=q%U%!%$%k$NG[I[$K$OCm0U$7$F$/$@$5$$!#(B
 
-|disablejfam|オプションを設けた意味の詳細については、
-「フォントファミリ」を参照してください。
+|disablejfam|$B%*%W%7%g%s$r@_$1$?0UL#$N>\:Y$K$D$$$F$O!"(B
+$B!V%U%)%s%H%U%!%_%j!W$r;2>H$7$F$/$@$5$$!#(B
 
-\subsection{トンボ}
-p\LaTeXe{}\texttt{<1996/03/05>}版でも、|tombow|オプションによって、
-裁断用のトンボを出力することができました。
-p\LaTeXe{}\texttt{<1997/02/01>}版では、トンボの脇にDVIファイルの作成日付
-を出力するように拡張しています。
-作成日付を出力したくない場合は、|tombow|オプションではなく、
-（最後の``w''のない）|tombo|オプションを指定してください。
+\subsection{$B%H%s%\(B}
+p\LaTeXe{}\texttt{<1996/03/05>}$BHG$G$b!"(B|tombow|$B%*%W%7%g%s$K$h$C$F!"(B
+$B:[CGMQ$N%H%s%\$r=PNO$9$k$3$H$,$G$-$^$7$?!#(B
+p\LaTeXe{}\texttt{<1997/02/01>}$BHG$G$O!"%H%s%\$NOF$K(BDVI$B%U%!%$%k$N:n@.F|IU(B
+$B$r=PNO$9$k$h$&$K3HD%$7$F$$$^$9!#(B
+$B:n@.F|IU$r=PNO$7$?$/$J$$>l9g$O!"(B|tombow|$B%*%W%7%g%s$G$O$J$/!"(B
+$B!J:G8e$N(B``w''$B$N$J$$!K(B|tombo|$B%*%W%7%g%s$r;XDj$7$F$/$@$5$$!#(B
 
-また、p\LaTeX~2.09互換モードでトンボオプションを指定したときに、トンボが
-おかしな場所に出力されるバグを修正してあります。
-
-
-\section{書体変更コマンド}
-書体変更コマンドにもいくつかの修正が加えられました。
-
-\subsection{互換モードでのコマンド}
-p\LaTeX~2.09互換モードで用いられる|\rm|コマンドや|\it|コマンド
-などの書体変更コマンドを欧文フォントだけを切り替えるようにしました。
-ただし|\mc|コマンドと|\gt|コマンドは和文フォントだけを切り替えます。
-また|\bf|コマンドは和文と欧文フォントの両方を切り替えます。
-これは、j\LaTeX~2.09やp\LaTeX~2.09での動作と完全に同じです。
-
-p\LaTeXe{}の本来のモードで、従来の二文字コマンドを用いた場合は動作が
-異なりますの 注意してください。互換モード以外のとき、二文字コマンドは、
-一度、|\normalfont|にリセットしてから、そのコマンドに対応する属性を
-切り替えます。したがって、|\it\tt|という指定は|\tt|だけが有効
-であり、|\tt\it|という指定は|\it|の指定が有効です。
-
-この動作は和文フォントに対してもあてはまります。すなわち|\it\gt|と
-しても、和文フォントがゴシック体になるだけで、|\it|の影響は何も
-受けません。ただし|gt|コマンド内で実行される|\normalfont|の影響で
-欧文フォントは欧文のデフォルトフォントになります。
-逆に|\gt\it|の場合、欧文フォントはイタリック体になりますが、
-和文フォントは何も変わりません。この場合も|\it|コマンド内の
-|\normalfont|により、和文フォントは和文デフォルトフォントになります。
-
-p\LaTeXe{}の本来のモードで、
-和文フォントをゴシック体、欧文フォントをイタリック体にしたい場合は、
-|\gtfamily\itfamily|か|\itfamily\gtfamily|とします。
-
-\subsection{数式文字フォント}
-|\rm|コマンドで欧文フォントがローマン体の正体にならないバグを修正しました。
-|\bf|コマンドについても同様の修正がなされています。
-
-|\section|や|\caption|で|\rm|や|\bf|を用いたとき、
-目次ファイルや図表目次ファイルなどに、コマンドが展開された
-コードで出力されてしまうバグを修正しました。
+$B$^$?!"(Bp\LaTeX~2.09$B8_49%b!<%I$G%H%s%\%*%W%7%g%s$r;XDj$7$?$H$-$K!"%H%s%\$,(B
+$B$*$+$7$J>l=j$K=PNO$5$l$k%P%0$r=$@5$7$F$"$j$^$9!#(B
 
 
-\subsection{フォントファミリ}
-p\LaTeXe{}の特徴の一つに、数式内にも直接、日本語を記述することができる
-ことが挙げられます。しかしAMSのパッケージやPostScript用のパッケージを
-用いた場合、
+\section{$B=qBNJQ99%3%^%s%I(B}
+$B=qBNJQ99%3%^%s%I$K$b$$$/$D$+$N=$@5$,2C$($i$l$^$7$?!#(B
+
+\subsection{$B8_49%b!<%I$G$N%3%^%s%I(B}
+p\LaTeX~2.09$B8_49%b!<%I$GMQ$$$i$l$k(B|\rm|$B%3%^%s%I$d(B|\it|$B%3%^%s%I(B
+$B$J$I$N=qBNJQ99%3%^%s%I$r2$J8%U%)%s%H$@$1$r@Z$jBX$($k$h$&$K$7$^$7$?!#(B
+$B$?$@$7(B|\mc|$B%3%^%s%I$H(B|\gt|$B%3%^%s%I$OOBJ8%U%)%s%H$@$1$r@Z$jBX$($^$9!#(B
+$B$^$?(B|\bf|$B%3%^%s%I$OOBJ8$H2$J8%U%)%s%H$NN>J}$r@Z$jBX$($^$9!#(B
+$B$3$l$O!"(Bj\LaTeX~2.09$B$d(Bp\LaTeX~2.09$B$G$NF0:n$H40A4$KF1$8$G$9!#(B
+
+p\LaTeXe{}$B$NK\Mh$N%b!<%I$G!"=>Mh$NFsJ8;z%3%^%s%I$rMQ$$$?>l9g$OF0:n$,(B
+$B0[$J$j$^$9$N(B $BCm0U$7$F$/$@$5$$!#8_49%b!<%I0J30$N$H$-!"FsJ8;z%3%^%s%I$O!"(B
+$B0lEY!"(B|\normalfont|$B$K%j%;%C%H$7$F$+$i!"$=$N%3%^%s%I$KBP1~$9$kB0@-$r(B
+$B@Z$jBX$($^$9!#$7$?$,$C$F!"(B|\it\tt|$B$H$$$&;XDj$O(B|\tt|$B$@$1$,M-8z(B
+$B$G$"$j!"(B|\tt\it|$B$H$$$&;XDj$O(B|\it|$B$N;XDj$,M-8z$G$9!#(B
+
+$B$3$NF0:n$OOBJ8%U%)%s%H$KBP$7$F$b$"$F$O$^$j$^$9!#$9$J$o$A(B|\it\gt|$B$H(B
+$B$7$F$b!"OBJ8%U%)%s%H$,%4%7%C%/BN$K$J$k$@$1$G!"(B|\it|$B$N1F6A$O2?$b(B
+$B<u$1$^$;$s!#$?$@$7(B|gt|$B%3%^%s%IFb$G<B9T$5$l$k(B|\normalfont|$B$N1F6A$G(B
+$B2$J8%U%)%s%H$O2$J8$N%G%U%)%k%H%U%)%s%H$K$J$j$^$9!#(B
+$B5U$K(B|\gt\it|$B$N>l9g!"2$J8%U%)%s%H$O%$%?%j%C%/BN$K$J$j$^$9$,!"(B
+$BOBJ8%U%)%s%H$O2?$bJQ$o$j$^$;$s!#$3$N>l9g$b(B|\it|$B%3%^%s%IFb$N(B
+|\normalfont|$B$K$h$j!"OBJ8%U%)%s%H$OOBJ8%G%U%)%k%H%U%)%s%H$K$J$j$^$9!#(B
+
+p\LaTeXe{}$B$NK\Mh$N%b!<%I$G!"(B
+$BOBJ8%U%)%s%H$r%4%7%C%/BN!"2$J8%U%)%s%H$r%$%?%j%C%/BN$K$7$?$$>l9g$O!"(B
+|\gtfamily\itfamily|$B$+(B|\itfamily\gtfamily|$B$H$7$^$9!#(B
+
+\subsection{$B?t<0J8;z%U%)%s%H(B}
+|\rm|$B%3%^%s%I$G2$J8%U%)%s%H$,%m!<%^%sBN$N@5BN$K$J$i$J$$%P%0$r=$@5$7$^$7$?!#(B
+|\bf|$B%3%^%s%I$K$D$$$F$bF1MM$N=$@5$,$J$5$l$F$$$^$9!#(B
+
+|\section|$B$d(B|\caption|$B$G(B|\rm|$B$d(B|\bf|$B$rMQ$$$?$H$-!"(B
+$BL\<!%U%!%$%k$d?^I=L\<!%U%!%$%k$J$I$K!"%3%^%s%I$,E83+$5$l$?(B
+$B%3!<%I$G=PNO$5$l$F$7$^$&%P%0$r=$@5$7$^$7$?!#(B
+
+
+\subsection{$B%U%)%s%H%U%!%_%j(B}
+p\LaTeXe{}$B$NFCD'$N0l$D$K!"?t<0Fb$K$bD>@\!"F|K\8l$r5-=R$9$k$3$H$,$G$-$k(B
+$B$3$H$,5s$2$i$l$^$9!#$7$+$7(BAMS$B$N%Q%C%1!<%8$d(BPostScript$BMQ$N%Q%C%1!<%8$r(B
+$BMQ$$$?>l9g!"(B
 \begin{verbatim}
     No room for a new \mathgroup .
 \end{verbatim}
-や
+$B$d(B
 \begin{verbatim}
     Too many math alphabets used in version
     normal.
 \end{verbatim}
-などのエラーが表示される場合があります。
+$B$J$I$N%(%i!<$,I=<($5$l$k>l9g$,$"$j$^$9!#(B
 
-これらのエラーは、数式内に直接、記述できるフォントファミリとして\TeX{}が
-扱えるのが最大16個ということから起こっています。このエラーを回避するには、
-用いるフォントファミリの数を16個以内にするしかありません。
+$B$3$l$i$N%(%i!<$O!"?t<0Fb$KD>@\!"5-=R$G$-$k%U%)%s%H%U%!%_%j$H$7$F(B\TeX{}$B$,(B
+$B07$($k$N$,:GBg(B16$B8D$H$$$&$3$H$+$i5/$3$C$F$$$^$9!#$3$N%(%i!<$r2sHr$9$k$K$O!"(B
+$BMQ$$$k%U%)%s%H%U%!%_%j$N?t$r(B16$B8D0JFb$K$9$k$7$+$"$j$^$;$s!#(B
 
-そこで、p\LaTeXe{}では、日本語を数式内に直接記述はできなくなるけれども、
-必要なパッケージをロードできる（かもしれない）ようにするためのオプション
-|disablejfam|をクラスファイルに用意しました。
-|disablejfam|オプションを指定すれば、フォントファミリを節約する
-ことができます。ただし、宣言している数は一つだけですので、用いるパッケージ
-によっては効果がないかもしれないことに注意をしてください。
+$B$=$3$G!"(Bp\LaTeXe{}$B$G$O!"F|K\8l$r?t<0Fb$KD>@\5-=R$O$G$-$J$/$J$k$1$l$I$b!"(B
+$BI,MW$J%Q%C%1!<%8$r%m!<%I$G$-$k!J$+$b$7$l$J$$!K$h$&$K$9$k$?$a$N%*%W%7%g%s(B
+|disablejfam|$B$r%/%i%9%U%!%$%k$KMQ0U$7$^$7$?!#(B
+|disablejfam|$B%*%W%7%g%s$r;XDj$9$l$P!"%U%)%s%H%U%!%_%j$r@aLs$9$k(B
+$B$3$H$,$G$-$^$9!#$?$@$7!"@k8@$7$F$$$k?t$O0l$D$@$1$G$9$N$G!"MQ$$$k%Q%C%1!<%8(B
+$B$K$h$C$F$O8z2L$,$J$$$+$b$7$l$J$$$3$H$KCm0U$r$7$F$/$@$5$$!#(B
 
-参考に表\ref{famlist}に\LaTeX{}やp\LaTeX{}やパッケージ類で用いる
-フォントファミリの一覧を示します。\LaTeX{}の4つは必須です。
+$B;29M$KI=(B\ref{famlist}$B$K(B\LaTeX{}$B$d(Bp\LaTeX{}$B$d%Q%C%1!<%8N`$GMQ$$$k(B
+$B%U%)%s%H%U%!%_%j$N0lMw$r<($7$^$9!#(B\LaTeX{}$B$N(B4$B$D$OI,?\$G$9!#(B
 
-同じ名前のファミリ名は重複して宣言されませんので、
-p\LaTeXe{}の2.09互換モードでも``mincho''と``gothic''の二つだけが宣言
-されることになります。``mincho'', ``mincho'', ``gothic''の三つではありません。
+$BF1$8L>A0$N%U%!%_%jL>$O=EJ#$7$F@k8@$5$l$^$;$s$N$G!"(B
+p\LaTeXe{}$B$N(B2.09$B8_49%b!<%I$G$b(B``mincho''$B$H(B``gothic''$B$NFs$D$@$1$,@k8@(B
+$B$5$l$k$3$H$K$J$j$^$9!#(B``mincho'', ``mincho'', ``gothic''$B$N;0$D$G$O$"$j$^$;$s!#(B
 
-p\LaTeX~2.09互換モード時には、\LaTeX~2.09互換モード
-の設定もロードするため、合計で$4+7+2=13$個を使うことになります。
+p\LaTeX~2.09$B8_49%b!<%I;~$K$O!"(B\LaTeX~2.09$B8_49%b!<%I(B
+$B$N@_Dj$b%m!<%I$9$k$?$a!"9g7W$G(B$4+7+2=13$$B8D$r;H$&$3$H$K$J$j$^$9!#(B
 
-psnfssのLucidaフォント関連パッケージは、noexpertオプションで2,~3個、
-抑制することができます。詳細はpsnfssのドキュメントを参照してください。
+psnfss$B$N(BLucida$B%U%)%s%H4XO"%Q%C%1!<%8$O!"(Bnoexpert$B%*%W%7%g%s$G(B2,~3$B8D!"(B
+$BM^@)$9$k$3$H$,$G$-$^$9!#>\:Y$O(Bpsnfss$B$N%I%-%e%a%s%H$r;2>H$7$F$/$@$5$$!#(B
 
 \begin{table*}[htb]
-\caption{\label{famlist}フォントファミリの宣言箇所}
+\caption{\label{famlist}$B%U%)%s%H%U%!%_%j$N@k8@2U=j(B}
 \begin{tabbing}
-MMM\=p\LaTeX~2.09互換モード  \=: クラスファイル :\=\+\kill
-\LaTeX カーネル
+MMM\=p\LaTeX~2.09$B8_49%b!<%I(B  \=: $B%/%i%9%U%!%$%k(B :\=\+\kill
+\LaTeX $B%+!<%M%k(B
   \>:              \>: operators, letters, symbols, largesymbols\\
-\LaTeX~2.09互換モード
+\LaTeX~2.09$B8_49%b!<%I(B
   \>: latex209.def \>: bold, sans, typewriter, italic, smallcaps, slanted\\
   \>: latexsym.sty \>: lasy\\
 p\LaTeXe 
-  \>: クラスファイル \>: mincho\\
-p\LaTeX~2.09互換モード
+  \>: $B%/%i%9%U%!%$%k(B \>: mincho\\
+p\LaTeX~2.09$B8_49%b!<%I(B
   \>: pl209.def   \>: mincho, gothic\\
-AMSのパッケージ
+AMS$B$N%Q%C%1!<%8(B
   \>: amsmath.sty \>: (none)\\
   \>: amstex.sty  \>: AMSa, AMSb\\
   \>: amsfonts.sty\>: AMSa, AMSb\\
-balelパッケージ
+balel$B%Q%C%1!<%8(B
   \>: cyrmath.sty \>: cyrletters\\
-psnfssパッケージ
+psnfss$B%Q%C%1!<%8(B
   \>: mathptm.sty \>: operators, letters, symbols, largesymbols, bold, italic\\
   \>: lucbmath.sty\>: letters, mathupright, symbols, largesymbols, italics,\\
                 \>\>: arrows, boldarrows, operators\\
@@ -218,17 +218,17 @@ psnfssパッケージ
 
 
 
-\section{その他の情報}
-最新情報は、p\TeX{}ホームページ
+\section{$B$=$NB>$N>pJs(B}
+$B:G?7>pJs$O!"(Bp\TeX{}$B%[!<%`%Z!<%8(B
 \begin{verbatim}
     http://www.ascii.co.jp/pb/ptex
 \end{verbatim}
-より、入手することができます。
+$B$h$j!"F~<j$9$k$3$H$,$G$-$^$9!#(B
 
-p\LaTeXe{}についてのお問い合わせやバグレポートなどは、電子メールで
+p\LaTeXe{}$B$K$D$$$F$N$*Ld$$9g$o$;$d%P%0%l%]!<%H$J$I$O!"EE;R%a!<%k$G(B
 \begin{verbatim}
-    www-ptex＠ascii.co.jp
+    www-ptex$B!w(Bascii.co.jp
 \end{verbatim}
-までお願いします。
+$B$^$G$*4j$$$7$^$9!#(B
 
 \end{document}

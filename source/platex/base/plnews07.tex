@@ -1,106 +1,106 @@
 %% <2001/10/04>
 \documentclass{plnews}
 
-\publicationyear{2001}% 発行年
-\publicationmonth{09}% 発行月
-\publicationissue{7}% 番号
-\author{中野 賢（\texttt{<ken-na at ascii.co.jp>}）
-     \& 富樫 秀昭（\texttt{<hideak-t at ascii.co.jp>}）
+\publicationyear{2001}% $BH/9TG/(B
+\publicationmonth{09}% $BH/9T7n(B
+\publicationissue{7}% $BHV9f(B
+\author{$BCfLn(B $B8-!J(B\texttt{<ken-na at ascii.co.jp>}$B!K(B
+     \& $BIY3_(B $B=(><!J(B\texttt{<hideak-t at ascii.co.jp>}$B!K(B
 }
 
 \begin{document}
 
 \maketitle
 
-\section{この文書について}
-この文書は、p\LaTeXe{}\texttt{<2001/09/04>}版について、
-前回の版（\texttt{<2000/11/03>}）からの更新箇所をまとめたものです。
-それ以前の変更点については、\file{plnews*.tex}や\file{Changes.txt}を
-参照してください。
-\LaTeX{}レベルでの更新箇所は、\LaTeX{}に付属の\file{ltnews*.tex}などを
-参照してください。
+\section{$B$3$NJ8=q$K$D$$$F(B}
+$B$3$NJ8=q$O!"(Bp\LaTeXe{}\texttt{<2001/09/04>}$BHG$K$D$$$F!"(B
+$BA02s$NHG!J(B\texttt{<2000/11/03>}$B!K$+$i$N99?72U=j$r$^$H$a$?$b$N$G$9!#(B
+$B$=$l0JA0$NJQ99E@$K$D$$$F$O!"(B\file{plnews*.tex}$B$d(B\file{Changes.txt}$B$r(B
+$B;2>H$7$F$/$@$5$$!#(B
+\LaTeX{}$B%l%Y%k$G$N99?72U=j$O!"(B\LaTeX{}$B$KIUB0$N(B\file{ltnews*.tex}$B$J$I$r(B
+$B;2>H$7$F$/$@$5$$!#(B
 
 
-\section{使用および配付条件の変更}
-p\LaTeXe{}の配付および利用条件を「（変更済み）BSDライセンス」にしました。
-内容については、\file{COPYRIGHT}ファイルを参照してください。
+\section{$B;HMQ$*$h$SG[IU>r7o$NJQ99(B}
+p\LaTeXe{}$B$NG[IU$*$h$SMxMQ>r7o$r!V!JJQ99:Q$_!K(BBSD$B%i%$%;%s%9!W$K$7$^$7$?!#(B
+$BFbMF$K$D$$$F$O!"(B\file{COPYRIGHT}$B%U%!%$%k$r;2>H$7$F$/$@$5$$!#(B
 
 
-\section{nidanfloatパッケージ}
-nidanfloatパッケージは、最終ページの左右カラムの高さを均一に
-して出力するようになっていました。
+\section{nidanfloat$B%Q%C%1!<%8(B}
+nidanfloat$B%Q%C%1!<%8$O!":G=*%Z!<%8$N:81&%+%i%`$N9b$5$r6Q0l$K(B
+$B$7$F=PNO$9$k$h$&$K$J$C$F$$$^$7$?!#(B
 
-この機能は、左カラム用に保持している内容と、右カラム用の内容を
-一度まとめ、再び２分割するだけの簡略した実装で実現されています。
+$B$3$N5!G=$O!":8%+%i%`MQ$KJ];}$7$F$$$kFbMF$H!"1&%+%i%`MQ$NFbMF$r(B
+$B0lEY$^$H$a!":F$S#2J,3d$9$k$@$1$N4JN,$7$?<BAu$G<B8=$5$l$F$$$^$9!#(B
 
-そのため、左カラムだけで収まる量しかない場合、ページ下部への出力を
-指定した（２段抜きでない）フロートは右カラムの下に置かれます。
-また、|\newpage|コマンドでカラムを変更しても、
-ページ出力時に左カラム用の内容とまとめられ、分割位置が調整されるので、
-指定した|\newpage|コマンドの位置でカラムが変わりません。
+$B$=$N$?$a!":8%+%i%`$@$1$G<}$^$kNL$7$+$J$$>l9g!"%Z!<%82<It$X$N=PNO$r(B
+$B;XDj$7$?!J#2CJH4$-$G$J$$!K%U%m!<%H$O1&%+%i%`$N2<$KCV$+$l$^$9!#(B
+$B$^$?!"(B|\newpage|$B%3%^%s%I$G%+%i%`$rJQ99$7$F$b!"(B
+$B%Z!<%8=PNO;~$K:8%+%i%`MQ$NFbMF$H$^$H$a$i$l!"J,3d0LCV$,D4@0$5$l$k$N$G!"(B
+$B;XDj$7$?(B|\newpage|$B%3%^%s%I$N0LCV$G%+%i%`$,JQ$o$j$^$;$s!#(B
 
-そこで、最終ページの高さ調整機能を使うかどうかを制御するための
-パッケージオプションを導入しました。
+$B$=$3$G!":G=*%Z!<%8$N9b$5D4@05!G=$r;H$&$+$I$&$+$r@)8f$9$k$?$a$N(B
+$B%Q%C%1!<%8%*%W%7%g%s$rF3F~$7$^$7$?!#(B
 
-自動調整するには、パッケージをロードするときに``balance''オプションを
-指定してください。
+$B<+F0D4@0$9$k$K$O!"%Q%C%1!<%8$r%m!<%I$9$k$H$-$K(B``balance''$B%*%W%7%g%s$r(B
+$B;XDj$7$F$/$@$5$$!#(B
 \begin{verbatim}
 \usepackage[balance]{nidanfloat}
 \end{verbatim}
 
-逆に、調整しないようにするには、オプション``nobalance''を指定します。
+$B5U$K!"D4@0$7$J$$$h$&$K$9$k$K$O!"%*%W%7%g%s(B``nobalance''$B$r;XDj$7$^$9!#(B
 \begin{verbatim}
 \usepackage[nobalance]{nidanfloat}
 \end{verbatim}
 
-デフォルトは\textbf{nobalance}にしてあります。
+$B%G%U%)%k%H$O(B\textbf{nobalance}$B$K$7$F$"$j$^$9!#(B
 
 
-\section{その他の主な修正箇所}
-次のような不具合の修正や仕様の変更をしました。
+\section{$B$=$NB>$N<g$J=$@52U=j(B}
+$B<!$N$h$&$JIT6q9g$N=$@5$d;EMM$NJQ99$r$7$^$7$?!#(B
 
 \begin{itemize}
-\item |\enlargethispage|コマンドを用いた場合、脚注と本文が重なってしまう。
-\item |\chpater|コマンドと|\chapter*|コマンドで見出しの出力位置が異なる。
-\item |\adjustbaseline|で調整量が合っていない。
-\item |\pbox|コマンドでzオプションを指定するとエラーになる。
-\item 目次のページ番号の書体を|\rmfamily|から|\normalfont|に変更しました。
+\item |\enlargethispage|$B%3%^%s%I$rMQ$$$?>l9g!"5SCm$HK\J8$,=E$J$C$F$7$^$&!#(B
+\item |\chpater|$B%3%^%s%I$H(B|\chapter*|$B%3%^%s%I$G8+=P$7$N=PNO0LCV$,0[$J$k!#(B
+\item |\adjustbaseline|$B$GD4@0NL$,9g$C$F$$$J$$!#(B
+\item |\pbox|$B%3%^%s%I$G(Bz$B%*%W%7%g%s$r;XDj$9$k$H%(%i!<$K$J$k!#(B
+\item $BL\<!$N%Z!<%8HV9f$N=qBN$r(B|\rmfamily|$B$+$i(B|\normalfont|$B$KJQ99$7$^$7$?!#(B
 \end{itemize}
 
 
-\section{フォーマットファイル作成時の注意}
-現在のp\TeX{}では、8ビットコードの連続を16ビットコードと認識して
-しまう場合があります。そのため、フランス語やキリル文字などの
-8ビットコードが連続するハイフンパターンはまず使えせん。
-例えばcmcyraltパッケージでは、途中でつぎのようなエラーになります。
+\section{$B%U%)!<%^%C%H%U%!%$%k:n@.;~$NCm0U(B}
+$B8=:_$N(Bp\TeX{}$B$G$O!"(B8$B%S%C%H%3!<%I$NO"B3$r(B16$B%S%C%H%3!<%I$HG'<1$7$F(B
+$B$7$^$&>l9g$,$"$j$^$9!#$=$N$?$a!"%U%i%s%98l$d%-%j%kJ8;z$J$I$N(B
+8$B%S%C%H%3!<%I$,O"B3$9$k%O%$%U%s%Q%?!<%s$O$^$:;H$($;$s!#(B
+$BNc$($P(Bcmcyralt$B%Q%C%1!<%8$G$O!"ESCf$G$D$.$N$h$&$J%(%i!<$K$J$j$^$9!#(B
 
 \begin{verbatim}
 (/usr/local/share/texmf/tex/latex/contrib/
 other/cmcyralt/rhyphen.tex Russian hyphena
 tion
 ! Bad \patterns.
-l.107  . え
+l.107  . $B$((B
            2
 ?
 \end{verbatim}
 
-このときは、``|?|''のプロンプトに対して``|x|''で終了してください。
-残念ながら、このハイフンパターンをp\TeX{}で利用することはできません。
+$B$3$N$H$-$O!"(B``|?|''$B$N%W%m%s%W%H$KBP$7$F(B``|x|''$B$G=*N;$7$F$/$@$5$$!#(B
+$B;DG0$J$,$i!"$3$N%O%$%U%s%Q%?!<%s$r(Bp\TeX{}$B$GMxMQ$9$k$3$H$O$G$-$^$;$s!#(B
 
-そこで、hyphen.cfgを用意して、不用意に他のハイフンパターンを
-読み込まないようにしてあります。詳しくはREADME2.txtをご覧ください。
+$B$=$3$G!"(Bhyphen.cfg$B$rMQ0U$7$F!"ITMQ0U$KB>$N%O%$%U%s%Q%?!<%s$r(B
+$BFI$_9~$^$J$$$h$&$K$7$F$"$j$^$9!#>\$7$/$O(BREADME2.txt$B$r$4Mw$/$@$5$$!#(B
 
-\section{その他}
-p\TeX{}やp\LaTeXe{}に関する最新情報は、p\TeX{}ホームページ
+\section{$B$=$NB>(B}
+p\TeX{}$B$d(Bp\LaTeXe{}$B$K4X$9$k:G?7>pJs$O!"(Bp\TeX{}$B%[!<%`%Z!<%8(B
 \begin{verbatim}
     http://www.ascii.co.jp/pb/ptex
 \end{verbatim}
-より、入手することができます。
+$B$h$j!"F~<j$9$k$3$H$,$G$-$^$9!#(B
 
-バグ報告やお問い合わせなどは、電子メールで
+$B%P%0Js9p$d$*Ld$$9g$o$;$J$I$O!"EE;R%a!<%k$G(B
 \begin{verbatim}
-    www-ptex＠ascii.co.jp
+    www-ptex$B!w(Bascii.co.jp
 \end{verbatim}
-までお願いします。
+$B$^$G$*4j$$$7$^$9!#(B
 
 \end{document}

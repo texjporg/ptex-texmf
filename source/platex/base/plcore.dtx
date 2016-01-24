@@ -31,23 +31,23 @@
 %
 % \iffalse
 % \changes{v1.0}{1994/09/16}{first edition}
-% \changes{v1.1}{1995/04/12}{脚注マクロ修正}
-% \changes{v1.1a}{1995/11/10}{\cs{topmargin}が反映されないバグを修正}
-% \changes{v1.1b}{1996/01/26}{脚注マークの後ろに余計なスペースが入るのを修正}
-% \changes{v1.1c}{1996/01/30}{ファイル名を\file{ploutput.dtx}から
-%    \file{plcore.dtx}とした。キャプション拡張を\file{plext.dtx}に移動。
-%    プリアンブルコマンドを追加}
-% \changes{v1.1d}{1996/02/17}{\cs{printglossary}を追加}
-% \changes{v1.1e}{1996/03/12}{tabbing環境での和欧文間スペース}
-% \changes{v1.1f}{1996/07/10}{トンボまわりを修正}
-% \changes{v1.1g}{1997/01/16}{\LaTeX\ \textt{!<1996/06/01!>}に対応}
-% \changes{v1.1h}{1997/06/25}{\LaTeX\ の改行マクロの変更に対応}
-% \changes{v1.1i}{1998/02/03}{\cs{@shipoutsetup}を\cs{@outputpage}内に入れた}
-% \changes{v1.1j}{2001/05/10}{\cs{@makecol}で組み立てられる
-%    \cs{@outputbox}の大きさが、縦組で中身が空のボックスだけの場合も適正になる
-%    ように修正}
-% \changes{v1.2}{2001/09/04}{本文と\cs{footnoterule}が重なってしまうのを修正}
-% \changes{v1.2a}{2001/09/26}{\LaTeX\ \texttt{!<2001/06/01!>}に対応}
+% \changes{v1.1}{1995/04/12}{$B5SCm%^%/%m=$@5(B}
+% \changes{v1.1a}{1995/11/10}{\cs{topmargin}$B$,H?1G$5$l$J$$%P%0$r=$@5(B}
+% \changes{v1.1b}{1996/01/26}{$B5SCm%^!<%/$N8e$m$KM>7W$J%9%Z!<%9$,F~$k$N$r=$@5(B}
+% \changes{v1.1c}{1996/01/30}{$B%U%!%$%kL>$r(B\file{ploutput.dtx}$B$+$i(B
+%    \file{plcore.dtx}$B$H$7$?!#%-%c%W%7%g%s3HD%$r(B\file{plext.dtx}$B$K0\F0!#(B
+%    $B%W%j%"%s%V%k%3%^%s%I$rDI2C(B}
+% \changes{v1.1d}{1996/02/17}{\cs{printglossary}$B$rDI2C(B}
+% \changes{v1.1e}{1996/03/12}{tabbing$B4D6-$G$NOB2$J84V%9%Z!<%9(B}
+% \changes{v1.1f}{1996/07/10}{$B%H%s%\$^$o$j$r=$@5(B}
+% \changes{v1.1g}{1997/01/16}{\LaTeX\ \textt{!<1996/06/01!>}$B$KBP1~(B}
+% \changes{v1.1h}{1997/06/25}{\LaTeX\ $B$N2~9T%^%/%m$NJQ99$KBP1~(B}
+% \changes{v1.1i}{1998/02/03}{\cs{@shipoutsetup}$B$r(B\cs{@outputpage}$BFb$KF~$l$?(B}
+% \changes{v1.1j}{2001/05/10}{\cs{@makecol}$B$GAH$_N)$F$i$l$k(B
+%    \cs{@outputbox}$B$NBg$-$5$,!"=DAH$GCf?H$,6u$N%\%C%/%9$@$1$N>l9g$bE,@5$K$J$k(B
+%    $B$h$&$K=$@5(B}
+% \changes{v1.2}{2001/09/04}{$BK\J8$H(B\cs{footnoterule}$B$,=E$J$C$F$7$^$&$N$r=$@5(B}
+% \changes{v1.2a}{2001/09/26}{\LaTeX\ \texttt{!<2001/06/01!>}$B$KBP1~(B}
 % \fi
 %
 % \iffalse
@@ -58,9 +58,9 @@
 % \iffalse
 \documentclass{jltxdoc}
 \GetFileInfo{plcore.dtx}
-\title{p\LaTeXe{}の拡張\space\fileversion}
+\title{p\LaTeXe{}$B$N3HD%(B\space\fileversion}
 \author{Ken Nakano \& Hideaki Togashi}
-\date{作成日：\filedate}
+\date{$B:n@.F|!'(B\filedate}
 \begin{document}
    \maketitle
    \tableofcontents
@@ -70,43 +70,43 @@
 % \fi
 %
 %
-% \section{概要}\label{plcore:intro}
-% このファイルでは、つぎの機能の拡張や修正を行っています。
-% 詳細は、それぞれの項目の説明を参照してください。
+% \section{$B35MW(B}\label{plcore:intro}
+% $B$3$N%U%!%$%k$G$O!"$D$.$N5!G=$N3HD%$d=$@5$r9T$C$F$$$^$9!#(B
+% $B>\:Y$O!"$=$l$>$l$N9`L\$N@bL@$r;2>H$7$F$/$@$5$$!#(B
 %
 % \begin{itemize}
-% \item プリアンブルコマンド
-% \item 改ページ
-% \item 改行
-% \item オブジェクトの出力順序
-% \item トンボ
-% \item 脚注マクロ
-% \item 相互参照
-% \item 疑似タイプ入力
-% \item tabbing環境
-% \item 用語集の出力
-% \item 時分を示すカウンタ
+% \item $B%W%j%"%s%V%k%3%^%s%I(B
+% \item $B2~%Z!<%8(B
+% \item $B2~9T(B
+% \item $B%*%V%8%'%/%H$N=PNO=g=x(B
+% \item $B%H%s%\(B
+% \item $B5SCm%^%/%m(B
+% \item $BAj8_;2>H(B
+% \item $B5?;w%?%$%WF~NO(B
+% \item tabbing$B4D6-(B
+% \item $BMQ8l=8$N=PNO(B
+% \item $B;~J,$r<($9%+%&%s%?(B
 % \end{itemize}
 %
 %
-% \section{コード}
+% \section{$B%3!<%I(B}
 %
-% このファイルの内容は、p\LaTeXe{}のコア部分です。
+% $B$3$N%U%!%$%k$NFbMF$O!"(Bp\LaTeXe{}$B$N%3%"ItJ,$G$9!#(B
 %    \begin{macrocode}
 %<*plcore>
 %    \end{macrocode}
 %
-% \subsection{プリアンブルコマンド}
-% 文書ファイルが必要とするフォーマットファイルの指定をするコマンドを
-% 拡張子、p\LaTeXe{}フォーマットファイルも認識するようにします。
+% \subsection{$B%W%j%"%s%V%k%3%^%s%I(B}
+% $BJ8=q%U%!%$%k$,I,MW$H$9$k%U%)!<%^%C%H%U%!%$%k$N;XDj$r$9$k%3%^%s%I$r(B
+% $B3HD%;R!"(Bp\LaTeXe{}$B%U%)!<%^%C%H%U%!%$%k$bG'<1$9$k$h$&$K$7$^$9!#(B
 %
 % \begin{macro}{\NeedsTeXFormat}
 % \begin{macro}{\@needsPformat}
 % \begin{macro}{\@needsPf@rmat}
-% |\NeedsTeXFormats|に``pLaTeX2e''を指定すると、
-% ``LaTeX2e''フォーマットを必要とする英語版のクラスファイルや
-% パッケージファイルなどが使えなくなってしまうために再定義します。
-% このコマンドは\file{ltclass.dtx}で定義されています。
+% |\NeedsTeXFormats|$B$K(B``pLaTeX2e''$B$r;XDj$9$k$H!"(B
+% ``LaTeX2e''$B%U%)!<%^%C%H$rI,MW$H$9$k1Q8lHG$N%/%i%9%U%!%$%k$d(B
+% $B%Q%C%1!<%8%U%!%$%k$J$I$,;H$($J$/$J$C$F$7$^$&$?$a$K:FDj5A$7$^$9!#(B
+% $B$3$N%3%^%s%I$O(B\file{ltclass.dtx}$B$GDj5A$5$l$F$$$^$9!#(B
 %    \begin{macrocode}
 \def\NeedsTeXFormat#1{%
    \def\reserved@a{#1}%
@@ -142,11 +142,11 @@
 % \end{macro}
 %
 % \begin{macro}{\documentstyle}
-% |\documentclass|の代わりに|\documentstyle|が使われると、
-% \LaTeX~2.09互換モードに入ります。このとき、
-% オリジナルの\LaTeX{}では\file{latex209.def}を読み込みますが、
-% p\LaTeXe{}では\file{pl209.def}を読み込みます。
-% このコマンドは\file{ltclass.dtx}で定義されています。
+% |\documentclass|$B$NBe$o$j$K(B|\documentstyle|$B$,;H$o$l$k$H!"(B
+% \LaTeX~2.09$B8_49%b!<%I$KF~$j$^$9!#$3$N$H$-!"(B
+% $B%*%j%8%J%k$N(B\LaTeX{}$B$G$O(B\file{latex209.def}$B$rFI$_9~$_$^$9$,!"(B
+% p\LaTeXe{}$B$G$O(B\file{pl209.def}$B$rFI$_9~$_$^$9!#(B
+% $B$3$N%3%^%s%I$O(B\file{ltclass.dtx}$B$GDj5A$5$l$F$$$^$9!#(B
 %    \begin{macrocode}
 \def\documentstyle{%
   \makeatletter\input{pl209.def}\makeatother
@@ -156,14 +156,14 @@
 %
 %
 %
-% \subsection{改ページ}
-% 縦組のとき、改ページ後の内容が偶数ページ（右ページ）からはじまるようにします。
-% 横組のときには、奇数ページ（右ページ）からはじまります。
+% \subsection{$B2~%Z!<%8(B}
+% $B=DAH$N$H$-!"2~%Z!<%88e$NFbMF$,6v?t%Z!<%8!J1&%Z!<%8!K$+$i$O$8$^$k$h$&$K$7$^$9!#(B
+% $B2#AH$N$H$-$K$O!"4q?t%Z!<%8!J1&%Z!<%8!K$+$i$O$8$^$j$^$9!#(B
 %
 % \begin{macro}{\cleardoublepage}
-% このコマンドによって出力される、白ページのページスタイルを
-% \pstyle{empty}にし、ヘッダとフッタが入らないようにしています。
-% \file{ltoutput.dtx}の定義を、縦組、横組に合わせて、定義しなおしたものです。
+% $B$3$N%3%^%s%I$K$h$C$F=PNO$5$l$k!"Gr%Z!<%8$N%Z!<%8%9%?%$%k$r(B
+% \pstyle{empty}$B$K$7!"%X%C%@$H%U%C%?$,F~$i$J$$$h$&$K$7$F$$$^$9!#(B
+% \file{ltoutput.dtx}$B$NDj5A$r!"=DAH!"2#AH$K9g$o$;$F!"Dj5A$7$J$*$7$?$b$N$G$9!#(B
 %    \begin{macrocode}
 \def\cleardoublepage{\clearpage\if@twoside
   \ifodd\c@page
@@ -180,34 +180,34 @@
 %    \end{macrocode}
 % \end{macro}
 %
-% \subsection{改行}
-% \changes{v1.1c}{1995/08/25}{行頭禁則文字の直前での改行での不具合の修正}
-% 日本語\TeX{}の行頭禁則処理は、禁則対象文字の直前に、
-% |\prekinsokupenalty|で指定されたペナルティの値を挿入することで
-% 行なっています。
-% ところが、改行コマンドは負のペナルティの値を挿入することで改行を行ないます。
-% そのために、禁則ペナルティの値が$10000$の文字の直後では、ペナルティの値が
-% 相殺され、改行することができません。
+% \subsection{$B2~9T(B}
+% \changes{v1.1c}{1995/08/25}{$B9TF,6XB'J8;z$ND>A0$G$N2~9T$G$NIT6q9g$N=$@5(B}
+% $BF|K\8l(B\TeX{}$B$N9TF,6XB'=hM}$O!"6XB'BP>]J8;z$ND>A0$K!"(B
+% |\prekinsokupenalty|$B$G;XDj$5$l$?%Z%J%k%F%#$NCM$rA^F~$9$k$3$H$G(B
+% $B9T$J$C$F$$$^$9!#(B
+% $B$H$3$m$,!"2~9T%3%^%s%I$OIi$N%Z%J%k%F%#$NCM$rA^F~$9$k$3$H$G2~9T$r9T$J$$$^$9!#(B
+% $B$=$N$?$a$K!"6XB'%Z%J%k%F%#$NCM$,(B$10000$$B$NJ8;z$ND>8e$G$O!"%Z%J%k%F%#$NCM$,(B
+% $BAj;&$5$l!"2~9T$9$k$3$H$,$G$-$^$;$s!#(B
 %
 % \begin{verbatim}
-% あいうえお\\
-% ！かきくけこ
+% $B$"$$$&$($*(B\\
+% $B!*$+$-$/$1$3(B
 % \end{verbatim}
 %
-% したがって、|\newline|マクロに|\mbox{}|を入れることによって、
-% |\newline|マクロのペナルティ$-10000$と行頭文字のペナルティ$10000$が
-% 加算されないようにします。|\\|は|\newline|マクロを呼び出しています。
+% $B$7$?$,$C$F!"(B|\newline|$B%^%/%m$K(B|\mbox{}|$B$rF~$l$k$3$H$K$h$C$F!"(B
+% |\newline|$B%^%/%m$N%Z%J%k%F%#(B$-10000$$B$H9TF,J8;z$N%Z%J%k%F%#(B$10000$$B$,(B
+% $B2C;;$5$l$J$$$h$&$K$7$^$9!#(B|\\|$B$O(B|\newline|$B%^%/%m$r8F$S=P$7$F$$$^$9!#(B
 %
-% なお、|\newline|マクロは\file{ltspaces.dtx}で定義されています。
+% $B$J$*!"(B|\newline|$B%^%/%m$O(B\file{ltspaces.dtx}$B$GDj5A$5$l$F$$$^$9!#(B
 %
-% \changes{v1.1j}{1999/04/05}{オプションを付けた場合に、余計な空白
-%    が入ってしまうのを修正。ありがとう、鈴木隆志＠京都大学さん。}
-% \changes{v1.1h}{1997/06/25}{\LaTeX\ の改行マクロの変更に対応。
-%    ありがとう、奥村さん。}
-% \LaTeX\ \texttt{!<1996/12/01!>}で改行マクロが変更され、|\\|が
-% |\newline|を呼び出さなくなったため、変更された改行マクロに対応しまし
-% た。|\mbox{}|の挿入位置は同じです。
-% \file{ltspace.dtx}の定義を上記に合わせて、定義しなおしました。
+% \changes{v1.1j}{1999/04/05}{$B%*%W%7%g%s$rIU$1$?>l9g$K!"M>7W$J6uGr(B
+%    $B$,F~$C$F$7$^$&$N$r=$@5!#$"$j$,$H$&!"NkLZN4;V!w5~ETBg3X$5$s!#(B}
+% \changes{v1.1h}{1997/06/25}{\LaTeX\ $B$N2~9T%^%/%m$NJQ99$KBP1~!#(B
+%    $B$"$j$,$H$&!"1|B<$5$s!#(B}
+% \LaTeX\ \texttt{!<1996/12/01!>}$B$G2~9T%^%/%m$,JQ99$5$l!"(B|\\|$B$,(B
+% |\newline|$B$r8F$S=P$5$J$/$J$C$?$?$a!"JQ99$5$l$?2~9T%^%/%m$KBP1~$7$^$7(B
+% $B$?!#(B|\mbox{}|$B$NA^F~0LCV$OF1$8$G$9!#(B
+% \file{ltspace.dtx}$B$NDj5A$r>e5-$K9g$o$;$F!"Dj5A$7$J$*$7$^$7$?!#(B
 %    \begin{macrocode}
 \def\@gnewline #1{%
   \ifvmode
@@ -218,18 +218,18 @@
   \fi}
 %    \end{macrocode}
 %
-% \subsection{オブジェクトの出力順序}
-% オリジナルの\LaTeX{}は、トップフロート、本文、脚注、ボトムフロート
-% の順番で出力しますけれども、日本語組版では、トップフロート、本文、
-% ボトムフロート、脚注という順番の方が一般的ですので、
-% このような順番になるよう修正をします。
+% \subsection{$B%*%V%8%'%/%H$N=PNO=g=x(B}
+% $B%*%j%8%J%k$N(B\LaTeX{}$B$O!"%H%C%W%U%m!<%H!"K\J8!"5SCm!"%\%H%`%U%m!<%H(B
+% $B$N=gHV$G=PNO$7$^$9$1$l$I$b!"F|K\8lAHHG$G$O!"%H%C%W%U%m!<%H!"K\J8!"(B
+% $B%\%H%`%U%m!<%H!"5SCm$H$$$&=gHV$NJ}$,0lHLE*$G$9$N$G!"(B
+% $B$3$N$h$&$J=gHV$K$J$k$h$&=$@5$r$7$^$9!#(B
 %
-% したがって、文書ファイルによっては\LaTeX{}の組版結果と異なる場合が
-% ありますので、注意をしてください。
+% $B$7$?$,$C$F!"J8=q%U%!%$%k$K$h$C$F$O(B\LaTeX{}$B$NAHHG7k2L$H0[$J$k>l9g$,(B
+% $B$"$j$^$9$N$G!"Cm0U$r$7$F$/$@$5$$!#(B
 %
 % \begin{macro}{\@makecol}
-% このマクロが組み立てる部分の中心となります。
-% \file{ltoutput.dtx}で定義されているものです。
+% $B$3$N%^%/%m$,AH$_N)$F$kItJ,$NCf?4$H$J$j$^$9!#(B
+% \file{ltoutput.dtx}$B$GDj5A$5$l$F$$$k$b$N$G$9!#(B
 %    \begin{macrocode}
 \gdef\@makecol{%
    \setbox\@outputbox\box\@cclv%
@@ -245,13 +245,13 @@
        \dimen@ \dp\@outputbox
        \unvbox \@outputbox
 %    \end{macrocode}
-% 縦組の際に|\@outputbox|の内容が空のボックスだけの場合に、|\wd\@outputbox|が
-% 0ptになってしまい、結果としてフッタの位置がくるってしまっていた。
-% 0の|\hskip|を発生させると|\wd\@outputbox|の値が期待したものとなるので、
-% 縦組の場合はその方法で対処する。
-% \changes{v1.1j}{2001/05/10}{\cs{@makecol}で組み立てられる
-%    \cs{@outputbox}の大きさが、縦組で中身が空のボックスだけの場合も適正になる
-%    ように修正}
+% $B=DAH$N:]$K(B|\@outputbox|$B$NFbMF$,6u$N%\%C%/%9$@$1$N>l9g$K!"(B|\wd\@outputbox|$B$,(B
+% 0pt$B$K$J$C$F$7$^$$!"7k2L$H$7$F%U%C%?$N0LCV$,$/$k$C$F$7$^$C$F$$$?!#(B
+% 0$B$N(B|\hskip|$B$rH/@8$5$;$k$H(B|\wd\@outputbox|$B$NCM$,4|BT$7$?$b$N$H$J$k$N$G!"(B
+% $B=DAH$N>l9g$O$=$NJ}K!$GBP=h$9$k!#(B
+% \changes{v1.1j}{2001/05/10}{\cs{@makecol}$B$GAH$_N)$F$i$l$k(B
+%    \cs{@outputbox}$B$NBg$-$5$,!"=DAH$GCf?H$,6u$N%\%C%/%9$@$1$N>l9g$bE,@5$K$J$k(B
+%    $B$h$&$K=$@5(B}
 %    \begin{macrocode}
        \iftdir\hskip\z@
        \else\vskip -\dimen@\fi
@@ -274,12 +274,12 @@
 %
 %
 % \begin{macro}{\@makespecialcolbox}
-% 本文（あるいはボトムフロート）と脚注の間に|\@textbottom|を入れたいので、
-% |\@makespecialcolbox|コマンドも修正をします。
-% やはり、\file{ltoutput.dtx}で定義されているものです。
+% $BK\J8!J$"$k$$$O%\%H%`%U%m!<%H!K$H5SCm$N4V$K(B|\@textbottom|$B$rF~$l$?$$$N$G!"(B
+% |\@makespecialcolbox|$B%3%^%s%I$b=$@5$r$7$^$9!#(B
+% $B$d$O$j!"(B\file{ltoutput.dtx}$B$GDj5A$5$l$F$$$k$b$N$G$9!#(B
 %
-% このマクロは、|\enlargedthispage|が使われたときに、
-% |\@makecol|マクロから呼び出されます。
+% $B$3$N%^%/%m$O!"(B|\enlargedthispage|$B$,;H$o$l$?$H$-$K!"(B
+% |\@makecol|$B%^%/%m$+$i8F$S=P$5$l$^$9!#(B
 %    \begin{macrocode}
 %<*plcore|fltrace>
 \gdef\@makespecialcolbox{%
@@ -310,8 +310,8 @@
        \vskip \@tempdima
        \@textbottom
 %    \end{macrocode}
-% つぎの部分がp\LaTeX{}用の修正です。
-% \changes{v1.2}{2001/09/04}{本文と\cs{footnoterule}が重なってしまうのを修正}
+% $B$D$.$NItJ,$,(Bp\LaTeX{}$BMQ$N=$@5$G$9!#(B
+% \changes{v1.2}{2001/09/04}{$BK\J8$H(B\cs{footnoterule}$B$,=E$J$C$F$7$^$&$N$r=$@5(B}
 %    \begin{macrocode}
        \ifvoid\footins\else % for pLaTeX
 		 \vskip\skip\footins
@@ -336,9 +336,9 @@
          \unvbox\@outputbox
          \@textbottom
 %    \end{macrocode}
-% つぎの部分がp\LaTeX{}用の修正です。
-% 脚注があれば、ここでそれを出力します。
-% \changes{v1.2}{2001/09/04}{本文と\cs{footnoterule}が重なってしまうのを修正}
+% $B$D$.$NItJ,$,(Bp\LaTeX{}$BMQ$N=$@5$G$9!#(B
+% $B5SCm$,$"$l$P!"$3$3$G$=$l$r=PNO$7$^$9!#(B
+% \changes{v1.2}{2001/09/04}{$BK\J8$H(B\cs{footnoterule}$B$,=E$J$C$F$7$^$&$N$r=$@5(B}
 %    \begin{macrocode}
          \ifvoid\footins\else % for pLaTeX
 		   \vskip\skip\footins
@@ -358,9 +358,9 @@
 %
 %
 % \begin{macro}{\@reinserts}
-% このマクロは、|\@specialoutput|マクロから呼び出されます。
-% ボックス|footins|が組み立てられたモードに合わせて
-% 縦モードか横モードで|\unvbox|をします。
+% $B$3$N%^%/%m$O!"(B|\@specialoutput|$B%^%/%m$+$i8F$S=P$5$l$^$9!#(B
+% $B%\%C%/%9(B|footins|$B$,AH$_N)$F$i$l$?%b!<%I$K9g$o$;$F(B
+% $B=D%b!<%I$+2#%b!<%I$G(B|\unvbox|$B$r$7$^$9!#(B
 %    \begin{macrocode}
 %<*plcore>
 \def\@reinserts{%
@@ -373,13 +373,13 @@
 % \end{macro}
 %
 %
-% \subsection{トンボ}
-% ここではトンボを出力するためのマクロを定義しています。
+% \subsection{$B%H%s%\(B}
+% $B$3$3$G$O%H%s%\$r=PNO$9$k$?$a$N%^%/%m$rDj5A$7$F$$$^$9!#(B
 %
 % \begin{macro}{\iftombow}
 % \begin{macro}{\iftombowdate}
-% |\iftombow|はトンボを出力するかどうか、|\iftombowdate|はDVIを作成した
-% 日付をトンボの脇に出力するかどうかを示すために用います。
+% |\iftombow|$B$O%H%s%\$r=PNO$9$k$+$I$&$+!"(B|\iftombowdate|$B$O(BDVI$B$r:n@.$7$?(B
+% $BF|IU$r%H%s%\$NOF$K=PNO$9$k$+$I$&$+$r<($9$?$a$KMQ$$$^$9!#(B
 %    \begin{macrocode}
 \newif\iftombow \tombowfalse
 \newif\iftombowdate \tombowdatetrue
@@ -388,29 +388,29 @@
 % \end{macro}
 %
 % \begin{macro}{\@tombowwidth}
-% |\@tombowwidth|には、トンボ用罫線の太さを指定します。
-% デフォルトは0.1ポイントです。
-% この値を変更し、|\maketombowbox|コマンドを実行することにより、トンボの
-% 罫線太さを変更して出力することができます。通常の使い方では、
-% トンボの罫線を変更する必要はありません。DVIをフィルムに面付け出力する
-% とき、トンボをつけずに位置はそのままにする必要があるときに、この太さを
-% ゼロポイントにします。
+% |\@tombowwidth|$B$K$O!"%H%s%\MQ7S@~$NB@$5$r;XDj$7$^$9!#(B
+% $B%G%U%)%k%H$O(B0.1$B%]%$%s%H$G$9!#(B
+% $B$3$NCM$rJQ99$7!"(B|\maketombowbox|$B%3%^%s%I$r<B9T$9$k$3$H$K$h$j!"%H%s%\$N(B
+% $B7S@~B@$5$rJQ99$7$F=PNO$9$k$3$H$,$G$-$^$9!#DL>o$N;H$$J}$G$O!"(B
+% $B%H%s%\$N7S@~$rJQ99$9$kI,MW$O$"$j$^$;$s!#(BDVI$B$r%U%#%k%`$KLLIU$1=PNO$9$k(B
+% $B$H$-!"%H%s%\$r$D$1$:$K0LCV$O$=$N$^$^$K$9$kI,MW$,$"$k$H$-$K!"$3$NB@$5$r(B
+% $B%<%m%]%$%s%H$K$7$^$9!#(B
 %    \begin{macrocode}
 \newdimen\@tombowwidth
 \setlength{\@tombowwidth}{.1\p@}
 %    \end{macrocode}
 % \end{macro}
 %
-% トンボ用の罫線を定義します。
+% $B%H%s%\MQ$N7S@~$rDj5A$7$^$9!#(B
 %
 % \begin{macro}{\@TL}
 % \begin{macro}{\@Tl}
 % \begin{macro}{\@TC}
 % \begin{macro}{\@TR}
 % \begin{macro}{\@Tr}
-% |\@TL|と|\@Tl|はページ上部の左側、
-% |\@TC|はページ上部の中央、
-% |\@TR|と|\@Tr|はページ上部の左側のトンボとなるボックスです。
+% |\@TL|$B$H(B|\@Tl|$B$O%Z!<%8>eIt$N:8B&!"(B
+% |\@TC|$B$O%Z!<%8>eIt$NCf1{!"(B
+% |\@TR|$B$H(B|\@Tr|$B$O%Z!<%8>eIt$N:8B&$N%H%s%\$H$J$k%\%C%/%9$G$9!#(B
 %    \begin{macrocode}
 \newbox\@TL\newbox\@Tl
 \newbox\@TC
@@ -427,9 +427,9 @@
 % \begin{macro}{\@BC}
 % \begin{macro}{\@BR}
 % \begin{macro}{\@Br}
-% |\@BL|と|\@Bl|はページ下部の左側、
-% |\@BC|はページ下部の中央、
-% |\@BR|と|\@Br|はページ下部の左側のトンボとなるボックスです。
+% |\@BL|$B$H(B|\@Bl|$B$O%Z!<%82<It$N:8B&!"(B
+% |\@BC|$B$O%Z!<%82<It$NCf1{!"(B
+% |\@BR|$B$H(B|\@Br|$B$O%Z!<%82<It$N:8B&$N%H%s%\$H$J$k%\%C%/%9$G$9!#(B
 %    \begin{macrocode}
 \newbox\@BL\newbox\@Bl
 \newbox\@BC
@@ -443,8 +443,8 @@
 %
 % \begin{macro}{\@CL}
 % \begin{macro}{\@CR}
-% |\@CL|はページ左側の中央、|\@CR|はページ右側の中央のトンボとなる
-% ボックスです。
+% |\@CL|$B$O%Z!<%8:8B&$NCf1{!"(B|\@CR|$B$O%Z!<%81&B&$NCf1{$N%H%s%\$H$J$k(B
+% $B%\%C%/%9$G$9!#(B
 %    \begin{macrocode}
 \newbox\@CL
 \newbox\@CR
@@ -454,10 +454,10 @@
 %
 % \begin{macro}{\@bannertoken}
 % \begin{macro}{\@bannerfont}
-% |\@bannertoken|トークンは、トンボの横に出力する文字列を入れます。
-% デフォルトでは何も出力しません。
-% |\@bannerfont|フォントは、その文字列を出力するためのフォントです。
-% 9ポイントのタイプライタ体としています。
+% |\@bannertoken|$B%H!<%/%s$O!"%H%s%\$N2#$K=PNO$9$kJ8;zNs$rF~$l$^$9!#(B
+% $B%G%U%)%k%H$G$O2?$b=PNO$7$^$;$s!#(B
+% |\@bannerfont|$B%U%)%s%H$O!"$=$NJ8;zNs$r=PNO$9$k$?$a$N%U%)%s%H$G$9!#(B
+% 9$B%]%$%s%H$N%?%$%W%i%$%?BN$H$7$F$$$^$9!#(B
 % \changes{v1.1f}{1996/09/03}{Add \cs{@bannerbox}.}
 %    \begin{macrocode}
 \font\@bannerfont=cmtt9
@@ -468,19 +468,19 @@
 % \end{macro}
 %
 % \begin{macro}{\maketombowbox}
-% |\maketombow|コマンドは、トンボとなるボックスを作るために用います。
-% このコマンドは、トンボとなるボックスを作るだけで、それらのボックスを
-% 出力するのではないことに注意をしてください。
+% |\maketombow|$B%3%^%s%I$O!"%H%s%\$H$J$k%\%C%/%9$r:n$k$?$a$KMQ$$$^$9!#(B
+% $B$3$N%3%^%s%I$O!"%H%s%\$H$J$k%\%C%/%9$r:n$k$@$1$G!"$=$l$i$N%\%C%/%9$r(B
+% $B=PNO$9$k$N$G$O$J$$$3$H$KCm0U$r$7$F$/$@$5$$!#(B
 %    \begin{macrocode}
 \def\maketombowbox{%
   \setbox\@TL\hbox to\z@{\yoko\hss
       \vrule width13mm height\@tombowwidth depth\z@
       \vrule height10mm width\@tombowwidth depth\z@
 %    \end{macrocode}
-% \changes{v1.0f}{1996/07/10}{トンボの横にDVIファイルの作成日を出力する
-%    ようにした。}
-% \changes{v1.0g}{1997/01/23}{作成日の出力をするかどうかをフラグで指定する
-%    ようにした。}
+% \changes{v1.0f}{1996/07/10}{$B%H%s%\$N2#$K(BDVI$B%U%!%$%k$N:n@.F|$r=PNO$9$k(B
+%    $B$h$&$K$7$?!#(B}
+% \changes{v1.0g}{1997/01/23}{$B:n@.F|$N=PNO$r$9$k$+$I$&$+$r%U%i%0$G;XDj$9$k(B
+%    $B$h$&$K$7$?!#(B}
 %    \begin{macrocode}
       \iftombowdate
         \raise4pt\hbox to\z@{\hskip5mm\@bannerfont\the\@bannertoken\hss}%
@@ -527,7 +527,7 @@
 % \end{macro}
 %
 % \begin{macro}{\@outputtombow}
-% |\@outputtombow|コマンドは、トンボを出力するのに用います。
+% |\@outputtombow|$B%3%^%s%I$O!"%H%s%\$r=PNO$9$k$N$KMQ$$$^$9!#(B
 %    \begin{macrocode}
 \def\@outputtombow{%
   \iftombow
@@ -554,11 +554,11 @@
 % \begin{macro}{\@@paperheight}
 % \begin{macro}{\@@paperwidth}
 % \begin{macro}{\@@topmargin}
-% |\@@pageheight|は、用紙の縦の長さにトンボの長さを加えた長さになります。
+% |\@@pageheight|$B$O!"MQ;f$N=D$ND9$5$K%H%s%\$ND9$5$r2C$($?D9$5$K$J$j$^$9!#(B
 %
-% |\@@pagewidth|は、用紙の横の長さにトンボの長さを加えた長さになります。
+% |\@@pagewidth|$B$O!"MQ;f$N2#$ND9$5$K%H%s%\$ND9$5$r2C$($?D9$5$K$J$j$^$9!#(B
 %
-% |\@@topmargin|は、現在のトップマージンに1インチ加えた長さになります。
+% |\@@topmargin|$B$O!"8=:_$N%H%C%W%^!<%8%s$K(B1$B%$%s%A2C$($?D9$5$K$J$j$^$9!#(B
 %    \begin{macrocode}
 \newdimen\@@paperheight
 \newdimen\@@paperwidth
@@ -570,18 +570,18 @@
 %
 %  \begin{macro}{\@shipoutsetup}
 % \changes{v1.1i}{1998/02/03}{Command removed}
-% |\@outputpage|内に挿入したので削除しました。
+% |\@outputpage|$BFb$KA^F~$7$?$N$G:o=|$7$^$7$?!#(B
 %  \end{macro}
 %
 % \begin{macro}{\@outputpage}
-% |\textwidth|と|\textheight|の交換は、|\@shipoutsetup|内では行ないません。
-% なぜなら、|\@shipoutsetup|マクロが実行されるときは、
-% |\shipout|されるvboxの中であり、このときは横組モードですので、
-% つねに|\iftdir|は偽と判断され、縦と横のサイズを交換できないからです。
+% |\textwidth|$B$H(B|\textheight|$B$N8r49$O!"(B|\@shipoutsetup|$BFb$G$O9T$J$$$^$;$s!#(B
+% $B$J$<$J$i!"(B|\@shipoutsetup|$B%^%/%m$,<B9T$5$l$k$H$-$O!"(B
+% |\shipout|$B$5$l$k(Bvbox$B$NCf$G$"$j!"$3$N$H$-$O2#AH%b!<%I$G$9$N$G!"(B
+% $B$D$M$K(B|\iftdir|$B$O56$HH=CG$5$l!"=D$H2#$N%5%$%:$r8r49$G$-$J$$$+$i$G$9!#(B
 %
-% なお、この変更をローカルなものにするために、
-% |\begingroup|と|\endgroup|で囲みます。
-% \changes{v1.2a}{2001/09/26}{\LaTeX\ \texttt{!<2001/06/01!>}に対応}
+% $B$J$*!"$3$NJQ99$r%m!<%+%k$J$b$N$K$9$k$?$a$K!"(B
+% |\begingroup|$B$H(B|\endgroup|$B$G0O$_$^$9!#(B
+% \changes{v1.2a}{2001/09/26}{\LaTeX\ \texttt{!<2001/06/01!>}$B$KBP1~(B}
 %    \begin{macrocode}
 \def\@outputpage{%
 \begingroup % the \endgroup is put in by \aftergroup
@@ -598,15 +598,15 @@
     \aftergroup\endgroup
     \aftergroup\set@typeset@protect
 %    \end{macrocode}
-% \changes{v1.1g}{1998/02/03}{\cs{@shipoutsetup}を\cs{@outputpage}内に入れた}
-% ここから|\@shipoutsetup|の内容。
+% \changes{v1.1g}{1998/02/03}{\cs{@shipoutsetup}$B$r(B\cs{@outputpage}$BFb$KF~$l$?(B}
+% $B$3$3$+$i(B|\@shipoutsetup|$B$NFbMF!#(B
 %    \begin{macrocode}
      \if@specialpage
        \global\@specialpagefalse\@nameuse{ps@\@specialstyle}%
      \fi
 %    \end{macrocode}
-% \changes{v1.1c}{1995/02/05}{\cs{oddsidemargin}と\cs{evensidemargin}が
-%    逆だったのを修正}
+% \changes{v1.1c}{1995/02/05}{\cs{oddsidemargin}$B$H(B\cs{evensidemargin}$B$,(B
+%    $B5U$@$C$?$N$r=$@5(B}
 %    \begin{macrocode}
      \if@twoside
        \ifodd\count\z@ \let\@thehead\@oddhead \let\@thefoot\@oddfoot
@@ -618,9 +618,9 @@
            \else\let\@themargin\evensidemargin\fi
      \fi\fi
 %    \end{macrocode}
-% トンボ出力オプションが指定されている場合、ここで用紙サイズを再設定します。
-% \TeX の加える左と上部の1インチは、トンボの内側に入ります。
-% \changes{v1.1a}{1995/11/10}{\cs{topmargin}が反映されないバグを修正}
+% $B%H%s%\=PNO%*%W%7%g%s$,;XDj$5$l$F$$$k>l9g!"$3$3$GMQ;f%5%$%:$r:F@_Dj$7$^$9!#(B
+% \TeX $B$N2C$($k:8$H>eIt$N(B1$B%$%s%A$O!"%H%s%\$NFbB&$KF~$j$^$9!#(B
+% \changes{v1.1a}{1995/11/10}{\cs{topmargin}$B$,H?1G$5$l$J$$%P%0$r=$@5(B}
 %    \begin{macrocode}
      \@@topmargin\topmargin
      \iftombow
@@ -636,7 +636,7 @@
      \let\glossary\@gobble
      \baselineskip\z@skip \lineskip\z@skip \lineskiplimit\z@
 %    \end{macrocode}
-% ここまでが|\@shipoutsetup|の内容。
+% $B$3$3$^$G$,(B|\@shipoutsetup|$B$NFbMF!#(B
 %    \begin{macrocode}
     \@begindvi
     \@outputtombow
@@ -662,7 +662,7 @@
   }%
 %  \endgroup now inserted by \aftergroup
 %    \end{macrocode}
-% |\if@newlist|を初期化。
+% |\if@newlist|$B$r=i4|2=!#(B
 %    \begin{macrocode}
   \global\let\if@newlist\@@if@newlist
   \global \@colht \textheight
@@ -673,16 +673,16 @@
 % \end{macro}
 %
 %
-% \subsection{脚注マクロ}
-% 脚注を組み立てる部分のマクロを再定義します。
-% 主な修正点は、縦組モードでの動作の追加です。
+% \subsection{$B5SCm%^%/%m(B}
+% $B5SCm$rAH$_N)$F$kItJ,$N%^%/%m$r:FDj5A$7$^$9!#(B
+% $B<g$J=$@5E@$O!"=DAH%b!<%I$G$NF0:n$NDI2C$G$9!#(B
 %
-% これらのマクロは、\file{ltfloat.dtx}で定義されていたものです。
+% $B$3$l$i$N%^%/%m$O!"(B\file{ltfloat.dtx}$B$GDj5A$5$l$F$$$?$b$N$G$9!#(B
 %
 % \begin{macro}{\thempfn}
-% 本文で使われる脚注記号です。
+% $BK\J8$G;H$o$l$k5SCm5-9f$G$9!#(B
 %
-% |\@footnotemark|で縦横の判断をするようにしたため、削除。
+% |\@footnotemark|$B$G=D2#$NH=CG$r$9$k$h$&$K$7$?$?$a!":o=|!#(B
 %
 % \changes{v1.0a}{1995/04/12}{Removed \texttt{\protect\bslash thempfn}}
 %    \begin{macrocode}
@@ -692,7 +692,7 @@
 % \end{macro}
 %
 % \begin{macro}{\thempfootnote}
-% minipage環境で使われる脚注記号です。
+% minipage$B4D6-$G;H$o$l$k5SCm5-9f$G$9!#(B
 %
 % \changes{v1.0a}{1995/04/12}{Removed \texttt{\protect\bslash thempfootnote}}
 %    \begin{macrocode}
@@ -702,11 +702,11 @@
 % \end{macro}
 %
 % \begin{macro}{\@makefnmark}
-% 脚注記号を作成するマクロです。
+% $B5SCm5-9f$r:n@.$9$k%^%/%m$G$9!#(B
 %
-% \changes{v1.0a}{1995/04/12}{縦組でも上付き数字を使うように修正}
-% \changes{v1.1b}{1996/01/26}{脚注マークの後ろに余計なスペースが入るのを修正}
-% \changes{v1.1g}{1997/02/14}{縦組時に脚注マークの書体が正しくないのを修正}
+% \changes{v1.0a}{1995/04/12}{$B=DAH$G$b>eIU$-?t;z$r;H$&$h$&$K=$@5(B}
+% \changes{v1.1b}{1996/01/26}{$B5SCm%^!<%/$N8e$m$KM>7W$J%9%Z!<%9$,F~$k$N$r=$@5(B}
+% \changes{v1.1g}{1997/02/14}{$B=DAH;~$K5SCm%^!<%/$N=qBN$,@5$7$/$J$$$N$r=$@5(B}
 %    \begin{macrocode}
 \renewcommand\@makefnmark{\hbox{%
   \ifydir \@textsuperscript{\normalfont\@thefnmark}%
@@ -715,9 +715,9 @@
 % \end{macro}
 %
 % \begin{macro}{\@footnotetext}
-% インサートボックス|\footins|に脚注のテキストを入れます。
+% $B%$%s%5!<%H%\%C%/%9(B|\footins|$B$K5SCm$N%F%-%9%H$rF~$l$^$9!#(B
 %
-% \changes{v1.0a}{1995/04/07}{組方向の判定をボックスの外でするようにした}
+% \changes{v1.0a}{1995/04/07}{$BAHJ}8~$NH=Dj$r%\%C%/%9$N30$G$9$k$h$&$K$7$?(B}
 %    \begin{macrocode}
 \long\def\@footnotetext#1{%
   \ifydir\def\@tempa{\yoko}\else\def\@tempa{\tate}\fi
@@ -738,9 +738,9 @@
 % \end{macro}
 %
 % \begin{macro}{\@footnotemark}
-% \changes{v1.0a}{1995/04/12}{脚注記号の出力位置の調整}
-% \changes{v1.1g}{1997/02/14}{縦組時の位置調整を2\cs{ch}から.9zhに変更}
-% 脚注記号を出力します。
+% \changes{v1.0a}{1995/04/12}{$B5SCm5-9f$N=PNO0LCV$ND4@0(B}
+% \changes{v1.1g}{1997/02/14}{$B=DAH;~$N0LCVD4@0$r(B2\cs{ch}$B$+$i(B.9zh$B$KJQ99(B}
+% $B5SCm5-9f$r=PNO$7$^$9!#(B
 %    \begin{macrocode}
 \def\@footnotemark{\leavevmode
   \ifhmode\edef\@x@sf{\the\spacefactor}\nobreak\fi
@@ -751,15 +751,15 @@
 % \end{macro}
 %
 %
-% \subsection{相互参照}
+% \subsection{$BAj8_;2>H(B}
 %
 % \begin{macro}{\@setref}
 % \changes{v1.1c}{1995/09/07}{change \cs{null} to \cs{relax} in \cs{@setref}.}
-% |\ref|コマンドや|\pageref|コマンドで参照したとき、これらのコマンドに
-% よって出力された番号と続く２バイト文字との間に|\xkanjiskip|が入りません。
-% これは、|\null|が|\hbox{}|と定義されているためです。
-% そこで|\null|を取り除きます。
-% このコマンドは、\file{ltxref.dtx}で定義されているものです。
+% |\ref|$B%3%^%s%I$d(B|\pageref|$B%3%^%s%I$G;2>H$7$?$H$-!"$3$l$i$N%3%^%s%I$K(B
+% $B$h$C$F=PNO$5$l$?HV9f$HB3$/#2%P%$%HJ8;z$H$N4V$K(B|\xkanjiskip|$B$,F~$j$^$;$s!#(B
+% $B$3$l$O!"(B|\null|$B$,(B|\hbox{}|$B$HDj5A$5$l$F$$$k$?$a$G$9!#(B
+% $B$=$3$G(B|\null|$B$r<h$j=|$-$^$9!#(B
+% $B$3$N%3%^%s%I$O!"(B\file{ltxref.dtx}$B$GDj5A$5$l$F$$$k$b$N$G$9!#(B
 %    \begin{macrocode}
 \def\@setref#1#2#3{%
   \ifx#1\relax
@@ -774,18 +774,18 @@
 % \end{macro}
 %
 %
-% \subsection{疑似タイプ入力}
+% \subsection{$B5?;w%?%$%WF~NO(B}
 %
 % \begin{macro}{\verb}
-% \changes{v1.1b}{1995/04/05}{互換モードのときは、pl209.defの定義を使う}
+% \changes{v1.1b}{1995/04/05}{$B8_49%b!<%I$N$H$-$O!"(Bpl209.def$B$NDj5A$r;H$&(B}
 % \changes{v1.1g}{1997/01/16}
-%    {\cs{verb}コマンドを\LaTeX\ \texttt{!<1996/06/01!>}に合わせて修正}
-% \LaTeX{}の|\verb|コマンドでは、数式モードでないときは、
-% |\leavevmode|で水平モードに入ったあと、|\null|を出力しています。
-% マクロ|\null|は|\hbox{}|として定義されていますので、
-% ここには和欧文間スペース（|\xkanjiskip|）が入りません。
-% そこで、|\null|を出力しないようマクロを修正します。
-% このマクロは、\file{ltmiscen.dtx}で定義されています。
+%    {\cs{verb}$B%3%^%s%I$r(B\LaTeX\ \texttt{!<1996/06/01!>}$B$K9g$o$;$F=$@5(B}
+% \LaTeX{}$B$N(B|\verb|$B%3%^%s%I$G$O!"?t<0%b!<%I$G$J$$$H$-$O!"(B
+% |\leavevmode|$B$G?eJ?%b!<%I$KF~$C$?$"$H!"(B|\null|$B$r=PNO$7$F$$$^$9!#(B
+% $B%^%/%m(B|\null|$B$O(B|\hbox{}|$B$H$7$FDj5A$5$l$F$$$^$9$N$G!"(B
+% $B$3$3$K$OOB2$J84V%9%Z!<%9!J(B|\xkanjiskip|$B!K$,F~$j$^$;$s!#(B
+% $B$=$3$G!"(B|\null|$B$r=PNO$7$J$$$h$&%^%/%m$r=$@5$7$^$9!#(B
+% $B$3$N%^%/%m$O!"(B\file{ltmiscen.dtx}$B$GDj5A$5$l$F$$$^$9!#(B
 %    \begin{macrocode}
 \if@compatibility\else
 \def\verb{\relax\ifmmode\hbox\else\leavevmode\fi
@@ -798,42 +798,42 @@
 % \end{macro}
 %
 %
-% \subsection{tabbing環境}
-% \changes{v1.1d}{1996/03/12}{\cs{=}の後ろに和欧文間スペースが入るのを修正}
-% 相互参照や疑似タイプ入力では、和欧文間スペースが入らないので、|\null|を
-% 取り除きましたが、|tabbing|環境では、逆に|\null|がないため、
-% 和欧文間スペースが入ってしまうので、それを追加します。
-% \file{lttab.dtx}で定義されているものです。
+% \subsection{tabbing$B4D6-(B}
+% \changes{v1.1d}{1996/03/12}{\cs{=}$B$N8e$m$KOB2$J84V%9%Z!<%9$,F~$k$N$r=$@5(B}
+% $BAj8_;2>H$d5?;w%?%$%WF~NO$G$O!"OB2$J84V%9%Z!<%9$,F~$i$J$$$N$G!"(B|\null|$B$r(B
+% $B<h$j=|$-$^$7$?$,!"(B|tabbing|$B4D6-$G$O!"5U$K(B|\null|$B$,$J$$$?$a!"(B
+% $BOB2$J84V%9%Z!<%9$,F~$C$F$7$^$&$N$G!"$=$l$rDI2C$7$^$9!#(B
+% \file{lttab.dtx}$B$GDj5A$5$l$F$$$k$b$N$G$9!#(B
 %    \begin{macrocode}
 \gdef\@stopfield{\null\color@endgroup\egroup}
 %    \end{macrocode}
 %
-% \subsection{用語集の出力}
-% \LaTeX{}には、なぜか用語集を出力するためのコマンドがありませんので、
-% 追加をします。
-% \changes{v1.1e}{1996/02/17}{\cs{printglossary}を追加}
+% \subsection{$BMQ8l=8$N=PNO(B}
+% \LaTeX{}$B$K$O!"$J$<$+MQ8l=8$r=PNO$9$k$?$a$N%3%^%s%I$,$"$j$^$;$s$N$G!"(B
+% $BDI2C$r$7$^$9!#(B
+% \changes{v1.1e}{1996/02/17}{\cs{printglossary}$B$rDI2C(B}
 %
 % \begin{macro}{\printglossary}
-% \cs{printglossary}コマンドは、単に拡張子が\texttt{gls}のファイルを
-% 読み込むだけです。このファイルの生成には、mendexなどを用います。
+% \cs{printglossary}$B%3%^%s%I$O!"C1$K3HD%;R$,(B\texttt{gls}$B$N%U%!%$%k$r(B
+% $BFI$_9~$`$@$1$G$9!#$3$N%U%!%$%k$N@8@.$K$O!"(Bmendex$B$J$I$rMQ$$$^$9!#(B
 %    \begin{macrocode}
 \newcommand\printglossary{\@input@{\jobname.gls}}
 %    \end{macrocode}
 % \end{macro}
 %
-% \subsection{時分を示すカウンタ}
-% \TeX には、年月日を示す数値を保持しているカウンタとして、それぞれ
-% |\year|, |\month|, |\day|がプリミティブとして存在します。しかし、
-% 時分については、深夜の零時からの経過時間を示す|\time|カウンタしか存在
-% していません。そこで、p\LaTeXe{}では、時分を示すためのカウンタ|\hour|と
-% |\minute|を作成しています。
+% \subsection{$B;~J,$r<($9%+%&%s%?(B}
+% \TeX $B$K$O!"G/7nF|$r<($9?tCM$rJ];}$7$F$$$k%+%&%s%?$H$7$F!"$=$l$>$l(B
+% |\year|, |\month|, |\day|$B$,%W%j%_%F%#%V$H$7$FB8:_$7$^$9!#$7$+$7!"(B
+% $B;~J,$K$D$$$F$O!"?<Lk$NNm;~$+$i$N7P2a;~4V$r<($9(B|\time|$B%+%&%s%?$7$+B8:_(B
+% $B$7$F$$$^$;$s!#$=$3$G!"(Bp\LaTeXe{}$B$G$O!";~J,$r<($9$?$a$N%+%&%s%?(B|\hour|$B$H(B
+% |\minute|$B$r:n@.$7$F$$$^$9!#(B
 %
 % \begin{macro}{\hour}
 % \begin{macro}{\minute}
-% 何時か（|\hour|）を得るには、|\time|を60で割った商をそのまま用います。
-% 何分か（|\minute|）は、|\hour|に60を掛けた値を|\time|から引いて算出します。
-% ここではカウンタを宣言するだけです。実際の計算は、クラスやパッケージの中
-% で行なっています。
+% $B2?;~$+!J(B|\hour|$B!K$rF@$k$K$O!"(B|\time|$B$r(B60$B$G3d$C$?>&$r$=$N$^$^MQ$$$^$9!#(B
+% $B2?J,$+!J(B|\minute|$B!K$O!"(B|\hour|$B$K(B60$B$r3]$1$?CM$r(B|\time|$B$+$i0z$$$F;;=P$7$^$9!#(B
+% $B$3$3$G$O%+%&%s%?$r@k8@$9$k$@$1$G$9!#<B:]$N7W;;$O!"%/%i%9$d%Q%C%1!<%8$NCf(B
+% $B$G9T$J$C$F$$$^$9!#(B
 %    \begin{macrocode}
 \newcount\hour
 \newcount\minute

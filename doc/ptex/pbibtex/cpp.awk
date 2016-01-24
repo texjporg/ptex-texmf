@@ -72,9 +72,9 @@ function proc_line(proc, direct) {
 	}
 	return direct;
     }else if($0 ~ /^%/ ) {
-	return ""	# コメントは基本的には削除する
+	return ""	# $B%3%a%s%H$O4pK\E*$K$O:o=|$9$k(B
     }else if($0 ~ /^	%/ ) {
-	sub(/	/,"")	# この形式のコメントは出力する
+	sub(/	/,"")	# $B$3$N7A<0$N%3%a%s%H$O=PNO$9$k(B
 	print $0
 	return ""
     }else {

@@ -12,20 +12,20 @@
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 
 \def\JBibTeX{\leavevmode\lower .5ex\hbox{{\rm J}}\kern-0.15em\BibTeX}
-\def\trnote#1{\footnote{\parindent=16pt\hskip-15pt\hang\indent 訳注：#1\parindent=10pt}}
+\def\trnote#1{\footnote{\parindent=16pt\hskip-15pt\hang\indent $BLuCm!'(B#1\parindent=10pt}}
 
 
 \title{Designing B\kern-.05em{\large I}\kern-.025em{\large B}\kern-.08em\TeX\
  Styles\\
-B\kern-.05em{\large I}\kern-.025em{\large B}\kern-.08em\TeX スタイル
-の作り方
-\footnote{翻訳の部分は原著者の許可を得て配布するものであり,翻訳について,
-\JBibTeX に関する記述については松井に問い合わせられたい．}
-\ $^,$\footnote{\JBibTeX (version 0.30)\cite{jbibtex}の説明も含む．}
+B\kern-.05em{\large I}\kern-.025em{\large B}\kern-.08em\TeX $B%9%?%$%k(B
+$B$N:n$jJ}(B
+\footnote{$BK]Lu$NItJ,$O86Cx<T$N5v2D$rF@$FG[I[$9$k$b$N$G$"$j(B,$BK]Lu$K$D$$$F(B,
+\JBibTeX $B$K4X$9$k5-=R$K$D$$$F$O>>0f$KLd$$9g$o$;$i$l$?$$!%(B}
+\ $^,$\footnote{\JBibTeX (version 0.30)\cite{jbibtex}$B$N@bL@$b4^$`!%(B}
 }
 
-\author{Oren Patashnik(訳：松井正一)}
-\date{January 31, 1988(翻訳版：1991年1月1日)}
+\author{Oren Patashnik($BLu!'>>0f@50l(B)}
+\date{January 31, 1988($BK]LuHG!'(B1991$BG/(B1$B7n(B1$BF|(B)}
 \def\orig#1{}
 \begin{document}
 \baselineskip=17pt
@@ -33,512 +33,512 @@ B\kern-.05em{\large I}\kern-.025em{\large B}\kern-.08em\TeX スタイル
 \maketitle
 
 \setcounter{section}{4}
-\section{参考文献スタイルをハックする}
+\section{$B;29MJ88%%9%?%$%k$r%O%C%/$9$k(B}
 \label{style}
-本稿は，実際には
-\BibTeX の一般的なドキュメントである``\BibTeX ing''~\cite{btxdoc}の最終節
-であり，
-第\ref{style} 節からはじまる(そしてこの節だけで終る)．
-しかし先のドキュメントは\BibTeX の利用者向けであり，本稿はスタイル
-作成者向けであるので，物理的に分離したものとなっている．
-とはいえ，この文書の読者は``\BibTeX ing''に精通している必要があり，本稿で
-参照している節，節番号は2つの文書が1つのものと仮定している．
+$BK\9F$O!$<B:]$K$O(B
+\BibTeX $B$N0lHLE*$J%I%-%e%a%s%H$G$"$k(B``\BibTeX ing''~\cite{btxdoc}$B$N:G=*@a(B
+$B$G$"$j!$(B
+$BBh(B\ref{style} $B@a$+$i$O$8$^$k(B($B$=$7$F$3$N@a$@$1$G=*$k(B)$B!%(B
+$B$7$+$7@h$N%I%-%e%a%s%H$O(B\BibTeX $B$NMxMQ<T8~$1$G$"$j!$K\9F$O%9%?%$%k(B
+$B:n@.<T8~$1$G$"$k$N$G!$J*M}E*$KJ,N%$7$?$b$N$H$J$C$F$$$k!%(B
+$B$H$O$$$(!$$3$NJ8=q$NFI<T$O(B``\BibTeX ing''$B$K@:DL$7$F$$$kI,MW$,$"$j!$K\9F$G(B
+$B;2>H$7$F$$$k@a!$@aHV9f$O(B2$B$D$NJ8=q$,(B1$B$D$N$b$N$H2>Dj$7$F$$$k!%(B
 
-本節と標準スタイルファイルのドキュメントである{\tt btxbst.doc}で\trnote{日本
-語対応版は{\tt jbtxbst.doc}である．}
-既存のスタイルファイルの修正方法，新たなスタイルファイルの作成
-方法を説明する．
-もしちゃんとしたスタイルファイルを作ろうと思っているのであれば，
-スタイルに関してvan~Leunen~\cite{van-leunen}に，
-タイプセットに関してLamport~\cite{latex}とKnuth~\cite{texbook}に，
-さらに場合によっては，
-細かな互換性の問題から{\em Scribe\/}~\cite{scribe}に精通していなければ
-ならない．
-せっせと仕事をする合間に，Strunk and Whiteによる名小冊子
-\cite{strunk-and-white}を読むことを薦めるが，読まないのであれば，
-少なくてもデータベース中のエントリと参考文献リストを見て，\BibTeX が複数の
-名前をどう扱っているかを調べること\trnote{日本語対応版での漢字コード著者名の
-扱い方についても調べること．}．
+$BK\@a$HI8=`%9%?%$%k%U%!%$%k$N%I%-%e%a%s%H$G$"$k(B{\tt btxbst.doc}$B$G(B\trnote{$BF|K\(B
+$B8lBP1~HG$O(B{\tt jbtxbst.doc}$B$G$"$k!%(B}
+$B4{B8$N%9%?%$%k%U%!%$%k$N=$@5J}K!!$?7$?$J%9%?%$%k%U%!%$%k$N:n@.(B
+$BJ}K!$r@bL@$9$k!%(B
+$B$b$7$A$c$s$H$7$?%9%?%$%k%U%!%$%k$r:n$m$&$H;W$C$F$$$k$N$G$"$l$P!$(B
+$B%9%?%$%k$K4X$7$F(Bvan~Leunen~\cite{van-leunen}$B$K!$(B
+$B%?%$%W%;%C%H$K4X$7$F(BLamport~\cite{latex}$B$H(BKnuth~\cite{texbook}$B$K!$(B
+$B$5$i$K>l9g$K$h$C$F$O!$(B
+$B:Y$+$J8_49@-$NLdBj$+$i(B{\em Scribe\/}~\cite{scribe}$B$K@:DL$7$F$$$J$1$l$P(B
+$B$J$i$J$$!%(B
+$B$;$C$;$H;E;v$r$9$k9g4V$K!$(BStrunk and White$B$K$h$kL>>.:};R(B
+\cite{strunk-and-white}$B$rFI$`$3$H$rA&$a$k$,!$FI$^$J$$$N$G$"$l$P!$(B
+$B>/$J$/$F$b%G!<%?%Y!<%9Cf$N%(%s%H%j$H;29MJ88%%j%9%H$r8+$F!$(B\BibTeX $B$,J#?t$N(B
+$BL>A0$r$I$&07$C$F$$$k$+$rD4$Y$k$3$H(B\trnote{$BF|K\8lBP1~HG$G$N4A;z%3!<%ICx<TL>$N(B
+$B07$$J}$K$D$$$F$bD4$Y$k$3$H!%(B}$B!%(B
 
-新たなスタイルを作る場合には，望みのものに近い既存のスタイルを修正する
-のがよい\trnote{新たなスタイルを作る時だけでなく，既存のスタイルを
-修正する時でも，直接{\tt .bst}ファイルを修正するのではなく{\tt btxbst.doc,
-jbtxbst.doc}を修正する方が，再利用可能性が高くなる，運が良ければ1つの修正で
-複数のスタイルを修正できる，などの利点がある．}．
-これは古いスタイルを\BibTeX\ version 0.99用に修正する場合にもあてはまる．
-(私自身が4つの非標準スタイルを修正した経験からの忠告である)．
-古い(version 0.98i)スタイルのために作った関数を新しいスタイルファイルに
-入れる時には，代入関数({\tt :=})の引数の順番が変更されたことに注意
-しないといけない．
-スタイルファイルが完成したら，{\tt XAMPL.BIB}データベースの全てを
-使って\trnote{{\tt \char"5Cnocite\{*\}}で行える．}，標準エントリの全ての
-型に対して望みの結果になることを確認すればよい．
+$B?7$?$J%9%?%$%k$r:n$k>l9g$K$O!$K>$_$N$b$N$K6a$$4{B8$N%9%?%$%k$r=$@5$9$k(B
+$B$N$,$h$$(B\trnote{$B?7$?$J%9%?%$%k$r:n$k;~$@$1$G$J$/!$4{B8$N%9%?%$%k$r(B
+$B=$@5$9$k;~$G$b!$D>@\(B{\tt .bst}$B%U%!%$%k$r=$@5$9$k$N$G$O$J$/(B{\tt btxbst.doc,
+jbtxbst.doc}$B$r=$@5$9$kJ}$,!$:FMxMQ2DG=@-$,9b$/$J$k!$1?$,NI$1$l$P(B1$B$D$N=$@5$G(B
+$BJ#?t$N%9%?%$%k$r=$@5$G$-$k!$$J$I$NMxE@$,$"$k!%(B}$B!%(B
+$B$3$l$O8E$$%9%?%$%k$r(B\BibTeX\ version 0.99$BMQ$K=$@5$9$k>l9g$K$b$"$F$O$^$k!%(B
+($B;d<+?H$,(B4$B$D$NHsI8=`%9%?%$%k$r=$@5$7$?7P83$+$i$NCi9p$G$"$k(B)$B!%(B
+$B8E$$(B(version 0.98i)$B%9%?%$%k$N$?$a$K:n$C$?4X?t$r?7$7$$%9%?%$%k%U%!%$%k$K(B
+$BF~$l$k;~$K$O!$BeF~4X?t(B({\tt :=})$B$N0z?t$N=gHV$,JQ99$5$l$?$3$H$KCm0U(B
+$B$7$J$$$H$$$1$J$$!%(B
+$B%9%?%$%k%U%!%$%k$,40@.$7$?$i!$(B{\tt XAMPL.BIB}$B%G!<%?%Y!<%9$NA4$F$r(B
+$B;H$C$F(B\trnote{{\tt \char"5Cnocite\{*\}}$B$G9T$($k!%(B}$B!$I8=`%(%s%H%j$NA4$F$N(B
+$B7?$KBP$7$FK>$_$N7k2L$K$J$k$3$H$r3NG'$9$l$P$h$$!%(B
 
-標準スタイルの虫，やりたいことができない場合にはOren Patashnikに
-文句を言うこと\trnote{日本語用のものについては
-松井正一{\tt (matsui@denken.or.jp)}に知らせること．}．
+$BI8=`%9%?%$%k$NCn!$$d$j$?$$$3$H$,$G$-$J$$>l9g$K$O(BOren Patashnik$B$K(B
+$BJ86g$r8@$&$3$H(B\trnote{$BF|K\8lMQ$N$b$N$K$D$$$F$O(B
+$B>>0f@50l(B{\tt (matsui@denken.or.jp)}$B$KCN$i$;$k$3$H!%(B}$B!%(B
 
-\subsection{概要}
+\subsection{$B35MW(B}
 
-参考文献スタイルはスタックマシンに対する命令を後置演算子形式で記述する．
-標準スタイルのドキュメントを見れば，どう書くかを知るのは難しいことでは
-ないが，本稿ではもっと詳しく説明する(希望があればさらに詳しくする)．
+$B;29MJ88%%9%?%$%k$O%9%?%C%/%^%7%s$KBP$9$kL?Na$r8eCV1i;;;R7A<0$G5-=R$9$k!%(B
+$BI8=`%9%?%$%k$N%I%-%e%a%s%H$r8+$l$P!$$I$&=q$/$+$rCN$k$N$OFq$7$$$3$H$G$O(B
+$B$J$$$,!$K\9F$G$O$b$C$H>\$7$/@bL@$9$k(B($B4uK>$,$"$l$P$5$i$K>\$7$/$9$k(B)$B!%(B
 
-基本的にはスタイルファイルは，
-名前のない言語で，プログラムを記述することにより，
-どのようにしてデータベースのエントリ
-から参考文献リストを作るかを\BibTeX に教えるものである(日本語対応スタイル
-では\JBibTeX に教えることである．以下\BibTeX に当てはまることは\JBibTeX にも
-当てはまるので，いちいちことわらない)．
-(以下では「エントリ」は「エントリ・リスト」のことであり，文脈から明らかな
-場合には単に「リスト」とする)．
-このプログラム言語には，次の細節(subsection)で説明する10個のコマンドがある．
-これらのコマンドは言語のオブジェクト：定数，変数，関数，スタック，
-エントリ・リストを操作するものである．
-(注意：この文書中の用語は説明を簡単にするために選んだものであり，
-\BibTeX 本来の用語とは若干異なる．例えばこの文書中の「変数」，「関数」
-はどちらも\BibTeX にとっては関数である．\BibTeX のエラーメッセージを
-解釈する時にはこのことを念頭におくこと)．
+$B4pK\E*$K$O%9%?%$%k%U%!%$%k$O!$(B
+$BL>A0$N$J$$8@8l$G!$%W%m%0%i%`$r5-=R$9$k$3$H$K$h$j!$(B
+$B$I$N$h$&$K$7$F%G!<%?%Y!<%9$N%(%s%H%j(B
+$B$+$i;29MJ88%%j%9%H$r:n$k$+$r(B\BibTeX $B$K65$($k$b$N$G$"$k(B($BF|K\8lBP1~%9%?%$%k(B
+$B$G$O(B\JBibTeX $B$K65$($k$3$H$G$"$k!%0J2<(B\BibTeX $B$KEv$F$O$^$k$3$H$O(B\JBibTeX $B$K$b(B
+$BEv$F$O$^$k$N$G!$$$$A$$$A$3$H$o$i$J$$(B)$B!%(B
+($B0J2<$G$O!V%(%s%H%j!W$O!V%(%s%H%j!&%j%9%H!W$N$3$H$G$"$j!$J8L.$+$iL@$i$+$J(B
+$B>l9g$K$OC1$K!V%j%9%H!W$H$9$k(B)$B!%(B
+$B$3$N%W%m%0%i%`8@8l$K$O!$<!$N:Y@a(B(subsection)$B$G@bL@$9$k(B10$B8D$N%3%^%s%I$,$"$k!%(B
+$B$3$l$i$N%3%^%s%I$O8@8l$N%*%V%8%'%/%H!'Dj?t!$JQ?t!$4X?t!$%9%?%C%/!$(B
+$B%(%s%H%j!&%j%9%H$rA`:n$9$k$b$N$G$"$k!%(B
+($BCm0U!'$3$NJ8=qCf$NMQ8l$O@bL@$r4JC1$K$9$k$?$a$KA*$s$@$b$N$G$"$j!$(B
+\BibTeX $BK\Mh$NMQ8l$H$O<c430[$J$k!%Nc$($P$3$NJ8=qCf$N!VJQ?t!W!$!V4X?t!W(B
+$B$O$I$A$i$b(B\BibTeX $B$K$H$C$F$O4X?t$G$"$k!%(B\BibTeX $B$N%(%i!<%a%C%;!<%8$r(B
+$B2r<a$9$k;~$K$O$3$N$3$H$rG0F,$K$*$/$3$H(B)$B!%(B
 
-\BibTeX の関数には{\dg 組み込み}のもの(第\ref{built-in-fns}節で説明する)
-と{\tt MACRO}か{\tt FUNCTION}で定義するものの2種類がある．
+\BibTeX $B$N4X?t$K$O(B{\dg $BAH$_9~$_(B}$B$N$b$N(B($BBh(B\ref{built-in-fns}$B@a$G@bL@$9$k(B)
+$B$H(B{\tt MACRO}$B$+(B{\tt FUNCTION}$B$GDj5A$9$k$b$N$N(B2$B<oN`$,$"$k!%(B
 
-スタイル作成で最も時間のかかる作業は{\tt FUNCTION}コマンドを使って
-関数を作成する，あるいは既存のものを変更することである．
-(実際には，前述の参考文献に精通するのに要する時間の方が長いが，
-それが終った後の話しである)．
+$B%9%?%$%k:n@.$G:G$b;~4V$N$+$+$k:n6H$O(B{\tt FUNCTION}$B%3%^%s%I$r;H$C$F(B
+$B4X?t$r:n@.$9$k!$$"$k$$$O4{B8$N$b$N$rJQ99$9$k$3$H$G$"$k!%(B
+($B<B:]$K$O!$A0=R$N;29MJ88%$K@:DL$9$k$N$KMW$9$k;~4V$NJ}$,D9$$$,!$(B
+$B$=$l$,=*$C$?8e$NOC$7$G$"$k(B)$B!%(B
 
-例として関数の一部を取り出したものを見てみよう．
-文字列型変数{\tt label}，整数型変数{\tt lab.width}があり，
-{\tt label}の後ろにに`{\tt a}'を連結し，{\tt lab.width}を1増やしたいとしよう．
+$BNc$H$7$F4X?t$N0lIt$r<h$j=P$7$?$b$N$r8+$F$_$h$&!%(B
+$BJ8;zNs7?JQ?t(B{\tt label}$B!$@0?t7?JQ?t(B{\tt lab.width}$B$,$"$j!$(B
+{\tt label}$B$N8e$m$K$K(B`{\tt a}'$B$rO"7k$7!$(B{\tt lab.width}$B$r(B1$BA}$d$7$?$$$H$7$h$&!%(B
 \begin{verbatim}
     .  .  .
     label "a" * 'label :=          % label := label * "a"
     lab.width #1 + 'lab.width :=   % lab.width := lab.width + 1
     .  .  .
 \end{verbatim}
-1行目で先ず{\tt label}はその値をスタックにプッシュする．
-次に {\tt "a"} が文字列定数 `{\tt a}' をスタックに置く．
-続いて組み込み関数 {\tt *} がスタックトップの2つの文字列をポップし，
-それらを連結したものをプッシュする．
-{\tt 'label}はその変数名をプッシュする．
-最後に組み込み関数 {\tt :=} が変数名と連結結果をポップし，代入を
-実行する．
-\BibTeX はスタイルファイル中の {\tt \%} 以降はコメントとして扱う．
-2行目も同様であるが，プッシュする整数定数
-として`{\tt \#}'と`{\tt 1}'の間にスペースのない {\tt \#1} を使っている．
+1$B9TL\$G@h$:(B{\tt label}$B$O$=$NCM$r%9%?%C%/$K%W%C%7%e$9$k!%(B
+$B<!$K(B {\tt "a"} $B$,J8;zNsDj?t(B `{\tt a}' $B$r%9%?%C%/$KCV$/!%(B
+$BB3$$$FAH$_9~$_4X?t(B {\tt *} $B$,%9%?%C%/%H%C%W$N(B2$B$D$NJ8;zNs$r%]%C%W$7!$(B
+$B$=$l$i$rO"7k$7$?$b$N$r%W%C%7%e$9$k!%(B
+{\tt 'label}$B$O$=$NJQ?tL>$r%W%C%7%e$9$k!%(B
+$B:G8e$KAH$_9~$_4X?t(B {\tt :=} $B$,JQ?tL>$HO"7k7k2L$r%]%C%W$7!$BeF~$r(B
+$B<B9T$9$k!%(B
+\BibTeX $B$O%9%?%$%k%U%!%$%kCf$N(B {\tt \%} $B0J9_$O%3%a%s%H$H$7$F07$&!%(B
+2$B9TL\$bF1MM$G$"$k$,!$%W%C%7%e$9$k@0?tDj?t(B
+$B$H$7$F(B`{\tt \#}'$B$H(B`{\tt 1}'$B$N4V$K%9%Z!<%9$N$J$$(B {\tt \#1} $B$r;H$C$F$$$k!%(B
 
-スペースの数はいくつでもよく，スペース，タブ，改行はいくつあっても
-1つとみなされる(後で簡単に説明するように，
-コマンドの途中では改行しないほうがよい)．
+$B%9%Z!<%9$N?t$O$$$/$D$G$b$h$/!$%9%Z!<%9!$%?%V!$2~9T$O$$$/$D$"$C$F$b(B
+1$B$D$H$_$J$5$l$k(B($B8e$G4JC1$K@bL@$9$k$h$&$K!$(B
+$B%3%^%s%I$NESCf$G$O2~9T$7$J$$$[$&$,$h$$(B)$B!%(B
 
-文字列定数としては，ダブルクォートで囲った中には印字可能文字なら
-何を書いてもよい\trnote{日本語対応版では漢字コードでもよい．}．
-文字列定数に限って\BibTeX は大文字と小文字の
-区別をする．さらに文字列定数の中のスペースの数は意味が{\dg ある}．
-また文字列定数は行をまたがってはならない(すなわち文字列の
-始めと終りのダブルクォートは同じ行になければならない)．
+$BJ8;zNsDj?t$H$7$F$O!$%@%V%k%/%)!<%H$G0O$C$?Cf$K$O0u;z2DG=J8;z$J$i(B
+$B2?$r=q$$$F$b$h$$(B\trnote{$BF|K\8lBP1~HG$G$O4A;z%3!<%I$G$b$h$$!%(B}$B!%(B
+$BJ8;zNsDj?t$K8B$C$F(B\BibTeX $B$OBgJ8;z$H>.J8;z$N(B
+$B6hJL$r$9$k!%$5$i$KJ8;zNsDj?t$NCf$N%9%Z!<%9$N?t$O0UL#$,(B{\dg $B$"$k(B}$B!%(B
+$B$^$?J8;zNsDj?t$O9T$r$^$?$,$C$F$O$J$i$J$$(B($B$9$J$o$AJ8;zNs$N(B
+$B;O$a$H=*$j$N%@%V%k%/%)!<%H$OF1$89T$K$J$1$l$P$J$i$J$$(B)$B!%(B
 
-変数，関数の名前は数字で始まってはならず，\LaTeX~bookの143ページに
-ある10個の禁止文字を含んではならないが，それ以外の印字可能文字なら
-何を使ってもよい\trnote{日本語対応版では漢字コードでもよい．日本語
-プログラミングできる{\tt :-)}．}．
-さらに(ASCIIコードの)大文字と小文字の区別はしない．
+$BJQ?t!$4X?t$NL>A0$O?t;z$G;O$^$C$F$O$J$i$:!$(B\LaTeX~book$B$N(B143$B%Z!<%8$K(B
+$B$"$k(B10$B8D$N6X;_J8;z$r4^$s$G$O$J$i$J$$$,!$$=$l0J30$N0u;z2DG=J8;z$J$i(B
+$B2?$r;H$C$F$b$h$$(B\trnote{$BF|K\8lBP1~HG$G$O4A;z%3!<%I$G$b$h$$!%F|K\8l(B
+$B%W%m%0%i%_%s%0$G$-$k(B{\tt :-)}$B!%(B}$B!%(B
+$B$5$i$K(B(ASCII$B%3!<%I$N(B)$BBgJ8;z$H>.J8;z$N6hJL$O$7$J$$!%(B
 
-変数，定数の型としては整数型と文字列型しかない
-(論理値は整数の0(偽)と1(真)として実現している)．
-変数の種類としては3種類ある．
+$BJQ?t!$Dj?t$N7?$H$7$F$O@0?t7?$HJ8;zNs7?$7$+$J$$(B
+($BO@M}CM$O@0?t$N(B0($B56(B)$B$H(B1($B??(B)$B$H$7$F<B8=$7$F$$$k(B)$B!%(B
+$BJQ?t$N<oN`$H$7$F$O(B3$B<oN`$"$k!%(B
 \begin{description}
 
-\item[大域変数\hfill] {\tt INTEGERS}あるいは{\tt STRINGS}コマンドで宣言
-された整数型あるいは文字列型の変数．
+\item[$BBg0hJQ?t(B\hfill] {\tt INTEGERS}$B$"$k$$$O(B{\tt STRINGS}$B%3%^%s%I$G@k8@(B
+$B$5$l$?@0?t7?$"$k$$$OJ8;zNs7?$NJQ?t!%(B
 
-\item[エントリ変数\hfill] {\tt ENTRY}コマンドで宣言
-された整数型あるいは文字列型の変数．エントリリストのエントリ毎に
-別々の値を持つ(例えば{\tt label}にエントリのラベルを持たせることが
-できる)．
+\item[$B%(%s%H%jJQ?t(B\hfill] {\tt ENTRY}$B%3%^%s%I$G@k8@(B
+$B$5$l$?@0?t7?$"$k$$$OJ8;zNs7?$NJQ?t!%%(%s%H%j%j%9%H$N%(%s%H%jKh$K(B
+$BJL!9$NCM$r;}$D(B($BNc$($P(B{\tt label}$B$K%(%s%H%j$N%i%Y%k$r;}$?$;$k$3$H$,(B
+$B$G$-$k(B)$B!%(B
 
-\item[フィールド\hfill] 読みだし専用の文字列型の変数であり，データベースの
-情報が格納される．値は{\tt READ}コマンドでデータベースが読み込まれる
-ことで設定される．
-エントリ変数同様に各々のエントリ毎に別々の値を持つ．
+\item[$B%U%#!<%k%I(B\hfill] $BFI$_$@$7@lMQ$NJ8;zNs7?$NJQ?t$G$"$j!$%G!<%?%Y!<%9$N(B
+$B>pJs$,3JG<$5$l$k!%CM$O(B{\tt READ}$B%3%^%s%I$G%G!<%?%Y!<%9$,FI$_9~$^$l$k(B
+$B$3$H$G@_Dj$5$l$k!%(B
+$B%(%s%H%jJQ?tF1MM$K3F!9$N%(%s%H%jKh$KJL!9$NCM$r;}$D!%(B
 \end{description}
 
 
-\subsection{コマンド}
+\subsection{$B%3%^%s%I(B}
 
-10個のコマンドがある．
+10$B8D$N%3%^%s%I$,$"$k!%(B
 \hbox{\tt ENTRY}, \hbox{\tt FUNCTION}, \hbox{\tt INTEGERS},
-\hbox{\tt MACRO}, \hbox{\tt STRINGS}の5個は変数の宣言，
-関数の定義のためであり，
-\hbox{\tt READ}はデータベースの情報を読み込み，
+\hbox{\tt MACRO}, \hbox{\tt STRINGS}$B$N(B5$B8D$OJQ?t$N@k8@!$(B
+$B4X?t$NDj5A$N$?$a$G$"$j!$(B
+\hbox{\tt READ}$B$O%G!<%?%Y!<%9$N>pJs$rFI$_9~$_!$(B
 \hbox{\tt EXECUTE}, \hbox{\tt ITERATE}, \hbox{\tt REVERSE},
-\hbox{\tt SORT})の4個はエントリを操作し，出力を作り出す．
-すべてのコマンドを大文字で示したが，
-\BibTeX はコマンド名の大文字と小文字の区別をしない．
+\hbox{\tt SORT})$B$N(B4$B8D$O%(%s%H%j$rA`:n$7!$=PNO$r:n$j=P$9!%(B
+$B$9$Y$F$N%3%^%s%I$rBgJ8;z$G<($7$?$,!$(B
+\BibTeX $B$O%3%^%s%IL>$NBgJ8;z$H>.J8;z$N6hJL$r$7$J$$!%(B
 
-いくつかの制限：{\tt ENTRY}と{\tt READ}の数は1つでなければらない．
-{\tt ENTRY}コマンド, すべての{\tt MACRO}コマンド，{\tt FUNCTION}コマンド
-のいくつか(次節{\tt call.type\$} 参照)は{\tt READ}コマンドの前に
-なければならない．また{\tt READ}コマンドはエントリ操作，出力の
-4つのコマンドより前になければならない．
+$B$$$/$D$+$N@)8B!'(B{\tt ENTRY}$B$H(B{\tt READ}$B$N?t$O(B1$B$D$G$J$1$l$P$i$J$$!%(B
+{\tt ENTRY}$B%3%^%s%I(B, $B$9$Y$F$N(B{\tt MACRO}$B%3%^%s%I!$(B{\tt FUNCTION}$B%3%^%s%I(B
+$B$N$$$/$D$+(B($B<!@a(B{\tt call.type\$} $B;2>H(B)$B$O(B{\tt READ}$B%3%^%s%I$NA0$K(B
+$B$J$1$l$P$J$i$J$$!%$^$?(B{\tt READ}$B%3%^%s%I$O%(%s%H%jA`:n!$=PNO$N(B
+4$B$D$N%3%^%s%I$h$jA0$K$J$1$l$P$J$i$J$$!%(B
 
-(本質的ではないが)コマンドの間には1つ以上のブランク行を置き，
-関数定義の中にはブランク行を置かないようにするとよい．
-これによって\BibTeX の構文エラーからの回復を助けることができる．
+($BK\<AE*$G$O$J$$$,(B)$B%3%^%s%I$N4V$K$O(B1$B$D0J>e$N%V%i%s%/9T$rCV$-!$(B
+$B4X?tDj5A$NCf$K$O%V%i%s%/9T$rCV$+$J$$$h$&$K$9$k$H$h$$!%(B
+$B$3$l$K$h$C$F(B\BibTeX $B$N9=J8%(%i!<$+$i$N2sI|$r=u$1$k$3$H$,$G$-$k!%(B
 
-コマンドの引数は中括弧(\verb|{ }|)に入れる．
-本節で述べられていない構文に関する事項は標準ファイルのドキュメント\trnote{
-{\tt btxbst.doc, jbtxbst.doc}のこと．}を参照されたい．
-以下で10個のコマンドの説明を行う．
+$B%3%^%s%I$N0z?t$OCf3g8L(B(\verb|{ }|)$B$KF~$l$k!%(B
+$BK\@a$G=R$Y$i$l$F$$$J$$9=J8$K4X$9$k;v9`$OI8=`%U%!%$%k$N%I%-%e%a%s%H(B\trnote{
+{\tt btxbst.doc, jbtxbst.doc}$B$N$3$H!%(B}$B$r;2>H$5$l$?$$!%(B
+$B0J2<$G(B10$B8D$N%3%^%s%I$N@bL@$r9T$&!%(B
 
 \begin{description}
 
 \item[\hbox{\tt ENTRY}\hfill]
-フィールドとエントリ変数を宣言する．
-3引数であり，各々の引数は(空かもしれないが)変数名のリストである．
-それらはフィールド，整数型のエントリ変数，文字列型のエントリ変数である．
-また\BibTeX が相互参照で使うために自動的に宣言する
-{\tt crossref}フィールドと，
-{\tt SORT}コマンドで使うソートキーとして{\tt sort.key\$} が，文字列型の
-エントリ変数として自動的に宣言される．
-以上の変数はエントリ・リストのエントリ毎に別々の値を持つ．
+$B%U%#!<%k%I$H%(%s%H%jJQ?t$r@k8@$9$k!%(B
+3$B0z?t$G$"$j!$3F!9$N0z?t$O(B($B6u$+$b$7$l$J$$$,(B)$BJQ?tL>$N%j%9%H$G$"$k!%(B
+$B$=$l$i$O%U%#!<%k%I!$@0?t7?$N%(%s%H%jJQ?t!$J8;zNs7?$N%(%s%H%jJQ?t$G$"$k!%(B
+$B$^$?(B\BibTeX $B$,Aj8_;2>H$G;H$&$?$a$K<+F0E*$K@k8@$9$k(B
+{\tt crossref}$B%U%#!<%k%I$H!$(B
+{\tt SORT}$B%3%^%s%I$G;H$&%=!<%H%-!<$H$7$F(B{\tt sort.key\$} $B$,!$J8;zNs7?$N(B
+$B%(%s%H%jJQ?t$H$7$F<+F0E*$K@k8@$5$l$k!%(B
+$B0J>e$NJQ?t$O%(%s%H%j!&%j%9%H$N%(%s%H%jKh$KJL!9$NCM$r;}$D!%(B
 
 \item[\hbox{\tt EXECUTE}\hfill]
-関数を1つ実行する．引数は関数名1つである．
+$B4X?t$r(B1$B$D<B9T$9$k!%0z?t$O4X?tL>(B1$B$D$G$"$k!%(B
 
 \item[\hbox{\tt FUNCTION}\hfill]
-新たな関数を定義する．
-2引数であり，最初が名前で2番目が定義である．
-関数は使う前に定義しなければならない．したがって再帰関数は許されない．
+$B?7$?$J4X?t$rDj5A$9$k!%(B
+2$B0z?t$G$"$j!$:G=i$,L>A0$G(B2$BHVL\$,Dj5A$G$"$k!%(B
+$B4X?t$O;H$&A0$KDj5A$7$J$1$l$P$J$i$J$$!%$7$?$,$C$F:F5"4X?t$O5v$5$l$J$$!%(B
 
 \item[\hbox{\tt INTEGERS}\hfill]
-整数型の大域変数を宣言する．
-引数は変数名のリスト1つである．
-文字列変数の長さを制限する大域的変数として{\tt entry.max\$} と
-{\tt global.max\$} が自動的に宣言される．
-このコマンドはスタイルファイル中にいくつあってもよいが，変数は使う前に
-宣言しなければならない．
+$B@0?t7?$NBg0hJQ?t$r@k8@$9$k!%(B
+$B0z?t$OJQ?tL>$N%j%9%H(B1$B$D$G$"$k!%(B
+$BJ8;zNsJQ?t$ND9$5$r@)8B$9$kBg0hE*JQ?t$H$7$F(B{\tt entry.max\$} $B$H(B
+{\tt global.max\$} $B$,<+F0E*$K@k8@$5$l$k!%(B
+$B$3$N%3%^%s%I$O%9%?%$%k%U%!%$%kCf$K$$$/$D$"$C$F$b$h$$$,!$JQ?t$O;H$&A0$K(B
+$B@k8@$7$J$1$l$P$J$i$J$$!%(B
 
 \item[\hbox{\tt ITERATE}\hfill]
-現在のリストの順番にリストのエントリに対して1つの関数を実行する
-(最初はリストは引用順に並んでいるが，{\tt SORT}によって順番は変わる)．
-引数は関数名1つである．
+$B8=:_$N%j%9%H$N=gHV$K%j%9%H$N%(%s%H%j$KBP$7$F(B1$B$D$N4X?t$r<B9T$9$k(B
+($B:G=i$O%j%9%H$O0zMQ=g$KJB$s$G$$$k$,!$(B{\tt SORT}$B$K$h$C$F=gHV$OJQ$o$k(B)$B!%(B
+$B0z?t$O4X?tL>(B1$B$D$G$"$k!%(B
 
 \item[\hbox{\tt MACRO}\hfill]
-文字列マクロを定義する．
-引数は2つで，最初が変数名，関数名と同じように扱われるマクロ名で，
-次がダブルクォートで囲まれた文字列であり，その定義である．
-月名の3文字の省略形とよく使われる論文誌の省略形を定義しておくこと．
-この定義は利用者のデータベース中の定義で置き換えることができるから，
-利用者に変更してもらいたくないものは，同じ構文の{\tt FUNCTION}を
-使って定義すればよい．
+$BJ8;zNs%^%/%m$rDj5A$9$k!%(B
+$B0z?t$O(B2$B$D$G!$:G=i$,JQ?tL>!$4X?tL>$HF1$8$h$&$K07$o$l$k%^%/%mL>$G!$(B
+$B<!$,%@%V%k%/%)!<%H$G0O$^$l$?J8;zNs$G$"$j!$$=$NDj5A$G$"$k!%(B
+$B7nL>$N(B3$BJ8;z$N>JN,7A$H$h$/;H$o$l$kO@J8;o$N>JN,7A$rDj5A$7$F$*$/$3$H!%(B
+$B$3$NDj5A$OMxMQ<T$N%G!<%?%Y!<%9Cf$NDj5A$GCV$-49$($k$3$H$,$G$-$k$+$i!$(B
+$BMxMQ<T$KJQ99$7$F$b$i$$$?$/$J$$$b$N$O!$F1$89=J8$N(B{\tt FUNCTION}$B$r(B
+$B;H$C$FDj5A$9$l$P$h$$!%(B
 
 \item[\hbox{\tt READ}\hfill]
-エントリ・リスト中のエントリのフィールドの値をデータベース
-から探索して設定する．
-引数はない．
-データベース中のエントリに，対応するフィールドの値がない場合には
-(必ずしもデータベース中にすべてのフィールドが書かれているわけではない)
-そのフィールドの値には欠測値のマークが付く．
+$B%(%s%H%j!&%j%9%HCf$N%(%s%H%j$N%U%#!<%k%I$NCM$r%G!<%?%Y!<%9(B
+$B$+$iC5:w$7$F@_Dj$9$k!%(B
+$B0z?t$O$J$$!%(B
+$B%G!<%?%Y!<%9Cf$N%(%s%H%j$K!$BP1~$9$k%U%#!<%k%I$NCM$,$J$$>l9g$K$O(B
+($BI,$:$7$b%G!<%?%Y!<%9Cf$K$9$Y$F$N%U%#!<%k%I$,=q$+$l$F$$$k$o$1$G$O$J$$(B)
+$B$=$N%U%#!<%k%I$NCM$K$O7gB,CM$N%^!<%/$,IU$/!%(B
 
 \item[\hbox{\tt REVERSE}\hfill]
-{\tt ITERATE}コマンドとまったく同じことをエントリリストの逆順に実行する．
+{\tt ITERATE}$B%3%^%s%I$H$^$C$?$/F1$8$3$H$r%(%s%H%j%j%9%H$N5U=g$K<B9T$9$k!%(B
 
 \item[\hbox{\tt SORT}\hfill]
-文字列型のエントリ変数{\tt sort.key\$} を使ってエントリリストを
-ソートする．
-引数はない．
+$BJ8;zNs7?$N%(%s%H%jJQ?t(B{\tt sort.key\$} $B$r;H$C$F%(%s%H%j%j%9%H$r(B
+$B%=!<%H$9$k!%(B
+$B0z?t$O$J$$!%(B
 
 \item[\hbox{\tt STRINGS}\hfill]
-文字列型の大域変数を宣言する．
-引数は変数名のリスト1つである．
-このコマンドはスタイルファイル中にいくつあってもよいが，変数は使う前に
-宣言しなければならない．
+$BJ8;zNs7?$NBg0hJQ?t$r@k8@$9$k!%(B
+$B0z?t$OJQ?tL>$N%j%9%H(B1$B$D$G$"$k!%(B
+$B$3$N%3%^%s%I$O%9%?%$%k%U%!%$%kCf$K$$$/$D$"$C$F$b$h$$$,!$JQ?t$O;H$&A0$K(B
+$B@k8@$7$J$1$l$P$J$i$J$$!%(B
 \end{description}
 
-\subsection{組み込み関数}
+\subsection{$BAH$_9~$_4X?t(B}
 \label{built-in-fns}
 
-組み込み関数の説明の前に，組み込みオブジェクトついて少し説明しておく．
-組み込みのエントリ文字列変数として{\tt sort.key\$} があり，
-ソートを行うスタイルでは値を設定しなければならない．
-組み込みのフィールドとして，第4節で述べた相互参照機能のための
-{\tt crossref}がある．
-さらに整数型の大域変数
-{\tt entry.max\$} と{\tt global.max\$} があり，その値は\BibTeX の内部定数
-に設定されている．
-\BibTeX から警告メッセージが出ないよう，
-文字列への代入の前に，代入する文字列長をこれらの値より短くして
-おかねばならない．
+$BAH$_9~$_4X?t$N@bL@$NA0$K!$AH$_9~$_%*%V%8%'%/%H$D$$$F>/$7@bL@$7$F$*$/!%(B
+$BAH$_9~$_$N%(%s%H%jJ8;zNsJQ?t$H$7$F(B{\tt sort.key\$} $B$,$"$j!$(B
+$B%=!<%H$r9T$&%9%?%$%k$G$OCM$r@_Dj$7$J$1$l$P$J$i$J$$!%(B
+$BAH$_9~$_$N%U%#!<%k%I$H$7$F!$Bh(B4$B@a$G=R$Y$?Aj8_;2>H5!G=$N$?$a$N(B
+{\tt crossref}$B$,$"$k!%(B
+$B$5$i$K@0?t7?$NBg0hJQ?t(B
+{\tt entry.max\$} $B$H(B{\tt global.max\$} $B$,$"$j!$$=$NCM$O(B\BibTeX $B$NFbItDj?t(B
+$B$K@_Dj$5$l$F$$$k!%(B
+\BibTeX $B$+$i7Y9p%a%C%;!<%8$,=P$J$$$h$&!$(B
+$BJ8;zNs$X$NBeF~$NA0$K!$BeF~$9$kJ8;zNsD9$r$3$l$i$NCM$h$jC;$/$7$F(B
+$B$*$+$M$P$J$i$J$$!%(B
 
-現在組み込み関数は37個ある\trnote{日本語対応版では，組み込み関数を1つ
-追加しているので，38個ある．}．
-すべての組み込み関数の名前は最後が `{\tt \$}' で終る．
-以下では「1番目」，「2番目」というのはスタックからポップされた順番を意味する．
-「リテラル」はスタックの要素であり，整数値，文字列，変数名，
-関数名，あるいは欠測フィールドを表す特別の値のいずれかである．
-ポップされたリテラルの型が誤っていると\BibTeX は文句をいった後，
-関数の返す値の型に対応して，整数値の0あるいは空文字列をプッシュする．
+$B8=:_AH$_9~$_4X?t$O(B37$B8D$"$k(B\trnote{$BF|K\8lBP1~HG$G$O!$AH$_9~$_4X?t$r(B1$B$D(B
+$BDI2C$7$F$$$k$N$G!$(B38$B8D$"$k!%(B}$B!%(B
+$B$9$Y$F$NAH$_9~$_4X?t$NL>A0$O:G8e$,(B `{\tt \$}' $B$G=*$k!%(B
+$B0J2<$G$O!V(B1$BHVL\!W!$!V(B2$BHVL\!W$H$$$&$N$O%9%?%C%/$+$i%]%C%W$5$l$?=gHV$r0UL#$9$k!%(B
+$B!V%j%F%i%k!W$O%9%?%C%/$NMWAG$G$"$j!$@0?tCM!$J8;zNs!$JQ?tL>!$(B
+$B4X?tL>!$$"$k$$$O7gB,%U%#!<%k%I$rI=$9FCJL$NCM$N$$$:$l$+$G$"$k!%(B
+$B%]%C%W$5$l$?%j%F%i%k$N7?$,8m$C$F$$$k$H(B\BibTeX $B$OJ86g$r$$$C$?8e!$(B
+$B4X?t$NJV$9CM$N7?$KBP1~$7$F!$@0?tCM$N(B0$B$"$k$$$O6uJ8;zNs$r%W%C%7%e$9$k!%(B
 
 \begin{description}
 
 \item[\hbox{\tt >}\hfill]
-2つの(整数)リテラルをポップし，比較を行い，2番目が1番目より大きければ1を
-そうでなければ0をプッシュする．
+2$B$D$N(B($B@0?t(B)$B%j%F%i%k$r%]%C%W$7!$Hf3S$r9T$$!$(B2$BHVL\$,(B1$BHVL\$h$jBg$-$1$l$P(B1$B$r(B
+$B$=$&$G$J$1$l$P(B0$B$r%W%C%7%e$9$k!%(B
 
 \item[\hbox{\tt <}\hfill]
-上と同様(小さければ)．
+$B>e$HF1MM(B($B>.$5$1$l$P(B)$B!%(B
 
 \item[\hbox{\tt =}\hfill]
-スタックトップの(ともに整数あるいは文字列の) 2つのリテラルを
-ポップして比較し，等しければ1を，そうでなければ0をプッシュする．
+$B%9%?%C%/%H%C%W$N(B($B$H$b$K@0?t$"$k$$$OJ8;zNs$N(B) 2$B$D$N%j%F%i%k$r(B
+$B%]%C%W$7$FHf3S$7!$Ey$7$1$l$P(B1$B$r!$$=$&$G$J$1$l$P(B0$B$r%W%C%7%e$9$k!%(B
 
 \item[\hbox{\tt +}\hfill]
-(整数の)2つのリテラルをポップしその和をプッシュする．
+($B@0?t$N(B)2$B$D$N%j%F%i%k$r%]%C%W$7$=$NOB$r%W%C%7%e$9$k!%(B
 
 \item[\hbox{\tt -}\hfill]
-(整数の)2つのリテラルをポップしその差をプッシュする．
-(2番目から1番目を引く)．
+($B@0?t$N(B)2$B$D$N%j%F%i%k$r%]%C%W$7$=$N:9$r%W%C%7%e$9$k!%(B
+(2$BHVL\$+$i(B1$BHVL\$r0z$/(B)$B!%(B
 
 \item[\hbox{\tt *}\hfill]
-2つの(文字列)リテラルをポップし，それらを連結したものをプッシュする
-(逆順，2番目の後に1番目を連結する)．
+2$B$D$N(B($BJ8;zNs(B)$B%j%F%i%k$r%]%C%W$7!$$=$l$i$rO"7k$7$?$b$N$r%W%C%7%e$9$k(B
+($B5U=g!$(B2$BHVL\$N8e$K(B1$BHVL\$rO"7k$9$k(B)$B!%(B
 
 \item[\hbox{\tt :=}\hfill]
-2つのリテラルをポップし1番目(大域変数かエントリ変数)に2番目のリテラルの
-値を代入する．
+2$B$D$N%j%F%i%k$r%]%C%W$7(B1$BHVL\(B($BBg0hJQ?t$+%(%s%H%jJQ?t(B)$B$K(B2$BHVL\$N%j%F%i%k$N(B
+$BCM$rBeF~$9$k!%(B
 
 \item[\hbox{\tt add.period\$}\hfill]
-スタックトップの(文字列)リテラルをポップし，`{\tt \}}' でない最後の文字が
-`{\tt .}'$\!$, `{\tt ?}'$\!$, `{\tt !}'のいずれでもなければ
-`{\tt .}'を最後に加えた結果をプッシュする．いずれかであれば元の文字列を
-プッシュする．
+$B%9%?%C%/%H%C%W$N(B($BJ8;zNs(B)$B%j%F%i%k$r%]%C%W$7!$(B`{\tt \}}' $B$G$J$$:G8e$NJ8;z$,(B
+`{\tt .}'$\!$, `{\tt ?}'$\!$, `{\tt !}'$B$N$$$:$l$G$b$J$1$l$P(B
+`{\tt .}'$B$r:G8e$K2C$($?7k2L$r%W%C%7%e$9$k!%$$$:$l$+$G$"$l$P85$NJ8;zNs$r(B
+$B%W%C%7%e$9$k!%(B
 
-{\dg \JBibTeX での注意}：
-全角の`．'，`。'，`？'，`！'の後にも `{\tt .}' は加えない．
+{\dg \JBibTeX $B$G$NCm0U(B}$B!'(B
+$BA43Q$N(B`$B!%(B'$B!$(B`$B!#(B'$B!$(B`$B!)(B'$B!$(B`$B!*(B'$B$N8e$K$b(B `{\tt .}' $B$O2C$($J$$!%(B
 
 \item[\hbox{\tt call.type\$}\hfill]
-その名前がエントリのエントリ型の名前である関数を実行する．
-例えば，エントリの型が{\tt book}であれば{\tt book}という関数が実行される．
-{\tt ITERATE}コマンドの引数として指定された場合には，{\tt call.type\$} は
-エントリの情報を{\tt .bbl}ファイルに出力する．
-不明なエントリ型(未定義の型)に対しては{\tt default.type}を実行する．
-したがって各々の標準エントリ型に対応するもの以外に{\tt default.type}という型に
-対応する関数を{\tt READ}コマンドの前に定義しておかねばならない．
+$B$=$NL>A0$,%(%s%H%j$N%(%s%H%j7?$NL>A0$G$"$k4X?t$r<B9T$9$k!%(B
+$BNc$($P!$%(%s%H%j$N7?$,(B{\tt book}$B$G$"$l$P(B{\tt book}$B$H$$$&4X?t$,<B9T$5$l$k!%(B
+{\tt ITERATE}$B%3%^%s%I$N0z?t$H$7$F;XDj$5$l$?>l9g$K$O!$(B{\tt call.type\$} $B$O(B
+$B%(%s%H%j$N>pJs$r(B{\tt .bbl}$B%U%!%$%k$K=PNO$9$k!%(B
+$BITL@$J%(%s%H%j7?(B($BL$Dj5A$N7?(B)$B$KBP$7$F$O(B{\tt default.type}$B$r<B9T$9$k!%(B
+$B$7$?$,$C$F3F!9$NI8=`%(%s%H%j7?$KBP1~$9$k$b$N0J30$K(B{\tt default.type}$B$H$$$&7?$K(B
+$BBP1~$9$k4X?t$r(B{\tt READ}$B%3%^%s%I$NA0$KDj5A$7$F$*$+$M$P$J$i$J$$!%(B
 
 \item[\hbox{\tt change.case\$}\hfill]
-2つの(文字列)リテラルをポップし，1番目のリテラルの指定にしたがって，
-以下に説明する形式で，2番目の文字列の大文字/小文字変換を行う
-(注意：次文で「文字」とは中括弧のレベル0，最も外側の中括弧のレベルの文字の
-ことであり，第4節で説明した「特殊文字」を除くそれ以外の文字は変換されない)．
-1番目のリテラルが`{\tt t}'であれば，文字列の1番始めの文字およびコロンの後に
-スペースが1個以上続く文字列の最初の文字はそのままで，それ以外を小文字に
-変換する．
-1番目のリテラルが`{\tt l}'であれば，すべての文字を小文字に変換する．
-1番目のリテラルが`{\tt u}'であれば，すべての文字を大文字に変換する．
-そして変換結果の文字列をプッシュする．
-2つのリテラルの型が文字列型でない場合には文句を言い，空文字列をプッシュする．
-リテラルの型は合っているが，変換指定が上記の何れでもない場合には，文句を
-付けた後，単に2番目の文字列をそのままの形でプッシュする
-(もう1つの注意：変換指定文字の大文字/小文字は区別されない．すなわち
-{\tt t}と{\tt T}は同じものとされる)．
+2$B$D$N(B($BJ8;zNs(B)$B%j%F%i%k$r%]%C%W$7!$(B1$BHVL\$N%j%F%i%k$N;XDj$K$7$?$,$C$F!$(B
+$B0J2<$K@bL@$9$k7A<0$G!$(B2$BHVL\$NJ8;zNs$NBgJ8;z(B/$B>.J8;zJQ49$r9T$&(B
+($BCm0U!'<!J8$G!VJ8;z!W$H$OCf3g8L$N%l%Y%k(B0$B!$:G$b30B&$NCf3g8L$N%l%Y%k$NJ8;z$N(B
+$B$3$H$G$"$j!$Bh(B4$B@a$G@bL@$7$?!VFC<lJ8;z!W$r=|$/$=$l0J30$NJ8;z$OJQ49$5$l$J$$(B)$B!%(B
+1$BHVL\$N%j%F%i%k$,(B`{\tt t}'$B$G$"$l$P!$J8;zNs$N(B1$BHV;O$a$NJ8;z$*$h$S%3%m%s$N8e$K(B
+$B%9%Z!<%9$,(B1$B8D0J>eB3$/J8;zNs$N:G=i$NJ8;z$O$=$N$^$^$G!$$=$l0J30$r>.J8;z$K(B
+$BJQ49$9$k!%(B
+1$BHVL\$N%j%F%i%k$,(B`{\tt l}'$B$G$"$l$P!$$9$Y$F$NJ8;z$r>.J8;z$KJQ49$9$k!%(B
+1$BHVL\$N%j%F%i%k$,(B`{\tt u}'$B$G$"$l$P!$$9$Y$F$NJ8;z$rBgJ8;z$KJQ49$9$k!%(B
+$B$=$7$FJQ497k2L$NJ8;zNs$r%W%C%7%e$9$k!%(B
+2$B$D$N%j%F%i%k$N7?$,J8;zNs7?$G$J$$>l9g$K$OJ86g$r8@$$!$6uJ8;zNs$r%W%C%7%e$9$k!%(B
+$B%j%F%i%k$N7?$O9g$C$F$$$k$,!$JQ49;XDj$,>e5-$N2?$l$G$b$J$$>l9g$K$O!$J86g$r(B
+$BIU$1$?8e!$C1$K(B2$BHVL\$NJ8;zNs$r$=$N$^$^$N7A$G%W%C%7%e$9$k(B
+($B$b$&(B1$B$D$NCm0U!'JQ49;XDjJ8;z$NBgJ8;z(B/$B>.J8;z$O6hJL$5$l$J$$!%$9$J$o$A(B
+{\tt t}$B$H(B{\tt T}$B$OF1$8$b$N$H$5$l$k(B)$B!%(B
 
 \item[\hbox{\tt chr.to.int\$}\hfill]
-スタックトップの(文字列)リテラルをポップし，その長さが1文字であること
-を確認した後，そのASCIIコードの整数をプッシュする．
+$B%9%?%C%/%H%C%W$N(B($BJ8;zNs(B)$B%j%F%i%k$r%]%C%W$7!$$=$ND9$5$,(B1$BJ8;z$G$"$k$3$H(B
+$B$r3NG'$7$?8e!$$=$N(BASCII$B%3!<%I$N@0?t$r%W%C%7%e$9$k!%(B
 
-{\dg \JBibTeX での注意}：
-漢字コード文字に対応するために，リテラルが漢字コード文字の場合には
-2バイトを1文字と数え，値としては1バイト目のコード値(EUCコード値)を
-プッシュする．ただし
-これは\JBibTeX\ version 0.10との互換性のために残したものであり，仕様変更
-される可能性が高い．
+{\dg \JBibTeX $B$G$NCm0U(B}$B!'(B
+$B4A;z%3!<%IJ8;z$KBP1~$9$k$?$a$K!$%j%F%i%k$,4A;z%3!<%IJ8;z$N>l9g$K$O(B
+2$B%P%$%H$r(B1$BJ8;z$H?t$(!$CM$H$7$F$O(B1$B%P%$%HL\$N%3!<%ICM(B(EUC$B%3!<%ICM(B)$B$r(B
+$B%W%C%7%e$9$k!%$?$@$7(B
+$B$3$l$O(B\JBibTeX\ version 0.10$B$H$N8_49@-$N$?$a$K;D$7$?$b$N$G$"$j!$;EMMJQ99(B
+$B$5$l$k2DG=@-$,9b$$!%(B
 
 \item[\hbox{\tt cite\$}\hfill]
-エントリに対応する {\verb|\cite|}コマンドの引数の文字列をプッシュする．
+$B%(%s%H%j$KBP1~$9$k(B {\verb|\cite|}$B%3%^%s%I$N0z?t$NJ8;zNs$r%W%C%7%e$9$k!%(B
 
 \item[\hbox{\tt duplicate\$}\hfill]
-スタックトップのリテラルをポップしそのコピーを2つプッシュする．
+$B%9%?%C%/%H%C%W$N%j%F%i%k$r%]%C%W$7$=$N%3%T!<$r(B2$B$D%W%C%7%e$9$k!%(B
 
 \item[\hbox{\tt empty\$}\hfill]
-スタックトップのリテラルをポップし，それが欠測フィールドであるか，あるいは
-文字列中に空白文字以外が無い場合に，整数の1をプッシュし，それ以外の場合には
-0をプッシュする．
+$B%9%?%C%/%H%C%W$N%j%F%i%k$r%]%C%W$7!$$=$l$,7gB,%U%#!<%k%I$G$"$k$+!$$"$k$$$O(B
+$BJ8;zNsCf$K6uGrJ8;z0J30$,L5$$>l9g$K!$@0?t$N(B1$B$r%W%C%7%e$7!$$=$l0J30$N>l9g$K$O(B
+0$B$r%W%C%7%e$9$k!%(B
 
 \item[\hbox{\tt format.name\$}\hfill]
-スタックトップの3つのリテラル(順に文字列，整数，文字列)をポップする．
-最後の文字列リテラルが名前リスト(要素が個人名に対応)であり，整数リテラルが
-リストの何番目を取り出すのかの指定であり，最初の文字列リテラルが名前を
-どの様にフォーマットするのか(次節で説明する)の指定である．
-フォーマットされた名前の文字列をプッシュする．
+$B%9%?%C%/%H%C%W$N(B3$B$D$N%j%F%i%k(B($B=g$KJ8;zNs!$@0?t!$J8;zNs(B)$B$r%]%C%W$9$k!%(B
+$B:G8e$NJ8;zNs%j%F%i%k$,L>A0%j%9%H(B($BMWAG$,8D?ML>$KBP1~(B)$B$G$"$j!$@0?t%j%F%i%k$,(B
+$B%j%9%H$N2?HVL\$r<h$j=P$9$N$+$N;XDj$G$"$j!$:G=i$NJ8;zNs%j%F%i%k$,L>A0$r(B
+$B$I$NMM$K%U%)!<%^%C%H$9$k$N$+(B($B<!@a$G@bL@$9$k(B)$B$N;XDj$G$"$k!%(B
+$B%U%)!<%^%C%H$5$l$?L>A0$NJ8;zNs$r%W%C%7%e$9$k!%(B
 
-{\dg \JBibTeX での注意}：
-この関数では全角のスペースは半角のスペースと同じとみなす(より正確に
-いうと全角のスペースは半角のスペースに変換されて処理される)．また，全角の
-句点 ``，'' と ``、'' も ``\verb*| and |'' と同様に扱うので，
-漢字コード氏名は句点で区切って並べることができる．
+{\dg \JBibTeX $B$G$NCm0U(B}$B!'(B
+$B$3$N4X?t$G$OA43Q$N%9%Z!<%9$OH>3Q$N%9%Z!<%9$HF1$8$H$_$J$9(B($B$h$j@53N$K(B
+$B$$$&$HA43Q$N%9%Z!<%9$OH>3Q$N%9%Z!<%9$KJQ49$5$l$F=hM}$5$l$k(B)$B!%$^$?!$A43Q$N(B
+$B6gE@(B ``$B!$(B'' $B$H(B ``$B!"(B'' $B$b(B ``\verb*| and |'' $B$HF1MM$K07$&$N$G!$(B
+$B4A;z%3!<%I;aL>$O6gE@$G6h@Z$C$FJB$Y$k$3$H$,$G$-$k!%(B
 
 
 \item[\hbox{\tt if\$}\hfill]
-3つのリテラル(順に2つの関数リテラル，整数リテラル)をポップし，
-最後のリテラル値の整数値が0より大きい時には2番目のリテラルを実行し，
-そうでなければ1番目のリテラルを実行する．
+3$B$D$N%j%F%i%k(B($B=g$K(B2$B$D$N4X?t%j%F%i%k!$@0?t%j%F%i%k(B)$B$r%]%C%W$7!$(B
+$B:G8e$N%j%F%i%kCM$N@0?tCM$,(B0$B$h$jBg$-$$;~$K$O(B2$BHVL\$N%j%F%i%k$r<B9T$7!$(B
+$B$=$&$G$J$1$l$P(B1$BHVL\$N%j%F%i%k$r<B9T$9$k!%(B
 
 \item[\hbox{\tt int.to.chr\$}\hfill]
-スタックトップの(整数)リテラルをポップし，それをASCIIコードとして，
-対応する文字を1文字の文字列に変換したものをプッシュする．
+$B%9%?%C%/%H%C%W$N(B($B@0?t(B)$B%j%F%i%k$r%]%C%W$7!$$=$l$r(BASCII$B%3!<%I$H$7$F!$(B
+$BBP1~$9$kJ8;z$r(B1$BJ8;z$NJ8;zNs$KJQ49$7$?$b$N$r%W%C%7%e$9$k!%(B
 
 \item[\hbox{\tt int.to.str\$}\hfill]
-スタックトップの(整数)リテラルをポップし，それを(一意に定まる)文字列に
-変換してプッシュする．
+$B%9%?%C%/%H%C%W$N(B($B@0?t(B)$B%j%F%i%k$r%]%C%W$7!$$=$l$r(B($B0l0U$KDj$^$k(B)$BJ8;zNs$K(B
+$BJQ49$7$F%W%C%7%e$9$k!%(B
 
 \item[\hbox{\tt missing\$}\hfill]
-スタックトップをポップし，それが欠測フィールドであれば整数の1を，そうで
-なければ0をプッシュする．
+$B%9%?%C%/%H%C%W$r%]%C%W$7!$$=$l$,7gB,%U%#!<%k%I$G$"$l$P@0?t$N(B1$B$r!$$=$&$G(B
+$B$J$1$l$P(B0$B$r%W%C%7%e$9$k!%(B
 
 \item[\hbox{\tt newline\$}\hfill]
-出力バッファに蓄積されている情報を{\tt bbl}ファイルに書き出す．
-出力バッファが空である場合に限り空行を書き出す．
-{\tt write\$} は適当に改行を行なうから，空行を書き出す時，あるいは
-明示的に改行したい時だけに，この関数を使うのがよい．
+$B=PNO%P%C%U%!$KC_@Q$5$l$F$$$k>pJs$r(B{\tt bbl}$B%U%!%$%k$K=q$-=P$9!%(B
+$B=PNO%P%C%U%!$,6u$G$"$k>l9g$K8B$j6u9T$r=q$-=P$9!%(B
+{\tt write\$} $B$OE,Ev$K2~9T$r9T$J$&$+$i!$6u9T$r=q$-=P$9;~!$$"$k$$$O(B
+$BL@<(E*$K2~9T$7$?$$;~$@$1$K!$$3$N4X?t$r;H$&$N$,$h$$!%(B
 
 \item[\hbox{\tt num.names\$}\hfill]
-スタックトップの(文字列)リテラルをポップし文字列中の名前の数，
-すなわち，大文字/小文字を無視して，中括弧のレベル0の位置にあり，前後が
-空白文字である``and''部分文字列の数に1を加えた値，
-をプッシュする．
+$B%9%?%C%/%H%C%W$N(B($BJ8;zNs(B)$B%j%F%i%k$r%]%C%W$7J8;zNsCf$NL>A0$N?t!$(B
+$B$9$J$o$A!$BgJ8;z(B/$B>.J8;z$rL5;k$7$F!$Cf3g8L$N%l%Y%k(B0$B$N0LCV$K$"$j!$A08e$,(B
+$B6uGrJ8;z$G$"$k(B``and''$BItJ,J8;zNs$N?t$K(B1$B$r2C$($?CM!$(B
+$B$r%W%C%7%e$9$k!%(B
 
-{\dg \JBibTeX での注意}：
-この関数では全角のスペースは半角のスペースと同じとみなす(より正確に
-いうと全角のスペースは半角のスペースに変換されて処理される)．また，全角の
-句点 ``，'' と ``、'' も ``\verb*| and |'' と同様に扱うので，
-漢字コード氏名は句点で区切って並べることができる．
+{\dg \JBibTeX $B$G$NCm0U(B}$B!'(B
+$B$3$N4X?t$G$OA43Q$N%9%Z!<%9$OH>3Q$N%9%Z!<%9$HF1$8$H$_$J$9(B($B$h$j@53N$K(B
+$B$$$&$HA43Q$N%9%Z!<%9$OH>3Q$N%9%Z!<%9$KJQ49$5$l$F=hM}$5$l$k(B)$B!%$^$?!$A43Q$N(B
+$B6gE@(B ``$B!$(B'' $B$H(B ``$B!"(B'' $B$b(B ``\verb*| and |'' $B$HF1MM$K07$&$N$G!$(B
+$B4A;z%3!<%I;aL>$O6gE@$G6h@Z$C$FJB$Y$k$3$H$,$G$-$k!%(B
 
 \item[\hbox{\tt pop\$}\hfill]
-スタックトップをポップするがプリントはしない．不必要なリテラルを
-取り除くのに使う．
+$B%9%?%C%/%H%C%W$r%]%C%W$9$k$,%W%j%s%H$O$7$J$$!%ITI,MW$J%j%F%i%k$r(B
+$B<h$j=|$/$N$K;H$&!%(B
 
 \item[\hbox{\tt preamble\$}\hfill]
-データベースファイルから読み込んだ{\tt @PREAMBLE}すべてを連結した文字列を
-プッシュする．
+$B%G!<%?%Y!<%9%U%!%$%k$+$iFI$_9~$s$@(B{\tt @PREAMBLE}$B$9$Y$F$rO"7k$7$?J8;zNs$r(B
+$B%W%C%7%e$9$k!%(B
 
 \item[\hbox{\tt purify\$}\hfill]
-スタックトップの(文字列)リテラルをポップし，
-空白文字，ハイフン`\verb|-|'とタイ`\verb|~|'
-(これらはスペースに変換される)のいずれでもないアルファベット
-以外の文字，「特殊文字」に付随した制御文字列(コマンド; control sequence)に
-含まれるアルファベット文字を除去した文字列をプッシュする\trnote{漢字コード
-文字列なら変化しない．}．
+$B%9%?%C%/%H%C%W$N(B($BJ8;zNs(B)$B%j%F%i%k$r%]%C%W$7!$(B
+$B6uGrJ8;z!$%O%$%U%s(B`\verb|-|'$B$H%?%$(B`\verb|~|'
+($B$3$l$i$O%9%Z!<%9$KJQ49$5$l$k(B)$B$N$$$:$l$G$b$J$$%"%k%U%!%Y%C%H(B
+$B0J30$NJ8;z!$!VFC<lJ8;z!W$KIU?o$7$?@)8fJ8;zNs(B($B%3%^%s%I(B; control sequence)$B$K(B
+$B4^$^$l$k%"%k%U%!%Y%C%HJ8;z$r=|5n$7$?J8;zNs$r%W%C%7%e$9$k(B\trnote{$B4A;z%3!<%I(B
+$BJ8;zNs$J$iJQ2=$7$J$$!%(B}$B!%(B
 
 \item[\hbox{\tt quote\$}\hfill]
-ダブルクォート文字(`\verb|"|')1文字からなる文字列をプッシュする．
+$B%@%V%k%/%)!<%HJ8;z(B(`\verb|"|')1$BJ8;z$+$i$J$kJ8;zNs$r%W%C%7%e$9$k!%(B
 
 \item[\hbox{\tt skip\$}\hfill]
-何もしない．
+$B2?$b$7$J$$!%(B
 
 \item[\hbox{\tt stack\$}\hfill]
-スタックの内容を全部ポップしてプリントする．スタイル作成時のデバッグ用．
+$B%9%?%C%/$NFbMF$rA4It%]%C%W$7$F%W%j%s%H$9$k!%%9%?%$%k:n@.;~$N%G%P%C%0MQ!%(B
 
 \item[\hbox{\tt substring\$}\hfill]
-スタックトップの3つのリテラル(順に長さ{\it len}，開始位置{\it start}の
-2つの整数リテラル，文字列リテラル)をポップする．
-{\it start}が正ならば文字列の先頭から数えて，
-(最初が1文字目として){\it start}文字目からの，
-{\it start}が負ならば文字列の終りから数えて(最後の文字が1文字目として)，
-$-${\it start}文字目からの，
-連続する(高々){\it len}文字の部分文字列をプッシュする．
+$B%9%?%C%/%H%C%W$N(B3$B$D$N%j%F%i%k(B($B=g$KD9$5(B{\it len}$B!$3+;O0LCV(B{\it start}$B$N(B
+2$B$D$N@0?t%j%F%i%k!$J8;zNs%j%F%i%k(B)$B$r%]%C%W$9$k!%(B
+{\it start}$B$,@5$J$i$PJ8;zNs$N@hF,$+$i?t$($F!$(B
+($B:G=i$,(B1$BJ8;zL\$H$7$F(B){\it start}$BJ8;zL\$+$i$N!$(B
+{\it start}$B$,Ii$J$i$PJ8;zNs$N=*$j$+$i?t$($F(B($B:G8e$NJ8;z$,(B1$BJ8;zL\$H$7$F(B)$B!$(B
+$-${\it start}$BJ8;zL\$+$i$N!$(B
+$BO"B3$9$k(B($B9b!9(B){\it len}$BJ8;z$NItJ,J8;zNs$r%W%C%7%e$9$k!%(B
 
-{\dg \JBibTeX での注意}：
-この関数は1文字は1バイトからなるものとして処理するので，漢字コード
-文字列では指定した
-文字数の半分の数の漢字コード
-が得られる．また漢字コードの1文字の間で切られないように
-開始位置，文字数(バイト数)の調整を行なう．調整は開始位置が漢字コードの1バイト目
-に一致していれば．開始位置はそのまま，2バイト目であれば1バイト目から取り出す
-ように調整する．終了位置が漢字コードの1バイト目であれば2バイト目まで取り出す
-ように調整する．したがって指定した長さより最大2バイト長い文字列となる．
-これは日本語用でないスタイルファイルを使った場合でもそれなりの出力が得られる
-ようにするためである．
+{\dg \JBibTeX $B$G$NCm0U(B}$B!'(B
+$B$3$N4X?t$O(B1$BJ8;z$O(B1$B%P%$%H$+$i$J$k$b$N$H$7$F=hM}$9$k$N$G!$4A;z%3!<%I(B
+$BJ8;zNs$G$O;XDj$7$?(B
+$BJ8;z?t$NH>J,$N?t$N4A;z%3!<%I(B
+$B$,F@$i$l$k!%$^$?4A;z%3!<%I$N(B1$BJ8;z$N4V$G@Z$i$l$J$$$h$&$K(B
+$B3+;O0LCV!$J8;z?t(B($B%P%$%H?t(B)$B$ND4@0$r9T$J$&!%D4@0$O3+;O0LCV$,4A;z%3!<%I$N(B1$B%P%$%HL\(B
+$B$K0lCW$7$F$$$l$P!%3+;O0LCV$O$=$N$^$^!$(B2$B%P%$%HL\$G$"$l$P(B1$B%P%$%HL\$+$i<h$j=P$9(B
+$B$h$&$KD4@0$9$k!%=*N;0LCV$,4A;z%3!<%I$N(B1$B%P%$%HL\$G$"$l$P(B2$B%P%$%HL\$^$G<h$j=P$9(B
+$B$h$&$KD4@0$9$k!%$7$?$,$C$F;XDj$7$?D9$5$h$j:GBg(B2$B%P%$%HD9$$J8;zNs$H$J$k!%(B
+$B$3$l$OF|K\8lMQ$G$J$$%9%?%$%k%U%!%$%k$r;H$C$?>l9g$G$b$=$l$J$j$N=PNO$,F@$i$l$k(B
+$B$h$&$K$9$k$?$a$G$"$k!%(B
 
 \item[\hbox{\tt swap\$}\hfill]
-スタックトップの2つのリテラルの順序を入れ替える．
+$B%9%?%C%/%H%C%W$N(B2$B$D$N%j%F%i%k$N=g=x$rF~$lBX$($k!%(B
 
 \item[\hbox{\tt text.length\$}\hfill]
-スタックトップの(文字列)リテラルをポップし，
-アクセント付き文字(正確には第4節で定義されている「特殊文字」)は，
-(対応する右中括弧が欠けていても)，
-1文字として数えた時の文字数をプッシュする．
+$B%9%?%C%/%H%C%W$N(B($BJ8;zNs(B)$B%j%F%i%k$r%]%C%W$7!$(B
+$B%"%/%;%s%HIU$-J8;z(B($B@53N$K$OBh(B4$B@a$GDj5A$5$l$F$$$k!VFC<lJ8;z!W(B)$B$O!$(B
+($BBP1~$9$k1&Cf3g8L$,7g$1$F$$$F$b(B)$B!$(B
+1$BJ8;z$H$7$F?t$($?;~$NJ8;z?t$r%W%C%7%e$9$k!%(B
 
-{\dg \JBibTeX での注意}：
-漢字コード1文字は2文字と数える．
+{\dg \JBibTeX $B$G$NCm0U(B}$B!'(B
+$B4A;z%3!<%I(B1$BJ8;z$O(B2$BJ8;z$H?t$($k!%(B
 
 \item[\hbox{\tt text.prefix\$}\hfill]
-2つのリテラル(順に整数リテラル{\it len}，文字列リテラル)をポップし，
-文字列の先頭から(高々){\it len}文字の連続した文字列をプッシュする．
-{\tt substring\$} に似ているが，この関数では，「特殊文字」は
-対応する右中括弧が欠けていても，複数のASCII文字から構成されていても，
-1文字として数える．
+2$B$D$N%j%F%i%k(B($B=g$K@0?t%j%F%i%k(B{\it len}$B!$J8;zNs%j%F%i%k(B)$B$r%]%C%W$7!$(B
+$BJ8;zNs$N@hF,$+$i(B($B9b!9(B){\it len}$BJ8;z$NO"B3$7$?J8;zNs$r%W%C%7%e$9$k!%(B
+{\tt substring\$} $B$K;w$F$$$k$,!$$3$N4X?t$G$O!$!VFC<lJ8;z!W$O(B
+$BBP1~$9$k1&Cf3g8L$,7g$1$F$$$F$b!$J#?t$N(BASCII$BJ8;z$+$i9=@.$5$l$F$$$F$b!$(B
+1$BJ8;z$H$7$F?t$($k!%(B
 
-{\dg \JBibTeX での注意}：
-この関数では特殊文字以外の文字は，1文字は1バイトからなるものとして
-処理するので，漢字コード文字列では指定した文字数の半分の数の漢字からなる
-文字列が得られる．
-また漢字コードの1文字の間で切られないように，終了位置が漢字コードの
-1バイト目であれば2バイト目まで取り出すように調整する．
-したがって指定した長さより最大1バイト長い文字列となる．
-これは日本語用でないスタイルファイルを使った場合でもそれなりの出力が得られる
-ようにするためである(例えば{\tt alpha}ではラベルを著者名の姓の先頭3文字
-を用いて作成するが，漢字コードの中間で終らないように2文字にしてしまうと
-情報量が少なくなる，また漢字コードは特殊文字と考えて処理するとラベルが長く
-なり過ぎるのでこのような仕様とした)．
+{\dg \JBibTeX $B$G$NCm0U(B}$B!'(B
+$B$3$N4X?t$G$OFC<lJ8;z0J30$NJ8;z$O!$(B1$BJ8;z$O(B1$B%P%$%H$+$i$J$k$b$N$H$7$F(B
+$B=hM}$9$k$N$G!$4A;z%3!<%IJ8;zNs$G$O;XDj$7$?J8;z?t$NH>J,$N?t$N4A;z$+$i$J$k(B
+$BJ8;zNs$,F@$i$l$k!%(B
+$B$^$?4A;z%3!<%I$N(B1$BJ8;z$N4V$G@Z$i$l$J$$$h$&$K!$=*N;0LCV$,4A;z%3!<%I$N(B
+1$B%P%$%HL\$G$"$l$P(B2$B%P%$%HL\$^$G<h$j=P$9$h$&$KD4@0$9$k!%(B
+$B$7$?$,$C$F;XDj$7$?D9$5$h$j:GBg(B1$B%P%$%HD9$$J8;zNs$H$J$k!%(B
+$B$3$l$OF|K\8lMQ$G$J$$%9%?%$%k%U%!%$%k$r;H$C$?>l9g$G$b$=$l$J$j$N=PNO$,F@$i$l$k(B
+$B$h$&$K$9$k$?$a$G$"$k(B($BNc$($P(B{\tt alpha}$B$G$O%i%Y%k$rCx<TL>$N@+$N@hF,(B3$BJ8;z(B
+$B$rMQ$$$F:n@.$9$k$,!$4A;z%3!<%I$NCf4V$G=*$i$J$$$h$&$K(B2$BJ8;z$K$7$F$7$^$&$H(B
+$B>pJsNL$,>/$J$/$J$k!$$^$?4A;z%3!<%I$OFC<lJ8;z$H9M$($F=hM}$9$k$H%i%Y%k$,D9$/(B
+$B$J$j2a$.$k$N$G$3$N$h$&$J;EMM$H$7$?(B)$B!%(B
 
 \item[\hbox{\tt top\$}\hfill]
-スタックトップをポップしその内容を端末とログファイル{\tt blg}にプリントする．
-デバッグに役立つ．
+$B%9%?%C%/%H%C%W$r%]%C%W$7$=$NFbMF$rC<Kv$H%m%0%U%!%$%k(B{\tt blg}$B$K%W%j%s%H$9$k!%(B
+$B%G%P%C%0$KLrN)$D!%(B
 
 \item[\hbox{\tt type\$}\hfill]
-現在のエントリの型({\tt book, article}など)の文字列をプッシュする．
-知らない型あるいは未定義の型であれば空文字列をプッシュする．
+$B8=:_$N%(%s%H%j$N7?(B({\tt book, article}$B$J$I(B)$B$NJ8;zNs$r%W%C%7%e$9$k!%(B
+$BCN$i$J$$7?$"$k$$$OL$Dj5A$N7?$G$"$l$P6uJ8;zNs$r%W%C%7%e$9$k!%(B
 
 \item[\hbox{\tt warning\$}\hfill]
-スタックトップの(文字列型)リテラルをポップし，
-警告メッセージであることを示してプリントする．
-また，出力した警告メッセージの数を1増やす．
+$B%9%?%C%/%H%C%W$N(B($BJ8;zNs7?(B)$B%j%F%i%k$r%]%C%W$7!$(B
+$B7Y9p%a%C%;!<%8$G$"$k$3$H$r<($7$F%W%j%s%H$9$k!%(B
+$B$^$?!$=PNO$7$?7Y9p%a%C%;!<%8$N?t$r(B1$BA}$d$9!%(B
 
 \item[\hbox{\tt while\$}\hfill]
-2つの(関数)リテラルをポップし，最初の関数を実行した結果であるスタックトップ
-の値が0より大きい間，2番目の関数を繰返し実行する．
+2$B$D$N(B($B4X?t(B)$B%j%F%i%k$r%]%C%W$7!$:G=i$N4X?t$r<B9T$7$?7k2L$G$"$k%9%?%C%/%H%C%W(B
+$B$NCM$,(B0$B$h$jBg$-$$4V!$(B2$BHVL\$N4X?t$r7+JV$7<B9T$9$k!%(B
 
 \item[\hbox{\tt width\$}\hfill]
-スタックトップの(文字列型)リテラルをポップし，その印字幅をある相対単位に
-基づいて計算した整数値をプッシュする
-(現在は1987年6月バージョンの$cmr10$フォントに基づいて，1/100ポイントを
-1として計算する\trnote{漢字コードの幅情報は正確でないので注意が必要．})．
-この関数は文字列を文字通りに扱う，すなわち，(対応する右中括弧が欠けていても)
-「特殊文字」は特別に扱う以外は，
-たとえある文字が\TeX で特別な意味を持っていても，
-文字はそのままの形でプリントされるものとして幅を計算する．
-ラベル文字列の幅を比較するためのものである．
+$B%9%?%C%/%H%C%W$N(B($BJ8;zNs7?(B)$B%j%F%i%k$r%]%C%W$7!$$=$N0u;zI}$r$"$kAjBPC10L$K(B
+$B4p$E$$$F7W;;$7$?@0?tCM$r%W%C%7%e$9$k(B
+($B8=:_$O(B1987$BG/(B6$B7n%P!<%8%g%s$N(B$cmr10$$B%U%)%s%H$K4p$E$$$F!$(B1/100$B%]%$%s%H$r(B
+1$B$H$7$F7W;;$9$k(B\trnote{$B4A;z%3!<%I$NI}>pJs$O@53N$G$J$$$N$GCm0U$,I,MW!%(B})$B!%(B
+$B$3$N4X?t$OJ8;zNs$rJ8;zDL$j$K07$&!$$9$J$o$A!$(B($BBP1~$9$k1&Cf3g8L$,7g$1$F$$$F$b(B)
+$B!VFC<lJ8;z!W$OFCJL$K07$&0J30$O!$(B
+$B$?$H$($"$kJ8;z$,(B\TeX $B$GFCJL$J0UL#$r;}$C$F$$$F$b!$(B
+$BJ8;z$O$=$N$^$^$N7A$G%W%j%s%H$5$l$k$b$N$H$7$FI}$r7W;;$9$k!%(B
+$B%i%Y%kJ8;zNs$NI}$rHf3S$9$k$?$a$N$b$N$G$"$k!%(B
 
 \item[\hbox{\tt write\$}\hfill]
-スタックトップの(文字列)リテラルをポップし，出力バッファに書き出す(その結果，
-バッファが一杯になれば{\tt bbl}ファイルにも書き出される)．
+$B%9%?%C%/%H%C%W$N(B($BJ8;zNs(B)$B%j%F%i%k$r%]%C%W$7!$=PNO%P%C%U%!$K=q$-=P$9(B($B$=$N7k2L!$(B
+$B%P%C%U%!$,0lGU$K$J$l$P(B{\tt bbl}$B%U%!%$%k$K$b=q$-=P$5$l$k(B)$B!%(B
 
 \item[\hbox{\tt is.kanji.str\$}\hfill]
-\JBibTeX のみで定義されている組込み関数であり，
-スタックトップの(文字列)リテラルをポップし，文字列中に日本語文字(全角文字)が
-含まれていれば(整数の)1を，そうでなければ0をプッシュする．
+\JBibTeX $B$N$_$GDj5A$5$l$F$$$kAH9~$_4X?t$G$"$j!$(B
+$B%9%?%C%/%H%C%W$N(B($BJ8;zNs(B)$B%j%F%i%k$r%]%C%W$7!$J8;zNsCf$KF|K\8lJ8;z(B($BA43QJ8;z(B)$B$,(B
+$B4^$^$l$F$$$l$P(B($B@0?t$N(B)1$B$r!$$=$&$G$J$1$l$P(B0$B$r%W%C%7%e$9$k!%(B
 
 \end{description}
 
-組込み関数{\tt while\$} と{\tt if\$} ではスタック上に2つの関数リテラルが
-必要である．
-これらは関数名の前にシングルクォートを付けるか，
-{\tt FUNCTION}コマンドを使って関数を定義したくなければ，その定義を
-({\tt FUNCTION}コマンドの2番目の引数を中括弧で囲んで)そのまま書けばよい．
-例えば次に示す関数の一部分は，{\tt label}が空文字列でなければ，
-その最後に文字`{\tt a}'を付け加える．
+$BAH9~$_4X?t(B{\tt while\$} $B$H(B{\tt if\$} $B$G$O%9%?%C%/>e$K(B2$B$D$N4X?t%j%F%i%k$,(B
+$BI,MW$G$"$k!%(B
+$B$3$l$i$O4X?tL>$NA0$K%7%s%0%k%/%)!<%H$rIU$1$k$+!$(B
+{\tt FUNCTION}$B%3%^%s%I$r;H$C$F4X?t$rDj5A$7$?$/$J$1$l$P!$$=$NDj5A$r(B
+({\tt FUNCTION}$B%3%^%s%I$N(B2$BHVL\$N0z?t$rCf3g8L$G0O$s$G(B)$B$=$N$^$^=q$1$P$h$$!%(B
+$BNc$($P<!$K<($94X?t$N0lItJ,$O!$(B{\tt label}$B$,6uJ8;zNs$G$J$1$l$P!$(B
+$B$=$N:G8e$KJ8;z(B`{\tt a}'$B$rIU$12C$($k!%(B
 
 \begin{verbatim}
     .  .  .
@@ -549,141 +549,141 @@ $-${\it start}文字目からの，
     .  .  .
 \end{verbatim}
 
-名前をクォートする関数は，{\tt skip\$} のような組込み関数である必要はなく，
-例えば，フィールドでも，自分で定義した関数でもよい．
+$BL>A0$r%/%)!<%H$9$k4X?t$O!$(B{\tt skip\$} $B$N$h$&$JAH9~$_4X?t$G$"$kI,MW$O$J$/!$(B
+$BNc$($P!$%U%#!<%k%I$G$b!$<+J,$GDj5A$7$?4X?t$G$b$h$$!%(B
 
 
-\subsection{名前のフォーマット}
+\subsection{$BL>A0$N%U%)!<%^%C%H(B}
 
-名前には何が入っているのか? これについては第4節で少し詳しく説明した．
-名前は「名(first)」パート, vonパート, 「姓(last)」パートとJrパートから
-なり，それぞれは名前トークンのリストからなり，それぞれのパートは
-空かもしれないが，名前が空でなければ姓パートは必ず空ではない．
-この小節では組込み関数の{\tt format.name\$} に指定するフォーマット指定文字
-を説明する．
+$BL>A0$K$O2?$,F~$C$F$$$k$N$+(B? $B$3$l$K$D$$$F$OBh(B4$B@a$G>/$7>\$7$/@bL@$7$?!%(B
+$BL>A0$O!VL>(B(first)$B!W%Q!<%H(B, von$B%Q!<%H(B, $B!V@+(B(last)$B!W%Q!<%H$H(BJr$B%Q!<%H$+$i(B
+$B$J$j!$$=$l$>$l$OL>A0%H!<%/%s$N%j%9%H$+$i$J$j!$$=$l$>$l$N%Q!<%H$O(B
+$B6u$+$b$7$l$J$$$,!$L>A0$,6u$G$J$1$l$P@+%Q!<%H$OI,$:6u$G$O$J$$!%(B
+$B$3$N>.@a$G$OAH9~$_4X?t$N(B{\tt format.name\$} $B$K;XDj$9$k%U%)!<%^%C%H;XDjJ8;z(B
+$B$r@bL@$9$k!%(B
 
-例として，非常に長い名前を考えてみよう．
-データベースのエントリ~\cite{prime-number-theorem}に次のフィールドが
-あるとしよう．
+$BNc$H$7$F!$Hs>o$KD9$$L>A0$r9M$($F$_$h$&!%(B
+$B%G!<%?%Y!<%9$N%(%s%H%j(B~\cite{prime-number-theorem}$B$K<!$N%U%#!<%k%I$,(B
+$B$"$k$H$7$h$&!%(B
 \begin{verbatim}
   author = "Charles Louis Xavier Joseph de la Vall{\'e}e Poussin"
 \end{verbatim}
-また「姓 カンマ イニシャル」(``last name comma initials'')の順で名前を
-フォーマットしたいとしよう．
-次のようなフォーマット指定文字列を使うと，
+$B$^$?!V@+(B $B%+%s%^(B $B%$%K%7%c%k!W(B(``last name comma initials'')$B$N=g$GL>A0$r(B
+$B%U%)!<%^%C%H$7$?$$$H$7$h$&!%(B
+$B<!$N$h$&$J%U%)!<%^%C%H;XDjJ8;zNs$r;H$&$H!$(B
 \begin{verbatim}
     "{vv~}{ll}{, jj}{, f}?"
 \end{verbatim}
-\BibTeX はフォーマットされた文字列として次を作り出す．
+\BibTeX $B$O%U%)!<%^%C%H$5$l$?J8;zNs$H$7$F<!$r:n$j=P$9!%(B
 \begin{verbatim}
     de~la Vall{\'e}e~Poussin, C.~L. X.~J?
 \end{verbatim}
 
-この例をもっと詳しく見てみよう．
-このフォーマット指定文字列には，名前のそれぞれの構成要素に
-対応する，中括弧レベルが1の4つの{\dg 断片}({\em pieces\/})がある．
-対応する構成要素がなければ(この名前ではJr要素)，その断片の中のすべてが
-無視される．
-中括弧のレベル0にあるものは(この例では，たぶんタイプミスであろうが，
-`{\tt ?}'の文字は)そのままの形で出力されるが，
-この機能はあまり使わないであろう．
+$B$3$NNc$r$b$C$H>\$7$/8+$F$_$h$&!%(B
+$B$3$N%U%)!<%^%C%H;XDjJ8;zNs$K$O!$L>A0$N$=$l$>$l$N9=@.MWAG$K(B
+$BBP1~$9$k!$Cf3g8L%l%Y%k$,(B1$B$N(B4$B$D$N(B{\dg $BCGJR(B}({\em pieces\/})$B$,$"$k!%(B
+$BBP1~$9$k9=@.MWAG$,$J$1$l$P(B($B$3$NL>A0$G$O(BJr$BMWAG(B)$B!$$=$NCGJR$NCf$N$9$Y$F$,(B
+$BL5;k$5$l$k!%(B
+$BCf3g8L$N%l%Y%k(B0$B$K$"$k$b$N$O(B($B$3$NNc$G$O!$$?$V$s%?%$%W%_%9$G$"$m$&$,!$(B
+`{\tt ?}'$B$NJ8;z$O(B)$B$=$N$^$^$N7A$G=PNO$5$l$k$,!$(B
+$B$3$N5!G=$O$"$^$j;H$o$J$$$G$"$m$&!%(B
 
-フォーマット指定の部分中では二重文字(double letter)は
-構成要素のすべてを使うことを，
-単文字(single letter)は省略形にしたものを使うことを\BibTeX に指定する．
-これらの指定文字は中括弧のレベル1になければならず，それ以外の文字は(
-後で説明してある文字以外のほとんどすべての文字は)そのままの形で使われる．
-vonパートの最後にあるタイ(\verb|~|)は任意タイであり，\BibTeX が必要と判断
-した場合にのみ出力され，そうでなければスペースとして出力される．
-本当にタイを出力したいのであれば2つ書いておけば，つまり{\verb|{vv~~}|}と
-しておけば(1つだけ)出力される．
-断片の最後の文字であるタイは任意タイとされるが，それ以外は通常の
-文字として扱われる．
+$B%U%)!<%^%C%H;XDj$NItJ,Cf$G$OFs=EJ8;z(B(double letter)$B$O(B
+$B9=@.MWAG$N$9$Y$F$r;H$&$3$H$r!$(B
+$BC1J8;z(B(single letter)$B$O>JN,7A$K$7$?$b$N$r;H$&$3$H$r(B\BibTeX $B$K;XDj$9$k!%(B
+$B$3$l$i$N;XDjJ8;z$OCf3g8L$N%l%Y%k(B1$B$K$J$1$l$P$J$i$:!$$=$l0J30$NJ8;z$O(B(
+$B8e$G@bL@$7$F$"$kJ8;z0J30$N$[$H$s$I$9$Y$F$NJ8;z$O(B)$B$=$N$^$^$N7A$G;H$o$l$k!%(B
+von$B%Q!<%H$N:G8e$K$"$k%?%$(B(\verb|~|)$B$OG$0U%?%$$G$"$j!$(B\BibTeX $B$,I,MW$HH=CG(B
+$B$7$?>l9g$K$N$_=PNO$5$l!$$=$&$G$J$1$l$P%9%Z!<%9$H$7$F=PNO$5$l$k!%(B
+$BK\Ev$K%?%$$r=PNO$7$?$$$N$G$"$l$P(B2$B$D=q$$$F$*$1$P!$$D$^$j(B{\verb|{vv~~}|}$B$H(B
+$B$7$F$*$1$P(B(1$B$D$@$1(B)$B=PNO$5$l$k!%(B
+$BCGJR$N:G8e$NJ8;z$G$"$k%?%$$OG$0U%?%$$H$5$l$k$,!$$=$l0J30$ODL>o$N(B
+$BJ8;z$H$7$F07$o$l$k!%(B
 
-\BibTeX は名前トークンの{\dg 間に}デフォールトの区切り文字列を書き出す．
-これはスペースかタイのどちらか適した方，あるいは省略形トークンでは
-ピリオドの後にスペースかタイの適した方を付けたものである．
-しかしフォーマット指定の最後のトークンの後には
-デフォールト区切り文字列を書き出さないから，
-先の例で言えば`J'の後にはピリオドは付かない．
-したがって次のように指定して，
+\BibTeX $B$OL>A0%H!<%/%s$N(B{\dg $B4V$K(B}$B%G%U%)!<%k%H$N6h@Z$jJ8;zNs$r=q$-=P$9!%(B
+$B$3$l$O%9%Z!<%9$+%?%$$N$I$A$i$+E,$7$?J}!$$"$k$$$O>JN,7A%H!<%/%s$G$O(B
+$B%T%j%*%I$N8e$K%9%Z!<%9$+%?%$$NE,$7$?J}$rIU$1$?$b$N$G$"$k!%(B
+$B$7$+$7%U%)!<%^%C%H;XDj$N:G8e$N%H!<%/%s$N8e$K$O(B
+$B%G%U%)!<%k%H6h@Z$jJ8;zNs$r=q$-=P$5$J$$$+$i!$(B
+$B@h$NNc$G8@$($P(B`J'$B$N8e$K$O%T%j%*%I$OIU$+$J$$!%(B
+$B$7$?$,$C$F<!$N$h$&$K;XDj$7$F!$(B
 \begin{verbatim}
     "{vv~}{ll}{, jj}{, f.}"
 \end{verbatim}
-前の出力例の疑問符をピリオドに置き換えたフォーマット結果を得ることができる．
-名前に「名」パートがない場合に対応するように，ピリオドは
-疑問符の位置でなく「名」断片の中に置かねばならないことに注意しよう．
+$BA0$N=PNONc$N5?LdId$r%T%j%*%I$KCV$-49$($?%U%)!<%^%C%H7k2L$rF@$k$3$H$,$G$-$k!%(B
+$BL>A0$K!VL>!W%Q!<%H$,$J$$>l9g$KBP1~$9$k$h$&$K!$%T%j%*%I$O(B
+$B5?LdId$N0LCV$G$J$/!VL>!WCGJR$NCf$KCV$+$M$P$J$i$J$$$3$H$KCm0U$7$h$&!%(B
 
-\BibTeX のデフォールトの区切り文字を置き換えたいのなら，明示的に指定
-する必要がある．
-例えばvonパートと姓パートのすべてのトークンの先頭文字を，間にスペースを
-置かずに連結したラベルを作りたいのであれば，
-次のように指定しなければならない．
+\BibTeX $B$N%G%U%)!<%k%H$N6h@Z$jJ8;z$rCV$-49$($?$$$N$J$i!$L@<(E*$K;XDj(B
+$B$9$kI,MW$,$"$k!%(B
+$BNc$($P(Bvon$B%Q!<%H$H@+%Q!<%H$N$9$Y$F$N%H!<%/%s$N@hF,J8;z$r!$4V$K%9%Z!<%9$r(B
+$BCV$+$:$KO"7k$7$?%i%Y%k$r:n$j$?$$$N$G$"$l$P!$(B
+$B<!$N$h$&$K;XDj$7$J$1$l$P$J$i$J$$!%(B
 \begin{verbatim}
     "{v{}}{l{}}"
 \end{verbatim}
-こうすればフォーマット結果の文字列として`{\tt dlVP}'が得られる．
-置き換えたいすべての部分毎に指定が必要であり(この例では両方に空文字列が
-指定されている)，指定は単文字，二重文字のすぐ後になければならない．
-フォーマット指定文字列の中括弧のレベル1の中では，
-以上で述べた文字以外を書くことはできない．
+$B$3$&$9$l$P%U%)!<%^%C%H7k2L$NJ8;zNs$H$7$F(B`{\tt dlVP}'$B$,F@$i$l$k!%(B
+$BCV$-49$($?$$$9$Y$F$NItJ,Kh$K;XDj$,I,MW$G$"$j(B($B$3$NNc$G$ON>J}$K6uJ8;zNs$,(B
+$B;XDj$5$l$F$$$k(B)$B!$;XDj$OC1J8;z!$Fs=EJ8;z$N$9$08e$K$J$1$l$P$J$i$J$$!%(B
+$B%U%)!<%^%C%H;XDjJ8;zNs$NCf3g8L$N%l%Y%k(B1$B$NCf$G$O!$(B
+$B0J>e$G=R$Y$?J8;z0J30$r=q$/$3$H$O$G$-$J$$!%(B
 
-{\dg\noindent\JBibTeX での注意点}：
+{\dg\noindent\JBibTeX $B$G$NCm0UE@(B}$B!'(B
 
 \begin{itemize}
-\item  漢字コード表記された名前では，姓と名の間に
-スペース(半角でも全角でも)を入れておけば，`{\tt f}'はFamily name(姓)に，
-`{\tt l}'はLast-token(名)に対応することになるので，通常の
-表記順に名前が書ける．しかしスタイルの作成では注意が必要である．
-これは{\tt format.name\$} を完全な日本語対応版としていないからであるが，
-実際に日本語対応のスタイルファイルを作成した経験からいうと，漢字コード表記
-された名前とそれ以外の名前に対して，同じフォーマット指定で
-{\tt format.name\$} を呼び出すことは殆どないので，あえてこのままに
-してある．しかし混乱の種かもしれない．
+\item  $B4A;z%3!<%II=5-$5$l$?L>A0$G$O!$@+$HL>$N4V$K(B
+$B%9%Z!<%9(B($BH>3Q$G$bA43Q$G$b(B)$B$rF~$l$F$*$1$P!$(B`{\tt f}'$B$O(BFamily name($B@+(B)$B$K!$(B
+`{\tt l}'$B$O(BLast-token($BL>(B)$B$KBP1~$9$k$3$H$K$J$k$N$G!$DL>o$N(B
+$BI=5-=g$KL>A0$,=q$1$k!%$7$+$7%9%?%$%k$N:n@.$G$OCm0U$,I,MW$G$"$k!%(B
+$B$3$l$O(B{\tt format.name\$} $B$r40A4$JF|K\8lBP1~HG$H$7$F$$$J$$$+$i$G$"$k$,!$(B
+$B<B:]$KF|K\8lBP1~$N%9%?%$%k%U%!%$%k$r:n@.$7$?7P83$+$i$$$&$H!$4A;z%3!<%II=5-(B
+$B$5$l$?L>A0$H$=$l0J30$NL>A0$KBP$7$F!$F1$8%U%)!<%^%C%H;XDj$G(B
+{\tt format.name\$} $B$r8F$S=P$9$3$H$OKX$I$J$$$N$G!$$"$($F$3$N$^$^$K(B
+$B$7$F$"$k!%$7$+$7:.Mp$N<o$+$b$7$l$J$$!%(B
 
-\item {\tt jabbrv}で姓のみを出力できるようになどの目的で，
-\JBibTeX\ ver. 0.20以降では
-姓と名の間にスペース(半角でも全角でも)を置くことを標準としている．
-しかしスペースがない場合にも結果がおかしくならないように，フォーマット指定
-には注意が必要である．例えば日本語スタイルの中では次のようなコーディングを
-行なっている．
+\item {\tt jabbrv}$B$G@+$N$_$r=PNO$G$-$k$h$&$K$J$I$NL\E*$G!$(B
+\JBibTeX\ ver. 0.20$B0J9_$G$O(B
+$B@+$HL>$N4V$K%9%Z!<%9(B($BH>3Q$G$bA43Q$G$b(B)$B$rCV$/$3$H$rI8=`$H$7$F$$$k!%(B
+$B$7$+$7%9%Z!<%9$,$J$$>l9g$K$b7k2L$,$*$+$7$/$J$i$J$$$h$&$K!$%U%)!<%^%C%H;XDj(B
+$B$K$OCm0U$,I,MW$G$"$k!%Nc$($PF|K\8l%9%?%$%k$NCf$G$O<!$N$h$&$J%3!<%G%#%s%0$r(B
+$B9T$J$C$F$$$k!%(B
 
 {\baselineskip=11pt
 \begin{verbatim}
-editor is.kanji.str$                            % 漢字コードの編集者?
-     {editor #1 "{ff}" format.name$ duplicate$  % 姓を取り出す
-       empty$                                   % 空?(姓と名の間に空白がない)
-          {pop$ editor #1 "{ll}" format.name$}  % Last tokenを取り出す
+editor is.kanji.str$                            % $B4A;z%3!<%I$NJT=8<T(B?
+     {editor #1 "{ff}" format.name$ duplicate$  % $B@+$r<h$j=P$9(B
+       empty$                                   % $B6u(B?($B@+$HL>$N4V$K6uGr$,$J$$(B)
+          {pop$ editor #1 "{ll}" format.name$}  % Last token$B$r<h$j=P$9(B
           'skip$                                % noop
        if$
      }
-     {editor #1 "{vv~}{ll}" format.name$}       % 英文編集者
+     {editor #1 "{vv~}{ll}" format.name$}       % $B1QJ8JT=8<T(B
 if$
 \end{verbatim}
 }
 \end{itemize}
 
-\subsection{\JBibTeX の標準スタイル}
+\subsection{\JBibTeX $B$NI8=`%9%?%$%k(B}
 
-\JBibTeX の標準スタイルとしては{\tt plain, alpha, abbrv, unsrt}に対応して
-{\tt jplain, jalpha,jabbrv,\linebreak junsrt}が作成されている．
-さらに情報処理学会論文誌{\tt tipsj}，情報処理学会欧文論文誌{\tt jipsj}，
-電子情報通信学会論文誌{\tt tieic}，日本オペレーションズリサーチ学会論文誌
-{\tt jorsj}，人工知能学会誌{\tt jsai}，ソフトウェア科学会誌{\tt jssst}用の
-スタイルも作成されている．これらのスタイルで
-行なっている日本語対応の主な変更は以下の通りである．詳しくは{\tt jbtxbst.doc}
-を参照されたい．
+\JBibTeX $B$NI8=`%9%?%$%k$H$7$F$O(B{\tt plain, alpha, abbrv, unsrt}$B$KBP1~$7$F(B
+{\tt jplain, jalpha,jabbrv,\linebreak junsrt}$B$,:n@.$5$l$F$$$k!%(B
+$B$5$i$K>pJs=hM}3X2qO@J8;o(B{\tt tipsj}$B!$>pJs=hM}3X2q2$J8O@J8;o(B{\tt jipsj}$B!$(B
+$BEE;R>pJsDL?.3X2qO@J8;o(B{\tt tieic}$B!$F|K\%*%Z%l!<%7%g%s%:%j%5!<%A3X2qO@J8;o(B
+{\tt jorsj}$B!$?M9)CNG=3X2q;o(B{\tt jsai}$B!$%=%U%H%&%'%"2J3X2q;o(B{\tt jssst}$BMQ$N(B
+$B%9%?%$%k$b:n@.$5$l$F$$$k!%$3$l$i$N%9%?%$%k$G(B
+$B9T$J$C$F$$$kF|K\8lBP1~$N<g$JJQ99$O0J2<$NDL$j$G$"$k!%>\$7$/$O(B{\tt jbtxbst.doc}
+$B$r;2>H$5$l$?$$!%(B
 
 \begin{enumerate}
-\item 著者名が日本語かどうかを{\tt is.kanji.str\$} を使って判定し，
-名前のフォーマットの方法を変える．
+\item $BCx<TL>$,F|K\8l$+$I$&$+$r(B{\tt is.kanji.str\$} $B$r;H$C$FH=Dj$7!$(B
+$BL>A0$N%U%)!<%^%C%H$NJ}K!$rJQ$($k!%(B
 
-\item 著作名に日本語が含まれる場合には強調指定を付けない．
+\item $BCx:nL>$KF|K\8l$,4^$^$l$k>l9g$K$O6/D4;XDj$rIU$1$J$$!%(B
 
-\item ページ範囲指定を{\tt Pages}から{\tt pp.\ }に変更した．
+\item $B%Z!<%8HO0O;XDj$r(B{\tt Pages}$B$+$i(B{\tt pp.\ }$B$KJQ99$7$?!%(B
 
-\item {\tt yomi}フィールドがあれば，その情報をソーティングキーを作る時に
-著者名，編集者名の代りに使う．
+\item {\tt yomi}$B%U%#!<%k%I$,$"$l$P!$$=$N>pJs$r%=!<%F%#%s%0%-!<$r:n$k;~$K(B
+$BCx<TL>!$JT=8<TL>$NBe$j$K;H$&!%(B
 \end{enumerate}
 
 \baselineskip=16pt

@@ -28,10 +28,10 @@
 \renewcommand{\bottomfraction}{0.99}
 \renewcommand{\textfraction}{0.01}
 
-\title{日本語\BibTeX：\JBibTeX}
-\author{松井　正一 {\tt\ (matsui@denken.or.jp)}\\
-\normalsize (財)電力中央研究所 情報システム部 (〒100 千代田区大手町1-6-1) }
-\date{1991年1月1日}
+\title{$BF|K\8l(B\BibTeX$B!'(B\JBibTeX}
+\author{$B>>0f!!@50l(B {\tt\ (matsui@denken.or.jp)}\\
+\normalsize ($B:b(B)$BEENOCf1{8&5f=j(B $B>pJs%7%9%F%`It(B ($B")(B100 $B@iBeED6hBg<jD.(B1-6-1) }
+\date{1991$BG/(B1$B7n(B1$BF|(B}
 \begin{document}
 \baselineskip=16pt
 
@@ -39,55 +39,55 @@
 
 \begin{abstract}
 
-\JBibTeX は\BibTeX\ 0.99cを基に
-{\tt bib, bst}ファイル中に漢字コードを使えるように変更を加えたものである．
+\JBibTeX $B$O(B\BibTeX\ 0.99c$B$r4p$K(B
+{\tt bib, bst}$B%U%!%$%kCf$K4A;z%3!<%I$r;H$($k$h$&$KJQ99$r2C$($?$b$N$G$"$k!%(B
 
-このメモでは，先ず最初に\BibTeX の概要を簡単に説明した後，
-日本語化に対しての基本的な考え方，主な変更点，
-日本語に対応するように作成したスタイルについて
-説明する．
+$B$3$N%a%b$G$O!$@h$::G=i$K(B\BibTeX $B$N35MW$r4JC1$K@bL@$7$?8e!$(B
+$BF|K\8l2=$KBP$7$F$N4pK\E*$J9M$(J}!$<g$JJQ99E@!$(B
+$BF|K\8l$KBP1~$9$k$h$&$K:n@.$7$?%9%?%$%k$K$D$$$F(B
+$B@bL@$9$k!%(B
 \end{abstract}
 
-\section{はじめに}
+\section{$B$O$8$a$K(B}
 
-\TeX をNTTの斉藤氏が日本語化してくれたおかげで\TeX で
-日本語が使えるようになった\myftnote{ICOTの高木氏(現在日立)，都立大の
-桜井氏の力に負うところも大きい．}．またNTTの磯崎氏が\LaTeX の
-日本語版 \JLaTeX を作ってくれたので，
-簡単に日本語のタイプセットができるようになった\myftnote{最初に開発した
-\JBibTeX はNTT版を想定していたので，ASCII版に対する記述がないだけで，
-他意はない．現在はNTT版，ASCII版の両方を使っている．}．
+\TeX $B$r(BNTT$B$N@FF#;a$,F|K\8l2=$7$F$/$l$?$*$+$2$G(B\TeX $B$G(B
+$BF|K\8l$,;H$($k$h$&$K$J$C$?(B\myftnote{ICOT$B$N9bLZ;a(B($B8=:_F|N)(B)$B!$ETN)Bg$N(B
+$B:y0f;a$NNO$KIi$&$H$3$m$bBg$-$$!%(B}$B!%$^$?(BNTT$B$N0k:j;a$,(B\LaTeX $B$N(B
+$BF|K\8lHG(B \JLaTeX $B$r:n$C$F$/$l$?$N$G!$(B
+$B4JC1$KF|K\8l$N%?%$%W%;%C%H$,$G$-$k$h$&$K$J$C$?(B\myftnote{$B:G=i$K3+H/$7$?(B
+\JBibTeX $B$O(BNTT$BHG$rA[Dj$7$F$$$?$N$G!$(BASCII$BHG$KBP$9$k5-=R$,$J$$$@$1$G!$(B
+$BB>0U$O$J$$!%8=:_$O(BNTT$BHG!$(BASCII$BHG$NN>J}$r;H$C$F$$$k!%(B}$B!%(B
 
-技術系の文書を書く場合には，参考文献の管理に手間取ることが多い．
-この手間を軽減するためのプログラムとして\LaTeX には，{\tt roff}
-一族の{\tt refer}に対応した
-\BibTeX があるが，この日本語化ができて
-いなかったので\myftnote{1988年4月に，高木氏
-から\JTeX~in C のテープを入手した時点で．またASCIIバージョンを知らなかった
-ので．}，
-\JLaTeX の機能を活かしきれないきらいがあった\myftnote{私は面倒くさい
-ことは嫌いなので．}．
-そこで，とりあえず日本語を使える形の\BibTeX を\JBibTeX という形で
-作成してみた．
+$B5;=Q7O$NJ8=q$r=q$/>l9g$K$O!$;29MJ88%$N4IM}$K<j4V<h$k$3$H$,B?$$!%(B
+$B$3$N<j4V$r7Z8:$9$k$?$a$N%W%m%0%i%`$H$7$F(B\LaTeX $B$K$O!$(B{\tt roff}
+$B0lB2$N(B{\tt refer}$B$KBP1~$7$?(B
+\BibTeX $B$,$"$k$,!$$3$NF|K\8l2=$,$G$-$F(B
+$B$$$J$+$C$?$N$G(B\myftnote{1988$BG/(B4$B7n$K!$9bLZ;a(B
+$B$+$i(B\JTeX~in C $B$N%F!<%W$rF~<j$7$?;~E@$G!%$^$?(BASCII$B%P!<%8%g%s$rCN$i$J$+$C$?(B
+$B$N$G!%(B}$B!$(B
+\JLaTeX $B$N5!G=$r3h$+$7$-$l$J$$$-$i$$$,$"$C$?(B\myftnote{$B;d$OLLE]$/$5$$(B
+$B$3$H$O7y$$$J$N$G!%(B}$B!%(B
+$B$=$3$G!$$H$j$"$($:F|K\8l$r;H$($k7A$N(B\BibTeX $B$r(B\JBibTeX $B$H$$$&7A$G(B
+$B:n@.$7$F$_$?!%(B
 
-\section{\BibTeX の概要}
+\section{\BibTeX $B$N35MW(B}
 
-\subsection{処理の流れ}
-\BibTeX は\LaTeX で作成される{\tt aux}ファイル\myftnote{ファイルの
-エクステンションでファイル名を代表する．}中
-の \verb|\citation|に示されて
-いる \verb|\cite|項目に対応する参考文献レコードを\LaTeX の
-文書中に \verb|\bibliography|で指定されたデータベースファイル
-({\tt bib})から
-検索し， \verb|\bibliographystyle|で指定された参考文献
-書式(スタイル)で{\tt bbl}ファイルに書き出す形で動作する．実行時の
-メッセージは端末に出力されると同時に，ログファイルの{\tt blg}ファイルにも
-出力される．
+\subsection{$B=hM}$NN.$l(B}
+\BibTeX $B$O(B\LaTeX $B$G:n@.$5$l$k(B{\tt aux}$B%U%!%$%k(B\myftnote{$B%U%!%$%k$N(B
+$B%(%/%9%F%s%7%g%s$G%U%!%$%kL>$rBeI=$9$k!%(B}$BCf(B
+$B$N(B \verb|\citation|$B$K<($5$l$F(B
+$B$$$k(B \verb|\cite|$B9`L\$KBP1~$9$k;29MJ88%%l%3!<%I$r(B\LaTeX $B$N(B
+$BJ8=qCf$K(B \verb|\bibliography|$B$G;XDj$5$l$?%G!<%?%Y!<%9%U%!%$%k(B
+({\tt bib})$B$+$i(B
+$B8!:w$7!$(B \verb|\bibliographystyle|$B$G;XDj$5$l$?;29MJ88%(B
+$B=q<0(B($B%9%?%$%k(B)$B$G(B{\tt bbl}$B%U%!%$%k$K=q$-=P$97A$GF0:n$9$k!%<B9T;~$N(B
+$B%a%C%;!<%8$OC<Kv$K=PNO$5$l$k$HF1;~$K!$%m%0%U%!%$%k$N(B{\tt blg}$B%U%!%$%k$K$b(B
+$B=PNO$5$l$k!%(B
 
-通常はある文書{\tt file.tex}を処理するには次のような
-手順をふむ\myftnote{{\tt bbl}ファイルの内容が固定された後は，{\tt latex}を
-起動するだけでよい(相互参照関係の処理のために2回以上の起動が必要な
-こともある)．}．
+$BDL>o$O$"$kJ8=q(B{\tt file.tex}$B$r=hM}$9$k$K$O<!$N$h$&$J(B
+$B<j=g$r$U$`(B\myftnote{{\tt bbl}$B%U%!%$%k$NFbMF$,8GDj$5$l$?8e$O!$(B{\tt latex}$B$r(B
+$B5/F0$9$k$@$1$G$h$$(B($BAj8_;2>H4X78$N=hM}$N$?$a$K(B2$B2s0J>e$N5/F0$,I,MW$J(B
+$B$3$H$b$"$k(B)$B!%(B}$B!%(B
 
 \newcounter{myn}
 \begin{list}%
@@ -96,72 +96,72 @@
 \setlength{\itemsep}{1pt}
 \setlength{\topsep}{1pt}
 }
-\item {\tt latex file}で{\tt aux}を作り出す．
-\item {\tt bibtex file}で{\tt aux, bib}から{\tt bbl}ファイルを作り出す．
-\item 以後の{\tt latex file}の起動で{\tt bbl}が自動的に読み込まれる．
+\item {\tt latex file}$B$G(B{\tt aux}$B$r:n$j=P$9!%(B
+\item {\tt bibtex file}$B$G(B{\tt aux, bib}$B$+$i(B{\tt bbl}$B%U%!%$%k$r:n$j=P$9!%(B
+\item $B0J8e$N(B{\tt latex file}$B$N5/F0$G(B{\tt bbl}$B$,<+F0E*$KFI$_9~$^$l$k!%(B
 \end{list}
 
-\subsection{参考文献データベース}
-データベース中の参考文献レコードは，文献の形式(論文，本など)を指定した
-後に，引用キー，書誌項目を ``キーワード=値'' の形でカンマで区切って
-並べる形で記述する\cite{latex,btxdoc}．
+\subsection{$B;29MJ88%%G!<%?%Y!<%9(B}
+$B%G!<%?%Y!<%9Cf$N;29MJ88%%l%3!<%I$O!$J88%$N7A<0(B($BO@J8!$K\$J$I(B)$B$r;XDj$7$?(B
+$B8e$K!$0zMQ%-!<!$=q;o9`L\$r(B ``$B%-!<%o!<%I(B=$BCM(B'' $B$N7A$G%+%s%^$G6h@Z$C$F(B
+$BJB$Y$k7A$G5-=R$9$k(B\cite{latex,btxdoc}$B!%(B
 \newpage
-文献の形式としては以下が用意されている．
+$BJ88%$N7A<0$H$7$F$O0J2<$,MQ0U$5$l$F$$$k!%(B
 \begin{table}[h]
 \begintable
-{\dg 文献の形式}|{\dg 説\hskip2cm 明}\hfil\crthick
-{\tt article}\hfill| 論文誌など発表された論文\hfill\cr
-{\tt book}\hfill | 出版社の明示された本\hfill\cr
-{\tt booklet}\hfill | 印刷，製本されているが出版主体が不明なもの\hfill\cr
-{\tt conference}\hfill | inproceedingsと同じ(Scribeとの互換性のため)\hfill\cr
-{\tt inbook}\hfill | 書物の一部(章，節，文など何でも)\hfill\cr
-{\tt incollection}\hfill | それ自身の表題を持つ，本の一部分\hfill\cr
-{\tt inproceedings\ }\hfill | 会議録中の論文\hfill\cr
-{\tt manual}\hfill | マニュアル\hfill\cr
-{\tt masterthesis}\hfill | 修士論文\hfill\cr
-{\tt misc}\hfill | 他のどれにも当てはまらない時に使う\hfill\cr
-{\tt phdthesis}\hfill | 博士論文\hfill\cr
-{\tt proceedings}\hfill | 会議録\hfill\cr
-{\tt techreport}\hfill | テクニカルレポート\hfill\cr
-{\tt unpublished}\hfill | 正式には出版されていないもの\hfill\endtable
+{\dg $BJ88%$N7A<0(B}|{\dg $B@b(B\hskip2cm $BL@(B}\hfil\crthick
+{\tt article}\hfill| $BO@J8;o$J$IH/I=$5$l$?O@J8(B\hfill\cr
+{\tt book}\hfill | $B=PHG<R$NL@<($5$l$?K\(B\hfill\cr
+{\tt booklet}\hfill | $B0u:~!$@=K\$5$l$F$$$k$,=PHG<gBN$,ITL@$J$b$N(B\hfill\cr
+{\tt conference}\hfill | inproceedings$B$HF1$8(B(Scribe$B$H$N8_49@-$N$?$a(B)\hfill\cr
+{\tt inbook}\hfill | $B=qJ*$N0lIt(B($B>O!$@a!$J8$J$I2?$G$b(B)\hfill\cr
+{\tt incollection}\hfill | $B$=$l<+?H$NI=Bj$r;}$D!$K\$N0lItJ,(B\hfill\cr
+{\tt inproceedings\ }\hfill | $B2q5DO?Cf$NO@J8(B\hfill\cr
+{\tt manual}\hfill | $B%^%K%e%"%k(B\hfill\cr
+{\tt masterthesis}\hfill | $B=$;NO@J8(B\hfill\cr
+{\tt misc}\hfill | $BB>$N$I$l$K$bEv$F$O$^$i$J$$;~$K;H$&(B\hfill\cr
+{\tt phdthesis}\hfill | $BGn;NO@J8(B\hfill\cr
+{\tt proceedings}\hfill | $B2q5DO?(B\hfill\cr
+{\tt techreport}\hfill | $B%F%/%K%+%k%l%]!<%H(B\hfill\cr
+{\tt unpublished}\hfill | $B@5<0$K$O=PHG$5$l$F$$$J$$$b$N(B\hfill\endtable
 \end{table}
 
-それぞれで必須な項目(フィールド)がある．
+$B$=$l$>$l$GI,?\$J9`L\(B($B%U%#!<%k%I(B)$B$,$"$k!%(B
 
-項目(フィールド)としては以下がある\myftnote{正確にはplain, alpha,
-abbrv, unsrtで，annoteを除いた項目が意味を持つ(タイプセットに
-使われる)．}．
+$B9`L\(B($B%U%#!<%k%I(B)$B$H$7$F$O0J2<$,$"$k(B\myftnote{$B@53N$K$O(Bplain, alpha,
+abbrv, unsrt$B$G!$(Bannote$B$r=|$$$?9`L\$,0UL#$r;}$D(B($B%?%$%W%;%C%H$K(B
+$B;H$o$l$k(B)$B!%(B}$B!%(B
 \begin{table}[h]
 \begintable
-{\dg フィールド名}|{\dg 説\hskip2cm 明}\hfil\crthick
-{\tt address}\hfill | 出版主体の住所\hfill\cr
-{\tt annote}\hfill | 注釈付きのスタイルで使われる\hfill\cr
-{\tt author}\hfill | 著者名\hfill\cr
-{\tt booktitle}\hfill | 本の名前\hfill\cr
-{\tt chapter}\hfill | 章，節などの番号\hfill\cr
-{\tt crossref}\hfill | 相互参照する文献のデータベースのキー\hfill\cr
-{\tt edition}\hfill | 本の版\hfill\cr
-{\tt editor}\hfill | 編集者\hfill\cr
-{\tt howpublished\ }\hfill | どのようにしてこの奇妙なものが発行されたか\hfill\cr
-{\tt institution}\hfill | テクニカルレポートの発行主体\hfill\cr
-{\tt journal}\hfill | 論文誌名\hfill\cr
-{\tt key}\hfill | 著者名がない時に相互引用，ラベル作成などに使われる\hfill\cr
-{\tt month}\hfill | 発行月，または書かれた月\hfill\cr
-{\tt note}\hfill | 読者に役立つ付加情報\hfill\cr
-{\tt number}\hfill | 論文誌などの番号\hfill\cr
-{\tt organization\ }\hfill | 会議を主催した機関名あるいはマニュアルの出版主体\hfill\cr
-{\tt pages}\hfill | ページ(範囲)\hfill\cr
-{\tt publisher}\hfill | 主版社(者)名\hfill\cr
-{\tt school}\hfill | 修士，博士論文が書かれた大学名\hfill\cr
-{\tt series}\hfill | シリーズ，あるいは複数巻の本の名前\hfill\cr
-{\tt title}\hfill | 表題\hfill\cr
-{\tt type}\hfill | テクニカルレポートの種類\hfill\cr
-{\tt volume}\hfill | 論文誌，複数巻の本の巻\hfill\cr
-{\tt year}\hfill | 発行年，または書かれた年\hfill\endtable
+{\dg $B%U%#!<%k%IL>(B}|{\dg $B@b(B\hskip2cm $BL@(B}\hfil\crthick
+{\tt address}\hfill | $B=PHG<gBN$N=;=j(B\hfill\cr
+{\tt annote}\hfill | $BCm<aIU$-$N%9%?%$%k$G;H$o$l$k(B\hfill\cr
+{\tt author}\hfill | $BCx<TL>(B\hfill\cr
+{\tt booktitle}\hfill | $BK\$NL>A0(B\hfill\cr
+{\tt chapter}\hfill | $B>O!$@a$J$I$NHV9f(B\hfill\cr
+{\tt crossref}\hfill | $BAj8_;2>H$9$kJ88%$N%G!<%?%Y!<%9$N%-!<(B\hfill\cr
+{\tt edition}\hfill | $BK\$NHG(B\hfill\cr
+{\tt editor}\hfill | $BJT=8<T(B\hfill\cr
+{\tt howpublished\ }\hfill | $B$I$N$h$&$K$7$F$3$N4qL/$J$b$N$,H/9T$5$l$?$+(B\hfill\cr
+{\tt institution}\hfill | $B%F%/%K%+%k%l%]!<%H$NH/9T<gBN(B\hfill\cr
+{\tt journal}\hfill | $BO@J8;oL>(B\hfill\cr
+{\tt key}\hfill | $BCx<TL>$,$J$$;~$KAj8_0zMQ!$%i%Y%k:n@.$J$I$K;H$o$l$k(B\hfill\cr
+{\tt month}\hfill | $BH/9T7n!$$^$?$O=q$+$l$?7n(B\hfill\cr
+{\tt note}\hfill | $BFI<T$KLrN)$DIU2C>pJs(B\hfill\cr
+{\tt number}\hfill | $BO@J8;o$J$I$NHV9f(B\hfill\cr
+{\tt organization\ }\hfill | $B2q5D$r<g:E$7$?5!4XL>$"$k$$$O%^%K%e%"%k$N=PHG<gBN(B\hfill\cr
+{\tt pages}\hfill | $B%Z!<%8(B($BHO0O(B)\hfill\cr
+{\tt publisher}\hfill | $B<gHG<R(B($B<T(B)$BL>(B\hfill\cr
+{\tt school}\hfill | $B=$;N!$Gn;NO@J8$,=q$+$l$?Bg3XL>(B\hfill\cr
+{\tt series}\hfill | $B%7%j!<%:!$$"$k$$$OJ#?t4,$NK\$NL>A0(B\hfill\cr
+{\tt title}\hfill | $BI=Bj(B\hfill\cr
+{\tt type}\hfill | $B%F%/%K%+%k%l%]!<%H$N<oN`(B\hfill\cr
+{\tt volume}\hfill | $BO@J8;o!$J#?t4,$NK\$N4,(B\hfill\cr
+{\tt year}\hfill | $BH/9TG/!$$^$?$O=q$+$l$?G/(B\hfill\endtable
 \end{table}
 \newpage
 
-以下にデータベースの記述例を示す．
+$B0J2<$K%G!<%?%Y!<%9$N5-=RNc$r<($9!%(B
 
 {\baselineskip=11pt
 \begin{quote}
@@ -176,87 +176,87 @@ abbrv, unsrtで，annoteを除いた項目が意味を持つ(タイプセット�
 \end{quote}
 }
 
-頻繁に使われる論文誌名などは，({\tt bst}ファイル中に)後述のマクロ機能を使って
-省略形を定義しておくことで，{\tt journal=ipl}などと書ける({\tt bib}ファイル
-中に{\tt @STRING(ipsj=\{情報処理学会\})}のように定義することもできる)．
+$BIQHK$K;H$o$l$kO@J8;oL>$J$I$O!$(B({\tt bst}$B%U%!%$%kCf$K(B)$B8e=R$N%^%/%m5!G=$r;H$C$F(B
+$B>JN,7A$rDj5A$7$F$*$/$3$H$G!$(B{\tt journal=ipl}$B$J$I$H=q$1$k(B({\tt bib}$B%U%!%$%k(B
+$BCf$K(B{\tt @STRING(ipsj=\{$B>pJs=hM}3X2q(B\})}$B$N$h$&$KDj5A$9$k$3$H$b$G$-$k(B)$B!%(B
 
-\subsection{スタイル}
-スタイルは{\tt alpha.bst}などのスタイルファイルに記述されている．
-スタイルファイル中の書式は，スタックマシンに対しての命令を
-後置演算子記法で記述した形である\cite{btxhak}．
+\subsection{$B%9%?%$%k(B}
+$B%9%?%$%k$O(B{\tt alpha.bst}$B$J$I$N%9%?%$%k%U%!%$%k$K5-=R$5$l$F$$$k!%(B
+$B%9%?%$%k%U%!%$%kCf$N=q<0$O!$%9%?%C%/%^%7%s$KBP$7$F$NL?Na$r(B
+$B8eCV1i;;;R5-K!$G5-=R$7$?7A$G$"$k(B\cite{btxhak}$B!%(B
 
-スタイルを記述する言語には二種類の関数がある．一つはシステム組み込みの
-ものであり，{\tt newline\$, write\$} などのように名前の最後が{\tt `\$'}で
-終る．もう一つは{\tt MACRO, FUNCTION}を使って定義するものである．
+$B%9%?%$%k$r5-=R$9$k8@8l$K$OFs<oN`$N4X?t$,$"$k!%0l$D$O%7%9%F%`AH$_9~$_$N(B
+$B$b$N$G$"$j!$(B{\tt newline\$, write\$} $B$J$I$N$h$&$KL>A0$N:G8e$,(B{\tt `\$'}$B$G(B
+$B=*$k!%$b$&0l$D$O(B{\tt MACRO, FUNCTION}$B$r;H$C$FDj5A$9$k$b$N$G$"$k!%(B
 
-組み込み関数には以下のようなものがある(全部で37ある)．
+$BAH$_9~$_4X?t$K$O0J2<$N$h$&$J$b$N$,$"$k(B($BA4It$G(B37$B$"$k(B)$B!%(B
 
 \begin{table}[h]
 \parasize=9.68cm
 \begintable
-{\dg\bf 組み込み関数(名)\ }|{\dg 機\hskip2cm 能}\hfil\crthick
-{\tt >, <, =} \hfill | \para{整数の比較}\cr
-{\tt +, -}\hfill |\para{整数加算，減算}\cr
-{\tt *}\hfill | \para{文字列の連結}\cr
-{\tt :=}\hfill |\para{代入}\crthick
-{\tt add.period\$}\hfill|\para{文字列の{\tt `\}'}でない最後の文字が，
-{\tt `.', `?', `!'}のいずれでもなければ{\tt `.'}を最後に付加する}\cr
-{\tt call.type\$}\hfill|\para{エントリの型(文献の型)に応じた関数を呼び出す．
-例えば{\tt book}なら関数{\tt book}を呼び出す．}\cr
-{\tt change.case\$}\hfill | \para{指定に応じて大文字，
-小文字に変換した文字列を返す(指定が{\tt `t'}なら
-最初の文字以外をすべて小文字に，{\tt `l'}ならすべて
-小文字に，{\tt `u'}ならすべて大文字に変換する)．}\cr
-{\tt chr.to.int\$}\hfill |\para{1文字のみの文字列のASCIIコードを返す}\cr 
-{\tt text.prefix\$}\hfill | \para{高々指定された文字数
-以内の先頭文字列を返す}\cr
-{\tt skip\$}\hfill | \para{何もしない}\cr
-{\tt substring\$}\hfill | \para{部分文字列を返す}\cr
-{\tt write\$}\hfill | \para{文字列を{\tt bbl}ファイルに書き出す} \endtable
+{\dg\bf $BAH$_9~$_4X?t(B($BL>(B)\ }|{\dg $B5!(B\hskip2cm $BG=(B}\hfil\crthick
+{\tt >, <, =} \hfill | \para{$B@0?t$NHf3S(B}\cr
+{\tt +, -}\hfill |\para{$B@0?t2C;;!$8:;;(B}\cr
+{\tt *}\hfill | \para{$BJ8;zNs$NO"7k(B}\cr
+{\tt :=}\hfill |\para{$BBeF~(B}\crthick
+{\tt add.period\$}\hfill|\para{$BJ8;zNs$N(B{\tt `\}'}$B$G$J$$:G8e$NJ8;z$,!$(B
+{\tt `.', `?', `!'}$B$N$$$:$l$G$b$J$1$l$P(B{\tt `.'}$B$r:G8e$KIU2C$9$k(B}\cr
+{\tt call.type\$}\hfill|\para{$B%(%s%H%j$N7?(B($BJ88%$N7?(B)$B$K1~$8$?4X?t$r8F$S=P$9!%(B
+$BNc$($P(B{\tt book}$B$J$i4X?t(B{\tt book}$B$r8F$S=P$9!%(B}\cr
+{\tt change.case\$}\hfill | \para{$B;XDj$K1~$8$FBgJ8;z!$(B
+$B>.J8;z$KJQ49$7$?J8;zNs$rJV$9(B($B;XDj$,(B{\tt `t'}$B$J$i(B
+$B:G=i$NJ8;z0J30$r$9$Y$F>.J8;z$K!$(B{\tt `l'}$B$J$i$9$Y$F(B
+$B>.J8;z$K!$(B{\tt `u'}$B$J$i$9$Y$FBgJ8;z$KJQ49$9$k(B)$B!%(B}\cr
+{\tt chr.to.int\$}\hfill |\para{1$BJ8;z$N$_$NJ8;zNs$N(BASCII$B%3!<%I$rJV$9(B}\cr 
+{\tt text.prefix\$}\hfill | \para{$B9b!9;XDj$5$l$?J8;z?t(B
+$B0JFb$N@hF,J8;zNs$rJV$9(B}\cr
+{\tt skip\$}\hfill | \para{$B2?$b$7$J$$(B}\cr
+{\tt substring\$}\hfill | \para{$BItJ,J8;zNs$rJV$9(B}\cr
+{\tt write\$}\hfill | \para{$BJ8;zNs$r(B{\tt bbl}$B%U%!%$%k$K=q$-=P$9(B} \endtable
 \end{table}
 
-スタイルは前述の関数とコマンドおよびシステム変数を使って記述する．
-コマンドは以下からなる．
+$B%9%?%$%k$OA0=R$N4X?t$H%3%^%s%I$*$h$S%7%9%F%`JQ?t$r;H$C$F5-=R$9$k!%(B
+$B%3%^%s%I$O0J2<$+$i$J$k!%(B
 \begin{itemize}
-\item 宣言と変数，関数定義のための5つのコマンド({\tt ENTRY, FUNCTION, INTEGERS,
+\item $B@k8@$HJQ?t!$4X?tDj5A$N$?$a$N(B5$B$D$N%3%^%s%I(B({\tt ENTRY, FUNCTION, INTEGERS,
 MACRO, STRINGS})
 
 \begin{table}[h]
 \begintable
-{\dg コマンド名}\ | {\dg 機\hskip2cm 能}\hfil\crthick
-{\tt ENTRY}\hfill | フィールドとエントリを宣言する\hfill\cr
-{\tt FUNCTION}\hfill | 新たな関数を定義する\hfill\cr
-{\tt INTEGERS}\hfill | グローバルな整数型の変数を宣言する\hfill\cr
-{\tt MACROS}\hfill | 文字列マクロを定義する\hfill\cr
-{\tt STRINGS}\hfill | グローバルな文字列型の変数を宣言する\hfill\endtable
+{\dg $B%3%^%s%IL>(B}\ | {\dg $B5!(B\hskip2cm $BG=(B}\hfil\crthick
+{\tt ENTRY}\hfill | $B%U%#!<%k%I$H%(%s%H%j$r@k8@$9$k(B\hfill\cr
+{\tt FUNCTION}\hfill | $B?7$?$J4X?t$rDj5A$9$k(B\hfill\cr
+{\tt INTEGERS}\hfill | $B%0%m!<%P%k$J@0?t7?$NJQ?t$r@k8@$9$k(B\hfill\cr
+{\tt MACROS}\hfill | $BJ8;zNs%^%/%m$rDj5A$9$k(B\hfill\cr
+{\tt STRINGS}\hfill | $B%0%m!<%P%k$JJ8;zNs7?$NJQ?t$r@k8@$9$k(B\hfill\endtable
 \end{table}
 
-\item データベース読み込みのためのコマンド({\tt READ})．データベース
-を読み込み，内部的にリストの形式にする．
+\item $B%G!<%?%Y!<%9FI$_9~$_$N$?$a$N%3%^%s%I(B({\tt READ})$B!%%G!<%?%Y!<%9(B
+$B$rFI$_9~$_!$FbItE*$K%j%9%H$N7A<0$K$9$k!%(B
 \newpage
-\item 処理と出力のための4つのコマンド({\tt EXECUTE, ITERATE, REVERSE, SORT})
+\item $B=hM}$H=PNO$N$?$a$N(B4$B$D$N%3%^%s%I(B({\tt EXECUTE, ITERATE, REVERSE, SORT})
 
 \begin{table}[h]
 \begintable
-{\dg コマンド名}\ | {\dg 機\hskip2cm 能}\hfil\crthick
-{\tt EXECUTE}\hfill | 1つの関数を実行する\hfill\cr
-{\tt ITERATE}\hfill | 現在のリスト中の各エントリに対して1つの関数を
-適用する\hfill\cr
-{\tt REVERSE}\hfill | {\tt ITERATE}と同じ操作をリストの逆順に行う\hfill\cr
-{\tt SORT}\hfill | {\tt sort.key\$}によってリストをソートする\hfill\endtable
+{\dg $B%3%^%s%IL>(B}\ | {\dg $B5!(B\hskip2cm $BG=(B}\hfil\crthick
+{\tt EXECUTE}\hfill | 1$B$D$N4X?t$r<B9T$9$k(B\hfill\cr
+{\tt ITERATE}\hfill | $B8=:_$N%j%9%HCf$N3F%(%s%H%j$KBP$7$F(B1$B$D$N4X?t$r(B
+$BE,MQ$9$k(B\hfill\cr
+{\tt REVERSE}\hfill | {\tt ITERATE}$B$HF1$8A`:n$r%j%9%H$N5U=g$K9T$&(B\hfill\cr
+{\tt SORT}\hfill | {\tt sort.key\$}$B$K$h$C$F%j%9%H$r%=!<%H$9$k(B\hfill\endtable
 \end{table}
 \end{itemize}
 
-システム変数には以下がある．
+$B%7%9%F%`JQ?t$K$O0J2<$,$"$k!%(B
 \begin{table}[h]
 \begintable
-{\dg 変数名}| {\dg 説\hskip2cm 明}\hfil\crthick
-{\tt sort.key\$}\hfill | 文字列型，ソートのキー\hfill\cr
-{\tt entry.max\$}\hfill | 整数型，エントリ文字列の最大長(100)\hfill\cr
-{\tt global.max\$\ }\hfill | 整数型，文字列の最大長(1000)\hfill\endtable
+{\dg $BJQ?tL>(B}| {\dg $B@b(B\hskip2cm $BL@(B}\hfil\crthick
+{\tt sort.key\$}\hfill | $BJ8;zNs7?!$%=!<%H$N%-!<(B\hfill\cr
+{\tt entry.max\$}\hfill | $B@0?t7?!$%(%s%H%jJ8;zNs$N:GBgD9(B(100)\hfill\cr
+{\tt global.max\$\ }\hfill | $B@0?t7?!$J8;zNs$N:GBgD9(B(1000)\hfill\endtable
 \end{table}
 
-以下にスタイルファイル{\tt alpha}の一部分を例として示す．
+$B0J2<$K%9%?%$%k%U%!%$%k(B{\tt alpha}$B$N0lItJ,$rNc$H$7$F<($9!%(B
 
 \begin{figure}[h]
 {\baselineskip=11pt
@@ -306,220 +306,220 @@ EXECUTE {end.bib}
 \end{quote}
 }
 \end{figure}
-\section{日本語化の概要}
-\subsection{バージョン0.10と0.20の生い立ち}
-最小限の変更ですませることにし\myftnote{手抜きである．}，
-以下の形で元の\BibTeX (Version 0.99c; Pascal版)に変更を
-加えた第1バージョン(0.10)を1988年5月に作成した．この
-ために行った変更は，change
-fileの変更が600行程度，Cで書かれたサポートルーチン(bibext.c)への
-変更が50行程度であるが，change fileへの本質的な変更は200行程度である．
+\section{$BF|K\8l2=$N35MW(B}
+\subsection{$B%P!<%8%g%s(B0.10$B$H(B0.20$B$N@8$$N)$A(B}
+$B:G>.8B$NJQ99$G$9$^$;$k$3$H$K$7(B\myftnote{$B<jH4$-$G$"$k!%(B}$B!$(B
+$B0J2<$N7A$G85$N(B\BibTeX (Version 0.99c; Pascal$BHG(B)$B$KJQ99$r(B
+$B2C$($?Bh(B1$B%P!<%8%g%s(B(0.10)$B$r(B1988$BG/(B5$B7n$K:n@.$7$?!%$3$N(B
+$B$?$a$K9T$C$?JQ99$O!$(Bchange
+file$B$NJQ99$,(B600$B9TDxEY!$(BC$B$G=q$+$l$?%5%]!<%H%k!<%A%s(B(bibext.c)$B$X$N(B
+$BJQ99$,(B50$B9TDxEY$G$"$k$,!$(Bchange file$B$X$NK\<AE*$JJQ99$O(B200$B9TDxEY$G$"$k!%(B
 
-その後1989年5月に\BibTeX のCバージョンに対応して，
-Pascalコンパイラーのないシステムでも動作するように，
-第2バージョン(0.20)を作成した．このために
-行った変更は，新たな組み込み関数を追加する
-ことも含めてchange fileの変更が450行程度，
-bibext.cへの変更が430行程度で
-ある\myftnote{{\tt web2c}の出力中の{\tt putc}を日本語
-コードに対応するための{\tt Fputc}に{\tt sed}する
-ために{\tt Makefile}の一部分も変更した．}．{\tt bibext.c}の変更の
-大部分は\JTeX 用に桜井氏が作成したプログラムを流用しているので，新たに
-作成した部分は少ない\myftnote{作業はSUN-3で行ったが，その他のマシンへの
-移植作業はJUNETを通じて協力していただいた．これにより
-現在は，SUN-4, VAX/ Ultrix/BSD, NEWS /NEWS-OS, Symmetry /Dynix, 
-FACOM M Series /UTS, LUNA /BSD, ΣWSなどで動作している．}．
+$B$=$N8e(B1989$BG/(B5$B7n$K(B\BibTeX $B$N(BC$B%P!<%8%g%s$KBP1~$7$F!$(B
+Pascal$B%3%s%Q%$%i!<$N$J$$%7%9%F%`$G$bF0:n$9$k$h$&$K!$(B
+$BBh(B2$B%P!<%8%g%s(B(0.20)$B$r:n@.$7$?!%$3$N$?$a$K(B
+$B9T$C$?JQ99$O!$?7$?$JAH$_9~$_4X?t$rDI2C$9$k(B
+$B$3$H$b4^$a$F(Bchange file$B$NJQ99$,(B450$B9TDxEY!$(B
+bibext.c$B$X$NJQ99$,(B430$B9TDxEY$G(B
+$B$"$k(B\myftnote{{\tt web2c}$B$N=PNOCf$N(B{\tt putc}$B$rF|K\8l(B
+$B%3!<%I$KBP1~$9$k$?$a$N(B{\tt Fputc}$B$K(B{\tt sed}$B$9$k(B
+$B$?$a$K(B{\tt Makefile}$B$N0lItJ,$bJQ99$7$?!%(B}$B!%(B{\tt bibext.c}$B$NJQ99$N(B
+$BBgItJ,$O(B\JTeX $BMQ$K:y0f;a$,:n@.$7$?%W%m%0%i%`$rN.MQ$7$F$$$k$N$G!$?7$?$K(B
+$B:n@.$7$?ItJ,$O>/$J$$(B\myftnote{$B:n6H$O(BSUN-3$B$G9T$C$?$,!$$=$NB>$N%^%7%s$X$N(B
+$B0\?":n6H$O(BJUNET$B$rDL$8$F6(NO$7$F$$$?$@$$$?!%$3$l$K$h$j(B
+$B8=:_$O!$(BSUN-4, VAX/ Ultrix/BSD, NEWS /NEWS-OS, Symmetry /Dynix, 
+FACOM M Series /UTS, LUNA /BSD, $B&2(BWS$B$J$I$GF0:n$7$F$$$k!%(B}$B!%(B
 
-\subsection{バージョン0.30とMS-DOS版の旅立ち}
-筆者が勤務の関係で米国出張中のクリスマス休暇の間に作成した
-のがバージョン0.30と{\tt MS-DOS}版の\JBibTeX である\myftnote{寒い所
-だったので，家族で外出
-する気にもならず，お金もなかったので旅行もできずで {\tt :-)}．}．
+\subsection{$B%P!<%8%g%s(B0.30$B$H(BMS-DOS$BHG$NN9N)$A(B}
+$BI.<T$,6PL3$N4X78$GJF9q=PD%Cf$N%/%j%9%^%95Y2K$N4V$K:n@.$7$?(B
+$B$N$,%P!<%8%g%s(B0.30$B$H(B{\tt MS-DOS}$BHG$N(B\JBibTeX $B$G$"$k(B\myftnote{$B4($$=j(B
+$B$@$C$?$N$G!$2HB2$G30=P(B
+$B$9$k5$$K$b$J$i$:!$$*6b$b$J$+$C$?$N$GN99T$b$G$-$:$G(B {\tt :-)}$B!%(B}$B!%(B
 
-バージョン0.30ではASCII版のversion 0.98をベースにした{\tt Kanji BibTeX}
-との整合性を向上させる，また不完全であった日本語対応を完全にするなどの
-作業を行った．
-このためにバージョン0.20から変更したchange fileの行数は50行程度である．
-これに際しては，職場の同僚である
-二方厚志，所健一の両氏，(株)アスキーの倉沢良一，渡邉雄一両氏の協力を得た．
-特に渡邉氏には多忙な中，様々なテストに協力していただいた．
-バージョン0.30ではドキュメント類の修正，スタイルファイルの改良も行った．
-これにより，NTT版だけでなく，ASCII版でも(ドキュメントの処理も含めて)
-問題なく動作するバージョンの配布キットが完成した．
+$B%P!<%8%g%s(B0.30$B$G$O(BASCII$BHG$N(Bversion 0.98$B$r%Y!<%9$K$7$?(B{\tt Kanji BibTeX}
+$B$H$N@09g@-$r8~>e$5$;$k!$$^$?IT40A4$G$"$C$?F|K\8lBP1~$r40A4$K$9$k$J$I$N(B
+$B:n6H$r9T$C$?!%(B
+$B$3$N$?$a$K%P!<%8%g%s(B0.20$B$+$iJQ99$7$?(Bchange file$B$N9T?t$O(B50$B9TDxEY$G$"$k!%(B
+$B$3$l$K:]$7$F$O!$?&>l$NF1N=$G$"$k(B
+$BFsJ}8|;V!$=j7r0l$NN>;a!$(B($B3t(B)$B%"%9%-!<$NARBtNI0l!$EOn5M:0lN>;a$N6(NO$rF@$?!%(B
+$BFC$KEOn5;a$K$OB?K;$JCf!$MM!9$J%F%9%H$K6(NO$7$F$$$?$@$$$?!%(B
+$B%P!<%8%g%s(B0.30$B$G$O%I%-%e%a%s%HN`$N=$@5!$%9%?%$%k%U%!%$%k$N2~NI$b9T$C$?!%(B
+$B$3$l$K$h$j!$(BNTT$BHG$@$1$G$J$/!$(BASCII$BHG$G$b(B($B%I%-%e%a%s%H$N=hM}$b4^$a$F(B)
+$BLdBj$J$/F0:n$9$k%P!<%8%g%s$NG[I[%-%C%H$,40@.$7$?!%(B
 
-MS-DOS版はUNIX上で作成したCのソースを直接変更してTurbo-Cを利用して作成した．
-コンパイラ，リンカの制約から大量の大域変数が宣言できないので，
-大域変数の宣言部分をいくつかのファイルに分けるとか，動的にメモリを
-割り当てるとかの変更をCソースに直接施した．変更行数は100行程度である．
-利用可能メモリの制約から，処理可能引用文献数がUNIX版に比べて
-少ないことを除けば(300件程度以内でないとだめ)，
-実用上十分な性能を持つプログラムである．
+MS-DOS$BHG$O(BUNIX$B>e$G:n@.$7$?(BC$B$N%=!<%9$rD>@\JQ99$7$F(BTurbo-C$B$rMxMQ$7$F:n@.$7$?!%(B
+$B%3%s%Q%$%i!$%j%s%+$N@)Ls$+$iBgNL$NBg0hJQ?t$,@k8@$G$-$J$$$N$G!$(B
+$BBg0hJQ?t$N@k8@ItJ,$r$$$/$D$+$N%U%!%$%k$KJ,$1$k$H$+!$F0E*$K%a%b%j$r(B
+$B3d$jEv$F$k$H$+$NJQ99$r(BC$B%=!<%9$KD>@\;\$7$?!%JQ999T?t$O(B100$B9TDxEY$G$"$k!%(B
+$BMxMQ2DG=%a%b%j$N@)Ls$+$i!$=hM}2DG=0zMQJ88%?t$,(BUNIX$BHG$KHf$Y$F(B
+$B>/$J$$$3$H$r=|$1$P(B(300$B7oDxEY0JFb$G$J$$$H$@$a(B)$B!$(B
+$B<BMQ>e==J,$J@-G=$r;}$D%W%m%0%i%`$G$"$k!%(B
 
-\subsection{漢字コードの扱い}
+\subsection{$B4A;z%3!<%I$N07$$(B}
 
-オリジナルの\BibTeX への変更を少なくするために，
-漢字コードは内部的にはEUCで表現することとした．
-ファイルから一行を読み込む時点で，EUCならそのまま，JIS漢字コードはEUCに
-コード変換する\myftnote{JIS漢字コードのエスケープ・シーケンスの
-先頭の2バイトのみを漢字in/outの
-判定に使用し，3バイト目は何でもよいようにしてある．また，当所ではSJISは
-使っていないのでバージョン0.10ではそれは考えていなかったが，
-バージョン0.20ではそれにも対処できるようにした．MS-DOS版ではSJISがディフォルト
-の漢字コードになっている．JISも読める．}．
+$B%*%j%8%J%k$N(B\BibTeX $B$X$NJQ99$r>/$J$/$9$k$?$a$K!$(B
+$B4A;z%3!<%I$OFbItE*$K$O(BEUC$B$GI=8=$9$k$3$H$H$7$?!%(B
+$B%U%!%$%k$+$i0l9T$rFI$_9~$`;~E@$G!$(BEUC$B$J$i$=$N$^$^!$(BJIS$B4A;z%3!<%I$O(BEUC$B$K(B
+$B%3!<%IJQ49$9$k(B\myftnote{JIS$B4A;z%3!<%I$N%(%9%1!<%W!&%7!<%1%s%9$N(B
+$B@hF,$N(B2$B%P%$%H$N$_$r4A;z(Bin/out$B$N(B
+$BH=Dj$K;HMQ$7!$(B3$B%P%$%HL\$O2?$G$b$h$$$h$&$K$7$F$"$k!%$^$?!$Ev=j$G$O(BSJIS$B$O(B
+$B;H$C$F$$$J$$$N$G%P!<%8%g%s(B0.10$B$G$O$=$l$O9M$($F$$$J$+$C$?$,!$(B
+$B%P!<%8%g%s(B0.20$B$G$O$=$l$K$bBP=h$G$-$k$h$&$K$7$?!%(BMS-DOS$BHG$G$O(BSJIS$B$,%G%#%U%)%k%H(B
+$B$N4A;z%3!<%I$K$J$C$F$$$k!%(BJIS$B$bFI$a$k!%(B}$B!%(B
 
-漢字コードをファイルに書き出す時にコード系の変換を行う．\JBibTeX
-はNTT版 \JTeX に改良を加えて漢字コードとしてJISの他に，EUCも使えるように
-したものの上の\JLaTeX と対にして使うことを前提としているが，ASCII版でも
-問題なく使える．
-この\JTeX では漢字コードの指定がEUC/SJISであっても，JIS漢字コードも読み込める
-ように変更したものである\myftnote{都立大の桜井氏が中心となって
-開発しているバージョンに対応している．}．
+$B4A;z%3!<%I$r%U%!%$%k$K=q$-=P$9;~$K%3!<%I7O$NJQ49$r9T$&!%(B\JBibTeX
+$B$O(BNTT$BHG(B \JTeX $B$K2~NI$r2C$($F4A;z%3!<%I$H$7$F(BJIS$B$NB>$K!$(BEUC$B$b;H$($k$h$&$K(B
+$B$7$?$b$N$N>e$N(B\JLaTeX $B$HBP$K$7$F;H$&$3$H$rA0Ds$H$7$F$$$k$,!$(BASCII$BHG$G$b(B
+$BLdBj$J$/;H$($k!%(B
+$B$3$N(B\JTeX $B$G$O4A;z%3!<%I$N;XDj$,(BEUC/SJIS$B$G$"$C$F$b!$(BJIS$B4A;z%3!<%I$bFI$_9~$a$k(B
+$B$h$&$KJQ99$7$?$b$N$G$"$k(B\myftnote{$BETN)Bg$N:y0f;a$,Cf?4$H$J$C$F(B
+$B3+H/$7$F$$$k%P!<%8%g%s$KBP1~$7$F$$$k!%(B}$B!%(B
 
-そこで第1バージョン(0.10)では漢字コードの変換は以下の形で行う
-こととした．
+$B$=$3$GBh(B1$B%P!<%8%g%s(B(0.10)$B$G$O4A;z%3!<%I$NJQ49$O0J2<$N7A$G9T$&(B
+$B$3$H$H$7$?!%(B
 
 \begin{itemize}
-\item 補助({\tt aux})，スタイル({\tt bst})，データベース({\tt bib})ファイル中
-の漢字コードの総てがEUC漢字コードであれば，{\tt bbl}, {\tt blg}ファイル
-あるいは端末への出力はEUCコードで行う．
-\item 上記以外の場合には，書き出しが行れる直近に読んだJIS漢字のコードの
-エスケープ・シーケンスを使って漢字コードを書き出す\myftnote{完全に漢字コード
-対応になっていない可能性があるので，bibファイルなどの記述にエラーがあった
-時に，端末などにEUCコードのままで漢字コードが出力されるかもしれない(第1
-バージョン(0.10)の場合)．}．
+\item $BJd=u(B({\tt aux})$B!$%9%?%$%k(B({\tt bst})$B!$%G!<%?%Y!<%9(B({\tt bib})$B%U%!%$%kCf(B
+$B$N4A;z%3!<%I$NAm$F$,(BEUC$B4A;z%3!<%I$G$"$l$P!$(B{\tt bbl}, {\tt blg}$B%U%!%$%k(B
+$B$"$k$$$OC<Kv$X$N=PNO$O(BEUC$B%3!<%I$G9T$&!%(B
+\item $B>e5-0J30$N>l9g$K$O!$=q$-=P$7$,9T$l$kD>6a$KFI$s$@(BJIS$B4A;z$N%3!<%I$N(B
+$B%(%9%1!<%W!&%7!<%1%s%9$r;H$C$F4A;z%3!<%I$r=q$-=P$9(B\myftnote{$B40A4$K4A;z%3!<%I(B
+$BBP1~$K$J$C$F$$$J$$2DG=@-$,$"$k$N$G!$(Bbib$B%U%!%$%k$J$I$N5-=R$K%(%i!<$,$"$C$?(B
+$B;~$K!$C<Kv$J$I$K(BEUC$B%3!<%I$N$^$^$G4A;z%3!<%I$,=PNO$5$l$k$+$b$7$l$J$$(B($BBh(B1
+$B%P!<%8%g%s(B(0.10)$B$N>l9g(B)$B!%(B}$B!%(B
 \end{itemize}
 
-漢字コードの変換は，入力時はbibext.cで行い，出力時はbibtex本体で行うことと
-したために，change fileの変更が多くなった．
+$B4A;z%3!<%I$NJQ49$O!$F~NO;~$O(Bbibext.c$B$G9T$$!$=PNO;~$O(Bbibtex$BK\BN$G9T$&$3$H$H(B
+$B$7$?$?$a$K!$(Bchange file$B$NJQ99$,B?$/$J$C$?!%(B
 
-第2バージョン(0.20)以降では，漢字コード系はサイト毎に
-コンパイル時に決定することとし，利用者単位には次の環境変数で変更可能とした．
+$BBh(B2$B%P!<%8%g%s(B(0.20)$B0J9_$G$O!$4A;z%3!<%I7O$O%5%$%HKh$K(B
+$B%3%s%Q%$%k;~$K7hDj$9$k$3$H$H$7!$MxMQ<TC10L$K$O<!$N4D6-JQ?t$GJQ992DG=$H$7$?!%(B
 
 \begin{figure}[h]
 \thicksize=0pt
 \thinsize=0pt
 \begintable
-端末\hfill |{\tt BIBTERMCODE}\hfill | \hskip5cm\cr
-ファイル\hfill | {\tt BIBFILECODE}\hfill | \hskip5cm\endtable
+$BC<Kv(B\hfill |{\tt BIBTERMCODE}\hfill | \hskip5cm\cr
+$B%U%!%$%k(B\hfill | {\tt BIBFILECODE}\hfill | \hskip5cm\endtable
 \end{figure}
 
-これらの変数に\JTeX の \verb|\kanjiterminaltype|, \verb|\kanjifiletype|で
-指定するのと同じ値を設定することで(EUCなら20,
-SJISなら10など)入出力のコード系を変更できる(\JTeX 同様EUC, SJISを指定
-してあってもJISコード系も読み込めるようになっている)．
+$B$3$l$i$NJQ?t$K(B\JTeX $B$N(B \verb|\kanjiterminaltype|, \verb|\kanjifiletype|$B$G(B
+$B;XDj$9$k$N$HF1$8CM$r@_Dj$9$k$3$H$G(B(EUC$B$J$i(B20,
+SJIS$B$J$i(B10$B$J$I(B)$BF~=PNO$N%3!<%I7O$rJQ99$G$-$k(B(\JTeX $BF1MM(BEUC, SJIS$B$r;XDj(B
+$B$7$F$"$C$F$b(BJIS$B%3!<%I7O$bFI$_9~$a$k$h$&$K$J$C$F$$$k(B)$B!%(B
 
-漢字コードの変換はすべてbibext.cの中で行うこととしたので，change fileの
-変更が少なくなっている．
+$B4A;z%3!<%I$NJQ49$O$9$Y$F(Bbibext.c$B$NCf$G9T$&$3$H$H$7$?$N$G!$(Bchange file$B$N(B
+$BJQ99$,>/$J$/$J$C$F$$$k!%(B
 
-\subsection{組込み関数の仕様変更}
+\subsection{$BAH9~$_4X?t$N;EMMJQ99(B}
 
-組込み関数の{\tt substring\$, text.prefix\$} においては
-1つの漢字コードの間で(1バイト目と2バイト目の間で)文字列が切られないようにした．
-例えば，`漢字' の先頭から3文字(バイト)を抜出すと `字' の2バイト目がなくなって
-しまうので，このような場合には，4バイト目まで切出すようにした\myftnote{これは
-日本語用のスタイルでない{\tt alpha, plain}などを
-使った場合でもそれなりの出力が得られるようにするためである．}．
+$BAH9~$_4X?t$N(B{\tt substring\$, text.prefix\$} $B$K$*$$$F$O(B
+1$B$D$N4A;z%3!<%I$N4V$G(B(1$B%P%$%HL\$H(B2$B%P%$%HL\$N4V$G(B)$BJ8;zNs$,@Z$i$l$J$$$h$&$K$7$?!%(B
+$BNc$($P!$(B`$B4A;z(B' $B$N@hF,$+$i(B3$BJ8;z(B($B%P%$%H(B)$B$rH4=P$9$H(B `$B;z(B' $B$N(B2$B%P%$%HL\$,$J$/$J$C$F(B
+$B$7$^$&$N$G!$$3$N$h$&$J>l9g$K$O!$(B4$B%P%$%HL\$^$G@Z=P$9$h$&$K$7$?(B\myftnote{$B$3$l$O(B
+$BF|K\8lMQ$N%9%?%$%k$G$J$$(B{\tt alpha, plain}$B$J$I$r(B
+$B;H$C$?>l9g$G$b$=$l$J$j$N=PNO$,F@$i$l$k$h$&$K$9$k$?$a$G$"$k!%(B}$B!%(B
  
-前記との関係で，{\tt chr.to.int\$} は引数が
-漢字コードならばsingle characterでなくてもwarningを出さず，
-漢字文字列の1バイト目のコードを値として返すようにした\myftnote{これは0.10バー
-ジョンで試作したスタイルファイル中で，漢字コード文字列の判定をいいかげんに
-行うために必要となった変更であり，0.20バージョンでは漢字コード文字列判定用に
-新たな組み込み関数を追加したので不要かも知れない．}．
+$BA05-$H$N4X78$G!$(B{\tt chr.to.int\$} $B$O0z?t$,(B
+$B4A;z%3!<%I$J$i$P(Bsingle character$B$G$J$/$F$b(Bwarning$B$r=P$5$:!$(B
+$B4A;zJ8;zNs$N(B1$B%P%$%HL\$N%3!<%I$rCM$H$7$FJV$9$h$&$K$7$?(B\myftnote{$B$3$l$O(B0.10$B%P!<(B
+$B%8%g%s$G;n:n$7$?%9%?%$%k%U%!%$%kCf$G!$4A;z%3!<%IJ8;zNs$NH=Dj$r$$$$$+$2$s$K(B
+$B9T$&$?$a$KI,MW$H$J$C$?JQ99$G$"$j!$(B0.20$B%P!<%8%g%s$G$O4A;z%3!<%IJ8;zNsH=DjMQ$K(B
+$B?7$?$JAH$_9~$_4X?t$rDI2C$7$?$N$GITMW$+$bCN$l$J$$!%(B}$B!%(B
 
-以上はバージョン0.10から行っていた変更であるが，バージョン0.30では，さらに
-次の2つの変更も追加した．
+$B0J>e$O%P!<%8%g%s(B0.10$B$+$i9T$C$F$$$?JQ99$G$"$k$,!$%P!<%8%g%s(B0.30$B$G$O!$$5$i$K(B
+$B<!$N(B2$B$D$NJQ99$bDI2C$7$?!%(B
 
-{\tt add.period\$} 関数は，半角の`!'$\!$, `?'$\!$, `.'で終われば，
-`.'を付加しないので，全角の`！'，`？'，`．'，`。'で終わっても
-`.'を付加しないようにした．
+{\tt add.period\$} $B4X?t$O!$H>3Q$N(B`!'$\!$, `?'$\!$, `.'$B$G=*$o$l$P!$(B
+`.'$B$rIU2C$7$J$$$N$G!$A43Q$N(B`$B!*(B'$B!$(B`$B!)(B'$B!$(B`$B!%(B'$B!$(B`$B!#(B'$B$G=*$o$C$F$b(B
+`.'$B$rIU2C$7$J$$$h$&$K$7$?!%(B
 
-{\tt format.name\$} 関数では，漢字コードで表記された氏名の場合には全角の空白も
-半角の空白と同じように扱うこととした．また複数の名前は \verb*| and |
-を間に入れて列挙するが，漢字コード表記された氏名の場合には
-全角の``，'', ``、''を使っても \verb*| and | と同じように扱うようにした．
-これで漢字コード著者名の入力が以前より簡単になるはずである(少なくともPCでかな
-漢字変換FEPを使っている場合には，半角への切り替えが不要になる)．
+{\tt format.name\$} $B4X?t$G$O!$4A;z%3!<%I$GI=5-$5$l$?;aL>$N>l9g$K$OA43Q$N6uGr$b(B
+$BH>3Q$N6uGr$HF1$8$h$&$K07$&$3$H$H$7$?!%$^$?J#?t$NL>A0$O(B \verb*| and |
+$B$r4V$KF~$l$FNs5s$9$k$,!$4A;z%3!<%II=5-$5$l$?;aL>$N>l9g$K$O(B
+$BA43Q$N(B``$B!$(B'', ``$B!"(B''$B$r;H$C$F$b(B \verb*| and | $B$HF1$8$h$&$K07$&$h$&$K$7$?!%(B
+$B$3$l$G4A;z%3!<%ICx<TL>$NF~NO$,0JA0$h$j4JC1$K$J$k$O$:$G$"$k(B($B>/$J$/$H$b(BPC$B$G$+$J(B
+$B4A;zJQ49(BFEP$B$r;H$C$F$$$k>l9g$K$O!$H>3Q$X$N@Z$jBX$($,ITMW$K$J$k(B)$B!%(B
 
-\subsection{組み込み関数の追加}
+\subsection{$BAH$_9~$_4X?t$NDI2C(B}
 
-次に述べる日本語用のスタイルに関連することであるが，漢字コードを含む文字列の
-場合に処理を分ける必要がある．第1バージョンでは漢字コードを含むかどうかは，
-先頭文字のみで判定するようなスタイルを作成したが，これでは不完全である
-ので，第2バージョン以降からは{\tt is.kanji.str\$} という関数を追加した．
-この関数は，与えられた文字列が日本語コード(non ASCIIコード)を
-含む時に``真''(整数の1)を返す関数である．
+$B<!$K=R$Y$kF|K\8lMQ$N%9%?%$%k$K4XO"$9$k$3$H$G$"$k$,!$4A;z%3!<%I$r4^$`J8;zNs$N(B
+$B>l9g$K=hM}$rJ,$1$kI,MW$,$"$k!%Bh(B1$B%P!<%8%g%s$G$O4A;z%3!<%I$r4^$`$+$I$&$+$O!$(B
+$B@hF,J8;z$N$_$GH=Dj$9$k$h$&$J%9%?%$%k$r:n@.$7$?$,!$$3$l$G$OIT40A4$G$"$k(B
+$B$N$G!$Bh(B2$B%P!<%8%g%s0J9_$+$i$O(B{\tt is.kanji.str\$} $B$H$$$&4X?t$rDI2C$7$?!%(B
+$B$3$N4X?t$O!$M?$($i$l$?J8;zNs$,F|K\8l%3!<%I(B(non ASCII$B%3!<%I(B)$B$r(B
+$B4^$`;~$K(B``$B??(B''($B@0?t$N(B1)$B$rJV$94X?t$G$"$k!%(B
 
 \newpage
-\section{日本語用のスタイル}
+\section{$BF|K\8lMQ$N%9%?%$%k(B}
 
-\subsection{問題点}
-前述の方法で日本語を扱えるようにしても，\BibTeX のスタイル(bst)を
-日本語に合せないと，参考文献が奇妙な型式となる．
-例えば，{\tt plain}のスタイルを使うと，著者が複数の場合
-
-\vskip 2mm
-\hskip1cm
-[1] 松井 and 篠原 $\cdots$
-\vskip 2mm
-
-\noindent のような形になってしまう．日本語の場合にはやはり
+\subsection{$BLdBjE@(B}
+$BA0=R$NJ}K!$GF|K\8l$r07$($k$h$&$K$7$F$b!$(B\BibTeX $B$N%9%?%$%k(B(bst)$B$r(B
+$BF|K\8l$K9g$;$J$$$H!$;29MJ88%$,4qL/$J7?<0$H$J$k!%(B
+$BNc$($P!$(B{\tt plain}$B$N%9%?%$%k$r;H$&$H!$Cx<T$,J#?t$N>l9g(B
 
 \vskip 2mm
 \hskip1cm
-[1] 松井, 篠原 $\cdots$
+[1] $B>>0f(B and $B<D86(B $\cdots$
 \vskip 2mm
 
-\noindent のようになって欲しい．また英語の場合には`{\tt et al.}'でよいが
-日本語の場合には`{\dg ほか}'の方がよい．
-さらに，文献をソートする場合には著者名を主キーとするスタイルが多いので，
-ここが漢字コードであると漢字コードの順に並ぶので具合がよくない．
-
-{\tt alpha}では著者の名前からラベルを作るが，英語と混在することを考えると
-ラベルも
+\noindent $B$N$h$&$J7A$K$J$C$F$7$^$&!%F|K\8l$N>l9g$K$O$d$O$j(B
 
 \vskip 2mm
 \hskip1cm
-[松篠87] 松井, 篠原 $\cdots$
+[1] $B>>0f(B, $B<D86(B $\cdots$
 \vskip 2mm
 
-\noindent のような形よりは
+\noindent $B$N$h$&$K$J$C$FM_$7$$!%$^$?1Q8l$N>l9g$K$O(B`{\tt et al.}'$B$G$h$$$,(B
+$BF|K\8l$N>l9g$K$O(B`{\dg $B$[$+(B}'$B$NJ}$,$h$$!%(B
+$B$5$i$K!$J88%$r%=!<%H$9$k>l9g$K$OCx<TL>$r<g%-!<$H$9$k%9%?%$%k$,B?$$$N$G!$(B
+$B$3$3$,4A;z%3!<%I$G$"$k$H4A;z%3!<%I$N=g$KJB$V$N$G6q9g$,$h$/$J$$!%(B
+
+{\tt alpha}$B$G$OCx<T$NL>A0$+$i%i%Y%k$r:n$k$,!$1Q8l$H:.:_$9$k$3$H$r9M$($k$H(B
+$B%i%Y%k$b(B
 
 \vskip 2mm
 \hskip1cm
-[MS87] 松井, 篠原 $\cdots$
+[$B>><D(B87] $B>>0f(B, $B<D86(B $\cdots$
 \vskip 2mm
 
-\noindent のほうが望ましいと考えた．
+\noindent $B$N$h$&$J7A$h$j$O(B
 
-\subsection{日本語用のスタイルの試作}
+\vskip 2mm
+\hskip1cm
+[MS87] $B>>0f(B, $B<D86(B $\cdots$
+\vskip 2mm
 
-上記のような問題を解決することを考慮したスタイルを標準スタイル
-{\tt plain}, {\tt alpha}, {\tt abbrv}, {\tt unsrt}を基に{\tt jplain}, 
+\noindent $B$N$[$&$,K>$^$7$$$H9M$($?!%(B
+
+\subsection{$BF|K\8lMQ$N%9%?%$%k$N;n:n(B}
+
+$B>e5-$N$h$&$JLdBj$r2r7h$9$k$3$H$r9MN8$7$?%9%?%$%k$rI8=`%9%?%$%k(B
+{\tt plain}, {\tt alpha}, {\tt abbrv}, {\tt unsrt}$B$r4p$K(B{\tt jplain}, 
 {\tt jalpha}, {\tt jabbrv}, {\tt junsrt}
-という形で作ってみた．また情報処理学会論文誌{\tt tipsj}，情報処理
-学会欧文論文誌{\tt jipsj}，
-電子情報通信学会論文誌{\tt tieic}，日本オペレーションズリサーチ学会
-論文誌{\tt jorsj}，人工知能学会誌{\tt jsai}，ソフトウェア科学会誌{\tt jssst}用
-のスタイルも試作してみた．
+$B$H$$$&7A$G:n$C$F$_$?!%$^$?>pJs=hM}3X2qO@J8;o(B{\tt tipsj}$B!$>pJs=hM}(B
+$B3X2q2$J8O@J8;o(B{\tt jipsj}$B!$(B
+$BEE;R>pJsDL?.3X2qO@J8;o(B{\tt tieic}$B!$F|K\%*%Z%l!<%7%g%s%:%j%5!<%A3X2q(B
+$BO@J8;o(B{\tt jorsj}$B!$?M9)CNG=3X2q;o(B{\tt jsai}$B!$%=%U%H%&%'%"2J3X2q;o(B{\tt jssst}$BMQ(B
+$B$N%9%?%$%k$b;n:n$7$F$_$?!%(B
 
-参考文献のソートあるいはラベル作成を巧く行うことを
-考え合せて，日本語の文献には著者名のローマ字標記を`名前', `姓'の順で(英語風に)
-入れる`{\tt yomi}'なる新たなフィールドを{\tt bib}ファイル中に
-書くこととした\myftnote{この順番に異論のある人もあろうが\cite{jeng}，
-多くの日本人がこの形で(英語で)書いて論文を発表していることから
-こう決めた．}$^,$\myftnote{ここにひらがなで`読み'をかくことも，
-もちろんできるから，五十音順にソートすることも可能である．}．
-このフィールドを使ってソートを行ったり, ラベルを作るような形で
-上記のスタイルを作成した\myftnote{yomiというフィールドを
-加えるために{\tt bibtex}本体を変更する必要はない．
-スタイルファイル中の{\tt ENTRY}に追加するだけである．}$^,$\myftnote{著者名の
-処理以外にも変更を加えている．詳しくは配布キット中の{\tt jbtxbst.doc}を
-参照されたい．}．
+$B;29MJ88%$N%=!<%H$"$k$$$O%i%Y%k:n@.$r9*$/9T$&$3$H$r(B
+$B9M$(9g$;$F!$F|K\8l$NJ88%$K$OCx<TL>$N%m!<%^;zI85-$r(B`$BL>A0(B', `$B@+(B'$B$N=g$G(B($B1Q8lIw$K(B)
+$BF~$l$k(B`{\tt yomi}'$B$J$k?7$?$J%U%#!<%k%I$r(B{\tt bib}$B%U%!%$%kCf$K(B
+$B=q$/$3$H$H$7$?(B\myftnote{$B$3$N=gHV$K0[O@$N$"$k?M$b$"$m$&$,(B\cite{jeng}$B!$(B
+$BB?$/$NF|K\?M$,$3$N7A$G(B($B1Q8l$G(B)$B=q$$$FO@J8$rH/I=$7$F$$$k$3$H$+$i(B
+$B$3$&7h$a$?!%(B}$^,$\myftnote{$B$3$3$K$R$i$,$J$G(B`$BFI$_(B'$B$r$+$/$3$H$b!$(B
+$B$b$A$m$s$G$-$k$+$i!$8^==2;=g$K%=!<%H$9$k$3$H$b2DG=$G$"$k!%(B}$B!%(B
+$B$3$N%U%#!<%k%I$r;H$C$F%=!<%H$r9T$C$?$j(B, $B%i%Y%k$r:n$k$h$&$J7A$G(B
+$B>e5-$N%9%?%$%k$r:n@.$7$?(B\myftnote{yomi$B$H$$$&%U%#!<%k%I$r(B
+$B2C$($k$?$a$K(B{\tt bibtex}$BK\BN$rJQ99$9$kI,MW$O$J$$!%(B
+$B%9%?%$%k%U%!%$%kCf$N(B{\tt ENTRY}$B$KDI2C$9$k$@$1$G$"$k!%(B}$^,$\myftnote{$BCx<TL>$N(B
+$B=hM}0J30$K$bJQ99$r2C$($F$$$k!%>\$7$/$OG[I[%-%C%HCf$N(B{\tt jbtxbst.doc}$B$r(B
+$B;2>H$5$l$?$$!%(B}$B!%(B
 
 \newpage
-{\tt jalpha}スタイルの一部を例として示す(ただし配布済みのスタイルとは
-異なる部分がある)．
+{\tt jalpha}$B%9%?%$%k$N0lIt$rNc$H$7$F<($9(B($B$?$@$7G[I[:Q$_$N%9%?%$%k$H$O(B
+$B0[$J$kItJ,$,$"$k(B)$B!%(B
 
 \vskip2mm
 
@@ -541,7 +541,7 @@ FUNCTION {format.names}
             {", " * t * }
             { t "others" =
                 { s is.kanji.str$
-                        {"ほか" * }
+                        {"$B$[$+(B" * }
                         {", et~al." * }
                   if$
                 }
@@ -570,21 +570,21 @@ FUNCTION {format.names}
 \end{quote}
 }
 
-\subsection{データベースの記述方法}
+\subsection{$B%G!<%?%Y!<%9$N5-=RJ}K!(B}
 
-以上のようにした\JBibTeX のための{\tt bib}ファイルの中身は次のように
-する\myftnote{著者の姓と名の間にスペース(半角でも全角でも)を
-入れておかないと，{\tt jabbrv}スタイルの時に姓だけにならずに，名も出
-力されてしまうので注意が必要である．スペースで姓と名を区切った場合には，
-スタイルファイルの記述において，漢字コード著者名を{\tt format.name\$} して
-得られるfirst nameには姓が，last nameには名が得られることに注意が必要で
-ある({\tt format.name\$} を完全には日本語対応にしていないためである．しかし
-family name, last tokenと読み替えれば問題ないし{\tt :-)}．日本語対応の
-スタイルファイルを作成した経験から言うと，漢字コード著者名と
-それ以外の場合に同じフォーマットを指定して{\tt format.name\$} を呼び出す
-ことはほとんどないので，混乱するかもしれないが，あえてこのままにしてある)．
-また，例では漢字コード著者名の区切りとして，`` and '' を使ってあるが，ここは
-もちろん，``，'' (但し全角！)でよい．}．
+$B0J>e$N$h$&$K$7$?(B\JBibTeX $B$N$?$a$N(B{\tt bib}$B%U%!%$%k$NCf?H$O<!$N$h$&$K(B
+$B$9$k(B\myftnote{$BCx<T$N@+$HL>$N4V$K%9%Z!<%9(B($BH>3Q$G$bA43Q$G$b(B)$B$r(B
+$BF~$l$F$*$+$J$$$H!$(B{\tt jabbrv}$B%9%?%$%k$N;~$K@+$@$1$K$J$i$:$K!$L>$b=P(B
+$BNO$5$l$F$7$^$&$N$GCm0U$,I,MW$G$"$k!%%9%Z!<%9$G@+$HL>$r6h@Z$C$?>l9g$K$O!$(B
+$B%9%?%$%k%U%!%$%k$N5-=R$K$*$$$F!$4A;z%3!<%ICx<TL>$r(B{\tt format.name\$} $B$7$F(B
+$BF@$i$l$k(Bfirst name$B$K$O@+$,!$(Blast name$B$K$OL>$,F@$i$l$k$3$H$KCm0U$,I,MW$G(B
+$B$"$k(B({\tt format.name\$} $B$r40A4$K$OF|K\8lBP1~$K$7$F$$$J$$$?$a$G$"$k!%$7$+$7(B
+family name, last token$B$HFI$_BX$($l$PLdBj$J$$$7(B{\tt :-)}$B!%F|K\8lBP1~$N(B
+$B%9%?%$%k%U%!%$%k$r:n@.$7$?7P83$+$i8@$&$H!$4A;z%3!<%ICx<TL>$H(B
+$B$=$l0J30$N>l9g$KF1$8%U%)!<%^%C%H$r;XDj$7$F(B{\tt format.name\$} $B$r8F$S=P$9(B
+$B$3$H$O$[$H$s$I$J$$$N$G!$:.Mp$9$k$+$b$7$l$J$$$,!$$"$($F$3$N$^$^$K$7$F$"$k(B)$B!%(B
+$B$^$?!$Nc$G$O4A;z%3!<%ICx<TL>$N6h@Z$j$H$7$F!$(B`` and '' $B$r;H$C$F$"$k$,!$$3$3$O(B
+$B$b$A$m$s!$(B``$B!$(B'' ($BC"$7A43Q!*(B)$B$G$h$$!%(B}$B!%(B
 
 {\baselineskip=11pt
 \begin{quote}
@@ -598,10 +598,10 @@ family name, last tokenと読み替えれば問題ないし{\tt :-)}．日本語
 \end{verbatim}
 \newpage
 \begin{verbatim}
-  @ARTICLE{あふれ無し,
-        author="松井 正一 and 伊理 正夫",
-        title="あふれのない浮動小数点表示方式",
-        journal="情報処理学会論文誌", volume=21, number=4, pages="306--313",
+  @ARTICLE{$B$"$U$lL5$7(B,
+        author="$B>>0f(B $B@50l(B and $B0KM}(B $B@5IW(B",
+        title="$B$"$U$l$N$J$$IbF0>.?tE@I=<(J}<0(B",
+        journal="$B>pJs=hM}3X2qO@J8;o(B", volume=21, number=4, pages="306--313",
         yomi="Shouichi Matsui and Masao Iri",
         year=1980
   }
@@ -609,7 +609,7 @@ family name, last tokenと読み替えれば問題ないし{\tt :-)}．日本語
 \end{quote}
 }
 
-このようにデータベースを作成しておくと{\tt jplain}ならば
+$B$3$N$h$&$K%G!<%?%Y!<%9$r:n@.$7$F$*$/$H(B{\tt jplain}$B$J$i$P(B
 
 \vskip 1.5mm
 \hskip1cm
@@ -617,10 +617,10 @@ family name, last tokenと読み替えれば問題ないし{\tt :-)}．日本語
 Linear-time approximation $\cdots$
 
 \hskip1cm
-[2] 松井正一, 伊理正夫. あふれのない浮動小数点表示方式. $\cdots$
+[2] $B>>0f@50l(B, $B0KM}@5IW(B. $B$"$U$l$N$J$$IbF0>.?tE@I=<(J}<0(B. $\cdots$
 \vskip 1.5mm
 
-\noindent のような形で参考文献リストが得られる．{\tt jalpha}なら
+\noindent $B$N$h$&$J7A$G;29MJ88%%j%9%H$,F@$i$l$k!%(B{\tt jalpha}$B$J$i(B
 
 \vskip 1.5mm
 \hskip1cm
@@ -628,10 +628,10 @@ Linear-time approximation $\cdots$
  $\cdots$
 
 \hskip1cm
-[MI80]~~~ 松井正一, 伊理正夫. あふれのない浮動小数点表示方式. $\cdots$
+[MI80]~~~ $B>>0f@50l(B, $B0KM}@5IW(B. $B$"$U$l$N$J$$IbF0>.?tE@I=<(J}<0(B. $\cdots$
 \vskip 1.5mm
 
-\noindent となる．{\tt jabbrv}なら
+\noindent $B$H$J$k!%(B{\tt jabbrv}$B$J$i(B
 
 \vskip 1.5mm
 \hskip1cm
@@ -639,33 +639,33 @@ Linear-time approximation $\cdots$
  $\cdots$
 
 \hskip1cm
-[2] 松井, 伊理. あふれのない浮動小数点表示方式. $\cdots$
+[2] $B>>0f(B, $B0KM}(B. $B$"$U$l$N$J$$IbF0>.?tE@I=<(J}<0(B. $\cdots$
 \vskip 1.5mm
 
-\noindent となる．著者が漢字コードなのに`{\tt yomi}'がない場合には，例えば，
+\noindent $B$H$J$k!%Cx<T$,4A;z%3!<%I$J$N$K(B`{\tt yomi}'$B$,$J$$>l9g$K$O!$Nc$($P!$(B
 
 \vskip 1.5mm
 \hskip1cm
-[松井80] 松井正一, 伊理正夫. あふれのない浮動小数点表示方式. $\cdots$
+[$B>>0f(B80] $B>>0f@50l(B, $B0KM}@5IW(B. $B$"$U$l$N$J$$IbF0>.?tE@I=<(J}<0(B. $\cdots$
 \vskip 1.5mm
 
-\noindent となるようにしてある(著者が複数でも先頭の著者のみからラベルを
-作るようにしてある)．ただし，ソートキーには漢字コード(EUCコード)が
-使われるから，順番はおかしなものとなる．
+\noindent $B$H$J$k$h$&$K$7$F$"$k(B($BCx<T$,J#?t$G$b@hF,$NCx<T$N$_$+$i%i%Y%k$r(B
+$B:n$k$h$&$K$7$F$"$k(B)$B!%$?$@$7!$%=!<%H%-!<$K$O4A;z%3!<%I(B(EUC$B%3!<%I(B)$B$,(B
+$B;H$o$l$k$+$i!$=gHV$O$*$+$7$J$b$N$H$J$k!%(B
 
 
-\section{おわりに}
+\section{$B$*$o$j$K(B}
 
-本稿では日本語化した\BibTeX である\JBibTeX について述べた．
-バージョン0.20まではとりあえず動くという形で作成してあったが，
-バージョン0.30では十分実用に耐えるレベルに達したと考えている．
-日本語用のスタイルについても同様である．
-現在までのところ利用者がさほど多くないため，使用経験が乏しい．
-今後は使用経験に基づき，日本語のために必要な組み込み関数の
-変更・追加などの改良を加えていきたい．また各種の学会用のスタイルの
-作成も必要であると考えている．
-またOren Patashnik氏からの私信によれば，今年中(1991)にversion 1.0をリリースする
-予定らしいので，それの日本語化も必要であろう．
+$BK\9F$G$OF|K\8l2=$7$?(B\BibTeX $B$G$"$k(B\JBibTeX $B$K$D$$$F=R$Y$?!%(B
+$B%P!<%8%g%s(B0.20$B$^$G$O$H$j$"$($:F0$/$H$$$&7A$G:n@.$7$F$"$C$?$,!$(B
+$B%P!<%8%g%s(B0.30$B$G$O==J,<BMQ$KBQ$($k%l%Y%k$KC#$7$?$H9M$($F$$$k!%(B
+$BF|K\8lMQ$N%9%?%$%k$K$D$$$F$bF1MM$G$"$k!%(B
+$B8=:_$^$G$N$H$3$mMxMQ<T$,$5$[$IB?$/$J$$$?$a!$;HMQ7P83$,K3$7$$!%(B
+$B:#8e$O;HMQ7P83$K4p$E$-!$F|K\8l$N$?$a$KI,MW$JAH$_9~$_4X?t$N(B
+$BJQ99!&DI2C$J$I$N2~NI$r2C$($F$$$-$?$$!%$^$?3F<o$N3X2qMQ$N%9%?%$%k$N(B
+$B:n@.$bI,MW$G$"$k$H9M$($F$$$k!%(B
+$B$^$?(BOren Patashnik$B;a$+$i$N;d?.$K$h$l$P!$:#G/Cf(B(1991)$B$K(Bversion 1.0$B$r%j%j!<%9$9$k(B
+$BM=Dj$i$7$$$N$G!$$=$l$NF|K\8l2=$bI,MW$G$"$m$&!%(B
 
 \bibliography{jbibtex}
 \bibliographystyle{jplain}

@@ -1,67 +1,67 @@
 %% <1999/04/05>
 \documentclass{plnews}
 
-\publicationyear{1999}% 発行年
-\publicationmonth{4}% 発行月
-\publicationissue{5}% 番号
-\author{中野 賢（\texttt{<ken-na at ascii.co.jp>}）
-     \& 富樫 秀昭（\texttt{<hideak-t at ascii.co.jp>}）
+\publicationyear{1999}% $BH/9TG/(B
+\publicationmonth{4}% $BH/9T7n(B
+\publicationissue{5}% $BHV9f(B
+\author{$BCfLn(B $B8-!J(B\texttt{<ken-na at ascii.co.jp>}$B!K(B
+     \& $BIY3_(B $B=(><!J(B\texttt{<hideak-t at ascii.co.jp>}$B!K(B
 }
 
 \begin{document}
 
 \maketitle
 
-\section{この文書について}
-この文書は、p\LaTeXe{}\texttt{<1999/04/05>}版について、
-前回の版（\texttt{<1998/09/01>}）からの更新箇所をまとめたものです。
-それ以前の変更点については、\textsf{plnews*.tex}やChanges.txtを
-参照してください。\LaTeX{}レベルでの更新箇所は、\LaTeX{}に付属の
-ltnewsファイルを参照してください。
+\section{$B$3$NJ8=q$K$D$$$F(B}
+$B$3$NJ8=q$O!"(Bp\LaTeXe{}\texttt{<1999/04/05>}$BHG$K$D$$$F!"(B
+$BA02s$NHG!J(B\texttt{<1998/09/01>}$B!K$+$i$N99?72U=j$r$^$H$a$?$b$N$G$9!#(B
+$B$=$l0JA0$NJQ99E@$K$D$$$F$O!"(B\textsf{plnews*.tex}$B$d(BChanges.txt$B$r(B
+$B;2>H$7$F$/$@$5$$!#(B\LaTeX{}$B%l%Y%k$G$N99?72U=j$O!"(B\LaTeX{}$B$KIUB0$N(B
+ltnews$B%U%!%$%k$r;2>H$7$F$/$@$5$$!#(B
 
-\section{前バージョンからの修正個所}
+\section{$BA0%P!<%8%g%s$+$i$N=$@58D=j(B}
 \begin{itemize}
-\item 和文デフォルトフォントを変更しても、文書の先頭では反映されない
-  のを修正した（ありがとう、山本＠理科大さん）。
-\item \verb|\\|コマンドにオプションを付けた場合、その後ろに余計な
-  空白が入ってしまうのを修正した（ありがとう、鈴木＠京大さん）。
-\item \LaTeX \texttt{<1998/12/01>}に対応した。
+\item $BOBJ8%G%U%)%k%H%U%)%s%H$rJQ99$7$F$b!"J8=q$N@hF,$G$OH?1G$5$l$J$$(B
+  $B$N$r=$@5$7$?!J$"$j$,$H$&!";3K\!wM}2JBg$5$s!K!#(B
+\item \verb|\\|$B%3%^%s%I$K%*%W%7%g%s$rIU$1$?>l9g!"$=$N8e$m$KM>7W$J(B
+  $B6uGr$,F~$C$F$7$^$&$N$r=$@5$7$?!J$"$j$,$H$&!"NkLZ!w5~Bg$5$s!K!#(B
+\item \LaTeX \texttt{<1998/12/01>}$B$KBP1~$7$?!#(B
 \end{itemize}
 
 
-\section{フォーマットファイル作成時の注意}
-現在のp\TeX{}では、8ビットコードの連続を16ビットコードと認識して
-しまう場合があります。そのため、フランス語やキリル文字などの
-8ビットコードが連続するハイフンパターンはまず使えせん。
-例えばcmcyraltパッケージでは、途中でつぎのようなエラーになります。
+\section{$B%U%)!<%^%C%H%U%!%$%k:n@.;~$NCm0U(B}
+$B8=:_$N(Bp\TeX{}$B$G$O!"(B8$B%S%C%H%3!<%I$NO"B3$r(B16$B%S%C%H%3!<%I$HG'<1$7$F(B
+$B$7$^$&>l9g$,$"$j$^$9!#$=$N$?$a!"%U%i%s%98l$d%-%j%kJ8;z$J$I$N(B
+8$B%S%C%H%3!<%I$,O"B3$9$k%O%$%U%s%Q%?!<%s$O$^$:;H$($;$s!#(B
+$BNc$($P(Bcmcyralt$B%Q%C%1!<%8$G$O!"ESCf$G$D$.$N$h$&$J%(%i!<$K$J$j$^$9!#(B
 
 \begin{verbatim}
 (/usr/local/share/texmf/tex/latex/contrib/
 other/cmcyralt/rhyphen.tex Russian hyphena
 tion
 ! Bad \patterns.
-l.107  . え
+l.107  . $B$((B
            2
 ?
 \end{verbatim}
 
-このときは、``|?|''のプロンプトに対して``|x|''で終了してください。
-残念ながら、このハイフンパターンをp\TeX{}で利用することはできません。
+$B$3$N$H$-$O!"(B``|?|''$B$N%W%m%s%W%H$KBP$7$F(B``|x|''$B$G=*N;$7$F$/$@$5$$!#(B
+$B;DG0$J$,$i!"$3$N%O%$%U%s%Q%?!<%s$r(Bp\TeX{}$B$GMxMQ$9$k$3$H$O$G$-$^$;$s!#(B
 
-そこで、hyphen.cfgを用意して、不用意に他のハイフンパターンを
-読み込まないようにしてあります。詳しくはREADME2.txtをご覧ください。
+$B$=$3$G!"(Bhyphen.cfg$B$rMQ0U$7$F!"ITMQ0U$KB>$N%O%$%U%s%Q%?!<%s$r(B
+$BFI$_9~$^$J$$$h$&$K$7$F$"$j$^$9!#>\$7$/$O(BREADME2.txt$B$r$4Mw$/$@$5$$!#(B
 
-\section{その他}
-p\TeX{}やp\LaTeXe{}に関する最新情報は、p\TeX{}ホームページ
+\section{$B$=$NB>(B}
+p\TeX{}$B$d(Bp\LaTeXe{}$B$K4X$9$k:G?7>pJs$O!"(Bp\TeX{}$B%[!<%`%Z!<%8(B
 \begin{verbatim}
     http://www.ascii.co.jp/pb/ptex
 \end{verbatim}
-より、入手することができます。
+$B$h$j!"F~<j$9$k$3$H$,$G$-$^$9!#(B
 
-バグ報告やお問い合わせなどは、電子メールで
+$B%P%0Js9p$d$*Ld$$9g$o$;$J$I$O!"EE;R%a!<%k$G(B
 \begin{verbatim}
-    www-ptex＠ascii.co.jp
+    www-ptex$B!w(Bascii.co.jp
 \end{verbatim}
-までお願いします。
+$B$^$G$*4j$$$7$^$9!#(B
 
 \end{document}

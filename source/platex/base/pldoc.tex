@@ -38,8 +38,8 @@
 %%   Right brace   \}     Tilde         \~}
 %%
 \begin{filecontents}{pldoc.dic}
-西暦    せいれき
-和暦    われき
+$B@>Nq(B    $B$;$$$l$-(B
+$BOBNq(B    $B$o$l$-(B
 \end{filecontents}
 \documentclass{jltxdoc}
 \usepackage{plext}
@@ -63,15 +63,15 @@
 \DoNotIndex{\dp,\wd,\ht,\setlength,\addtolength}
 \DoNotIndex{\newcommand, \renewcommand}
 
-\IndexPrologue{\part*{索 引}%
-                 \markboth{索 引}{索 引}%
-                 \addcontentsline{toc}{part}{索 引}%
-イタリック体の数字は、その項目が説明されているページを示しています。
-下線の引かれた数字は、定義されているページを示しています。
-その他の数字は、その項目が使われているページを示しています。}
-\GlossaryPrologue{\part*{変更履歴}%
-                 \markboth{変更履歴}{変更履歴}%
-                 \addcontentsline{toc}{part}{変更履歴}}
+\IndexPrologue{\part*{$B:w(B $B0z(B}%
+                 \markboth{$B:w(B $B0z(B}{$B:w(B $B0z(B}%
+                 \addcontentsline{toc}{part}{$B:w(B $B0z(B}%
+$B%$%?%j%C%/BN$N?t;z$O!"$=$N9`L\$,@bL@$5$l$F$$$k%Z!<%8$r<($7$F$$$^$9!#(B
+$B2<@~$N0z$+$l$??t;z$O!"Dj5A$5$l$F$$$k%Z!<%8$r<($7$F$$$^$9!#(B
+$B$=$NB>$N?t;z$O!"$=$N9`L\$,;H$o$l$F$$$k%Z!<%8$r<($7$F$$$^$9!#(B}
+\GlossaryPrologue{\part*{$BJQ99MzNr(B}%
+                 \markboth{$BJQ99MzNr(B}{$BJQ99MzNr(B}%
+                 \addcontentsline{toc}{part}{$BJQ99MzNr(B}}
 
 \makeatletter
 \def\changes@#1#2#3{%

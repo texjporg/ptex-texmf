@@ -4,77 +4,77 @@
 \publicationyear{1998}
 \publicationmonth{2}
 \publicationissue{3}
-\author{中野 賢（\texttt{<ken-na at ascii.co.jp>}）
-     \& 富樫 秀昭（\texttt{<hideak-t at ascii.co.jp>}）
+\author{$BCfLn(B $B8-!J(B\texttt{<ken-na at ascii.co.jp>}$B!K(B
+     \& $BIY3_(B $B=(><!J(B\texttt{<hideak-t at ascii.co.jp>}$B!K(B
 }
 
 \begin{document}
 
 \maketitle
 
-\section{この文書について}
-この文書は、p\LaTeXe{}\texttt{<1998/02/01>}版について、
-p\LaTeXe{}\texttt{<1997/07/02>}版からの更新箇所をまとめたものです。
+\section{$B$3$NJ8=q$K$D$$$F(B}
+$B$3$NJ8=q$O!"(Bp\LaTeXe{}\texttt{<1998/02/01>}$BHG$K$D$$$F!"(B
+p\LaTeXe{}\texttt{<1997/07/02>}$BHG$+$i$N99?72U=j$r$^$H$a$?$b$N$G$9!#(B
 
-このp\LaTeXe{}は、\LaTeX{}\texttt{<1997/12/01>}版に対応しています。
-\LaTeX{}レベルでの更新箇所は、\LaTeX{}に付属のltnewsファイルを
-参照してください。
+$B$3$N(Bp\LaTeXe{}$B$O!"(B\LaTeX{}\texttt{<1997/12/01>}$BHG$KBP1~$7$F$$$^$9!#(B
+\LaTeX{}$B%l%Y%k$G$N99?72U=j$O!"(B\LaTeX{}$B$KIUB0$N(Bltnews$B%U%!%$%k$r(B
+$B;2>H$7$F$/$@$5$$!#(B
 
-\section{パッチの取り込み}
-plpatch.ltxで提供していた、つぎの修正を取り込みました。
-
-\begin{itemize}
-\item 小文字のファイル名のフォント定義ファイル（.fdファイル）をロードする
-ための修正。
-\item |\\|コマンドの直前の空白を無視するための修正。
-\end{itemize}
-
-\section{クラスファイルの修正}
-日本語クラスファイル（1.1e）に対して、以下の変更を加えました。
+\section{$B%Q%C%A$N<h$j9~$_(B}
+plpatch.ltx$B$GDs6!$7$F$$$?!"$D$.$N=$@5$r<h$j9~$_$^$7$?!#(B
 
 \begin{itemize}
-\item 縦組クラスで書体の大きさを変更したとき、ベースラインがずれる（1.1f）。
-\item onesideオプションを指定したとき、section レベルの文字列が柱に
-      出力されない（1.1g）。
-\item landscapeオプション指定時のレイアウトパラメータの修正（1.1h）。
-\item jreport, jbookクラスで、onesideオプションを指定し、ページスタイルを
-      bothstyleにすると、コンパイルエラーになる（1.1i）。
+\item $B>.J8;z$N%U%!%$%kL>$N%U%)%s%HDj5A%U%!%$%k!J(B.fd$B%U%!%$%k!K$r%m!<%I$9$k(B
+$B$?$a$N=$@5!#(B
+\item |\\|$B%3%^%s%I$ND>A0$N6uGr$rL5;k$9$k$?$a$N=$@5!#(B
 \end{itemize}
 
-\section{フォーマットファイル作成時の注意}
-現在のp\TeX{}（p2.1.5）では、8ビットコードの連続を16ビットコードと認識して
-しまう場合があります。そのため、フランス語やキリル文字などの
-8ビットコードが連続するハイフンパターンはまず使えせん。
-例えばcmcyraltパッケージでは、途中でつぎのようなエラーになります。
+\section{$B%/%i%9%U%!%$%k$N=$@5(B}
+$BF|K\8l%/%i%9%U%!%$%k!J(B1.1e$B!K$KBP$7$F!"0J2<$NJQ99$r2C$($^$7$?!#(B
+
+\begin{itemize}
+\item $B=DAH%/%i%9$G=qBN$NBg$-$5$rJQ99$7$?$H$-!"%Y!<%9%i%$%s$,$:$l$k!J(B1.1f$B!K!#(B
+\item oneside$B%*%W%7%g%s$r;XDj$7$?$H$-!"(Bsection $B%l%Y%k$NJ8;zNs$,Cl$K(B
+      $B=PNO$5$l$J$$!J(B1.1g$B!K!#(B
+\item landscape$B%*%W%7%g%s;XDj;~$N%l%$%"%&%H%Q%i%a!<%?$N=$@5!J(B1.1h$B!K!#(B
+\item jreport, jbook$B%/%i%9$G!"(Boneside$B%*%W%7%g%s$r;XDj$7!"%Z!<%8%9%?%$%k$r(B
+      bothstyle$B$K$9$k$H!"%3%s%Q%$%k%(%i!<$K$J$k!J(B1.1i$B!K!#(B
+\end{itemize}
+
+\section{$B%U%)!<%^%C%H%U%!%$%k:n@.;~$NCm0U(B}
+$B8=:_$N(Bp\TeX{}$B!J(Bp2.1.5$B!K$G$O!"(B8$B%S%C%H%3!<%I$NO"B3$r(B16$B%S%C%H%3!<%I$HG'<1$7$F(B
+$B$7$^$&>l9g$,$"$j$^$9!#$=$N$?$a!"%U%i%s%98l$d%-%j%kJ8;z$J$I$N(B
+8$B%S%C%H%3!<%I$,O"B3$9$k%O%$%U%s%Q%?!<%s$O$^$:;H$($;$s!#(B
+$BNc$($P(Bcmcyralt$B%Q%C%1!<%8$G$O!"ESCf$G$D$.$N$h$&$J%(%i!<$K$J$j$^$9!#(B
 
 \begin{verbatim}
 (/usr/local/share/texmf/tex/latex/contrib/
 other/cmcyralt/rhyphen.tex Russian hyphena
 tion
 ! Bad \patterns.
-l.107  . え
+l.107  . $B$((B
            2
 ?
 \end{verbatim}
 
-このときは、``|?|''のプロンプトに対して``|x|''で終了してください。
-残念ながら、このハイフンパターンをp\TeX{}で利用することはできません。
+$B$3$N$H$-$O!"(B``|?|''$B$N%W%m%s%W%H$KBP$7$F(B``|x|''$B$G=*N;$7$F$/$@$5$$!#(B
+$B;DG0$J$,$i!"$3$N%O%$%U%s%Q%?!<%s$r(Bp\TeX{}$B$GMxMQ$9$k$3$H$O$G$-$^$;$s!#(B
 
-p\LaTeXe{}では|$TEXMF/tex/platex/base/|ディレクトリにhyphen.cfgを
-用意して、不用意に他のハイフンパターンを読み込まないようにしてあります。
+p\LaTeXe{}$B$G$O(B|$TEXMF/tex/platex/base/|$B%G%#%l%/%H%j$K(Bhyphen.cfg$B$r(B
+$BMQ0U$7$F!"ITMQ0U$KB>$N%O%$%U%s%Q%?!<%s$rFI$_9~$^$J$$$h$&$K$7$F$"$j$^$9!#(B
 
 
-\section{その他}
-p\TeX{}やp\LaTeXe{}に関する最新情報は、p\TeX{}ホームページ
+\section{$B$=$NB>(B}
+p\TeX{}$B$d(Bp\LaTeXe{}$B$K4X$9$k:G?7>pJs$O!"(Bp\TeX{}$B%[!<%`%Z!<%8(B
 \begin{verbatim}
     http://www.ascii.co.jp/pb/ptex
 \end{verbatim}
-より、入手することができます。
+$B$h$j!"F~<j$9$k$3$H$,$G$-$^$9!#(B
 
-バグ報告やお問い合わせなどは、電子メールで
+$B%P%0Js9p$d$*Ld$$9g$o$;$J$I$O!"EE;R%a!<%k$G(B
 \begin{verbatim}
-    www-ptex＠ascii.co.jp
+    www-ptex$B!w(Bascii.co.jp
 \end{verbatim}
-までお願いします。
+$B$^$G$*4j$$$7$^$9!#(B
 
 \end{document}

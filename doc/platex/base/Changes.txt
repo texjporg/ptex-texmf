@@ -1,299 +1,299 @@
 <2006/11/10>
-  * plfonts.dtx: $a^\mathrm{b}, a_\mathrm{b}$のような記述をした場合に
-      エラーになる問題に対処。（ありがとうございます、ymtさん）
-  * jclasses.dtx: 解説を追加。（ありがとうございます、ymtさん）
+  * plfonts.dtx: $a^\mathrm{b}, a_\mathrm{b}$$B$N$h$&$J5-=R$r$7$?>l9g$K(B
+      $B%(%i!<$K$J$kLdBj$KBP=h!#!J$"$j$,$H$&$4$6$$$^$9!"(Bymt$B$5$s!K(B
+  * jclasses.dtx: $B2r@b$rDI2C!#!J$"$j$,$H$&$4$6$$$^$9!"(Bymt$B$5$s!K(B
 ----------------
 <2006/06/27>
-  * plfonts.dtx: \reDeclareMathAlphabetをLaTeX <2005/12/01>で数式用書
-      体変更命令がrubustになったのに対応。（ありがとうございます、ymtさん）
-  * jclasses.dtx: pLaTeX 209互換モードで数式famが重複使用されていたの
-      を解消。（ありがとうございます、ymtさん）
-  * tascmac.sty: itembox,screen環境で罫線がずれるバグを修正。
-      （ありがとうございます、北見さん）
+  * plfonts.dtx: \reDeclareMathAlphabet$B$r(BLaTeX <2005/12/01>$B$G?t<0MQ=q(B
+      $BBNJQ99L?Na$,(Brubust$B$K$J$C$?$N$KBP1~!#!J$"$j$,$H$&$4$6$$$^$9!"(Bymt$B$5$s!K(B
+  * jclasses.dtx: pLaTeX 209$B8_49%b!<%I$G?t<0(Bfam$B$,=EJ#;HMQ$5$l$F$$$?$N(B
+      $B$r2r>C!#!J$"$j$,$H$&$4$6$$$^$9!"(Bymt$B$5$s!K(B
+  * tascmac.sty: itembox,screen$B4D6-$G7S@~$,$:$l$k%P%0$r=$@5!#(B
+      $B!J$"$j$,$H$&$4$6$$$^$9!"KL8+$5$s!K(B
 ----------------
 <2006/01/04>
-  * nidanfloat.dtx: 必須フォーマットファイルをpLaTeX2eからLaTeX2eへ変更。
-  * plfonts.dtx: \DeclareFontEncoding@ 中で \LastDeclaredEncodeng の再定義が
-      抜けていたので追加。
-  * plvers.dtx: バージョン番号更新(platex<2006/01/04>)
+  * nidanfloat.dtx: $BI,?\%U%)!<%^%C%H%U%!%$%k$r(BpLaTeX2e$B$+$i(BLaTeX2e$B$XJQ99!#(B
+  * plfonts.dtx: \DeclareFontEncoding@ $BCf$G(B \LastDeclaredEncodeng $B$N:FDj5A$,(B
+      $BH4$1$F$$$?$N$GDI2C!#(B
+  * plvers.dtx: $B%P!<%8%g%sHV9f99?7(B(platex<2006/01/04>)
 ----------------
 <2005/01/04>
-  * plfonts.dtx: \fontfamily中のフラグを修正。
-      （ありがとうございます、角藤さん）
-  * plvers.dtx: バージョン番号更新(platex<2005/01/04>)
+  * plfonts.dtx: \fontfamily$BCf$N%U%i%0$r=$@5!#(B
+      $B!J$"$j$,$H$&$4$6$$$^$9!"3QF#$5$s!K(B
+  * plvers.dtx: $B%P!<%8%g%sHV9f99?7(B(platex<2005/01/04>)
 ----------------
 <2004/08/10>
-  * plfonts.dtx: verbatim環境で余計な前後空きが発生しないように \fontfamily
-      を修正。
-      （ありがとうございます、本田さん）
-  * plfonts.dtx: JY1,JT1以外の和文エンコーディングも使用できるように修正。
-      （ありがとうございます、井上さん）
-  * jclasses.dtx: \part, \chapter の \@afterindentfalse を \@afterindenttrue
-      に変更。
-  * jclasses.dtx: \section, \subsection, \subsubsection の前後空きの
-      伸縮幅を修正。
-      （ありがとうございます、鈴木た＠MILNさん）
-  * LaTeX2e 2003/12/01 版への対応を確認。
+  * plfonts.dtx: verbatim$B4D6-$GM>7W$JA08e6u$-$,H/@8$7$J$$$h$&$K(B \fontfamily
+      $B$r=$@5!#(B
+      $B!J$"$j$,$H$&$4$6$$$^$9!"K\ED$5$s!K(B
+  * plfonts.dtx: JY1,JT1$B0J30$NOBJ8%(%s%3!<%G%#%s%0$b;HMQ$G$-$k$h$&$K=$@5!#(B
+      $B!J$"$j$,$H$&$4$6$$$^$9!"0f>e$5$s!K(B
+  * jclasses.dtx: \part, \chapter $B$N(B \@afterindentfalse $B$r(B \@afterindenttrue
+      $B$KJQ99!#(B
+  * jclasses.dtx: \section, \subsection, \subsubsection $B$NA08e6u$-$N(B
+      $B?-=LI}$r=$@5!#(B
+      $B!J$"$j$,$H$&$4$6$$$^$9!"NkLZ$?!w(BMILN$B$5$s!K(B
+  * LaTeX2e 2003/12/01 $BHG$X$NBP1~$r3NG'!#(B
 ----------------
 <2002/04/09>
-  * jclasses.dtx: 縦組スタイルで \flushbottom しないようにした。
+  * jclasses.dtx: $B=DAH%9%?%$%k$G(B \flushbottom $B$7$J$$$h$&$K$7$?!#(B
 ----------------
 <2002/04/05>
-  * plfonts.dtx: |\adjustbaseline|の|\iftdir|の位置を、和文フォントの基
-      準値を設定した後に移動。（ありがとう、奥村さん）
+  * plfonts.dtx: |\adjustbaseline|$B$N(B|\iftdir|$B$N0LCV$r!"OBJ8%U%)%s%H$N4p(B
+      $B=`CM$r@_Dj$7$?8e$K0\F0!#!J$"$j$,$H$&!"1|B<$5$s!K(B
 ----------------
 <2002/04/01>
-  * tascmac.sty: \ascii, \Ascii, \ASCII マクロがエラーになっていたのを修正。
+  * tascmac.sty: \ascii, \Ascii, \ASCII $B%^%/%m$,%(%i!<$K$J$C$F$$$?$N$r=$@5!#(B
 ----------------
 <2002/01/17>
-  * plvers.dtx: v1.0i の更新日付が 2009 年になっていたのを 2001 に修正。
-  		LaTeX のバージョンも 2000 になっていたのを 2001 に修正。
+  * plvers.dtx: v1.0i $B$N99?7F|IU$,(B 2009 $BG/$K$J$C$F$$$?$N$r(B 2001 $B$K=$@5!#(B
+  		LaTeX $B$N%P!<%8%g%s$b(B 2000 $B$K$J$C$F$$$?$N$r(B 2001 $B$K=$@5!#(B
 ----------------
 <2001/10/04>
-  * jclasses.dtx: 目次で出力されるページ番号の書体を|\normalfont|に変更
-     （ありがとう、鈴木た＠MILNさん）
-  * plnews07.tex: 上記の変更の記述を追加
+  * jclasses.dtx: $BL\<!$G=PNO$5$l$k%Z!<%8HV9f$N=qBN$r(B|\normalfont|$B$KJQ99(B
+     $B!J$"$j$,$H$&!"NkLZ$?!w(BMILN$B$5$s!K(B
+  * plnews07.tex: $B>e5-$NJQ99$N5-=R$rDI2C(B
 ----------------
 <2001/09/26>
-  * plnews07.tex: 追加
-  * plvers.dtx: LaTeX <2001/06/01> 用に修正
-  * plcore.dtx: LaTeX <2001/06/01> 用に修正
-  * plext.dtx: タグ名を plcore から package に変更
-  * plfmt.ins: plext.dtx の展開に用いるタグ名の変更
+  * plnews07.tex: $BDI2C(B
+  * plvers.dtx: LaTeX <2001/06/01> $BMQ$K=$@5(B
+  * plcore.dtx: LaTeX <2001/06/01> $BMQ$K=$@5(B
+  * plext.dtx: $B%?%0L>$r(B plcore $B$+$i(B package $B$KJQ99(B
+  * plfmt.ins: plext.dtx $B$NE83+$KMQ$$$k%?%0L>$NJQ99(B
 ----------------
 <2001/09/14>
-  * nidanfloat.dtx: パッケージオプション(balance, nobalance)を追加
+  * nidanfloat.dtx: $B%Q%C%1!<%8%*%W%7%g%s(B(balance, nobalance)$B$rDI2C(B
 ----------------
 <2001/09/04>
-  * README.txt: 使用条項を削除（ptex-texmf の COPYRIGHT を採用）
-  * Copyright: 削除（ptex-texmf の COPYRIGHT を採用）
-  * plvers.dtx: pLaTeX <2001/09/04> 用に修正
-  * plpatch.ltx: pLaTeX <2001/09/04> 用に修正
-  * plcore.dtx: \enlargethispage を使ったとき、脚注の線が本文と重なるのを修正
-  * jclasses.dtx: \chapter コマンドをアスタリスク形式で使ったときと
-      そうでないときで、出力位置が異なるのを修正（ありがとう、鈴木＠津さん）
+  * README.txt: $B;HMQ>r9`$r:o=|!J(Bptex-texmf $B$N(B COPYRIGHT $B$r:NMQ!K(B
+  * Copyright: $B:o=|!J(Bptex-texmf $B$N(B COPYRIGHT $B$r:NMQ!K(B
+  * plvers.dtx: pLaTeX <2001/09/04> $BMQ$K=$@5(B
+  * plpatch.ltx: pLaTeX <2001/09/04> $BMQ$K=$@5(B
+  * plcore.dtx: \enlargethispage $B$r;H$C$?$H$-!"5SCm$N@~$,K\J8$H=E$J$k$N$r=$@5(B
+  * jclasses.dtx: \chapter $B%3%^%s%I$r%"%9%?%j%9%/7A<0$G;H$C$?$H$-$H(B
+      $B$=$&$G$J$$$H$-$G!"=PNO0LCV$,0[$J$k$N$r=$@5!J$"$j$,$H$&!"NkLZ!wDE$5$s!K(B
 ----------------
 <2001/05/10>
-  * plext.dtx: 縦組のとき z オプションでエラーが出るのを修正
-    （ありがとう、大石さん）
-  * plfonts.dtx: ベースラインシフトの調整値が大きくなっているのを修正
+  * plext.dtx: $B=DAH$N$H$-(B z $B%*%W%7%g%s$G%(%i!<$,=P$k$N$r=$@5(B
+    $B!J$"$j$,$H$&!"Bg@P$5$s!K(B
+  * plfonts.dtx: $B%Y!<%9%i%$%s%7%U%H$ND4@0CM$,Bg$-$/$J$C$F$$$k$N$r=$@5(B
 ----------------
 <2001/02/19>
-  * nidanfloat.dtx: 最終ページで左右の行間が揃わないのを修正
-  * nidanfloat.dtx: 柱が出ないのを修正
+  * nidanfloat.dtx: $B:G=*%Z!<%8$G:81&$N9T4V$,B7$o$J$$$N$r=$@5(B
+  * nidanfloat.dtx: $BCl$,=P$J$$$N$r=$@5(B
 ----------------
 <2000/12/20>
-  * nidanfloat.dtx: 一段抜きのフロートを混ぜるとエラーになるのを修正
-    （ありがとう、倉沢＠QUIPUさん）
+  * nidanfloat.dtx: $B0lCJH4$-$N%U%m!<%H$r:.$<$k$H%(%i!<$K$J$k$N$r=$@5(B
+    $B!J$"$j$,$H$&!"ARBt!w(BQUIPU$B$5$s!K(B
 ----------------
 <2000/11/03>
-  * plvers.dtx: LaTeX <2000/06/01> に合わせて修正。
-  * plpatch.ltx: pLaTeX<2000/11/03> 用に修正。
+  * plvers.dtx: LaTeX <2000/06/01> $B$K9g$o$;$F=$@5!#(B
+  * plpatch.ltx: pLaTeX<2000/11/03> $BMQ$K=$@5!#(B
 ----------------
 <2000/10/24>
-  * plfonts.dtx: \adjustbaselineで余分なアキが入らないようにした
+  * plfonts.dtx: \adjustbaseline$B$GM>J,$J%"%-$,F~$i$J$$$h$&$K$7$?(B
 ----------------
 <2000/07/14>
-  * plfonts.dtx: \textbf などの書体変更コマンドで、左端の欧文との間に
-    \xkanjiskip が入らないのを修正（ありがとう、乙部＠東大さん）
+  * plfonts.dtx: \textbf $B$J$I$N=qBNJQ99%3%^%s%I$G!":8C<$N2$J8$H$N4V$K(B
+    \xkanjiskip $B$,F~$i$J$$$N$r=$@5!J$"$j$,$H$&!"25It!wElBg$5$s!K(B
 ----------------
 <2000/07/13>
-  * nidanfloat.{dtx,ins,sty} を追加。
+  * nidanfloat.{dtx,ins,sty} $B$rDI2C!#(B
 ----------------
 <2000/02/29>
-  * plvers.dtx: LaTeX <1999/12/01> に合わせて修正。
-  * plpatch.ltx: pLaTeX<2000/02/29> 用に修正。
+  * plvers.dtx: LaTeX <1999/12/01> $B$K9g$o$;$F=$@5!#(B
+  * plpatch.ltx: pLaTeX<2000/02/29> $BMQ$K=$@5!#(B
 ----------------
 <1999/05/18>
   * jclasses.dtx: enumerate 
 ----------------
 <1999/04/05>
-  * plvers.dtx: LaTeX <1998/12/01> に合わせて修正。
-    pLaTeX のバージョンを <1999/04/05> にした。
-  * plfonts.dtx: 文書の先頭で、和文デフォルトフォントの変更が反映
-    されないのを修正（ありがとう、山本＠理科大さん）。
-  * plcore.dtx: \\ にオプションを付けたときに余計なスペースが出力
-    されてしまうのを修正（ありがとう、鈴木＠京大さん）。
-  * plpatch.ltx: pLaTeX<1999/04/05> 用に修正。
-  * README.txt: バージョンの変更
-  * plnews05.txt: 新規追加
+  * plvers.dtx: LaTeX <1998/12/01> $B$K9g$o$;$F=$@5!#(B
+    pLaTeX $B$N%P!<%8%g%s$r(B <1999/04/05> $B$K$7$?!#(B
+  * plfonts.dtx: $BJ8=q$N@hF,$G!"OBJ8%G%U%)%k%H%U%)%s%H$NJQ99$,H?1G(B
+    $B$5$l$J$$$N$r=$@5!J$"$j$,$H$&!";3K\!wM}2JBg$5$s!K!#(B
+  * plcore.dtx: \\ $B$K%*%W%7%g%s$rIU$1$?$H$-$KM>7W$J%9%Z!<%9$,=PNO(B
+    $B$5$l$F$7$^$&$N$r=$@5!J$"$j$,$H$&!"NkLZ!w5~Bg$5$s!K!#(B
+  * plpatch.ltx: pLaTeX<1999/04/05> $BMQ$K=$@5!#(B
+  * README.txt: $B%P!<%8%g%s$NJQ99(B
+  * plnews05.txt: $B?75,DI2C(B
 ----------------
 <1999/01/27>
-  * docstrip.cfg: 削除
+  * docstrip.cfg: $B:o=|(B
 ----------------
 <1998/09/01>
-  * plvers.dtx: pLaTeX バージョンを <1998/09/01> とした。
-  * plpatch.ltx: pLaTeX <1998/09/01> 用に修正。
+  * plvers.dtx: pLaTeX $B%P!<%8%g%s$r(B <1998/09/01> $B$H$7$?!#(B
+  * plpatch.ltx: pLaTeX <1998/09/01> $BMQ$K=$@5!#(B
 ----------------
 <1998/08/10>
-  * plfonts.dtx: \DeclareFixedFont コマンドが \@onlypreambre になっていた
-    のを修正した。
-  * plnews.cls: itemize環境を再定義
+  * plfonts.dtx: \DeclareFixedFont $B%3%^%s%I$,(B \@onlypreambre $B$K$J$C$F$$$?(B
+    $B$N$r=$@5$7$?!#(B
+  * plnews.cls: itemize$B4D6-$r:FDj5A(B
 ----------------
 <1998/04/09>
-  * jclasses.dtx: \rightmark コマンドの引数に \today コマンドを修正した
-    とき、出力される日付が「平成元年」になってしまうのを修正
-	（pl980409.patch）。
+  * jclasses.dtx: \rightmark $B%3%^%s%I$N0z?t$K(B \today $B%3%^%s%I$r=$@5$7$?(B
+    $B$H$-!"=PNO$5$l$kF|IU$,!VJ?@.85G/!W$K$J$C$F$7$^$&$N$r=$@5(B
+	$B!J(Bpl980409.patch$B!K!#(B
 ----------------
 <1998/03/23>
-  * jclasses.dtx: report, book クラスで、番号の付かない見出しレベルの
-    ペナルティを \@M に修正した（pl980323.patch）。
+  * jclasses.dtx: report, book $B%/%i%9$G!"HV9f$NIU$+$J$$8+=P$7%l%Y%k$N(B
+    $B%Z%J%k%F%#$r(B \@M $B$K=$@5$7$?!J(Bpl980323.patch$B!K!#(B
 ----------------
 <1998/02/27>
-  * tascmac.sty: calc パッケージとともに用いたとき、screen 環境、
-    itembox 環境、boxnote 環境がエラーになるのを修正（pl980227.patch）。
+  * tascmac.sty: calc $B%Q%C%1!<%8$H$H$b$KMQ$$$?$H$-!"(Bscreen $B4D6-!"(B
+    itembox $B4D6-!"(Bboxnote $B4D6-$,%(%i!<$K$J$k$N$r=$@5!J(Bpl980227.patch$B!K!#(B
 ----------------
 <1998/02/03>
-  * All: LaTeX <1997/12/01> に対応した。
-  * hyphen.cfg ファイルを追加した。
-  * Copyright ファイルを追加した。
-  * jclasses.dtx: 2eモード時のa5pのトップマージンを0.7in増やした。
+  * All: LaTeX <1997/12/01> $B$KBP1~$7$?!#(B
+  * hyphen.cfg $B%U%!%$%k$rDI2C$7$?!#(B
+  * Copyright $B%U%!%$%k$rDI2C$7$?!#(B
+  * jclasses.dtx: 2e$B%b!<%I;~$N(Ba5p$B$N%H%C%W%^!<%8%s$r(B0.7in$BA}$d$7$?!#(B
 ----------------
 <1997/12/12>
-  * jclasses.dtx: [j,t]report, [j,t]bookクラスで oneside オプションを指定し、
-    bothstyle スタイルにすると、コンパイルエラーになるのを修正。
+  * jclasses.dtx: [j,t]report, [j,t]book$B%/%i%9$G(B oneside $B%*%W%7%g%s$r;XDj$7!"(B
+    bothstyle $B%9%?%$%k$K$9$k$H!"%3%s%Q%$%k%(%i!<$K$J$k$N$r=$@5!#(B
 ----------------
 <1997/09/03>
-  * jclasses.dtx: 2.09互換モードで landscape オプションが効かないのを修正。
-  * jclasses.dtx: landscape 時に、縦横のサイズを交換してから、左右マージン
-    などを計算するように変更。
+  * jclasses.dtx: 2.09$B8_49%b!<%I$G(B landscape $B%*%W%7%g%s$,8z$+$J$$$N$r=$@5!#(B
+  * jclasses.dtx: landscape $B;~$K!"=D2#$N%5%$%:$r8r49$7$F$+$i!":81&%^!<%8%s(B
+    $B$J$I$r7W;;$9$k$h$&$KJQ99!#(B
 ----------------
 <1997/08/25>
-  * jclasses.dtx: 片面印刷のとき、section レベルの文字列が柱に出力されない
-    のを修正。
+  * jclasses.dtx: $BJRLL0u:~$N$H$-!"(Bsection $B%l%Y%k$NJ8;zNs$,Cl$K=PNO$5$l$J$$(B
+    $B$N$r=$@5!#(B
 ----------------
 <1997/07/29>
-  * jltxdoc.dtx: \ と " の前にも \xkanjiskip が入るように修正。
+  * jltxdoc.dtx: \ $B$H(B " $B$NA0$K$b(B \xkanjiskip $B$,F~$k$h$&$K=$@5!#(B
 ----------------
 <1997/07/10>
-  * plfonts.dtx: fdファイル名の小文字化が効いていなかったのを修正。
+  * plfonts.dtx: fd$B%U%!%$%kL>$N>.J8;z2=$,8z$$$F$$$J$+$C$?$N$r=$@5!#(B
 ----------------
 <1997/07/08>
-  * jclasses.dtx: 縦組クラスで、書体サイズを変更したとき、ベースラインが
-    おかしくなるのを修正。
+  * jclasses.dtx: $B=DAH%/%i%9$G!"=qBN%5%$%:$rJQ99$7$?$H$-!"%Y!<%9%i%$%s$,(B
+    $B$*$+$7$/$J$k$N$r=$@5!#(B
 ----------------
 <1997/07/02>
-  * plnews02.tex: 項目の移動と記述内容の修正。
+  * plnews02.tex: $B9`L\$N0\F0$H5-=RFbMF$N=$@5!#(B
 ----------------
 <1997/06/25>
-  * plcore.dtx: オリジナルの LaTeX2e の改行マクロの変更に対応。
-  * plfonts.dtx, pl209.dtx:  \em, \emph で和文書体も変更するように修正。
-  * plnews02.tex: 上記 2つの修正について記述。
+  * plcore.dtx: $B%*%j%8%J%k$N(B LaTeX2e $B$N2~9T%^%/%m$NJQ99$KBP1~!#(B
+  * plfonts.dtx, pl209.dtx:  \em, \emph $B$GOBJ8=qBN$bJQ99$9$k$h$&$K=$@5!#(B
+  * plnews02.tex: $B>e5-(B 2$B$D$N=$@5$K$D$$$F5-=R!#(B
 ----------------
 <1997/04/24>
-  * plfonts.dtx: フォント定義ファイル名を小文字に変換してから探すようにした。
+  * plfonts.dtx: $B%U%)%s%HDj5A%U%!%$%kL>$r>.J8;z$KJQ49$7$F$+$iC5$9$h$&$K$7$?!#(B
 ----------------
 <1997/04/09>
-  * plfonts.dtx: 縦横エンコード・リストの分離による拡張
+  * plfonts.dtx: $B=D2#%(%s%3!<%I!&%j%9%H$NJ,N%$K$h$k3HD%(B
 ----------------
 <1997/04/08>
-  * jclasses.dtx: 横組クラスでのトップマージンの値を修正した。
-  * plfonts.dtx: 和文エンコード関連の修正
-  * plfonts.dtx: 和文エンコード宣言コマンドを縦組用と横組用で分けるようにした。
-  * plnews02.tex (NEW): 前回からの変更をまとめた文書ファイル。
+  * jclasses.dtx: $B2#AH%/%i%9$G$N%H%C%W%^!<%8%s$NCM$r=$@5$7$?!#(B
+  * plfonts.dtx: $BOBJ8%(%s%3!<%I4XO"$N=$@5(B
+  * plfonts.dtx: $BOBJ8%(%s%3!<%I@k8@%3%^%s%I$r=DAHMQ$H2#AHMQ$GJ,$1$k$h$&$K$7$?!#(B
+  * plnews02.tex (NEW): $BA02s$+$i$NJQ99$r$^$H$a$?J8=q%U%!%$%k!#(B
 ----------------
 <1997/03/11>
-  * plfonts.dtx: 和文フォントをすべてのサイズでロードできるようにした。
+  * plfonts.dtx: $BOBJ8%U%)%s%H$r$9$Y$F$N%5%$%:$G%m!<%I$G$-$k$h$&$K$7$?!#(B
 ----------------
 <1997/02/24>
-  * pl209.dtx: \RequirePackage{oldlfonts} を \RequirePackage{oldlfonts} に
-    修正。
-  * jclasses.dtx: 縦組クラスの \thefigure の \if 文の対応がおかしいのを修正。
-  * jclasses.dtx: 縦組クラスの表紙を縦組にした。
+  * pl209.dtx: \RequirePackage{oldlfonts} $B$r(B \RequirePackage{oldlfonts} $B$K(B
+    $B=$@5!#(B
+  * jclasses.dtx: $B=DAH%/%i%9$N(B \thefigure $B$N(B \if $BJ8$NBP1~$,$*$+$7$$$N$r=$@5!#(B
+  * jclasses.dtx: $B=DAH%/%i%9$NI=;f$r=DAH$K$7$?!#(B
 ----------------
 <1997/02/02>+2
-  * jclasses.dtx: \topmargin の計算を間違えていたのを修正。
-  * jclasses.dtx: 縦組クラスで開始ページがおかしくなるのを修正。
+  * jclasses.dtx: \topmargin $B$N7W;;$r4V0c$($F$$$?$N$r=$@5!#(B
+  * jclasses.dtx: $B=DAH%/%i%9$G3+;O%Z!<%8$,$*$+$7$/$J$k$N$r=$@5!#(B
 ----------------
 <1997/02/02>+1
-  * jclasses.dtx: disablejfam オプションの処理で、互換モードかそうでないかの
-    判断が逆なのを修正。
-  * plnews01.tex: \mathrm, \mathbf の部分の記述を修正
+  * jclasses.dtx: disablejfam $B%*%W%7%g%s$N=hM}$G!"8_49%b!<%I$+$=$&$G$J$$$+$N(B
+    $BH=CG$,5U$J$N$r=$@5!#(B
+  * plnews01.tex: \mathrm, \mathbf $B$NItJ,$N5-=R$r=$@5(B
 ----------------
 <1997/02/01>
-  * plnews.cls (NEW): plnews01tex 用のクラスファイルを作成した。
-  * plnews01.tex (NEW): 前回からの変更をまとめた文書ファイル。
+  * plnews.cls (NEW): plnews01tex $BMQ$N%/%i%9%U%!%$%k$r:n@.$7$?!#(B
+  * plnews01.tex (NEW): $BA02s$+$i$NJQ99$r$^$H$a$?J8=q%U%!%$%k!#(B
 ----------------
 <1997/01/31>
-  * plcore.dtx: 下付き文字を出力する \textsubscript コマンドを削除。
-  * plfonts.dtx: 数式文字フォントの設定をクラスファイルに移動。
-  * plfonts.dtx: 和欧文の数式文字フォントを一度に切り替えるためのコマンドを
-    定義する、\reDeclareMathAlphabet コマンドを追加。
-  * jclasses.dtx: 数式文字フォントの設定を追加。
-  * jclasses.dtx: 日本語ファミリを宣言しないオプション（disablejfam）を
-    2e モードでだけ指定可能にした。
+  * plcore.dtx: $B2<IU$-J8;z$r=PNO$9$k(B \textsubscript $B%3%^%s%I$r:o=|!#(B
+  * plfonts.dtx: $B?t<0J8;z%U%)%s%H$N@_Dj$r%/%i%9%U%!%$%k$K0\F0!#(B
+  * plfonts.dtx: $BOB2$J8$N?t<0J8;z%U%)%s%H$r0lEY$K@Z$jBX$($k$?$a$N%3%^%s%I$r(B
+    $BDj5A$9$k!"(B\reDeclareMathAlphabet $B%3%^%s%I$rDI2C!#(B
+  * jclasses.dtx: $B?t<0J8;z%U%)%s%H$N@_Dj$rDI2C!#(B
+  * jclasses.dtx: $BF|K\8l%U%!%_%j$r@k8@$7$J$$%*%W%7%g%s!J(Bdisablejfam$B!K$r(B
+    2e $B%b!<%I$G$@$1;XDj2DG=$K$7$?!#(B
 ----------------
 <1997/01/30>
-  * README.euc: ltxcheck による確認時の記述を追加
-  * plcore.dtx: 下付き文字を出力する \textsubscript コマンドを追加。
-  * plfonts.dtx: \mathrm, \mathbf を和欧文フォントを切り替えるように拡張。
-  * jclasses.dtx: 2eモードで、通常よりテキスト領域を広くとる設定を a4j
-    などのオプション指定時に有効になるように修正した。
-  * jclasses.dtx: \thefigure の定義内、\c@chapter のタイプミス修正。
-  * pl209.dtx: 互換モードでの \rm や \tt のような二文字の書体変更コマンド
-    の動作を pLaTeX 2.09 での動作と同じにした。
+  * README.euc: ltxcheck $B$K$h$k3NG';~$N5-=R$rDI2C(B
+  * plcore.dtx: $B2<IU$-J8;z$r=PNO$9$k(B \textsubscript $B%3%^%s%I$rDI2C!#(B
+  * plfonts.dtx: \mathrm, \mathbf $B$rOB2$J8%U%)%s%H$r@Z$jBX$($k$h$&$K3HD%!#(B
+  * jclasses.dtx: 2e$B%b!<%I$G!"DL>o$h$j%F%-%9%HNN0h$r9-$/$H$k@_Dj$r(B a4j
+    $B$J$I$N%*%W%7%g%s;XDj;~$KM-8z$K$J$k$h$&$K=$@5$7$?!#(B
+  * jclasses.dtx: \thefigure $B$NDj5AFb!"(B\c@chapter $B$N%?%$%W%_%9=$@5!#(B
+  * pl209.dtx: $B8_49%b!<%I$G$N(B \rm $B$d(B \tt $B$N$h$&$JFsJ8;z$N=qBNJQ99%3%^%s%I(B
+    $B$NF0:n$r(B pLaTeX 2.09 $B$G$NF0:n$HF1$8$K$7$?!#(B
 ----------------
 <1997/01/29>
-  * jclasses.dtx: 日本語ファミリの宣言をしないオプション（disablejfam）
-    を追加。
-  * jclasses.dtx: labelitemii で \fi していないのと \bfseries の
-    タイプミスを修正。
-  * jclasses.dtx: \documentclass 時のレイアウトを少し広げた。
-  * pl209.dtx, jclasses.dtx, plfonts.dtx: 数式モード内で \rm, \bf コマンド
-    でローマン体、ボールド体にならないバグを修正。
+  * jclasses.dtx: $BF|K\8l%U%!%_%j$N@k8@$r$7$J$$%*%W%7%g%s!J(Bdisablejfam$B!K(B
+    $B$rDI2C!#(B
+  * jclasses.dtx: labelitemii $B$G(B \fi $B$7$F$$$J$$$N$H(B \bfseries $B$N(B
+    $B%?%$%W%_%9$r=$@5!#(B
+  * jclasses.dtx: \documentclass $B;~$N%l%$%"%&%H$r>/$79-$2$?!#(B
+  * pl209.dtx, jclasses.dtx, plfonts.dtx: $B?t<0%b!<%IFb$G(B \rm, \bf $B%3%^%s%I(B
+    $B$G%m!<%^%sBN!"%\!<%k%IBN$K$J$i$J$$%P%0$r=$@5!#(B
 ----------------
 <1997/01/26>
-  * All: 変更履歴の説明を mendex で処理できるように修正。
-  * README.euc: EC フォントの記述を追加した。
-  * platex.dtx: pldoc.ind を作成するための mendex 辞書ファイルを
-    pldoc.tex を処理したときに、自動的に用意するようにした。
-  * plfonts.dtx: 小文字のフォント定義ファイル(jy1mc.fd など)をロードする
-    ようにした。
-  * jclasses.dtx: 2.09互換モードで tombow オプションがおかしくなるのを修正。
-  * jclasses.dtx: 2.09互換モードで {a,b}{4,5}{j,p} のスタイルオプション
-    をサポート。ただし、ランドスケープモード用の設定はしていない。
+  * All: $BJQ99MzNr$N@bL@$r(B mendex $B$G=hM}$G$-$k$h$&$K=$@5!#(B
+  * README.euc: EC $B%U%)%s%H$N5-=R$rDI2C$7$?!#(B
+  * platex.dtx: pldoc.ind $B$r:n@.$9$k$?$a$N(B mendex $B<-=q%U%!%$%k$r(B
+    pldoc.tex $B$r=hM}$7$?$H$-$K!"<+F0E*$KMQ0U$9$k$h$&$K$7$?!#(B
+  * plfonts.dtx: $B>.J8;z$N%U%)%s%HDj5A%U%!%$%k(B(jy1mc.fd $B$J$I(B)$B$r%m!<%I$9$k(B
+    $B$h$&$K$7$?!#(B
+  * jclasses.dtx: 2.09$B8_49%b!<%I$G(B tombow $B%*%W%7%g%s$,$*$+$7$/$J$k$N$r=$@5!#(B
+  * jclasses.dtx: 2.09$B8_49%b!<%I$G(B {a,b}{4,5}{j,p} $B$N%9%?%$%k%*%W%7%g%s(B
+    $B$r%5%]!<%H!#$?$@$7!"%i%s%I%9%1!<%W%b!<%IMQ$N@_Dj$O$7$F$$$J$$!#(B
 ----------------
 <1997/01/24>
-  * pl209.def: \let\jfam\symmincho としていたのを修正。
+  * pl209.def: \let\jfam\symmincho $B$H$7$F$$$?$N$r=$@5!#(B
 ----------------
 <1997/01/23>
-  * All: LaTeX2e <1996/12/01> に対応
-  * plcore.dtx: クラスオプションに tombow を指定したとき、トンボの脇に
-    作成日付を出力するようにした。日付の出力を抑制したい場合は、tombo
-    （最後の w なし）を指定する。
-  * jclasses.dtx: LaTeX2e <1996/06/01> と組み合わせたとき、
-    {j|t}{article|book} の \part コマンドの後ろで二段組になってしまう
-    のを修正。
-  * jclasses.dtx: verse 環境で「@centercr」という文字列が出力されるのを
-    修正。
-  * jclasses.dtx, pl209.dtx: mincho, gothic を数式記号としてではなく、
-    文字として宣言するようにし、数式ファミリを使用しないようにした。
-    ただし、2.09互換モードでは、従来どおり、日本語ファミリを定義している。
-  * jltxdoc.dtx: ltxdoc, doc, article クラスをベースにするようにした。
-  * pl209.def: latex209.def をロードするようにした。
+  * All: LaTeX2e <1996/12/01> $B$KBP1~(B
+  * plcore.dtx: $B%/%i%9%*%W%7%g%s$K(B tombow $B$r;XDj$7$?$H$-!"%H%s%\$NOF$K(B
+    $B:n@.F|IU$r=PNO$9$k$h$&$K$7$?!#F|IU$N=PNO$rM^@)$7$?$$>l9g$O!"(Btombo
+    $B!J:G8e$N(B w $B$J$7!K$r;XDj$9$k!#(B
+  * jclasses.dtx: LaTeX2e <1996/06/01> $B$HAH$_9g$o$;$?$H$-!"(B
+    {j|t}{article|book} $B$N(B \part $B%3%^%s%I$N8e$m$GFsCJAH$K$J$C$F$7$^$&(B
+    $B$N$r=$@5!#(B
+  * jclasses.dtx: verse $B4D6-$G!V(B@centercr$B!W$H$$$&J8;zNs$,=PNO$5$l$k$N$r(B
+    $B=$@5!#(B
+  * jclasses.dtx, pl209.dtx: mincho, gothic $B$r?t<05-9f$H$7$F$G$O$J$/!"(B
+    $BJ8;z$H$7$F@k8@$9$k$h$&$K$7!"?t<0%U%!%_%j$r;HMQ$7$J$$$h$&$K$7$?!#(B
+    $B$?$@$7!"(B2.09$B8_49%b!<%I$G$O!"=>Mh$I$*$j!"F|K\8l%U%!%_%j$rDj5A$7$F$$$k!#(B
+  * jltxdoc.dtx: ltxdoc, doc, article $B%/%i%9$r%Y!<%9$K$9$k$h$&$K$7$?!#(B
+  * pl209.def: latex209.def $B$r%m!<%I$9$k$h$&$K$7$?!#(B
 ----------------
 <1996/03/05>
-  * All: 縦組拡張部分を外部パッケージ（plext.sty）にした。
-  * All: いくつかのタイプミス修正。
-  * plfonts.dtx: \DeclareFixedFont の日本語化。
-  * plfonts.dtx: 和文代用フォントが使われないのを修正。
-  * plfonts.dtx: \notkfam@list, \notffam@list の初期値を変更し、
-    起動直後の速度を速めた。
-  * jclasses.dtx: \evensidemargin と \oddsidemargin の影響が縦組と横組で
-    逆なのを修正。
-  * jclasses.dtx: report, article クラスのページスタイルのデフォルトを
-    headings から plain にした。
-  * jclasses.dtx: bothstyle ページスタイルでの偶数ページと奇数ページの
-    出力位置が逆なのを修正。
-  * jclases.dtx: plain や headings から headnombre, footnombre, plain
-    などに切り替えたときに、ページ番号位置が揃わないのを修正。
-  * jclasses.dtx: \topmargin の値が反映されないのを修正。
-  * jclasses.dtx: \tabbing 環境で和欧文間スペースが入るのを修正。
-  * jclasses.dtx: landscape オプションを指定してもランドスケープにならない
-    のを修正。
-  * pl209.def: 互換モードの縦組で脚注がおかしくなるのを修正。
-  * pl209.def: 互換モードで \Rensuji, \prensuji を使えるようにした。
+  * All: $B=DAH3HD%ItJ,$r30It%Q%C%1!<%8!J(Bplext.sty$B!K$K$7$?!#(B
+  * All: $B$$$/$D$+$N%?%$%W%_%9=$@5!#(B
+  * plfonts.dtx: \DeclareFixedFont $B$NF|K\8l2=!#(B
+  * plfonts.dtx: $BOBJ8BeMQ%U%)%s%H$,;H$o$l$J$$$N$r=$@5!#(B
+  * plfonts.dtx: \notkfam@list, \notffam@list $B$N=i4|CM$rJQ99$7!"(B
+    $B5/F0D>8e$NB.EY$rB.$a$?!#(B
+  * jclasses.dtx: \evensidemargin $B$H(B \oddsidemargin $B$N1F6A$,=DAH$H2#AH$G(B
+    $B5U$J$N$r=$@5!#(B
+  * jclasses.dtx: report, article $B%/%i%9$N%Z!<%8%9%?%$%k$N%G%U%)%k%H$r(B
+    headings $B$+$i(B plain $B$K$7$?!#(B
+  * jclasses.dtx: bothstyle $B%Z!<%8%9%?%$%k$G$N6v?t%Z!<%8$H4q?t%Z!<%8$N(B
+    $B=PNO0LCV$,5U$J$N$r=$@5!#(B
+  * jclases.dtx: plain $B$d(B headings $B$+$i(B headnombre, footnombre, plain
+    $B$J$I$K@Z$jBX$($?$H$-$K!"%Z!<%8HV9f0LCV$,B7$o$J$$$N$r=$@5!#(B
+  * jclasses.dtx: \topmargin $B$NCM$,H?1G$5$l$J$$$N$r=$@5!#(B
+  * jclasses.dtx: \tabbing $B4D6-$GOB2$J84V%9%Z!<%9$,F~$k$N$r=$@5!#(B
+  * jclasses.dtx: landscape $B%*%W%7%g%s$r;XDj$7$F$b%i%s%I%9%1!<%W$K$J$i$J$$(B
+    $B$N$r=$@5!#(B
+  * pl209.def: $B8_49%b!<%I$N=DAH$G5SCm$,$*$+$7$/$J$k$N$r=$@5!#(B
+  * pl209.def: $B8_49%b!<%I$G(B \Rensuji, \prensuji $B$r;H$($k$h$&$K$7$?!#(B
 ----------------
 <1995/09/01>
-  * 公開版リリース
+  * $B8x3+HG%j%j!<%9(B
 === EOT =====

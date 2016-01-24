@@ -118,7 +118,7 @@
   \setlength{\@tombowwidth}{\z@}%
   \maketombowbox}
 \DeclareOption{tate}{%
-  \AtBeginDocument{\tate\message{《縦組モード》}%
+  \AtBeginDocument{\tate\message{$B!T=DAH%b!<%I!U(B}%
                    \adjustbaseline}%
 }
 \DeclareOption{oneside}{\@twosidefalse}
@@ -396,14 +396,14 @@
 \newcounter{subparagraph}[paragraph]
 \renewcommand{\thepart}{\rensuji{\@Roman\c@part}}
 \renewcommand{\thechapter}{\rensuji{\@arabic\c@chapter}}
-\renewcommand{\thesection}{\thechapter・\rensuji{\@arabic\c@section}}
-\renewcommand{\thesubsection}{\thesection・\rensuji{\@arabic\c@subsection}}
+\renewcommand{\thesection}{\thechapter$B!&(B\rensuji{\@arabic\c@section}}
+\renewcommand{\thesubsection}{\thesection$B!&(B\rensuji{\@arabic\c@subsection}}
 \renewcommand{\thesubsubsection}{%
-   \thesubsection・\rensuji{\@arabic\c@subsubsection}}
+   \thesubsection$B!&(B\rensuji{\@arabic\c@subsubsection}}
 \renewcommand{\theparagraph}{%
-   \thesubsubsection・\rensuji{\@arabic\c@paragraph}}
+   \thesubsubsection$B!&(B\rensuji{\@arabic\c@paragraph}}
 \renewcommand{\thesubparagraph}{%
-   \theparagraph・\rensuji{\@arabic\c@subparagraph}}
+   \theparagraph$B!&(B\rensuji{\@arabic\c@subparagraph}}
 \newcommand{\@chapapp}{\prechaptername}
 \newcommand{\@chappos}{\postchaptername}
 \newcommand\frontmatter{%
@@ -625,7 +625,7 @@
            \item\relax}{\endlist}
 \newcounter{figure}[chapter]
 \renewcommand{\thefigure}{%
-  \ifnum\c@chapter>\z@\thechapter{}・\fi\rensuji{\@arabic\c@figure}}
+  \ifnum\c@chapter>\z@\thechapter{}$B!&(B\fi\rensuji{\@arabic\c@figure}}
 \def\fps@figure{tbp}
 \def\ftype@figure{1}
 \def\ext@figure{lof}
@@ -638,7 +638,7 @@
                {\end@dblfloat}
 \newcounter{table}[chapter]
 \renewcommand{\thetable}{%
-  \ifnum\c@chapter>\z@\thechapter{}・\fi\rensuji{\@arabic\c@table}}
+  \ifnum\c@chapter>\z@\thechapter{}$B!&(B\fi\rensuji{\@arabic\c@table}}
 \def\fps@table{tbp}
 \def\ftype@table{2}
 \def\ext@table{lot}
@@ -844,44 +844,44 @@
 \@addtoreset{footnote}{chapter}
 \newcommand\@makefntext[1]{\parindent 1zw
   \noindent\hbox to 2zw{\hss\@makefnmark}#1}
-\newif\if西暦 \西暦false
-\def\西暦{\西暦true}
-\def\和暦{\西暦false}
+\newif\if$B@>Nq(B \$B@>Nq(Bfalse
+\def\$B@>Nq(B{\$B@>Nq(Btrue}
+\def\$BOBNq(B{\$B@>Nq(Bfalse}
 \newcount\heisei \heisei\year \advance\heisei-1988\relax
 \def\today{{%
   \iftdir
-    \if西暦
-      \kansuji\number\year 年
-      \kansuji\number\month 月
-      \kansuji\number\day 日
+    \if$B@>Nq(B
+      \kansuji\number\year $BG/(B
+      \kansuji\number\month $B7n(B
+      \kansuji\number\day $BF|(B
     \else
-      平成\ifnum\heisei=1 元年\else\kansuji\number\heisei 年\fi
-      \kansuji\number\month 月
-      \kansuji\number\day 日
+      $BJ?@.(B\ifnum\heisei=1 $B85G/(B\else\kansuji\number\heisei $BG/(B\fi
+      \kansuji\number\month $B7n(B
+      \kansuji\number\day $BF|(B
     \fi
   \else
-    \if西暦
-      \number\year~年
-      \number\month~月
-      \number\day~日
+    \if$B@>Nq(B
+      \number\year~$BG/(B
+      \number\month~$B7n(B
+      \number\day~$BF|(B
     \else
-      平成\ifnum\heisei=1 元年\else\number\heisei~年\fi
-      \number\month~月
-      \number\day~日
+      $BJ?@.(B\ifnum\heisei=1 $B85G/(B\else\number\heisei~$BG/(B\fi
+      \number\month~$B7n(B
+      \number\day~$BF|(B
     \fi
   \fi}}
-\newcommand{\prepartname}{第}
-\newcommand{\postpartname}{部}
-\newcommand{\prechaptername}{第}
-\newcommand{\postchaptername}{章}
-\newcommand{\contentsname}{目 次}
-\newcommand{\listfigurename}{図 目 次}
-\newcommand{\listtablename}{表 目 次}
-\newcommand{\bibname}{関連図書}
-\newcommand{\indexname}{索 引}
-\newcommand{\figurename}{図}
-\newcommand{\tablename}{表}
-\newcommand{\appendixname}{付 録}
+\newcommand{\prepartname}{$BBh(B}
+\newcommand{\postpartname}{$BIt(B}
+\newcommand{\prechaptername}{$BBh(B}
+\newcommand{\postchaptername}{$B>O(B}
+\newcommand{\contentsname}{$BL\(B $B<!(B}
+\newcommand{\listfigurename}{$B?^(B $BL\(B $B<!(B}
+\newcommand{\listtablename}{$BI=(B $BL\(B $B<!(B}
+\newcommand{\bibname}{$B4XO"?^=q(B}
+\newcommand{\indexname}{$B:w(B $B0z(B}
+\newcommand{\figurename}{$B?^(B}
+\newcommand{\tablename}{$BI=(B}
+\newcommand{\appendixname}{$BIU(B $BO?(B}
 \pagestyle{headings}
 \pagenumbering{arabic}
 \raggedbottom

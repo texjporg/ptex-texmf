@@ -2,88 +2,88 @@
 \def\angle#1{$\langle$\kern0pt#1\kern0pt$\rangle$}
 \documentstyle{jarticle}
 \begin{document}
-\title{日本語\TeX}
-\author{倉沢 良一\\ASCII Corporation}
-\date{昭和62年8月 \\ 昭和62年12月 \\ 平成元年10月}
+\title{$BF|K\8l(B\TeX}
+\author{$BARBt(B $BNI0l(B\\ASCII Corporation}
+\date{$B><OB(B62$BG/(B8$B7n(B \\ $B><OB(B62$BG/(B12$B7n(B \\ $BJ?@.85G/(B10$B7n(B}
 \maketitle
 \begin{abstract}
-これは、日本語\TeX の使い方の注意点と、
-\TeX の日本語化にともない変更あるいは追加された機能について
-解説したドキュメントです。
-基本的な\TeX の使い方については、\TeX bookや
-\LaTeX: A document Preparation System. をご覧ください。
+$B$3$l$O!"F|K\8l(B\TeX $B$N;H$$J}$NCm0UE@$H!"(B
+\TeX $B$NF|K\8l2=$K$H$b$J$$JQ99$"$k$$$ODI2C$5$l$?5!G=$K$D$$$F(B
+$B2r@b$7$?%I%-%e%a%s%H$G$9!#(B
+$B4pK\E*$J(B\TeX $B$N;H$$J}$K$D$$$F$O!"(B\TeX book$B$d(B
+\LaTeX: A document Preparation System. $B$r$4Mw$/$@$5$$!#(B
 \end{abstract}
 
-\section{日本語\TeX の概要}
-日本語\TeX は、オリジナルの\TeX と完全なアッパーコンパチブルを保っています。
-ですから、これまで欧文で作られたファイルはそのまま日本語\TeX に
-かけられるはずです。
-現在のバージョンで扱える漢字コードは、シフトJISおよびEUCです。
-ただし、これらはソースファイルにパッチをあてて、makeし直さなければなりません。
+\section{$BF|K\8l(B\TeX $B$N35MW(B}
+$BF|K\8l(B\TeX $B$O!"%*%j%8%J%k$N(B\TeX $B$H40A4$J%"%C%Q!<%3%s%Q%A%V%k$rJ]$C$F$$$^$9!#(B
+$B$G$9$+$i!"$3$l$^$G2$J8$G:n$i$l$?%U%!%$%k$O$=$N$^$^F|K\8l(B\TeX $B$K(B
+$B$+$1$i$l$k$O$:$G$9!#(B
+$B8=:_$N%P!<%8%g%s$G07$($k4A;z%3!<%I$O!"%7%U%H(BJIS$B$*$h$S(BEUC$B$G$9!#(B
+$B$?$@$7!"$3$l$i$O%=!<%9%U%!%$%k$K%Q%C%A$r$"$F$F!"(Bmake$B$7D>$5$J$1$l$P$J$j$^$;$s!#(B
 
-日本語（2バイトコードキャラクタ）のハンドリングに関しては、
-でき得る限り英字（1バイトコードキャラクタ）と同じように取り扱える
-ようにしてあります。
-したがって、特殊な使い方をしない限り英字と同じようにして、
-原稿ファイルを作成していくことができます。
+$BF|K\8l!J(B2$B%P%$%H%3!<%I%-%c%i%/%?!K$N%O%s%I%j%s%0$K4X$7$F$O!"(B
+$B$G$-F@$k8B$j1Q;z!J(B1$B%P%$%H%3!<%I%-%c%i%/%?!K$HF1$8$h$&$K<h$j07$($k(B
+$B$h$&$K$7$F$"$j$^$9!#(B
+$B$7$?$,$C$F!"FC<l$J;H$$J}$r$7$J$$8B$j1Q;z$HF1$8$h$&$K$7$F!"(B
+$B869F%U%!%$%k$r:n@.$7$F$$$/$3$H$,$G$-$^$9!#(B
 
-しかも、カレントフォントとして英字と漢字とを別々に持っているため、
-英字と漢字の切り換えは特に気にする必要はなく、
-そのまま混在して使うことができます。
+$B$7$+$b!"%+%l%s%H%U%)%s%H$H$7$F1Q;z$H4A;z$H$rJL!9$K;}$C$F$$$k$?$a!"(B
+$B1Q;z$H4A;z$N@Z$j49$($OFC$K5$$K$9$kI,MW$O$J$/!"(B
+$B$=$N$^$^:.:_$7$F;H$&$3$H$,$G$-$^$9!#(B
 
-和文と欧文の処理の違いとしてラインブレークのタイミングと
-それに関係する禁則処理、さらに和文欧文が混在した場合のスペーシング
-の処理などがあります。
-日本語\TeX では、これらの処理を自動的に行っていますが、
-柔軟性を高めるために、こうした処理に関係するパラメータを自由に再設定
-できるようになっています。
+$BOBJ8$H2$J8$N=hM}$N0c$$$H$7$F%i%$%s%V%l!<%/$N%?%$%_%s%0$H(B
+$B$=$l$K4X78$9$k6XB'=hM}!"$5$i$KOBJ82$J8$,:.:_$7$?>l9g$N%9%Z!<%7%s%0(B
+$B$N=hM}$J$I$,$"$j$^$9!#(B
+$BF|K\8l(B\TeX $B$G$O!"$3$l$i$N=hM}$r<+F0E*$K9T$C$F$$$^$9$,!"(B
+$B=@Fp@-$r9b$a$k$?$a$K!"$3$&$7$?=hM}$K4X78$9$k%Q%i%a!<%?$r<+M3$K:F@_Dj(B
+$B$G$-$k$h$&$K$J$C$F$$$^$9!#(B
 
-フォントに関しては、1フォントでJISコードの第1水準、第2水準全てを
-扱えるように拡張してありますから、英字フォントと同じように漢字フォントを扱え、
-JFM(TFM)ファイルをつくることにより、自由に使用可能なフォントを増やして
-いくことができます。
+$B%U%)%s%H$K4X$7$F$O!"(B1$B%U%)%s%H$G(BJIS$B%3!<%I$NBh(B1$B?e=`!"Bh(B2$B?e=`A4$F$r(B
+$B07$($k$h$&$K3HD%$7$F$"$j$^$9$+$i!"1Q;z%U%)%s%H$HF1$8$h$&$K4A;z%U%)%s%H$r07$(!"(B
+JFM(TFM)$B%U%!%$%k$r$D$/$k$3$H$K$h$j!"<+M3$K;HMQ2DG=$J%U%)%s%H$rA}$d$7$F(B
+$B$$$/$3$H$,$G$-$^$9!#(B
 
-DVIファイルは、SET2 および PUT2 を使って2バイトコードを出力しているため、
-これまでのものとの互換性は保たれています。
-またDVIファイルには、JISコードを用いて出力しています。
+DVI$B%U%!%$%k$O!"(BSET2 $B$*$h$S(B PUT2 $B$r;H$C$F(B2$B%P%$%H%3!<%I$r=PNO$7$F$$$k$?$a!"(B
+$B$3$l$^$G$N$b$N$H$N8_49@-$OJ]$?$l$F$$$^$9!#(B
+$B$^$?(BDVI$B%U%!%$%k$K$O!"(BJIS$B%3!<%I$rMQ$$$F=PNO$7$F$$$^$9!#(B
 
-\section{原稿を書く上での注意点}
-基本的には、欧文と和文は全く同じようにして扱えます。
-ただし、日本語特有の処理機能を持たせているため、
-原稿を書くうえでは次のことに注意してください。
+\section{$B869F$r=q$/>e$G$NCm0UE@(B}
+$B4pK\E*$K$O!"2$J8$HOBJ8$OA4$/F1$8$h$&$K$7$F07$($^$9!#(B
+$B$?$@$7!"F|K\8lFCM-$N=hM}5!G=$r;}$?$;$F$$$k$?$a!"(B
+$B869F$r=q$/$&$($G$O<!$N$3$H$KCm0U$7$F$/$@$5$$!#(B
 \begin{itemize}
-\item コントロールシーケンスにも2バイトコードキャラクタ
-	が使えるようになっています。
-	したがって、コントロールシーケンスに続けて2バイトコードの
-	文字を書き並べる場合は、必ず半角スペースやタブ等で間を区切ってください。
-\item 欧文の場合、改行は単語間のスペースとして取り扱われますが、
-	日本語の場合、原稿内では自由な箇所で改行が行えたほうが便利です。\\
-	そこで日本語\TeX では、1行の終わりが1バイトコードの場合はスペーサー
-	の挿入を行い、2バイトコードの場合は何も行わないようになっています。
-\item 2バイトコードキャラクタと1バイトコードキャラクタが
-	連続する場合、自動的に\cs{xkanjiskip}に設定されてているグルーを
-	挿入します。ただしこの処理は、どの1バイトコードキャラクタとの
-	間で行うか\cs{xspcode}によって指定でき、デフォルトではa--z,
-	A--Z, 0--9との間で行われるように設定されています。
-	この処理を特定の箇所で禁止したい場合は、
-	そこに\cs{kern0pt}、\cs{hskip0pt}などを挿入してください。
-\item 禁則処理は、禁則の対象となるキャラクタの前方あるいは
-	後方にペナルティーを自動的に挿入することで実現しています。
-	このペナルティーの設定は\cs{prebreakpenalty}、\cs{postbreakpenalty}
-	によって行います。デフォルト値は、kinsoku.texに記述されています。
-\item 現在、jtex、jlatexで扱えるフォントは明朝体とゴシック体です。
-	これらのフォントの指定は、
-	jtex, jlatexともに、\cs{mc}、\cs{gt}で行えます。
-	これら以外のフォントは、英字フォントと同じように、
-	対象のフォントにあわせてJFM(TFM)を作れば使用できます。
-\item フォントの切り換えは、英字と漢字は独立して行われます。
-	jlatexでは、\cs{large},\cs{small}などサイズ変更の
-	コントロールシーケンスによって、
-	連動してフォントをチェンジするようにしていますが、
-	jtexではそのような操作は一切行っていませんので注意してください。
-	ただし、指定したフォントが印字されるためには、それらの字体、サイズの
-	フォントがそろっていなければ行えません。
-	jlatexでは、次のフォントが存在するものと仮定しています。
+\item $B%3%s%H%m!<%k%7!<%1%s%9$K$b(B2$B%P%$%H%3!<%I%-%c%i%/%?(B
+	$B$,;H$($k$h$&$K$J$C$F$$$^$9!#(B
+	$B$7$?$,$C$F!"%3%s%H%m!<%k%7!<%1%s%9$KB3$1$F(B2$B%P%$%H%3!<%I$N(B
+	$BJ8;z$r=q$-JB$Y$k>l9g$O!"I,$:H>3Q%9%Z!<%9$d%?%VEy$G4V$r6h@Z$C$F$/$@$5$$!#(B
+\item $B2$J8$N>l9g!"2~9T$OC18l4V$N%9%Z!<%9$H$7$F<h$j07$o$l$^$9$,!"(B
+	$BF|K\8l$N>l9g!"869FFb$G$O<+M3$J2U=j$G2~9T$,9T$($?$[$&$,JXMx$G$9!#(B\\
+	$B$=$3$GF|K\8l(B\TeX $B$G$O!"(B1$B9T$N=*$o$j$,(B1$B%P%$%H%3!<%I$N>l9g$O%9%Z!<%5!<(B
+	$B$NA^F~$r9T$$!"(B2$B%P%$%H%3!<%I$N>l9g$O2?$b9T$o$J$$$h$&$K$J$C$F$$$^$9!#(B
+\item 2$B%P%$%H%3!<%I%-%c%i%/%?$H(B1$B%P%$%H%3!<%I%-%c%i%/%?$,(B
+	$BO"B3$9$k>l9g!"<+F0E*$K(B\cs{xkanjiskip}$B$K@_Dj$5$l$F$F$$$k%0%k!<$r(B
+	$BA^F~$7$^$9!#$?$@$7$3$N=hM}$O!"$I$N(B1$B%P%$%H%3!<%I%-%c%i%/%?$H$N(B
+	$B4V$G9T$&$+(B\cs{xspcode}$B$K$h$C$F;XDj$G$-!"%G%U%)%k%H$G$O(Ba--z,
+	A--Z, 0--9$B$H$N4V$G9T$o$l$k$h$&$K@_Dj$5$l$F$$$^$9!#(B
+	$B$3$N=hM}$rFCDj$N2U=j$G6X;_$7$?$$>l9g$O!"(B
+	$B$=$3$K(B\cs{kern0pt}$B!"(B\cs{hskip0pt}$B$J$I$rA^F~$7$F$/$@$5$$!#(B
+\item $B6XB'=hM}$O!"6XB'$NBP>]$H$J$k%-%c%i%/%?$NA0J}$"$k$$$O(B
+	$B8eJ}$K%Z%J%k%F%#!<$r<+F0E*$KA^F~$9$k$3$H$G<B8=$7$F$$$^$9!#(B
+	$B$3$N%Z%J%k%F%#!<$N@_Dj$O(B\cs{prebreakpenalty}$B!"(B\cs{postbreakpenalty}
+	$B$K$h$C$F9T$$$^$9!#%G%U%)%k%HCM$O!"(Bkinsoku.tex$B$K5-=R$5$l$F$$$^$9!#(B
+\item $B8=:_!"(Bjtex$B!"(Bjlatex$B$G07$($k%U%)%s%H$OL@D+BN$H%4%7%C%/BN$G$9!#(B
+	$B$3$l$i$N%U%)%s%H$N;XDj$O!"(B
+	jtex, jlatex$B$H$b$K!"(B\cs{mc}$B!"(B\cs{gt}$B$G9T$($^$9!#(B
+	$B$3$l$i0J30$N%U%)%s%H$O!"1Q;z%U%)%s%H$HF1$8$h$&$K!"(B
+	$BBP>]$N%U%)%s%H$K$"$o$;$F(BJFM(TFM)$B$r:n$l$P;HMQ$G$-$^$9!#(B
+\item $B%U%)%s%H$N@Z$j49$($O!"1Q;z$H4A;z$OFHN)$7$F9T$o$l$^$9!#(B
+	jlatex$B$G$O!"(B\cs{large},\cs{small}$B$J$I%5%$%:JQ99$N(B
+	$B%3%s%H%m!<%k%7!<%1%s%9$K$h$C$F!"(B
+	$BO"F0$7$F%U%)%s%H$r%A%'%s%8$9$k$h$&$K$7$F$$$^$9$,!"(B
+	jtex$B$G$O$=$N$h$&$JA`:n$O0l@Z9T$C$F$$$^$;$s$N$GCm0U$7$F$/$@$5$$!#(B
+	$B$?$@$7!";XDj$7$?%U%)%s%H$,0u;z$5$l$k$?$a$K$O!"$=$l$i$N;zBN!"%5%$%:$N(B
+	$B%U%)%s%H$,$=$m$C$F$$$J$1$l$P9T$($^$;$s!#(B
+	jlatex$B$G$O!"<!$N%U%)%s%H$,B8:_$9$k$b$N$H2>Dj$7$F$$$^$9!#(B
 	\begin{quote}
 	min5, min6, min7, min8, min9, min10,
 	min10 magstephalf, min10 magstep1,
@@ -94,11 +94,11 @@ DVIファイルは、SET2 および PUT2 を使って2バイトコードを出�
 	goth10 magstep2, goth10 magstep3,
 	goth10 magstep4, goth10 magstep5
 	\end{quote}
-	これらが、きちんと印字されるかどうかはプリンタドライバの責任です。
-	また、これらのフォントにはカーニング・パラメータが設定されています。
-	カーニングを行いたくない場合は、上記のフォントの代りに以下のものを
-	使用してください。こちらのフォントは、カーニングのパラメータが設定
-	されていないことを除いて上記のものと全く同じものです。
+	$B$3$l$i$,!"$-$A$s$H0u;z$5$l$k$+$I$&$+$O%W%j%s%?%I%i%$%P$N@UG$$G$9!#(B
+	$B$^$?!"$3$l$i$N%U%)%s%H$K$O%+!<%K%s%0!&%Q%i%a!<%?$,@_Dj$5$l$F$$$^$9!#(B
+	$B%+!<%K%s%0$r9T$$$?$/$J$$>l9g$O!">e5-$N%U%)%s%H$NBe$j$K0J2<$N$b$N$r(B
+	$B;HMQ$7$F$/$@$5$$!#$3$A$i$N%U%)%s%H$O!"%+!<%K%s%0$N%Q%i%a!<%?$,@_Dj(B
+	$B$5$l$F$$$J$$$3$H$r=|$$$F>e5-$N$b$N$HA4$/F1$8$b$N$G$9!#(B
 	\begin{quote}
 	nmin5, nmin6, nmin7, nmin8, nmin9, nmin10,
 	nmin10 magstephalf, nmin10 magstep1,
@@ -109,295 +109,295 @@ DVIファイルは、SET2 および PUT2 を使って2バイトコードを出�
 	ngoth10 magstep2, ngoth10 magstep3,
 	ngoth10 magstep4, ngoth10 magstep5
 	\end{quote}
-\item 現在のバージョンでは、全角スペースはほかの漢字キャラクタと同じように
-	扱われます。
-	半角スペースのような特別の処理は行っていませんので注意してください。
-\item コントロールシーケンス名にも全角文字を使用することができますが
-	次の点に注意してください。
+\item $B8=:_$N%P!<%8%g%s$G$O!"A43Q%9%Z!<%9$O$[$+$N4A;z%-%c%i%/%?$HF1$8$h$&$K(B
+	$B07$o$l$^$9!#(B
+	$BH>3Q%9%Z!<%9$N$h$&$JFCJL$N=hM}$O9T$C$F$$$^$;$s$N$GCm0U$7$F$/$@$5$$!#(B
+\item $B%3%s%H%m!<%k%7!<%1%s%9L>$K$bA43QJ8;z$r;HMQ$9$k$3$H$,$G$-$^$9$,(B
+	$B<!$NE@$KCm0U$7$F$/$@$5$$!#(B
 	\begin{enumerate}
-	\item 全角の1区、2区、7区に含まれる文字は、カテゴリーコードの
-		12つまり `Other\_character' と同様の扱いになります。
-		したがって、これらの文字は ``エスケープ文字$+$1文字'' の
-		コントロールシーケンスとしてのみ扱えます。
-	\item そのほかの文字に付いては、カテゴリーコードの11(letter)と
-		同様に扱われます。
-		また、これらの文字は半角文字と混在して使用することが
-		できます。
+	\item $BA43Q$N(B1$B6h!"(B2$B6h!"(B7$B6h$K4^$^$l$kJ8;z$O!"%+%F%4%j!<%3!<%I$N(B
+		12$B$D$^$j(B `Other\_character' $B$HF1MM$N07$$$K$J$j$^$9!#(B
+		$B$7$?$,$C$F!"$3$l$i$NJ8;z$O(B ``$B%(%9%1!<%WJ8;z(B$+$1$BJ8;z(B'' $B$N(B
+		$B%3%s%H%m!<%k%7!<%1%s%9$H$7$F$N$_07$($^$9!#(B
+	\item $B$=$N$[$+$NJ8;z$KIU$$$F$O!"%+%F%4%j!<%3!<%I$N(B11(letter)$B$H(B
+		$BF1MM$K07$o$l$^$9!#(B
+		$B$^$?!"$3$l$i$NJ8;z$OH>3QJ8;z$H:.:_$7$F;HMQ$9$k$3$H$,(B
+		$B$G$-$^$9!#(B
 	\end{enumerate}
-\item 半角カナは使えません。原稿内に半角カナのコードが入らないようにし
-	てください。
+\item $BH>3Q%+%J$O;H$($^$;$s!#869FFb$KH>3Q%+%J$N%3!<%I$,F~$i$J$$$h$&$K$7(B
+	$B$F$/$@$5$$!#(B
 \end{itemize}
 
-\section{追加されたプリミティブ}
+\section{$BDI2C$5$l$?%W%j%_%F%#%V(B}
 
-日本語\TeX にはつぎのプリミティブが追加されています。
+$BF|K\8l(B\TeX $B$K$O$D$.$N%W%j%_%F%#%V$,DI2C$5$l$F$$$^$9!#(B
 \begin{itemize}
 \item \cs{{\bf kanjiskip}}
 	\begin{quote}
 	\cs{kanjiskip}$=$\angle{dimen}
 	\end{quote}
-	連続する2バイトコード間に自動的に挿入するグルーの値を
-	格納するレジスタです。
-	ただし、この処理は\cs{autospacing}、\cs{noautospacing}によって
-	行うか行わないかの指定ができます。\\
-	このレジスタの値は、パラグラフの終わりまたは\cs{hbox}の最後の
-	時点で取り込まれ、処理されます。
-	したがって、同一パラグラフ内、あるいは\cs{hbox}内で何度か値を
-	変化させたとしても、最後に設定された値によって全て処理されます。
+	$BO"B3$9$k(B2$B%P%$%H%3!<%I4V$K<+F0E*$KA^F~$9$k%0%k!<$NCM$r(B
+	$B3JG<$9$k%l%8%9%?$G$9!#(B
+	$B$?$@$7!"$3$N=hM}$O(B\cs{autospacing}$B!"(B\cs{noautospacing}$B$K$h$C$F(B
+	$B9T$&$+9T$o$J$$$+$N;XDj$,$G$-$^$9!#(B\\
+	$B$3$N%l%8%9%?$NCM$O!"%Q%i%0%i%U$N=*$o$j$^$?$O(B\cs{hbox}$B$N:G8e$N(B
+	$B;~E@$G<h$j9~$^$l!"=hM}$5$l$^$9!#(B
+	$B$7$?$,$C$F!"F10l%Q%i%0%i%UFb!"$"$k$$$O(B\cs{hbox}$BFb$G2?EY$+CM$r(B
+	$BJQ2=$5$;$?$H$7$F$b!":G8e$K@_Dj$5$l$?CM$K$h$C$FA4$F=hM}$5$l$^$9!#(B
 
 	\noindent
-	使用例\\
+	$B;HMQNc(B\\
 	{\tt\cs{kanjiskip}$=$10pt plus 1pt minus 1pt}\\
 	{\kanjiskip=10pt plus 1pt minus 1pt
-	とするとこうなります。\par}
+	$B$H$9$k$H$3$&$J$j$^$9!#(B\par}
 \item \cs{{\bf xkanjiskip}}
 	\begin{quote}
 	\cs{xkanjiskip}$=$\angle{dimen}
 	\end{quote}
-	連続する2バイトコードと\cs{xspcode}で指定された1バイトコードの間に
-	自動的に挿入するグルーの値を格納するレジスタです。
-	ただし、この処理は\cs{autoxspacing}、\cs{noautoxspacing}によって
-	行うか行わないかの指定ができます。\\
-	\cs{kanjiskip}と同様のタイミングで取り込まれ処理されます。
+	$BO"B3$9$k(B2$B%P%$%H%3!<%I$H(B\cs{xspcode}$B$G;XDj$5$l$?(B1$B%P%$%H%3!<%I$N4V$K(B
+	$B<+F0E*$KA^F~$9$k%0%k!<$NCM$r3JG<$9$k%l%8%9%?$G$9!#(B
+	$B$?$@$7!"$3$N=hM}$O(B\cs{autoxspacing}$B!"(B\cs{noautoxspacing}$B$K$h$C$F(B
+	$B9T$&$+9T$o$J$$$+$N;XDj$,$G$-$^$9!#(B\\
+	\cs{kanjiskip}$B$HF1MM$N%?%$%_%s%0$G<h$j9~$^$l=hM}$5$l$^$9!#(B
 
 	\noindent
-	使用例\\
+	$B;HMQNc(B\\
 	{\tt\cs{xkanjiskip}$=$10pt plus 1pt minus 1pt}\\
 	{\xkanjiskip=10pt plus 1pt minus 1pt
-	とするとalphabetやnumberとの間に挿入されるグルーが
-	10pt plus 1pt minus 1ptになります。\par}
+	$B$H$9$k$H(Balphabet$B$d(Bnumber$B$H$N4V$KA^F~$5$l$k%0%k!<$,(B
+	10pt plus 1pt minus 1pt$B$K$J$j$^$9!#(B\par}
 \item \cs{{\bf sjis}}
 	\begin{quote}
 	\cs{sjis}\angle{16--bit number}
 	\end{quote}
-	シフトJISコードから内部コードへの変換を行います。
+	$B%7%U%H(BJIS$B%3!<%I$+$iFbIt%3!<%I$X$NJQ49$r9T$$$^$9!#(B
 
 	\noindent
-	使用例\\
+	$B;HMQNc(B\\
 	{\tt\cs{char}\cs{sjis}"889F}\\
-	とすれば、`\char\sjis"889F' となります。
+	$B$H$9$l$P!"(B`\char\sjis"889F' $B$H$J$j$^$9!#(B
 \item \cs{{\bf jis}}
 	\begin{quote}
 	\cs{jis}\angle{16--bit number}
 	\end{quote}
-	JISコードから内部コードへの変換を行います。
+	JIS$B%3!<%I$+$iFbIt%3!<%I$X$NJQ49$r9T$$$^$9!#(B
 
 	\noindent
-	使用例\\
+	$B;HMQNc(B\\
 	{\tt\cs{char}\cs{jis}"3022}\\
-	とすれば、`\char\jis"3022' となります。
+	$B$H$9$l$P!"(B`\char\jis"3022' $B$H$J$j$^$9!#(B
 \item \cs{{\bf kuten}}
 	\begin{quote}
 	\cs{kuten}\angle{16--bit number}
 	\end{quote}
-	区点コードから内部コードへの変換を行います。
-	16進4桁の上2桁が区を下2桁が点であると解釈します。
+	$B6hE@%3!<%I$+$iFbIt%3!<%I$X$NJQ49$r9T$$$^$9!#(B
+	16$B?J(B4$B7e$N>e(B2$B7e$,6h$r2<(B2$B7e$,E@$G$"$k$H2r<a$7$^$9!#(B
 
 	\noindent
-	使用例\\
+	$B;HMQNc(B\\
 	{\tt\cs{char}\cs{kuten}"1003}\\
-	とすれば、`\char\kuten"1003' となります。
+	$B$H$9$l$P!"(B`\char\kuten"1003' $B$H$J$j$^$9!#(B
 \item \cs{{\bf xspcode}}
 	\begin{quote}
 	\cs{xspcode}\angle{8--bit number}$=$\angle{$0|1|2|3$}
 	\end{quote}
-	2バイトコードと1バイトコードの間に自動的にスペースが挿入されますが、
-	このプリミティブによってどの1バイトコードとの間でこの処理を行うか
-	どうかを指定できます。この指定は0--3のいずれかを選択することにより
-	次のような動作を選択できます。
+	2$B%P%$%H%3!<%I$H(B1$B%P%$%H%3!<%I$N4V$K<+F0E*$K%9%Z!<%9$,A^F~$5$l$^$9$,!"(B
+	$B$3$N%W%j%_%F%#%V$K$h$C$F$I$N(B1$B%P%$%H%3!<%I$H$N4V$G$3$N=hM}$r9T$&$+(B
+	$B$I$&$+$r;XDj$G$-$^$9!#$3$N;XDj$O(B0--3$B$N$$$:$l$+$rA*Br$9$k$3$H$K$h$j(B
+	$B<!$N$h$&$JF0:n$rA*Br$G$-$^$9!#(B
 	\begin{itemize}
-	\item 0を設定することによりこの1バイトコード文字と2バイトコード文字
-		の間での処理を禁止します。
-	\item 1を設定することでこの文字と直前の2バイトコード文字との間にのみ
-		スペースを挿入することを許可します。
-	\item 2を設定することにより直後の2バイトコード文字との間にのみ
-		スペースを挿入することを許可します。
-	\item 3を設定することで前後の2バイトコード文字との間でのスペースの
-		挿入を許可します。
+	\item 0$B$r@_Dj$9$k$3$H$K$h$j$3$N(B1$B%P%$%H%3!<%IJ8;z$H(B2$B%P%$%H%3!<%IJ8;z(B
+		$B$N4V$G$N=hM}$r6X;_$7$^$9!#(B
+	\item 1$B$r@_Dj$9$k$3$H$G$3$NJ8;z$HD>A0$N(B2$B%P%$%H%3!<%IJ8;z$H$N4V$K$N$_(B
+		$B%9%Z!<%9$rA^F~$9$k$3$H$r5v2D$7$^$9!#(B
+	\item 2$B$r@_Dj$9$k$3$H$K$h$jD>8e$N(B2$B%P%$%H%3!<%IJ8;z$H$N4V$K$N$_(B
+		$B%9%Z!<%9$rA^F~$9$k$3$H$r5v2D$7$^$9!#(B
+	\item 3$B$r@_Dj$9$k$3$H$GA08e$N(B2$B%P%$%H%3!<%IJ8;z$H$N4V$G$N%9%Z!<%9$N(B
+		$BA^F~$r5v2D$7$^$9!#(B
 	\end{itemize}
 
 	\noindent
-	使用例\\
+	$B;HMQNc(B\\
 	{\tt\cs{xspcode}`1=0\\
 	\cs{xspcode}`2=3\\
 	\cs{xspcode}`;=2}\\
-	とすることにより、`1' に対する処理を禁止し、
-	`2' に対して前後の処理を許可します。
-	また、`;' に対しては直後へのスペースの挿入を許可します。
+	$B$H$9$k$3$H$K$h$j!"(B`1' $B$KBP$9$k=hM}$r6X;_$7!"(B
+	`2' $B$KBP$7$FA08e$N=hM}$r5v2D$7$^$9!#(B
+	$B$^$?!"(B`;' $B$KBP$7$F$OD>8e$X$N%9%Z!<%9$NA^F~$r5v2D$7$^$9!#(B
 \item \cs{{\bf inhibitxspcode}}
-	指定した2バイトコードとそれに前後する1バイトコードの間に
-	自動的に挿入されるスペースを抑制します。
-	この指定は0--3のいずれかを選択することにより
-	次のような動作を選択できます。
+	$B;XDj$7$?(B2$B%P%$%H%3!<%I$H$=$l$KA08e$9$k(B1$B%P%$%H%3!<%I$N4V$K(B
+	$B<+F0E*$KA^F~$5$l$k%9%Z!<%9$rM^@)$7$^$9!#(B
+	$B$3$N;XDj$O(B0--3$B$N$$$:$l$+$rA*Br$9$k$3$H$K$h$j(B
+	$B<!$N$h$&$JF0:n$rA*Br$G$-$^$9!#(B
 	\begin{itemize}
-	\item 0を設定することによりこの2バイトコード文字と1バイトコード文字
-		の間での処理を禁止します。
-	\item 1を設定することでこの文字と直前の1バイトコード文字との間に
-		スペースを挿入することを禁止します。
-	\item 2を設定することにより直後の1バイトコード文字との間に
-		スペースを挿入することを禁止します。
-	\item 3を設定することで前後の1バイトコード文字との間でのスペースの
-		挿入を許可します。
+	\item 0$B$r@_Dj$9$k$3$H$K$h$j$3$N(B2$B%P%$%H%3!<%IJ8;z$H(B1$B%P%$%H%3!<%IJ8;z(B
+		$B$N4V$G$N=hM}$r6X;_$7$^$9!#(B
+	\item 1$B$r@_Dj$9$k$3$H$G$3$NJ8;z$HD>A0$N(B1$B%P%$%H%3!<%IJ8;z$H$N4V$K(B
+		$B%9%Z!<%9$rA^F~$9$k$3$H$r6X;_$7$^$9!#(B
+	\item 2$B$r@_Dj$9$k$3$H$K$h$jD>8e$N(B1$B%P%$%H%3!<%IJ8;z$H$N4V$K(B
+		$B%9%Z!<%9$rA^F~$9$k$3$H$r6X;_$7$^$9!#(B
+	\item 3$B$r@_Dj$9$k$3$H$GA08e$N(B1$B%P%$%H%3!<%IJ8;z$H$N4V$G$N%9%Z!<%9$N(B
+		$BA^F~$r5v2D$7$^$9!#(B
 	\end{itemize}
-	このプリミティブは、日本語\TeX のバージョン1.4で追加しました。
+	$B$3$N%W%j%_%F%#%V$O!"F|K\8l(B\TeX $B$N%P!<%8%g%s(B1.4$B$GDI2C$7$^$7$?!#(B
 
 	\noindent
-	使用例\\
-	{\tt\cs{xspjcode}`？=0\\
-	\cs{xspjcode}`（=2\\
-	\cs{xspjcode}`）=1}
+	$B;HMQNc(B\\
+	{\tt\cs{xspjcode}`$B!)(B=0\\
+	\cs{xspjcode}`$B!J(B=2\\
+	\cs{xspjcode}`$B!K(B=1}
 \item \cs{{\bf jcharwidowpenalty}}
 	\begin{quote}
 	\cs{jcharwidowpenalty}$=$\angle{number}
 	\end{quote}
-	パラグラフの最後の全角文字が、孤立して改行されるのを防ぐための
-	ペナルティです。またパラグラフの最後が1文字以上の1区、2区、7区
-	に含まれる文字の場合は、その直前にある全角文字に対してこの
-	ペナルティが使われます。
+	$B%Q%i%0%i%U$N:G8e$NA43QJ8;z$,!"8IN)$7$F2~9T$5$l$k$N$rKI$0$?$a$N(B
+	$B%Z%J%k%F%#$G$9!#$^$?%Q%i%0%i%U$N:G8e$,(B1$BJ8;z0J>e$N(B1$B6h!"(B2$B6h!"(B7$B6h(B
+	$B$K4^$^$l$kJ8;z$N>l9g$O!"$=$ND>A0$K$"$kA43QJ8;z$KBP$7$F$3$N(B
+	$B%Z%J%k%F%#$,;H$o$l$^$9!#(B
 \item \cs{{\bf autospacing}}
 	\begin{quote}
 	\cs{autospacing}
 	\end{quote}
-	このプリミティブによって2バイトコード間へのグルーの自動挿入を許可
-	します。
+	$B$3$N%W%j%_%F%#%V$K$h$C$F(B2$B%P%$%H%3!<%I4V$X$N%0%k!<$N<+F0A^F~$r5v2D(B
+	$B$7$^$9!#(B
 \item \cs{{\bf noautospacing}}
 	\begin{quote}
 	\cs{noautospacing}
 	\end{quote}
-	このプリミティブによって2バイトコード間へのグルーの自動挿入を禁止
-	します。
+	$B$3$N%W%j%_%F%#%V$K$h$C$F(B2$B%P%$%H%3!<%I4V$X$N%0%k!<$N<+F0A^F~$r6X;_(B
+	$B$7$^$9!#(B
 \item \cs{{\bf autoxspacing}}
 	\begin{quote}
 	\cs{autoxspacing}
 	\end{quote}
-	このプリミティブによって2バイトコードと1バイトコード間へのグルーの
-	自動挿入を許可します。
+	$B$3$N%W%j%_%F%#%V$K$h$C$F(B2$B%P%$%H%3!<%I$H(B1$B%P%$%H%3!<%I4V$X$N%0%k!<$N(B
+	$B<+F0A^F~$r5v2D$7$^$9!#(B
 \item \cs{{\bf noautoxspacing}}
 	\begin{quote}
 	\cs{noautoxspacing}
 	\end{quote}
-	このプリミティブによって2バイトコードと1バイトコード間へのグルーの
-	自動挿入を禁止します。
+	$B$3$N%W%j%_%F%#%V$K$h$C$F(B2$B%P%$%H%3!<%I$H(B1$B%P%$%H%3!<%I4V$X$N%0%k!<$N(B
+	$B<+F0A^F~$r6X;_$7$^$9!#(B
 \item \cs{{\bf prebreakpenalty}}
 	\begin{quote}
 	\cs{prebreakpenalty}\angle{16--bit number}$=$\angle{number}
 	\end{quote}
-	指定する文字の前方に挿入するペナルティ値を設定します。
-	この指定は、行頭禁則の指定にあたります。
+	$B;XDj$9$kJ8;z$NA0J}$KA^F~$9$k%Z%J%k%F%#CM$r@_Dj$7$^$9!#(B
+	$B$3$N;XDj$O!"9TF,6XB'$N;XDj$K$"$?$j$^$9!#(B
 
 	\noindent
-	使用例\\
-	{\tt\cs{prebreakpenalty}`あ$=$1000}\\
-	とすることにより、`あ' の前方に1000のペナルティ値が付けられます。
+	$B;HMQNc(B\\
+	{\tt\cs{prebreakpenalty}`$B$"(B$=$1000}\\
+	$B$H$9$k$3$H$K$h$j!"(B`$B$"(B' $B$NA0J}$K(B1000$B$N%Z%J%k%F%#CM$,IU$1$i$l$^$9!#(B
 \item \cs{{\bf postbreakpenalty}}
 	\begin{quote}
 	\cs{postbreakpenalty}\angle{16--bit number}$=$\angle{number}
 	\end{quote}
-	指定する文字の後方に挿入するペナルティ値を設定します。
-	この指定は、行末禁則の指定にあたります。\\
-	ただし、\cs{prebreakpenalty}と\cs{postbreakpenalty}を同一の
-	文字に対して同時に設定することはできません。
-	同一の文字に対して両方の指定を行った場合、後からの設定が有効になります。
+	$B;XDj$9$kJ8;z$N8eJ}$KA^F~$9$k%Z%J%k%F%#CM$r@_Dj$7$^$9!#(B
+	$B$3$N;XDj$O!"9TKv6XB'$N;XDj$K$"$?$j$^$9!#(B\\
+	$B$?$@$7!"(B\cs{prebreakpenalty}$B$H(B\cs{postbreakpenalty}$B$rF10l$N(B
+	$BJ8;z$KBP$7$FF1;~$K@_Dj$9$k$3$H$O$G$-$^$;$s!#(B
+	$BF10l$NJ8;z$KBP$7$FN>J}$N;XDj$r9T$C$?>l9g!"8e$+$i$N@_Dj$,M-8z$K$J$j$^$9!#(B
 \item \cs{{\bf jfont}} \\
-	基本的な動作は、``\cs{font}'' と同じです。
-	ただし、`\cs{showthe}' などのプリミティブと組み合せた場合に
-	カレントの漢字フォントを返します。
-	フォントの定義は、\cs{font}, \cs{jfont}のどちらを使っても
-	英字フォント、漢字フォントの定義が行えます。
+	$B4pK\E*$JF0:n$O!"(B``\cs{font}'' $B$HF1$8$G$9!#(B
+	$B$?$@$7!"(B`\cs{showthe}' $B$J$I$N%W%j%_%F%#%V$HAH$_9g$;$?>l9g$K(B
+	$B%+%l%s%H$N4A;z%U%)%s%H$rJV$7$^$9!#(B
+	$B%U%)%s%H$NDj5A$O!"(B\cs{font}, \cs{jfont}$B$N$I$A$i$r;H$C$F$b(B
+	$B1Q;z%U%)%s%H!"4A;z%U%)%s%H$NDj5A$,9T$($^$9!#(B
 \item \cs{{\bf jfam}} \\
-	`\cs{jfont}' と同様に ``\cs{fam}'' とほとんど同じ動作をします。
-	`\cs{showthe}' などとの組み合せることで、カレントの漢字フォント
-	ファミリーを返します。
-	ただしこのプリミティブでは、英字フォントのファミリーを
-	漢字ファミリーとして定義できてしまいますので注意してください。
+	`\cs{jfont}' $B$HF1MM$K(B ``\cs{fam}'' $B$H$[$H$s$IF1$8F0:n$r$7$^$9!#(B
+	`\cs{showthe}' $B$J$I$H$NAH$_9g$;$k$3$H$G!"%+%l%s%H$N4A;z%U%)%s%H(B
+	$B%U%!%_%j!<$rJV$7$^$9!#(B
+	$B$?$@$7$3$N%W%j%_%F%#%V$G$O!"1Q;z%U%)%s%H$N%U%!%_%j!<$r(B
+	$B4A;z%U%!%_%j!<$H$7$FDj5A$G$-$F$7$^$$$^$9$N$GCm0U$7$F$/$@$5$$!#(B
 \item {{\bf zw, zh}} \\
-	プリミティブとは異なりますが、{\bf em, ex}と同じように
-	zw、zhは、それぞれカレントの2バイトコードフォントの幅（全角幅）
-	および高さの単位記号です。
+	$B%W%j%_%F%#%V$H$O0[$J$j$^$9$,!"(B{\bf em, ex}$B$HF1$8$h$&$K(B
+	zw$B!"(Bzh$B$O!"$=$l$>$l%+%l%s%H$N(B2$B%P%$%H%3!<%I%U%)%s%H$NI}!JA43QI}!K(B
+	$B$*$h$S9b$5$NC10L5-9f$G$9!#(B
 
 	\noindent
-	使用例\\
+	$B;HMQNc(B\\
 	{\tt\cs{baselineskip}$=$1.5zh\\
 	\cs{hsize}=20zw}\\
-	でカレントフォントの高さの1.5倍の値が\cs{baselineskip}に代入され、
-	\cs{hsize}が全角20文字分に設定されます。
+	$B$G%+%l%s%H%U%)%s%H$N9b$5$N(B1.5$BG\$NCM$,(B\cs{baselineskip}$B$KBeF~$5$l!"(B
+	\cs{hsize}$B$,A43Q(B20$BJ8;zJ,$K@_Dj$5$l$^$9!#(B
 \end{itemize}
 
-\subsection{自動挿入されるスペースについて}
-\cs{kanjiskip}や\cs{xkanjiskip}の自動挿入は、単純に連続する文字列ばかりでなく
-shift\_amountが0である\cs{hbox}内の文字との前後関係においても行われます。
-これは、\cs{hbox}が入子状になっている場合でも同じです。
-つまり、その\cs{hbox}内に現れる最初の文字と最後の文字とが、
-boxの前後の文字に連続する文字列として解釈され、
-そこに指定されたスペースが挿入されることになります。
-\cs{vbox}はその対象とはなりません。具体的には以下の例を参考にしてください。
+\subsection{$B<+F0A^F~$5$l$k%9%Z!<%9$K$D$$$F(B}
+\cs{kanjiskip}$B$d(B\cs{xkanjiskip}$B$N<+F0A^F~$O!"C1=c$KO"B3$9$kJ8;zNs$P$+$j$G$J$/(B
+shift\_amount$B$,(B0$B$G$"$k(B\cs{hbox}$BFb$NJ8;z$H$NA08e4X78$K$*$$$F$b9T$o$l$^$9!#(B
+$B$3$l$O!"(B\cs{hbox}$B$,F~;R>u$K$J$C$F$$$k>l9g$G$bF1$8$G$9!#(B
+$B$D$^$j!"$=$N(B\cs{hbox}$BFb$K8=$l$k:G=i$NJ8;z$H:G8e$NJ8;z$H$,!"(B
+box$B$NA08e$NJ8;z$KO"B3$9$kJ8;zNs$H$7$F2r<a$5$l!"(B
+$B$=$3$K;XDj$5$l$?%9%Z!<%9$,A^F~$5$l$k$3$H$K$J$j$^$9!#(B
+\cs{vbox}$B$O$=$NBP>]$H$O$J$j$^$;$s!#6qBNE*$K$O0J2<$NNc$r;29M$K$7$F$/$@$5$$!#(B
 
 \begin{tabular}{l@{ $\longrightarrow$ }c}
-\verb|あ\hbox{A}い| & あ\hbox{A}い \\
-\verb|あ\hbox{\hbox{A}}い| & あ\hbox{\hbox{A}}い \\
-\verb|あ\hbox{\hbox{\hbox{A}}}い| & あ\hbox{\hbox{\hbox{A}}}い \\
-\verb|あ\hbox{\hbox{\hbox{\hbox{A}}}}い| & あ\hbox{\hbox{\hbox{\hbox{A}}}}い \\
-\verb|あ\hbox{A\hbox{\vbox{\hbox{A}}}B}い| &
-					あ\hbox{A\hbox{\vbox{\hbox{A}}}B}い \\
-\verb|あ\hbox{\hbox{\vbox{\hbox{A}}}B}い| &
-					あ\hbox{\hbox{\vbox{\hbox{A}}}B}い \\
-\verb|あ\hbox{A\hbox{\vbox{\hbox{A}}}}い| &
-					あ\hbox{A\hbox{\vbox{\hbox{A}}}}い \\
-\verb|あfiい| & あfiい \\
-\verb|あ\hbox{\hbox{\vbox{\hbox{A}}}}い| &
-					あ\hbox{\hbox{\vbox{\hbox{A}}}}い \\
-\verb|あ\hbox{\vbox{\hbox{\hbox{A}}}}い| &
-					あ\hbox{\vbox{\hbox{\hbox{A}}}}い \\
-\verb|あ\vbox{\hbox{\hbox{\hbox{A}}}}い| &
-					あ\vbox{\hbox{\hbox{\hbox{A}}}}い \\
-\verb|A\hbox{あ}A| & A\hbox{あ}A \\
-\verb|A\hbox{\hbox{あ}}A| & A\hbox{\hbox{あ}}A \\
-\verb|A\hbox{\hbox{\hbox{あ}}}A| & A\hbox{\hbox{\hbox{あ}}}A \\
-\verb|A\hbox{\hbox{\hbox{\hbox{あ}}}}A| & A\hbox{\hbox{\hbox{\hbox{あ}}}}A \\
-\verb|A\hbox{あ\hbox{\vbox{\hbox{あ}}}あ}A| &
-					A\hbox{あ\hbox{\vbox{\hbox{あ}}}あ}A \\
-\verb|A\hbox{\hbox{\vbox{\hbox{あ}}}あ}A| &
-					A\hbox{\hbox{\vbox{\hbox{あ}}}あ}A \\
-\verb|A\hbox{あ\hbox{\vbox{\hbox{あ}}}}A| &
-					A\hbox{あ\hbox{\vbox{\hbox{あ}}}}A \\
-\verb|A\hbox{\hbox{\vbox{\hbox{あ}}}}A| \\
-					A\hbox{\hbox{\vbox{\hbox{あ}}}}A \\
-\verb|A\hbox{\vbox{\hbox{\hbox{あ}}}}A| &
-					A\hbox{\vbox{\hbox{\hbox{あ}}}}A \\
-\verb|A\vbox{\hbox{\hbox{\hbox{あ}}}}A| &
-					A\vbox{\hbox{\hbox{\hbox{あ}}}}A \\
+\verb|$B$"(B\hbox{A}$B$$(B| & $B$"(B\hbox{A}$B$$(B \\
+\verb|$B$"(B\hbox{\hbox{A}}$B$$(B| & $B$"(B\hbox{\hbox{A}}$B$$(B \\
+\verb|$B$"(B\hbox{\hbox{\hbox{A}}}$B$$(B| & $B$"(B\hbox{\hbox{\hbox{A}}}$B$$(B \\
+\verb|$B$"(B\hbox{\hbox{\hbox{\hbox{A}}}}$B$$(B| & $B$"(B\hbox{\hbox{\hbox{\hbox{A}}}}$B$$(B \\
+\verb|$B$"(B\hbox{A\hbox{\vbox{\hbox{A}}}B}$B$$(B| &
+					$B$"(B\hbox{A\hbox{\vbox{\hbox{A}}}B}$B$$(B \\
+\verb|$B$"(B\hbox{\hbox{\vbox{\hbox{A}}}B}$B$$(B| &
+					$B$"(B\hbox{\hbox{\vbox{\hbox{A}}}B}$B$$(B \\
+\verb|$B$"(B\hbox{A\hbox{\vbox{\hbox{A}}}}$B$$(B| &
+					$B$"(B\hbox{A\hbox{\vbox{\hbox{A}}}}$B$$(B \\
+\verb|$B$"(Bfi$B$$(B| & $B$"(Bfi$B$$(B \\
+\verb|$B$"(B\hbox{\hbox{\vbox{\hbox{A}}}}$B$$(B| &
+					$B$"(B\hbox{\hbox{\vbox{\hbox{A}}}}$B$$(B \\
+\verb|$B$"(B\hbox{\vbox{\hbox{\hbox{A}}}}$B$$(B| &
+					$B$"(B\hbox{\vbox{\hbox{\hbox{A}}}}$B$$(B \\
+\verb|$B$"(B\vbox{\hbox{\hbox{\hbox{A}}}}$B$$(B| &
+					$B$"(B\vbox{\hbox{\hbox{\hbox{A}}}}$B$$(B \\
+\verb|A\hbox{$B$"(B}A| & A\hbox{$B$"(B}A \\
+\verb|A\hbox{\hbox{$B$"(B}}A| & A\hbox{\hbox{$B$"(B}}A \\
+\verb|A\hbox{\hbox{\hbox{$B$"(B}}}A| & A\hbox{\hbox{\hbox{$B$"(B}}}A \\
+\verb|A\hbox{\hbox{\hbox{\hbox{$B$"(B}}}}A| & A\hbox{\hbox{\hbox{\hbox{$B$"(B}}}}A \\
+\verb|A\hbox{$B$"(B\hbox{\vbox{\hbox{$B$"(B}}}$B$"(B}A| &
+					A\hbox{$B$"(B\hbox{\vbox{\hbox{$B$"(B}}}$B$"(B}A \\
+\verb|A\hbox{\hbox{\vbox{\hbox{$B$"(B}}}$B$"(B}A| &
+					A\hbox{\hbox{\vbox{\hbox{$B$"(B}}}$B$"(B}A \\
+\verb|A\hbox{$B$"(B\hbox{\vbox{\hbox{$B$"(B}}}}A| &
+					A\hbox{$B$"(B\hbox{\vbox{\hbox{$B$"(B}}}}A \\
+\verb|A\hbox{\hbox{\vbox{\hbox{$B$"(B}}}}A| \\
+					A\hbox{\hbox{\vbox{\hbox{$B$"(B}}}}A \\
+\verb|A\hbox{\vbox{\hbox{\hbox{$B$"(B}}}}A| &
+					A\hbox{\vbox{\hbox{\hbox{$B$"(B}}}}A \\
+\verb|A\vbox{\hbox{\hbox{\hbox{$B$"(B}}}}A| &
+					A\vbox{\hbox{\hbox{\hbox{$B$"(B}}}}A \\
 \end{tabular}
 
-\section{日本語化されていないプリミティブ}
-次のプリミティブついては、日本語化（2バイトコードに対応）されていません。
+\section{$BF|K\8l2=$5$l$F$$$J$$%W%j%_%F%#%V(B}
+$B<!$N%W%j%_%F%#%V$D$$$F$O!"F|K\8l2=!J(B2$B%P%$%H%3!<%I$KBP1~!K$5$l$F$$$^$;$s!#(B
 
 \begin{itemize}
 \item \cs{catcode}, \cs{sfcode}, \cs{mathcode}, \cs{delcode},
-	\cs{mathchardef}は、
-	2バイトコードに対してそれぞれの定義を行うことはできません。
-\item \cs{lccode}, \cs{uccode}は、2バイトコードをそのままとおし、
-	ローワケース、アッパーケースの変更は行いません。
+	\cs{mathchardef}$B$O!"(B
+	2$B%P%$%H%3!<%I$KBP$7$F$=$l$>$l$NDj5A$r9T$&$3$H$O$G$-$^$;$s!#(B
+\item \cs{lccode}, \cs{uccode}$B$O!"(B2$B%P%$%H%3!<%I$r$=$N$^$^$H$*$7!"(B
+	$B%m!<%o%1!<%9!"%"%C%Q!<%1!<%9$NJQ99$O9T$$$^$;$s!#(B
 \end{itemize}
 
 
-\section{問題点}
-現在のバージョンの日本語\TeX には、次のような問題点があります。
-使用の際には注意してください。
+\section{$BLdBjE@(B}
+$B8=:_$N%P!<%8%g%s$NF|K\8l(B\TeX $B$K$O!"<!$N$h$&$JLdBjE@$,$"$j$^$9!#(B
+$B;HMQ$N:]$K$OCm0U$7$F$/$@$5$$!#(B
 
 \begin{itemize}
-\item 禁則処理および1バイトコードと2バイトコード間に挿入するグルーは、
-	その処理の対象となる文字を単に文字コードでのみ判断しています。
-	これは、2バイトコードの文字に対しては全く問題ないのですが、
-	1バイトコードの文字で問題が生じます。
-	それは、\TeX の文字がコードと一対一に対応していないためで、
-	フォントにより、特定のコードに割り付けられている文字が
-	変ってしまいます。
-	たとえば、`\{' はフォントcmsyの66$_{16}$に対応付けられています。
-	66$_{16}$は、アスキーコードで `n' を示すわけですから禁則の対象文字
-	とはなっていないはずです。
+\item $B6XB'=hM}$*$h$S(B1$B%P%$%H%3!<%I$H(B2$B%P%$%H%3!<%I4V$KA^F~$9$k%0%k!<$O!"(B
+	$B$=$N=hM}$NBP>]$H$J$kJ8;z$rC1$KJ8;z%3!<%I$G$N$_H=CG$7$F$$$^$9!#(B
+	$B$3$l$O!"(B2$B%P%$%H%3!<%I$NJ8;z$KBP$7$F$OA4$/LdBj$J$$$N$G$9$,!"(B
+	1$B%P%$%H%3!<%I$NJ8;z$GLdBj$,@8$8$^$9!#(B
+	$B$=$l$O!"(B\TeX $B$NJ8;z$,%3!<%I$H0lBP0l$KBP1~$7$F$$$J$$$?$a$G!"(B
+	$B%U%)%s%H$K$h$j!"FCDj$N%3!<%I$K3d$jIU$1$i$l$F$$$kJ8;z$,(B
+	$BJQ$C$F$7$^$$$^$9!#(B
+	$B$?$H$($P!"(B`\{' $B$O%U%)%s%H(Bcmsy$B$N(B66$_{16}$$B$KBP1~IU$1$i$l$F$$$^$9!#(B
+	66$_{16}$$B$O!"%"%9%-!<%3!<%I$G(B `n' $B$r<($9$o$1$G$9$+$i6XB'$NBP>]J8;z(B
+	$B$H$O$J$C$F$$$J$$$O$:$G$9!#(B
 
-	したがって、今のままでは `\{' のような文字に対して自動的に禁則処理や
-	グルーの自動挿入を行うことは不可能です。
+	$B$7$?$,$C$F!":#$N$^$^$G$O(B `\{' $B$N$h$&$JJ8;z$KBP$7$F<+F0E*$K6XB'=hM}$d(B
+	$B%0%k!<$N<+F0A^F~$r9T$&$3$H$OIT2DG=$G$9!#(B
 \end{itemize}
-%% cmsy の \{ は 0x6E でなく 0x66 (2001/08/24)
+%% cmsy $B$N(B \{ $B$O(B 0x6E $B$G$J$/(B 0x66 (2001/08/24)
 \end{document}

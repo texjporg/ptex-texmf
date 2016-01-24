@@ -1,137 +1,137 @@
 %% <2000/11/03>
 \documentclass{plnews}
 
-\publicationyear{2000}% 発行年
-\publicationmonth{11}% 発行月
-\publicationissue{6}% 番号
-\author{中野 賢（\texttt{<ken-na at ascii.co.jp>}）
-     \& 富樫 秀昭（\texttt{<hideak-t at ascii.co.jp>}）
+\publicationyear{2000}% $BH/9TG/(B
+\publicationmonth{11}% $BH/9T7n(B
+\publicationissue{6}% $BHV9f(B
+\author{$BCfLn(B $B8-!J(B\texttt{<ken-na at ascii.co.jp>}$B!K(B
+     \& $BIY3_(B $B=(><!J(B\texttt{<hideak-t at ascii.co.jp>}$B!K(B
 }
 
 \begin{document}
 
 \maketitle
 
-\section{この文書について}
-この文書は、p\LaTeXe{}\texttt{<2000/11/03>}版について、
-前回の版（\texttt{<1999/08/09>}）からの更新箇所をまとめたものです。
-それ以前の変更点については、\textsf{plnews*.tex}やChanges.txtを
-参照してください。\LaTeX{}レベルでの更新箇所は、\LaTeX{}に付属の
-ltnewsファイルを参照してください。
+\section{$B$3$NJ8=q$K$D$$$F(B}
+$B$3$NJ8=q$O!"(Bp\LaTeXe{}\texttt{<2000/11/03>}$BHG$K$D$$$F!"(B
+$BA02s$NHG!J(B\texttt{<1999/08/09>}$B!K$+$i$N99?72U=j$r$^$H$a$?$b$N$G$9!#(B
+$B$=$l0JA0$NJQ99E@$K$D$$$F$O!"(B\textsf{plnews*.tex}$B$d(BChanges.txt$B$r(B
+$B;2>H$7$F$/$@$5$$!#(B\LaTeX{}$B%l%Y%k$G$N99?72U=j$O!"(B\LaTeX{}$B$KIUB0$N(B
+ltnews$B%U%!%$%k$r;2>H$7$F$/$@$5$$!#(B
 
-\section{前バージョンからの主な修正個所}
+\section{$BA0%P!<%8%g%s$+$i$N<g$J=$@58D=j(B}
 \begin{itemize}
-\item 配布形態をte\TeX{}ライブラリの形式に変更した。
-\item |nidanfloat|パッケージを付け加えた。
-\item |\text..|コマンドの左側に|\xkanjiskip|が入らないのを修正（ありがと
-う、乙部＠東大さん）
-\item tarticle, tbook, treportで、文頭の全角開き括弧類が下がる現象に対処。
-|\adjustbaseline|を修正しました。
-\item \LaTeX \texttt{<2000/06/01>}に対応した。
+\item $BG[I[7ABV$r(Bte\TeX{}$B%i%$%V%i%j$N7A<0$KJQ99$7$?!#(B
+\item |nidanfloat|$B%Q%C%1!<%8$rIU$12C$($?!#(B
+\item |\text..|$B%3%^%s%I$N:8B&$K(B|\xkanjiskip|$B$,F~$i$J$$$N$r=$@5!J$"$j$,$H(B
+$B$&!"25It!wElBg$5$s!K(B
+\item tarticle, tbook, treport$B$G!"J8F,$NA43Q3+$-3g8LN`$,2<$,$k8=>]$KBP=h!#(B
+|\adjustbaseline|$B$r=$@5$7$^$7$?!#(B
+\item \LaTeX \texttt{<2000/06/01>}$B$KBP1~$7$?!#(B
 \end{itemize}
 
 
-\section{te\TeX{}ライブラリ形式での配布}
-\textit{\TeX{} Live}というTUGで配布している\TeX{}システムを集めた
-CD--ROMがあり、TUGboat購読者にはこれがTUGboatと一緒に定期的に配布されて
-います。te\TeX{}（Thomas Esserによる）は\textit{\TeX{} Live}用に集められ
-た\TeX{}のことです。
+\section{te\TeX{}$B%i%$%V%i%j7A<0$G$NG[I[(B}
+\textit{\TeX{} Live}$B$H$$$&(BTUG$B$GG[I[$7$F$$$k(B\TeX{}$B%7%9%F%`$r=8$a$?(B
+CD--ROM$B$,$"$j!"(BTUGboat$B9XFI<T$K$O$3$l$,(BTUGboat$B$H0l=o$KDj4|E*$KG[I[$5$l$F(B
+$B$$$^$9!#(Bte\TeX{}$B!J(BThomas Esser$B$K$h$k!K$O(B\textit{\TeX{} Live}$BMQ$K=8$a$i$l(B
+$B$?(B\TeX{}$B$N$3$H$G$9!#(B
 
-te\TeX{}のTDS（\textit{\TeX{} Directory Structure}）に従った配布物には、
-ポーランド語の\LaTeX{}用に|platex|というディレクトリが含まれており、
-p\TeX{}のplatexと重なります。この問題を避けるために、p\TeX{}用のディレク
-トリを|texmf|直下に|texmf/ptex|と作り、p\TeX{}ではそちらを優先して使うよ
-うにし、te\TeX{}ライブラリに合わせた形でp\TeX{}関連のライブラリをまとめ
-て|ptex-texmf-*.tar.gz|として配布しています。
+te\TeX{}$B$N(BTDS$B!J(B\textit{\TeX{} Directory Structure}$B!K$K=>$C$?G[I[J*$K$O!"(B
+$B%]!<%i%s%I8l$N(B\LaTeX{}$BMQ$K(B|platex|$B$H$$$&%G%#%l%/%H%j$,4^$^$l$F$*$j!"(B
+p\TeX{}$B$N(Bplatex$B$H=E$J$j$^$9!#$3$NLdBj$rHr$1$k$?$a$K!"(Bp\TeX{}$BMQ$N%G%#%l%/(B
+$B%H%j$r(B|texmf|$BD>2<$K(B|texmf/ptex|$B$H:n$j!"(Bp\TeX{}$B$G$O$=$A$i$rM%@h$7$F;H$&$h(B
+$B$&$K$7!"(Bte\TeX{}$B%i%$%V%i%j$K9g$o$;$?7A$G(Bp\TeX{}$B4XO"$N%i%$%V%i%j$r$^$H$a(B
+$B$F(B|ptex-texmf-*.tar.gz|$B$H$7$FG[I[$7$F$$$^$9!#(B
 
-このディレクトリ構成は従来のディレクトリ構成と異なっており、\LaTeXe{}の
-|*.ins|にはディレクトリ名を記述するので、te\TeX{}用の配布物とは別に、こ
-れまでのようにp\LaTeXe{}のパッケージを作ると、ディレクトリ名の記述だけが
-異なり、他は全く同じ2種類の配布物が出来上がることになります。この状態は
-望ましくないので、\TeX{}の世界全体がte\TeX{}にシフトしてきていることも考
-慮し\footnote{例えば、オリジナルのdvipsの最新版はte\TeX{}に含まれるもの
-だけとなっています。}、p\LaTeXe{}の配布もte\TeX{}ライブラリ形式での配布
-形態に絞ることにしました。今後p\LaTeXe{}のバージョンアップは、
-|ptex-texmf*.tar.gz|アーカイブに含まれる形で行なうことになります。
+$B$3$N%G%#%l%/%H%j9=@.$O=>Mh$N%G%#%l%/%H%j9=@.$H0[$J$C$F$*$j!"(B\LaTeXe{}$B$N(B
+|*.ins|$B$K$O%G%#%l%/%H%jL>$r5-=R$9$k$N$G!"(Bte\TeX{}$BMQ$NG[I[J*$H$OJL$K!"$3(B
+$B$l$^$G$N$h$&$K(Bp\LaTeXe{}$B$N%Q%C%1!<%8$r:n$k$H!"%G%#%l%/%H%jL>$N5-=R$@$1$,(B
+$B0[$J$j!"B>$OA4$/F1$8(B2$B<oN`$NG[I[J*$,=PMh>e$,$k$3$H$K$J$j$^$9!#$3$N>uBV$O(B
+$BK>$^$7$/$J$$$N$G!"(B\TeX{}$B$N@$3&A4BN$,(Bte\TeX{}$B$K%7%U%H$7$F$-$F$$$k$3$H$b9M(B
+$BN8$7(B\footnote{$BNc$($P!"%*%j%8%J%k$N(Bdvips$B$N:G?7HG$O(Bte\TeX{}$B$K4^$^$l$k$b$N(B
+$B$@$1$H$J$C$F$$$^$9!#(B}$B!"(Bp\LaTeXe{}$B$NG[I[$b(Bte\TeX{}$B%i%$%V%i%j7A<0$G$NG[I[(B
+$B7ABV$K9J$k$3$H$K$7$^$7$?!#:#8e(Bp\LaTeXe{}$B$N%P!<%8%g%s%"%C%W$O!"(B
+|ptex-texmf*.tar.gz|$B%"!<%+%$%V$K4^$^$l$k7A$G9T$J$&$3$H$K$J$j$^$9!#(B
 
 
-\section{nidanfloatパッケージの使い方}
-|nidanfloat|パッケージは、二段組時に段抜きのフロートをページ下部にも配置
-できるようにするためのパッケージです。通常は、以下のような使い方になるで
-しょう。ページ下部に1段の幅に収まらない|filename.eps|を出力する場合です。
+\section{nidanfloat$B%Q%C%1!<%8$N;H$$J}(B}
+|nidanfloat|$B%Q%C%1!<%8$O!"FsCJAH;~$KCJH4$-$N%U%m!<%H$r%Z!<%82<It$K$bG[CV(B
+$B$G$-$k$h$&$K$9$k$?$a$N%Q%C%1!<%8$G$9!#DL>o$O!"0J2<$N$h$&$J;H$$J}$K$J$k$G(B
+$B$7$g$&!#%Z!<%82<It$K(B1$BCJ$NI}$K<}$^$i$J$$(B|filename.eps|$B$r=PNO$9$k>l9g$G$9!#(B
 \begin{verbatim}
 \documentclass[twocolumn]{jarticle}
 \usepackage{graphics}
 \usepackage{nidanfloat}
 \begin{document}
-     <本文>
+     <$BK\J8(B>
 \begin{figure*}[b]
 \includegraphics{filename.eps}
-\caption{キャプション}
+\caption{$B%-%c%W%7%g%s(B}
 \end{figure*}
-     <本文>
+     <$BK\J8(B>
 \end{document}
 \end{verbatim}
-このように、二段組で|\usepackage{nidanfloat}|をプリアンブルに指定して、
-|figure|環境のオプションで|b|を指定します。オプションの意味は、通常の
-|figure|環境と同じです。|figure|環境のオプションを指定しない場合は、デフォ
-ルトで|tb|が指定されたものと見なされます。
+$B$3$N$h$&$K!"FsCJAH$G(B|\usepackage{nidanfloat}|$B$r%W%j%"%s%V%k$K;XDj$7$F!"(B
+|figure|$B4D6-$N%*%W%7%g%s$G(B|b|$B$r;XDj$7$^$9!#%*%W%7%g%s$N0UL#$O!"DL>o$N(B
+|figure|$B4D6-$HF1$8$G$9!#(B|figure|$B4D6-$N%*%W%7%g%s$r;XDj$7$J$$>l9g$O!"%G%U%)(B
+$B%k%H$G(B|tb|$B$,;XDj$5$l$?$b$N$H8+$J$5$l$^$9!#(B
 
-その他、追加されたパラメータなどに付いては、|nidanfloat.dtx|をご覧くださ
-い。
-
-
-\section{tarticle, tbook, treportで、文頭の全角開き括弧類が下がる問題}
-tarticle, tbook, treportで、文頭の全角開き括弧類が下がるという現象のご指
-摘を頂きました。このアキは、|\adustbaseline|で出力されていたものです。具
-体的には、|\tbaselineshift|に2度続けて値を指定すると、その後にある全角開
-き括弧類の前に余分なアキが出力されるようです。|\adustbaseline|では、縦組
-のベースライン位置を補正する際に|\tbaselineshift|を初期化し、その後に計
-算値を設定するということをしていたために、その直後に全角開き括弧類がくる
-と余分なアキが出力されていたものです。|\tbaselineshift|への連続した値の
-設定を行なわなければこの問題は起きないので、このバージョンで
-|\adustbaseline|の最初で行なっていた|\tbaselineshift|の初期化を行なわな
-いように変更しました。
+$B$=$NB>!"DI2C$5$l$?%Q%i%a!<%?$J$I$KIU$$$F$O!"(B|nidanfloat.dtx|$B$r$4Mw$/$@$5(B
+$B$$!#(B
 
 
-\section{\LaTeX \texttt{<2000/06/01>}に対応}
-\LaTeX{}のバージョンアップが今回から1年毎になりましたので、p\LaTeXe{}の
-更新も基本的に今後は\LaTeX{}に合わせて1年毎になります。
+\section{tarticle, tbook, treport$B$G!"J8F,$NA43Q3+$-3g8LN`$,2<$,$kLdBj(B}
+tarticle, tbook, treport$B$G!"J8F,$NA43Q3+$-3g8LN`$,2<$,$k$H$$$&8=>]$N$4;X(B
+$BE&$rD:$-$^$7$?!#$3$N%"%-$O!"(B|\adustbaseline|$B$G=PNO$5$l$F$$$?$b$N$G$9!#6q(B
+$BBNE*$K$O!"(B|\tbaselineshift|$B$K(B2$BEYB3$1$FCM$r;XDj$9$k$H!"$=$N8e$K$"$kA43Q3+(B
+$B$-3g8LN`$NA0$KM>J,$J%"%-$,=PNO$5$l$k$h$&$G$9!#(B|\adustbaseline|$B$G$O!"=DAH(B
+$B$N%Y!<%9%i%$%s0LCV$rJd@5$9$k:]$K(B|\tbaselineshift|$B$r=i4|2=$7!"$=$N8e$K7W(B
+$B;;CM$r@_Dj$9$k$H$$$&$3$H$r$7$F$$$?$?$a$K!"$=$ND>8e$KA43Q3+$-3g8LN`$,$/$k(B
+$B$HM>J,$J%"%-$,=PNO$5$l$F$$$?$b$N$G$9!#(B|\tbaselineshift|$B$X$NO"B3$7$?CM$N(B
+$B@_Dj$r9T$J$o$J$1$l$P$3$NLdBj$O5/$-$J$$$N$G!"$3$N%P!<%8%g%s$G(B
+|\adustbaseline|$B$N:G=i$G9T$J$C$F$$$?(B|\tbaselineshift|$B$N=i4|2=$r9T$J$o$J(B
+$B$$$h$&$KJQ99$7$^$7$?!#(B
 
 
-\section{フォーマットファイル作成時の注意}
-現在のp\TeX{}では、8ビットコードの連続を16ビットコードと認識して
-しまう場合があります。そのため、フランス語やキリル文字などの
-8ビットコードが連続するハイフンパターンはまず使えせん。
-例えばcmcyraltパッケージでは、途中でつぎのようなエラーになります。
+\section{\LaTeX \texttt{<2000/06/01>}$B$KBP1~(B}
+\LaTeX{}$B$N%P!<%8%g%s%"%C%W$,:#2s$+$i(B1$BG/Kh$K$J$j$^$7$?$N$G!"(Bp\LaTeXe{}$B$N(B
+$B99?7$b4pK\E*$K:#8e$O(B\LaTeX{}$B$K9g$o$;$F(B1$BG/Kh$K$J$j$^$9!#(B
+
+
+\section{$B%U%)!<%^%C%H%U%!%$%k:n@.;~$NCm0U(B}
+$B8=:_$N(Bp\TeX{}$B$G$O!"(B8$B%S%C%H%3!<%I$NO"B3$r(B16$B%S%C%H%3!<%I$HG'<1$7$F(B
+$B$7$^$&>l9g$,$"$j$^$9!#$=$N$?$a!"%U%i%s%98l$d%-%j%kJ8;z$J$I$N(B
+8$B%S%C%H%3!<%I$,O"B3$9$k%O%$%U%s%Q%?!<%s$O$^$:;H$($;$s!#(B
+$BNc$($P(Bcmcyralt$B%Q%C%1!<%8$G$O!"ESCf$G$D$.$N$h$&$J%(%i!<$K$J$j$^$9!#(B
 
 \begin{verbatim}
 (/usr/local/share/texmf/tex/latex/contrib/
 other/cmcyralt/rhyphen.tex Russian hyphena
 tion
 ! Bad \patterns.
-l.107  . え
+l.107  . $B$((B
            2
 ?
 \end{verbatim}
 
-このときは、``|?|''のプロンプトに対して``|x|''で終了してください。
-残念ながら、このハイフンパターンをp\TeX{}で利用することはできません。
+$B$3$N$H$-$O!"(B``|?|''$B$N%W%m%s%W%H$KBP$7$F(B``|x|''$B$G=*N;$7$F$/$@$5$$!#(B
+$B;DG0$J$,$i!"$3$N%O%$%U%s%Q%?!<%s$r(Bp\TeX{}$B$GMxMQ$9$k$3$H$O$G$-$^$;$s!#(B
 
-そこで、hyphen.cfgを用意して、不用意に他のハイフンパターンを
-読み込まないようにしてあります。詳しくはREADME2.txtをご覧ください。
+$B$=$3$G!"(Bhyphen.cfg$B$rMQ0U$7$F!"ITMQ0U$KB>$N%O%$%U%s%Q%?!<%s$r(B
+$BFI$_9~$^$J$$$h$&$K$7$F$"$j$^$9!#>\$7$/$O(BREADME2.txt$B$r$4Mw$/$@$5$$!#(B
 
-\section{その他}
-p\TeX{}やp\LaTeXe{}に関する最新情報は、p\TeX{}ホームページ
+\section{$B$=$NB>(B}
+p\TeX{}$B$d(Bp\LaTeXe{}$B$K4X$9$k:G?7>pJs$O!"(Bp\TeX{}$B%[!<%`%Z!<%8(B
 \begin{verbatim}
     http://www.ascii.co.jp/pb/ptex
 \end{verbatim}
-より、入手することができます。
+$B$h$j!"F~<j$9$k$3$H$,$G$-$^$9!#(B
 
-バグ報告やお問い合わせなどは、電子メールで
+$B%P%0Js9p$d$*Ld$$9g$o$;$J$I$O!"EE;R%a!<%k$G(B
 \begin{verbatim}
-    www-ptex＠ascii.co.jp
+    www-ptex$B!w(Bascii.co.jp
 \end{verbatim}
-までお願いします。
+$B$^$G$*4j$$$7$^$9!#(B
 
 \end{document}

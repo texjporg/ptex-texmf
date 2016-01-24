@@ -31,20 +31,20 @@
 %
 % \iffalse
 % \changes{v1.0}{1994/09/16}{first edition}
-% \changes{v1.1a}{1995/03/11}{縦組マクロ実装}
-% \changes{v1.1b}{1995/04/01}{互換モード部分を別ファイルに移動}
-% \changes{v1.1c}{1995/08/25}{\cs{newline}, \cs{strut}の修正}
-% \changes{v1.1d}{1995/11/10}{オリジナルとのコマンド名バッティングをやめた}
-% \changes{v1.1d}{1995/11/21}{\cs{Rensuji}, \cs{prensuji}を作成}
-% \changes{v1.1e}{1995/11/21}{プリアンブルコマンドを\file{plcore}に移動}
-% \changes{v1.1f}{1996/01/09}{縦組に依存しないコマンドを分離し、このファイルを
-%     拡張パッケージとした}
-% \changes{v1.1g}{1996/01/12}{minipage環境の中で\cs{parbox}を回転オプション
-%   付きで使用するとエラーとなるバグを修正}
-% \changes{v1.1h}{1996/01/30}{キャプション拡張マクロを追加}
-% \changes{v1.1i}{2001/05/10}{縦組でzを指定するとエラーになるのを修正。
-%    ありがとう、大石さん}
-% \changes{v1.2}{2001/09/26}{タグ名をplcoreからpackageに変更した}
+% \changes{v1.1a}{1995/03/11}{$B=DAH%^%/%m<BAu(B}
+% \changes{v1.1b}{1995/04/01}{$B8_49%b!<%IItJ,$rJL%U%!%$%k$K0\F0(B}
+% \changes{v1.1c}{1995/08/25}{\cs{newline}, \cs{strut}$B$N=$@5(B}
+% \changes{v1.1d}{1995/11/10}{$B%*%j%8%J%k$H$N%3%^%s%IL>%P%C%F%#%s%0$r$d$a$?(B}
+% \changes{v1.1d}{1995/11/21}{\cs{Rensuji}, \cs{prensuji}$B$r:n@.(B}
+% \changes{v1.1e}{1995/11/21}{$B%W%j%"%s%V%k%3%^%s%I$r(B\file{plcore}$B$K0\F0(B}
+% \changes{v1.1f}{1996/01/09}{$B=DAH$K0MB8$7$J$$%3%^%s%I$rJ,N%$7!"$3$N%U%!%$%k$r(B
+%     $B3HD%%Q%C%1!<%8$H$7$?(B}
+% \changes{v1.1g}{1996/01/12}{minipage$B4D6-$NCf$G(B\cs{parbox}$B$r2sE>%*%W%7%g%s(B
+%   $BIU$-$G;HMQ$9$k$H%(%i!<$H$J$k%P%0$r=$@5(B}
+% \changes{v1.1h}{1996/01/30}{$B%-%c%W%7%g%s3HD%%^%/%m$rDI2C(B}
+% \changes{v1.1i}{2001/05/10}{$B=DAH$G(Bz$B$r;XDj$9$k$H%(%i!<$K$J$k$N$r=$@5!#(B
+%    $B$"$j$,$H$&!"Bg@P$5$s(B}
+% \changes{v1.2}{2001/09/26}{$B%?%0L>$r(Bplcore$B$+$i(Bpackage$B$KJQ99$7$?(B}
 % \fi
 %
 % \iffalse
@@ -56,9 +56,9 @@
 \documentclass{jltxdoc}
 \usepackage{plext}
 \GetFileInfo{plext.dtx}
-\title{p\LaTeXe{}拡張パッケージ\space\fileversion}
+\title{p\LaTeXe{}$B3HD%%Q%C%1!<%8(B\space\fileversion}
 \author{Ken Nakano}
-\date{作成日：\filedate}
+\date{$B:n@.F|!'(B\filedate}
 \begin{document}
    \maketitle
    \tableofcontents
@@ -68,80 +68,80 @@
 % \fi
 %
 %
-% \section{概要}\label{plext:intro}
-% このパッケージは、以下の項目に関する機能を拡張するものです。
+% \section{$B35MW(B}\label{plext:intro}
+% $B$3$N%Q%C%1!<%8$O!"0J2<$N9`L\$K4X$9$k5!G=$r3HD%$9$k$b$N$G$9!#(B
 %
 % \begin{itemize}
-% \item 表組環境
-% \item フロートとキャプションの出力位置
-% \item 段落ボックス環境
-% \item 作図環境
-% \item 連数字、漢数字、傍点、下線
-% \item 参照番号
+% \item $BI=AH4D6-(B
+% \item $B%U%m!<%H$H%-%c%W%7%g%s$N=PNO0LCV(B
+% \item $BCJMn%\%C%/%94D6-(B
+% \item $B:n?^4D6-(B
+% \item $BO"?t;z!"4A?t;z!"K5E@!"2<@~(B
+% \item $B;2>HHV9f(B
 % \end{itemize}
 %
-% このパッケージは縦組用クラス（tarticle, tbook, treport）のときには、
-% 自動的に読み込まれます。横組用クラス（jarticle, jbook, jreport）で
-% 拡張機能を使いたい場合は、文書ファイルのプリアンブルに以下の一行を
-% 記述してください。
+% $B$3$N%Q%C%1!<%8$O=DAHMQ%/%i%9!J(Btarticle, tbook, treport$B!K$N$H$-$K$O!"(B
+% $B<+F0E*$KFI$_9~$^$l$^$9!#2#AHMQ%/%i%9!J(Bjarticle, jbook, jreport$B!K$G(B
+% $B3HD%5!G=$r;H$$$?$$>l9g$O!"J8=q%U%!%$%k$N%W%j%"%s%V%k$K0J2<$N0l9T$r(B
+% $B5-=R$7$F$/$@$5$$!#(B
 %
 % \begin{verbatim}
 %     \usepackage{plext}
 % \end{verbatim}
 % 
-% \section{組方向オプションについて}
-% つぎの環境やコマンドは、組方向オプションが追加され、拡張されています。
+% \section{$BAHJ}8~%*%W%7%g%s$K$D$$$F(B}
+% $B$D$.$N4D6-$d%3%^%s%I$O!"AHJ}8~%*%W%7%g%s$,DI2C$5$l!"3HD%$5$l$F$$$^$9!#(B
 %
 % \begin{itemize}
-% \item tabular環境、array環境
-% \item |\layoutcaption|コマンド
-% \item minipage環境、|\parbox|コマンド、|\pbox|コマンド
-% \item picture環境
+% \item tabular$B4D6-!"(Barray$B4D6-(B
+% \item |\layoutcaption|$B%3%^%s%I(B
+% \item minipage$B4D6-!"(B|\parbox|$B%3%^%s%I!"(B|\pbox|$B%3%^%s%I(B
+% \item picture$B4D6-(B
 % \end{itemize}
 %
-% 組方向オプションは、コマンド名や環境の後ろで|<|と|>|で囲って、
-% ``y'', ``t'', ``z''のいずれかを指定します。
-% それぞれのオプションの意味はつぎのとおりです。
-% デフォルトの組み方向は、横組のときは``y''、縦組のときは``t''です。
+% $BAHJ}8~%*%W%7%g%s$O!"%3%^%s%IL>$d4D6-$N8e$m$G(B|<|$B$H(B|>|$B$G0O$C$F!"(B
+% ``y'', ``t'', ``z''$B$N$$$:$l$+$r;XDj$7$^$9!#(B
+% $B$=$l$>$l$N%*%W%7%g%s$N0UL#$O$D$.$N$H$*$j$G$9!#(B
+% $B%G%U%)%k%H$NAH$_J}8~$O!"2#AH$N$H$-$O(B``y''$B!"=DAH$N$H$-$O(B``t''$B$G$9!#(B
 %
 % \medskip
 % \DeleteShortVerb{\|}
 % \begin{center}
 % \begin{tabular}{c|l}
-% \emph{オプション} & \emph{意味}\\\hline
-% \texttt{y}& 横組で出力（横組モードでは何もしない）\\
-% \texttt{t}& 縦組で出力（縦組モードでは何もしない）\\
-% \texttt{z}& 90度回転して出力（横組モードでは何もしない）\\
+% \emph{$B%*%W%7%g%s(B} & \emph{$B0UL#(B}\\\hline
+% \texttt{y}& $B2#AH$G=PNO!J2#AH%b!<%I$G$O2?$b$7$J$$!K(B\\
+% \texttt{t}& $B=DAH$G=PNO!J=DAH%b!<%I$G$O2?$b$7$J$$!K(B\\
+% \texttt{z}& 90$BEY2sE>$7$F=PNO!J2#AH%b!<%I$G$O2?$b$7$J$$!K(B\\
 % \end{tabular}
 % \end{center}
 % \MakeShortVerb{\|}
 %
-% 組方向オプションを用いたサンプルを図\ref{fig:diroption}に示します。
-% 左から、``y'', ``t'', ``z''オプションを指定してあります。
+% $BAHJ}8~%*%W%7%g%s$rMQ$$$?%5%s%W%k$r?^(B\ref{fig:diroption}$B$K<($7$^$9!#(B
+% $B:8$+$i!"(B``y'', ``t'', ``z''$B%*%W%7%g%s$r;XDj$7$F$"$j$^$9!#(B
 %
 % \begin{figure}[htb]
 % \begin{small}
 % \begin{tsample}{10zw}
 % \vfil
-%  \parbox<z>{10zw}{たとえば、これはいったい何、いったいどうして、
-%   などと思えるようなことが世の中にはたくさんあります！}\par
+%  \parbox<z>{10zw}{$B$?$H$($P!"$3$l$O$$$C$?$$2?!"$$$C$?$$$I$&$7$F!"(B
+%   $B$J$I$H;W$($k$h$&$J$3$H$,@$$NCf$K$O$?$/$5$s$"$j$^$9!*(B}\par
 % \vfil
-%  \parbox<t>{10zw}{たとえば、これはいったい何、いったいどうして、
-%   などと思えるようなことが世の中にはたくさんあります？}\par
+%  \parbox<t>{10zw}{$B$?$H$($P!"$3$l$O$$$C$?$$2?!"$$$C$?$$$I$&$7$F!"(B
+%   $B$J$I$H;W$($k$h$&$J$3$H$,@$$NCf$K$O$?$/$5$s$"$j$^$9!)(B}\par
 % \vfil
-%  \parbox<y>{10zw}{たとえば、これはいったい何、いったいどうして、
-%   などと思えるようなことが世の中にはたくさんあります。}
+%  \parbox<y>{10zw}{$B$?$H$($P!"$3$l$O$$$C$?$$2?!"$$$C$?$$$I$&$7$F!"(B
+%   $B$J$I$H;W$($k$h$&$J$3$H$,@$$NCf$K$O$?$/$5$s$"$j$^$9!#(B}
 % \vfil
 % \end{tsample}
 % \end{small}
-% \caption{組方向オプションの使用例\label{fig:diroption}}
+% \caption{$BAHJ}8~%*%W%7%g%s$N;HMQNc(B\label{fig:diroption}}
 % \end{figure}
 %
 %
-% \section{コード}
+% \section{$B%3!<%I(B}
 %
 % \begin{macro}{\if@rotsw}
-% このスイッチは、縦組モードで90度回転させるかどうかを示すのに使います。
+% $B$3$N%9%$%C%A$O!"=DAH%b!<%I$G(B90$BEY2sE>$5$;$k$+$I$&$+$r<($9$N$K;H$$$^$9!#(B
 %    \begin{macrocode}
 %<*package>
 \newif\if@rotsw
@@ -149,15 +149,15 @@
 % \end{macro}
 %
 %
-% \subsection{表組環境}
-% tabular環境とarray環境は、組方向を指定するオプションを追加しました。
-% これらのコマンドは、\file{lttab.dtx}で定義されています。
+% \subsection{$BI=AH4D6-(B}
+% tabular$B4D6-$H(Barray$B4D6-$O!"AHJ}8~$r;XDj$9$k%*%W%7%g%s$rDI2C$7$^$7$?!#(B
+% $B$3$l$i$N%3%^%s%I$O!"(B\file{lttab.dtx}$B$GDj5A$5$l$F$$$^$9!#(B
 %
 % \begin{macro}{\array}
 % \begin{macro}{\tabular}
 % \begin{macro}{\tabular*}
-% array環境とtabular環境を開始するコマンドです。
-% tabular環境にはアスタリスク形式があります。
+% array$B4D6-$H(Btabular$B4D6-$r3+;O$9$k%3%^%s%I$G$9!#(B
+% tabular$B4D6-$K$O%"%9%?%j%9%/7A<0$,$"$j$^$9!#(B
 %    \begin{macrocode}
 \def\array{\let\@acol\@arrayacol \let\@classz\@arrayclassz
  \let\@classiv\@arrayclassiv
@@ -173,8 +173,8 @@
 %
 % \begin{macro}{\X@tabarray}
 % \begin{macro}{\X@tabular}
-% 組方向オプションを調べます。
-% \changes{v1.1c}{1995/08/11}{\cs{tabarray}のタイプミス修正}
+% $BAHJ}8~%*%W%7%g%s$rD4$Y$^$9!#(B
+% \changes{v1.1c}{1995/08/11}{\cs{tabarray}$B$N%?%$%W%_%9=$@5(B}
 % \changes{v1.1d}{1995/11/10}{\cs{@tabarray} to \cs{p@tabarray}}
 % \changes{v1.1d}{1995/11/10}{\cs{@tabular} to \cs{p@tabular}}
 %    \begin{macrocode}
@@ -188,7 +188,7 @@
 %
 % \begin{macro}{\@stabular}
 % \begin{macro}{\p@tabular}
-% アスタリスク形式の場合は、組方向オプションの後ろに幅を指定します。
+% $B%"%9%?%j%9%/7A<0$N>l9g$O!"AHJ}8~%*%W%7%g%s$N8e$m$KI}$r;XDj$7$^$9!#(B
 % \changes{v1.1d}{1995/11/10}{\cs{@tabular} to \cs{p@tabular}}
 %    \begin{macrocode}
 \def\@stabular<#1>#2{\def\@halignto{to#2}\p@tabular<#1>}
@@ -200,7 +200,7 @@
 % \end{macro}
 %
 % \begin{macro}{\p@tabarray}
-% 位置オプションを調べます。
+% $B0LCV%*%W%7%g%s$rD4$Y$^$9!#(B
 % \changes{v1.1d}{1995/11/10}{\cs{@tabarray} to \cs{p@tabarray}}
 %    \begin{macrocode}
 \def\p@tabarray<#1>{\m@th\@ifnextchar[%]
@@ -209,7 +209,7 @@
 % \end{macro}
 %
 % \begin{macro}{\p@array}
-% tabular環境とarray環境の内部形式です。
+% tabular$B4D6-$H(Barray$B4D6-$NFbIt7A<0$G$9!#(B
 % \changes{v1.1d}{1995/11/10}{\cs{@array} to \cs{p@array}}
 %    \begin{macrocode}
 \def\p@array<#1>[#2]#3{\setbox\@arstrutbox\hbox{%
@@ -250,9 +250,9 @@
 %
 % \begin{macro}{\endarray}
 % \begin{macro}{\endtabular}
-% array環境とtabular環境の終了コマンドです。
-% |\@end@alignbox|は|\p@array|から呼び出される|\fork@array@option|によって
-% 設定されます。
+% array$B4D6-$H(Btabular$B4D6-$N=*N;%3%^%s%I$G$9!#(B
+% |\@end@alignbox|$B$O(B|\p@array|$B$+$i8F$S=P$5$l$k(B|\fork@array@option|$B$K$h$C$F(B
+% $B@_Dj$5$l$^$9!#(B
 %    \begin{macrocode}
 \def\endarray{\crcr\egroup\egroup\@end@alignbox}
 \def\endtabular{\crcr\egroup\egroup\@end@alignbox $\egroup}
@@ -263,13 +263,13 @@
 %
 %
 % \begin{macro}{\fork@array@option}
-% array環境とtabular環境で与えられた
-% 第一引数と第二引数の組合せの分岐を行ないます。
+% array$B4D6-$H(Btabular$B4D6-$GM?$($i$l$?(B
+% $BBh0l0z?t$HBhFs0z?t$NAH9g$;$NJ,4t$r9T$J$$$^$9!#(B
 %    \begin{macrocode}
 \def\fork@array@option<#1>[#2]{%
 \@rotswfalse
 %    \end{macrocode}
-% 縦組モードのとき：
+% $B=DAH%b!<%I$N$H$-!'(B
 %    \begin{macrocode}
 \iftdir
 \if #1y\relax\let\box@dir\yoko
@@ -307,7 +307,7 @@
   \fi\fi
 \fi\fi
 %    \end{macrocode}
-% 横組モードのとき：
+% $B2#AH%b!<%I$N$H$-!'(B
 %    \begin{macrocode}
 \else
 \if #1t\relax\let\box@dir\tate
@@ -337,49 +337,49 @@
 % \end{macro}
 %
 %
-% \subsection{フロートとキャプションの出力位置}
-% キャプションとフロートは、
-% 出力位置の指定や大きさの指定などができるように拡張しています。
-% 詳細は、『日本語\LaTeXe{}ブック』を参照してください。
+% \subsection{$B%U%m!<%H$H%-%c%W%7%g%s$N=PNO0LCV(B}
+% $B%-%c%W%7%g%s$H%U%m!<%H$O!"(B
+% $B=PNO0LCV$N;XDj$dBg$-$5$N;XDj$J$I$,$G$-$k$h$&$K3HD%$7$F$$$^$9!#(B
+% $B>\:Y$O!"!XF|K\8l(B\LaTeXe{}$B%V%C%/!Y$r;2>H$7$F$/$@$5$$!#(B
 %
-% |\layoutfloat|コマンドで作られるボックスです。
+% |\layoutfloat|$B%3%^%s%I$G:n$i$l$k%\%C%/%9$G$9!#(B
 %    \begin{macrocode}
 \newbox\@floatbox
 %    \end{macrocode}
-% フロートオブジェクトの幅と高さです。
+% $B%U%m!<%H%*%V%8%'%/%H$NI}$H9b$5$G$9!#(B
 %    \begin{macrocode}
 \newdimen\floatwidth
 \newdimen\floatheight
 %    \end{macrocode}
-% フロートオブジェクトのまわりに引かれる罫線の太さです。
+% $B%U%m!<%H%*%V%8%'%/%H$N$^$o$j$K0z$+$l$k7S@~$NB@$5$G$9!#(B
 %    \begin{macrocode}
 \newdimen\floatruletick \floatruletick=0.4pt
 %    \end{macrocode}
-% フロートオブジェクトとキャプションの間のアキです。
+% $B%U%m!<%H%*%V%8%'%/%H$H%-%c%W%7%g%s$N4V$N%"%-$G$9!#(B
 %    \begin{macrocode}
 \newdimen\captionfloatsep \captionfloatsep=10pt
 %    \end{macrocode}
-% |\caption@dir|には、キャプションを組む方向を示すオプションが格納されます。
-% |\captiondir|は|\caption@dir|の値と現在の組み方向によって、
-% |\yoko|, |\tate|, |\relax|のいずれかに設定されます。
+% |\caption@dir|$B$K$O!"%-%c%W%7%g%s$rAH$`J}8~$r<($9%*%W%7%g%s$,3JG<$5$l$^$9!#(B
+% |\captiondir|$B$O(B|\caption@dir|$B$NCM$H8=:_$NAH$_J}8~$K$h$C$F!"(B
+% |\yoko|, |\tate|, |\relax|$B$N$$$:$l$+$K@_Dj$5$l$^$9!#(B
 %    \begin{macrocode}
 \def\caption@dir{Z}
 \let\captiondir\relax
 %    \end{macrocode}
-% キャプションの幅です。
+% $B%-%c%W%7%g%s$NI}$G$9!#(B
 %    \begin{macrocode}
 \newdimen\captionwidth \captionwidth\z@
 %    \end{macrocode}
-% キャプションを付ける位置を指定します。
+% $B%-%c%W%7%g%s$rIU$1$k0LCV$r;XDj$7$^$9!#(B
 %    \begin{macrocode}
 \def\caption@posa{Z}
 \def\caption@posb{Z}
 %    \end{macrocode}
-% 組み立てられたキャプションが格納されるボックスです。
+% $BAH$_N)$F$i$l$?%-%c%W%7%g%s$,3JG<$5$l$k%\%C%/%9$G$9!#(B
 %    \begin{macrocode}
 \newbox\@captionbox
 %    \end{macrocode}
-% キャプションに使われる文字です。
+% $B%-%c%W%7%g%s$K;H$o$l$kJ8;z$G$9!#(B
 %    \begin{macrocode}
 \def\captionfontsetup{\normalfont\normalsize}
 %    \end{macrocode}
@@ -387,12 +387,12 @@
 % \begin{macro}{\layoutfloat}
 % \begin{macro}{\X@layoutfloat}
 % \begin{macro}{\@layoutfloat}
-% |\layoutfloat|は図表類の大きさと位置を指定するのに使います。
-% 大きさを省略するか、負の値を指定すると、
-% そのオブジェクトの自然な長さになります。このときは、罫が引かれません。
-% 正の大きさを指定すると、|\floatruletick|の太さの罫で囲まれます。
+% |\layoutfloat|$B$O?^I=N`$NBg$-$5$H0LCV$r;XDj$9$k$N$K;H$$$^$9!#(B
+% $BBg$-$5$r>JN,$9$k$+!"Ii$NCM$r;XDj$9$k$H!"(B
+% $B$=$N%*%V%8%'%/%H$N<+A3$JD9$5$K$J$j$^$9!#$3$N$H$-$O!"7S$,0z$+$l$^$;$s!#(B
+% $B@5$NBg$-$5$r;XDj$9$k$H!"(B|\floatruletick|$B$NB@$5$N7S$G0O$^$l$^$9!#(B
 %
-% 位置指定を省略した場合、中央揃えになるようにしています。
+% $B0LCV;XDj$r>JN,$7$?>l9g!"Cf1{B7$($K$J$k$h$&$K$7$F$$$^$9!#(B
 %    \begin{macrocode}
 \def\layoutfloat{\@ifnextchar(%)
    {\X@layoutfloat}{\X@layoutfloat(-5\p@,-5\p@)}}
@@ -423,32 +423,32 @@
 % \end{macro}
 %
 % \begin{macro}{\DeclareLayoutCaption}
-% |\DeclareLayoutCaption|コマンドは、キャプションの組方向、付ける位置や幅の
-% デフォルトをフロートのタイプごとに設定することができます。
-% このコマンドでデフォルト値が設定されていないと、
-% |\pcaption|コマンドでエラーが発せられます。
-% このコマンドはプリアンブルでのみ、使用できます。
+% |\DeclareLayoutCaption|$B%3%^%s%I$O!"%-%c%W%7%g%s$NAHJ}8~!"IU$1$k0LCV$dI}$N(B
+% $B%G%U%)%k%H$r%U%m!<%H$N%?%$%W$4$H$K@_Dj$9$k$3$H$,$G$-$^$9!#(B
+% $B$3$N%3%^%s%I$G%G%U%)%k%HCM$,@_Dj$5$l$F$$$J$$$H!"(B
+% |\pcaption|$B%3%^%s%I$G%(%i!<$,H/$;$i$l$^$9!#(B
+% $B$3$N%3%^%s%I$O%W%j%"%s%V%k$G$N$_!";HMQ$G$-$^$9!#(B
 %
 % \DescribeMacro\DeclareLayoutCaption
 % |\DeclareLayoutCaption|\meta{type}^^A
 %         |<|\meta{dir}|>(|\meta{width}|)[|\meta{pos1}\meta{pos2}|]|
 %
-% コマンド引数を省略することはできません。
-% \meta{dir}には、`|y|', `|t|', `|z|', `|n|'のいずれかを指定します。
-% `|n|'と指定をすると、本文の組み方向と同じ方向でキャプションが組まれます。
-% これがデフォルトです。
+% $B%3%^%s%I0z?t$r>JN,$9$k$3$H$O$G$-$^$;$s!#(B
+% \meta{dir}$B$K$O!"(B`|y|', `|t|', `|z|', `|n|'$B$N$$$:$l$+$r;XDj$7$^$9!#(B
+% `|n|'$B$H;XDj$r$9$k$H!"K\J8$NAH$_J}8~$HF1$8J}8~$G%-%c%W%7%g%s$,AH$^$l$^$9!#(B
+% $B$3$l$,%G%U%)%k%H$G$9!#(B
 %
-% \meta{width}には、キャプションを折り返す長さを指定します。
-% `|(12zw)|'と指定をすると、漢字12文字分の長さで折り返されます。
-% `|(\floatwidth)|'と指定をすると、
-% キャプションの幅はフロートオブジェクトの幅となります。
-% これがデフォルトです。なお、`|(\floatheigt)|'と指定をすると、
-% キャプションの幅はフロートオブジェクトの高さとなります。
+% \meta{width}$B$K$O!"%-%c%W%7%g%s$r@^$jJV$9D9$5$r;XDj$7$^$9!#(B
+% `|(12zw)|'$B$H;XDj$r$9$k$H!"4A;z(B12$BJ8;zJ,$ND9$5$G@^$jJV$5$l$^$9!#(B
+% `|(\floatwidth)|'$B$H;XDj$r$9$k$H!"(B
+% $B%-%c%W%7%g%s$NI}$O%U%m!<%H%*%V%8%'%/%H$NI}$H$J$j$^$9!#(B
+% $B$3$l$,%G%U%)%k%H$G$9!#$J$*!"(B`|(\floatheigt)|'$B$H;XDj$r$9$k$H!"(B
+% $B%-%c%W%7%g%s$NI}$O%U%m!<%H%*%V%8%'%/%H$N9b$5$H$J$j$^$9!#(B
 %
-% \meta{pos1}と\meta{pos2}には、キャプションを出力する位置を指定します。
-% \meta{pos1}は、`|c|', `|t|', `|b|'のいずれかです。
-% \meta{pos2}は、`|u|', `|d|', `|l|', `|r|'のいずれかです。
-% デフォルトは、|figure|タイプが`|cd|'、|table|タイプは`|cu|'です。
+% \meta{pos1}$B$H(B\meta{pos2}$B$K$O!"%-%c%W%7%g%s$r=PNO$9$k0LCV$r;XDj$7$^$9!#(B
+% \meta{pos1}$B$O!"(B`|c|', `|t|', `|b|'$B$N$$$:$l$+$G$9!#(B
+% \meta{pos2}$B$O!"(B`|u|', `|d|', `|l|', `|r|'$B$N$$$:$l$+$G$9!#(B
+% $B%G%U%)%k%H$O!"(B|figure|$B%?%$%W$,(B`|cd|'$B!"(B|table|$B%?%$%W$O(B`|cu|'$B$G$9!#(B
 %    \begin{macrocode}
 \def\DeclareLayoutCaption#1<#2>(#3)[#4#5]{%
   \expandafter
@@ -463,7 +463,7 @@
      \if Z\caption@posb\def\caption@posb{#5}\fi}}
 \@onlypreamble\DeclareLayoutCaption
 %    \end{macrocode}
-% \changes{v1.0h}{1996/03/13}{キャプション出力位置の初期値を設定}
+% \changes{v1.0h}{1996/03/13}{$B%-%c%W%7%g%s=PNO0LCV$N=i4|CM$r@_Dj(B}
 %    \begin{macrocode}
 \DeclareLayoutCaption{figure}<y>(.8\linewidth)[cd]
 \DeclareLayoutCaption{table}<y>(.8\linewidth)[cu]
@@ -474,14 +474,14 @@
 % \begin{macro}{\X@layoutcaption}
 % \begin{macro}{\@ilayoutcaption}
 % \begin{macro}{\@iilayoutcaption}
-% |\DeclareLayoutCaption|コマンドで設定をした、デフォルト値とは異なる設定で
-% 組みたい場合は、|\layoutcaption|コマンドを使用します。
+% |\DeclareLayoutCaption|$B%3%^%s%I$G@_Dj$r$7$?!"%G%U%)%k%HCM$H$O0[$J$k@_Dj$G(B
+% $BAH$_$?$$>l9g$O!"(B|\layoutcaption|$B%3%^%s%I$r;HMQ$7$^$9!#(B
 % 
 % |\layoutcaption<|\meta{dir}|>(|\meta{width}|)[|\meta{pos}|]|
 %
-% なお、|\layoutcaption|に組み方向オプションを付けましたので、
-% |\captiondir|で組み方向を指定する必要はありません。
-% また、|\captiondir|で指定をしても、その値は無視されます。
+% $B$J$*!"(B|\layoutcaption|$B$KAH$_J}8~%*%W%7%g%s$rIU$1$^$7$?$N$G!"(B
+% |\captiondir|$B$GAH$_J}8~$r;XDj$9$kI,MW$O$"$j$^$;$s!#(B
+% $B$^$?!"(B|\captiondir|$B$G;XDj$r$7$F$b!"$=$NCM$OL5;k$5$l$^$9!#(B
 %    \begin{macrocode}
 \def\layoutcaption{\def\caption@dir{Z}\captionwidth\z@
   \def\caption@posa{Z}\def\caption@posb{Z}%
@@ -506,10 +506,10 @@
 %
 % \begin{macro}{\pcaption}
 % \begin{macro}{\@pcaption}
-% キャプションを図表類の天地左右の指定箇所に付けるには|\pcaption|コマンドで
-% 指定をします。位置の指定は|\layoutcaption|コマンドで行ないます。
-% |\layoutcaption|コマンドが省略された場合は、|\DeclareLayoutCaption|コマンド
-% で設定されているデフォルト値が使われます。
+% $B%-%c%W%7%g%s$r?^I=N`$NE7CO:81&$N;XDj2U=j$KIU$1$k$K$O(B|\pcaption|$B%3%^%s%I$G(B
+% $B;XDj$r$7$^$9!#0LCV$N;XDj$O(B|\layoutcaption|$B%3%^%s%I$G9T$J$$$^$9!#(B
+% |\layoutcaption|$B%3%^%s%I$,>JN,$5$l$?>l9g$O!"(B|\DeclareLayoutCaption|$B%3%^%s%I(B
+% $B$G@_Dj$5$l$F$$$k%G%U%)%k%HCM$,;H$o$l$^$9!#(B
 %    \begin{macrocode}
 \def\pcaption{\refstepcounter\@captype \@dblarg{\@pcaption\@captype}}
 %
@@ -538,14 +538,14 @@
 % \end{macro}
 %
 % \begin{macro}{\make@pcaptionbox}
-% キャプションを組み立て、|\@captionbox|を作成します。
+% $B%-%c%W%7%g%s$rAH$_N)$F!"(B|\@captionbox|$B$r:n@.$7$^$9!#(B
 %    \begin{macrocode}
 \def\make@pcaptionbox#1{%
 %    \end{macrocode}
-% まず、デフォルトの設定がされているかを確認します。
-% 設定されていない場合は、警告メッセージを出力し、
-% 現在の組モードでのデフォルト値を使用します。
-% 設定されていれば、そのデフォルト値にします。
+% $B$^$:!"%G%U%)%k%H$N@_Dj$,$5$l$F$$$k$+$r3NG'$7$^$9!#(B
+% $B@_Dj$5$l$F$$$J$$>l9g$O!"7Y9p%a%C%;!<%8$r=PNO$7!"(B
+% $B8=:_$NAH%b!<%I$G$N%G%U%)%k%HCM$r;HMQ$7$^$9!#(B
+% $B@_Dj$5$l$F$$$l$P!"$=$N%G%U%)%k%HCM$K$7$^$9!#(B
 %
 % \changes{v1.1h}{1996/03/13}{typo: \cs{@latex@warning}.}
 %    \begin{macrocode}
@@ -558,9 +558,9 @@
      \csname \@captype @layoutcaption\endcsname
   \fi
 %    \end{macrocode}
-% 次に、組み方向を設定します。 
-% 基本組の組み方向とキャプションの組み方向を変える場合には、
-% |\@tempswa|を真とします。文字を回転させるときは|\@rotsw|を真にします。
+% $B<!$K!"AH$_J}8~$r@_Dj$7$^$9!#(B 
+% $B4pK\AH$NAH$_J}8~$H%-%c%W%7%g%s$NAH$_J}8~$rJQ$($k>l9g$K$O!"(B
+% |\@tempswa|$B$r??$H$7$^$9!#J8;z$r2sE>$5$;$k$H$-$O(B|\@rotsw|$B$r??$K$7$^$9!#(B
 %    \begin{macrocode}
   \@rotswfalse \@tempswafalse
   \iftdir\if y\caption@dir \let\captiondir\yoko \@tempswatrue
@@ -570,21 +570,21 @@
     \else\let\captiondir\yoko\fi
   \fi
 %    \end{macrocode}
-% キャプションを組み立てる前に、まず、キャプション文字列がどの程度の長さを
-% 持っているのかを確認するために、|\hbox|に入れます。
+% $B%-%c%W%7%g%s$rAH$_N)$F$kA0$K!"$^$:!"%-%c%W%7%g%sJ8;zNs$,$I$NDxEY$ND9$5$r(B
+% $B;}$C$F$$$k$N$+$r3NG'$9$k$?$a$K!"(B|\hbox|$B$KF~$l$^$9!#(B
 %    \begin{macrocode}
   \setbox0\hbox{\if@rotsw $\fi\hbox{\captiondir
      \captionfontsetup\parindent\z@\inhibitglue
      \csname fnum@\@captype\endcsname\char\euc"A1A1\relax#1}%
   \if@rotsw \m@th$\fi}%
 %    \end{macrocode}
-% キャプションの幅に合わせるため、再び、ボックスを組み立てます。
+% $B%-%c%W%7%g%s$NI}$K9g$o$;$k$?$a!":F$S!"%\%C%/%9$rAH$_N)$F$^$9!#(B
 %
-% キャプションを折り返さなくてもよい場合、|\@tempdima|をキャプションの長さに
-% します。ただし、キャプションの組み方向が基本組の組み方向と異なる場合
-% （|\@tempswa|が真）は、ボックス０の幅ではなく、高さに設定をします。
-% |\captionwidth|の値が、キャプションの幅よりも長い場合、
-% 折り返さなくてはなりませんので、|\@tempdima|を|\captionwidth|にします。
+% $B%-%c%W%7%g%s$r@^$jJV$5$J$/$F$b$h$$>l9g!"(B|\@tempdima|$B$r%-%c%W%7%g%s$ND9$5$K(B
+% $B$7$^$9!#$?$@$7!"%-%c%W%7%g%s$NAH$_J}8~$,4pK\AH$NAH$_J}8~$H0[$J$k>l9g(B
+% $B!J(B|\@tempswa|$B$,??!K$O!"%\%C%/%9#0$NI}$G$O$J$/!"9b$5$K@_Dj$r$7$^$9!#(B
+% |\captionwidth|$B$NCM$,!"%-%c%W%7%g%s$NI}$h$j$bD9$$>l9g!"(B
+% $B@^$jJV$5$J$/$F$O$J$j$^$;$s$N$G!"(B|\@tempdima|$B$r(B|\captionwidth|$B$K$7$^$9!#(B
 %    \begin{macrocode}
   \if@tempswa \@tempdima\ht0 \else\@tempdima\wd0 \fi
   \ifdim\@tempdima>\captionwidth \@tempdima\captionwidth \fi
@@ -602,15 +602,15 @@
       \csname fnum@\@captype\endcsname\char\euc"A1A1\relax#1}\kern\z@
     }\if@pboxsw \m@th$\fi \if@rotsw \m@th$\fi}%
 %    \end{macrocode}
-% 最後に|\@captionbox|を組み立てます。
+% $B:G8e$K(B|\@captionbox|$B$rAH$_N)$F$^$9!#(B
 %
-% 位置２オプションが`|u|'か`|d|'の場合、
-% このボックスの幅をフロートオブジェクトの幅と同じ長さにし、
-% 位置１オプションでの揃えに組み立てます。
+% $B0LCV#2%*%W%7%g%s$,(B`|u|'$B$+(B`|d|'$B$N>l9g!"(B
+% $B$3$N%\%C%/%9$NI}$r%U%m!<%H%*%V%8%'%/%H$NI}$HF1$8D9$5$K$7!"(B
+% $B0LCV#1%*%W%7%g%s$G$NB7$($KAH$_N)$F$^$9!#(B
 %
-% 位置２オプションが`|l|'か`|r|'の場合は、キャプションの幅です。
-% このときの位置１オプションの揃えは、この前の段階で準備をしておき、
-% |\@pcaption|で最終的にフロートオブジェクトと組み合わせるときになされます。
+% $B0LCV#2%*%W%7%g%s$,(B`|l|'$B$+(B`|r|'$B$N>l9g$O!"%-%c%W%7%g%s$NI}$G$9!#(B
+% $B$3$N$H$-$N0LCV#1%*%W%7%g%s$NB7$($O!"$3$NA0$NCJ3,$G=`Hw$r$7$F$*$-!"(B
+% |\@pcaption|$B$G:G=*E*$K%U%m!<%H%*%V%8%'%/%H$HAH$_9g$o$;$k$H$-$K$J$5$l$^$9!#(B
 %    \begin{macrocode}
   \let\to@captionboxwidth\relax
   \if l\caption@posb \else\if r\caption@posb\else
@@ -624,19 +624,19 @@
 %
 %
 %
-% \subsection{段落ボックス環境}
-% minipage環境と|\parbox|コマンドも、tabular環境と同じように、
-% 組方向を指定するオプションを追加してあります。
-% これらのコマンドは、\file{ltbox.dtx}で定義されています。
+% \subsection{$BCJMn%\%C%/%94D6-(B}
+% minipage$B4D6-$H(B|\parbox|$B%3%^%s%I$b!"(Btabular$B4D6-$HF1$8$h$&$K!"(B
+% $BAHJ}8~$r;XDj$9$k%*%W%7%g%s$rDI2C$7$F$"$j$^$9!#(B
+% $B$3$l$i$N%3%^%s%I$O!"(B\file{ltbox.dtx}$B$GDj5A$5$l$F$$$^$9!#(B
 %
-% |\parbox|コマンドは幅だけでなく高さも指定できるようになっています。
-% 新しい|\parbox|コマンドについての詳細は、\file{usrguide.tex}を参照
-% してください。
+% |\parbox|$B%3%^%s%I$OI}$@$1$G$J$/9b$5$b;XDj$G$-$k$h$&$K$J$C$F$$$^$9!#(B
+% $B?7$7$$(B|\parbox|$B%3%^%s%I$K$D$$$F$N>\:Y$O!"(B\file{usrguide.tex}$B$r;2>H(B
+% $B$7$F$/$@$5$$!#(B
 %
-% \subsubsection*{minipage環境}
+% \subsubsection*{minipage$B4D6-(B}
 %
 % \begin{macro}{\minipage}
-% 組方向オプションを調べます。
+% $BAHJ}8~%*%W%7%g%s$rD4$Y$^$9!#(B
 %    \begin{macrocode}
 \def\minipage{\@ifnextchar<%>
    {\X@minipage}{\X@minipage<Z>}}
@@ -644,7 +644,7 @@
 % \end{macro}
 %
 % \begin{macro}{\X@minpage}
-% 位置オプションを調べます。
+% $B0LCV%*%W%7%g%s$rD4$Y$^$9!#(B
 %    \begin{macrocode}
 \def\X@minipage<#1>{\@ifnextchar[%]
    {\@iminipage<#1>}{\@iiiminipage<#1>{c}\@empty[s]}}
@@ -652,7 +652,7 @@
 % \end{macro}
 %
 % \begin{macro}{\@iminpage}
-% 高さオプションを調べます。
+% $B9b$5%*%W%7%g%s$rD4$Y$^$9!#(B
 %    \begin{macrocode}
 \def\@iminipage<#1>[#2]{\@ifnextchar[%]
    {\@iiminipage<#1>{#2}}{\@iiiminipage<#1>{#2}\@empty[s]}}
@@ -660,7 +660,7 @@
 % \end{macro}
 %
 % \begin{macro}{\@iiminpage}
-% 内部位置オプションを調べます。
+% $BFbIt0LCV%*%W%7%g%s$rD4$Y$^$9!#(B
 %    \begin{macrocode}
 \def\@iiminipage<#1>#2[#3]{\@ifnextchar[%]
    {\@iiiminipage<#1>{#2}{#3}}{\@iiiminipage<#1>{#2}{#3}[#2]}}
@@ -668,12 +668,12 @@
 % \end{macro}
 % 
 % \begin{macro}{\@iiiminpage}
-% minipage環境の内部形式です。
+% minipage$B4D6-$NFbIt7A<0$G$9!#(B
 % \changes{v1.1g}{1996/01/12}{\break Grouping \cs{@iiiminipage}}
-% \cs{levevmode}の後の\cs{bgroup}は、
-% 回転オプションが指定されたときのフラグ|\if@rotsw|が、このマクロの内部だけ
-% で有効になるようにするためです。この括弧は、\cs{endminipage}コマンドで
-% 閉じます。
+% \cs{levevmode}$B$N8e$N(B\cs{bgroup}$B$O!"(B
+% $B2sE>%*%W%7%g%s$,;XDj$5$l$?$H$-$N%U%i%0(B|\if@rotsw|$B$,!"$3$N%^%/%m$NFbIt$@$1(B
+% $B$GM-8z$K$J$k$h$&$K$9$k$?$a$G$9!#$3$N3g8L$O!"(B\cs{endminipage}$B%3%^%s%I$G(B
+% $BJD$8$^$9!#(B
 %    \begin{macrocode}
 \def\@iiiminipage<#1>#2#3[#4]#5{%
   \leavevmode\bgroup
@@ -711,7 +711,7 @@
 % \end{macro}
 %
 % \begin{macro}{\endminpage}
-% minipage環境の終了コマンドです。
+% minipage$B4D6-$N=*N;%3%^%s%I$G$9!#(B
 %    \begin{macrocode}
 \def\endminipage{%
     \par
@@ -726,17 +726,17 @@
   \color@endgroup
   \if@rotsw \egroup\m@th$\egroup\fi
 %    \end{macrocode}
-% \cs{@iiiminipage}で開始したグループを閉じるための\cs{egroup}です。
+% \cs{@iiiminipage}$B$G3+;O$7$?%0%k!<%W$rJD$8$k$?$a$N(B\cs{egroup}$B$G$9!#(B
 %    \begin{macrocode}
   \egroup
   \expandafter\@iiiparbox\@mpargs{\unvbox\@tempboxa}\egroup}
 %    \end{macrocode}
 % \end{macro}
 %
-% \subsubsection*{\cs{parbox}コマンド}
+% \subsubsection*{\cs{parbox}$B%3%^%s%I(B}
 %
 % \begin{macro}{\parbox}
-% 組方向オプションを調べます。
+% $BAHJ}8~%*%W%7%g%s$rD4$Y$^$9!#(B
 %    \begin{macrocode}
 \def\parbox{\@ifnextchar<%>
    {\X@parbox}{\X@parbox<Z>}}
@@ -744,7 +744,7 @@
 % \end{macro}
 %
 % \begin{macro}{\X@parbox}
-% 位置オプションを調べます。
+% $B0LCV%*%W%7%g%s$rD4$Y$^$9!#(B
 %    \begin{macrocode}
 \def\X@parbox<#1>{\@ifnextchar[%]
    {\@iparbox<#1>}{\@iiiparbox<#1>{c}\@empty[s]}}
@@ -752,7 +752,7 @@
 % \end{macro}
 %
 % \begin{macro}{\@iparbox}
-% 高さオプションを調べます。
+% $B9b$5%*%W%7%g%s$rD4$Y$^$9!#(B
 %    \begin{macrocode}
 \def\@iparbox<#1>[#2]{\@ifnextchar[%]
    {\@iiparbox<#1>{#2}}{\@iiiparbox<#1>{#2}\@empty[s]}}
@@ -760,7 +760,7 @@
 % \end{macro}
 %
 % \begin{macro}{\@iiparbox}
-% 内部位置オプションを調べます。
+% $BFbIt0LCV%*%W%7%g%s$rD4$Y$^$9!#(B
 %    \begin{macrocode}
 \def\@iiparbox<#1>#2[#3]{\@ifnextchar[%]%
    {\@iiiparbox<#1>{#2}{#3}}{\@iiiparbox<#1>{#2}{#3}[#2]}}
@@ -768,12 +768,12 @@
 % \end{macro}
 %
 % \begin{macro}{\@iiiparbox}
-% |parbox|の内部形式です。
+% |parbox|$B$NFbIt7A<0$G$9!#(B
 % \changes{v1.1c}{1995/09/11}{Add \cs{adjustbaseline}.}
 % \changes{v1.1c}{1995/10/24}{\break typo \cs{adjustbaesline}.}
 % \changes{v1.1g}{1996/01/12}{\break Grouping \cs{@iiiparbox}}
-% minipage環境と同じようにグルーピングをします。
-% この括弧と対になるのは、このマクロの最後の\cs{egroup}です。
+% minipage$B4D6-$HF1$8$h$&$K%0%k!<%T%s%0$r$7$^$9!#(B
+% $B$3$N3g8L$HBP$K$J$k$N$O!"$3$N%^%/%m$N:G8e$N(B\cs{egroup}$B$G$9!#(B
 %    \begin{macrocode}
 \long\def\@iiiparbox<#1>#2#3[#4]#5#6{%
   \leavevmode\bgroup
@@ -798,12 +798,12 @@
 % \end{macro}
 %
 % \begin{macro}{\fork@parbox@option}
-% |\parbox|で与えられた第一引数と第二引数の組合せの分岐を行ないます。
+% |\parbox|$B$GM?$($i$l$?Bh0l0z?t$HBhFs0z?t$NAH9g$;$NJ,4t$r9T$J$$$^$9!#(B
 %    \begin{macrocode}
 \def\fork@parbox@option<#1>[#2]{%
 \@rotswfalse
 %    \end{macrocode}
-% 縦組モードのとき：
+% $B=DAH%b!<%I$N$H$-!'(B
 %    \begin{macrocode}
 \iftdir
 \if #1y\relax\let\box@dir\yoko
@@ -850,7 +850,7 @@
    \fi\fi\fi
 \fi\fi
 %    \end{macrocode}
-% 横組モードのとき：
+% $B2#AH%b!<%I$N$H$-!'(B
 %    \begin{macrocode}
 \else
 \if #1t\relax\let\box@dir\tate
@@ -885,17 +885,17 @@
 %    \end{macrocode}
 % \end{macro}
 %
-% \subsubsection*{\cs{pbox}コマンド}
+% \subsubsection*{\cs{pbox}$B%3%^%s%I(B}
 %
-% |\pbox|は組み方向を指定できるボックスコマンドです。
-% 次のような構文となっています。
+% |\pbox|$B$OAH$_J}8~$r;XDj$G$-$k%\%C%/%9%3%^%s%I$G$9!#(B
+% $B<!$N$h$&$J9=J8$H$J$C$F$$$^$9!#(B
 %
 % |\pbox<|\meta{dir}|>[|\meta{width}|][|\meta{pos}|]{|\meta{obj}|}|
 %
 % \begin{macro}{\pbox}
 % \begin{macro}{\X@makepbox}
 % \begin{macro}{\@imakepbox}
-% オプションを調べます。
+% $B%*%W%7%g%s$rD4$Y$^$9!#(B
 %    \begin{macrocode}
 \def\pbox{\leavevmode\@ifnextchar<{\X@makePbox}{\X@makePbox<Z>}}
 %
@@ -910,8 +910,8 @@
 % \end{macro}
 %
 % \begin{macro}{\@iimakePbox}
-% |\pbox|の内部形式です。
-% \changes{v1.1i}{2001/05/10}{縦組でzを指定するとエラーになるのを修正。}
+% |\pbox|$B$NFbIt7A<0$G$9!#(B
+% \changes{v1.1i}{2001/05/10}{$B=DAH$G(Bz$B$r;XDj$9$k$H%(%i!<$K$J$k$N$r=$@5!#(B}
 %    \begin{macrocode}
 \def\@iimakePbox<#1>#2[#3]#4{%
   \bgroup \@rotswfalse \@pboxswfalse
@@ -935,12 +935,12 @@
 %    \end{macrocode}
 % \end{macro}
 %
-% \subsection{作図環境}
-% picture環境も、組方向を指定するオプションを追加してあります。
-% なお、これらのコマンドは、\file{ltpictur.dtx}で定義されています。
+% \subsection{$B:n?^4D6-(B}
+% picture$B4D6-$b!"AHJ}8~$r;XDj$9$k%*%W%7%g%s$rDI2C$7$F$"$j$^$9!#(B
+% $B$J$*!"$3$l$i$N%3%^%s%I$O!"(B\file{ltpictur.dtx}$B$GDj5A$5$l$F$$$^$9!#(B
 %
 % \begin{macro}{\picture}
-% 組方向オプションを調べます。
+% $BAHJ}8~%*%W%7%g%s$rD4$Y$^$9!#(B
 %    \begin{macrocode}
 \def\picture{\@ifnextchar<%>
    {\X@picture}{\X@picture<Z>}}
@@ -948,7 +948,7 @@
 % \end{macro}
 %
 % \begin{macro}{\X@picture}
-% 図形領域オプションを調べます。
+% $B?^7ANN0h%*%W%7%g%s$rD4$Y$^$9!#(B
 %    \begin{macrocode}
 \def\X@picture<#1>(#2,#3){\@ifnextchar(%)
    {\@@picture<#1>(#2,#3)}{\@@picture<#1>(#2,#3)(0,0)}}
@@ -956,14 +956,14 @@
 % \end{macro}
 %
 % \begin{macro}{\@@picture}
-% picture環境の内部ではベースラインシフトの値をゼロにします。
-% 以前に設定されていた値は、それぞれ保存され、終了時に、その値に戻されます。
+% picture$B4D6-$NFbIt$G$O%Y!<%9%i%$%s%7%U%H$NCM$r%<%m$K$7$^$9!#(B
+% $B0JA0$K@_Dj$5$l$F$$$?CM$O!"$=$l$>$lJ]B8$5$l!"=*N;;~$K!"$=$NCM$KLa$5$l$^$9!#(B
 %    \begin{macrocode}
 \newdimen\save@ybaselineshift
 \newdimen\save@tbaselineshift
 \newdimen\@picwd
 %    \end{macrocode}
-% |\picture|の内部形式です。３組目の引数は、原点座標です。
+% |\picture|$B$NFbIt7A<0$G$9!##3AHL\$N0z?t$O!"86E@:BI8$G$9!#(B
 %    \begin{macrocode}
 \def\@@picture<#1>(#2,#3)(#4,#5){%
   \save@ybaselineshift\ybaselineshift
@@ -993,8 +993,8 @@
 % \end{macro}
 %
 % \begin{macro}{\endpicture}
-% 図形領域の幅と高さを指定の大きさにしてから、出力をします。
-% そして、最後にベースラインシフトの値を元に戻します。
+% $B?^7ANN0h$NI}$H9b$5$r;XDj$NBg$-$5$K$7$F$+$i!"=PNO$r$7$^$9!#(B
+% $B$=$7$F!":G8e$K%Y!<%9%i%$%s%7%U%H$NCM$r85$KLa$7$^$9!#(B
 %    \begin{macrocode}
 \def\endpicture{%
   \egroup\hss\egroup
@@ -1011,10 +1011,10 @@
 % \begin{macro}{\dashbox}
 % \begin{macro}{\oval}
 % \begin{macro}{\circle}
-% picture環境の内部で、フォントサイズ変更コマンドなどが使用された場合、
-% ベースラインシフト量が新たに設定されてしまうため、
-% これらのコマンドがベースラインシフトの影響を受けないように再定義をします。
-% ベースラインシフトを有効にしたい場合は、|\pbox|コマンドを使用してください。
+% picture$B4D6-$NFbIt$G!"%U%)%s%H%5%$%:JQ99%3%^%s%I$J$I$,;HMQ$5$l$?>l9g!"(B
+% $B%Y!<%9%i%$%s%7%U%HNL$,?7$?$K@_Dj$5$l$F$7$^$&$?$a!"(B
+% $B$3$l$i$N%3%^%s%I$,%Y!<%9%i%$%s%7%U%H$N1F6A$r<u$1$J$$$h$&$K:FDj5A$r$7$^$9!#(B
+% $B%Y!<%9%i%$%s%7%U%H$rM-8z$K$7$?$$>l9g$O!"(B|\pbox|$B%3%^%s%I$r;HMQ$7$F$/$@$5$$!#(B
 %    \begin{macrocode}
 \let\org@put\put
 \def\put{\ybaselineshift\z@\tbaselineshift\z@\org@put}
@@ -1043,49 +1043,49 @@
 %
 %
 %
-% \subsection{連数字／漢数字／傍点／下線}
-% ここでは、連数字、漢数字、傍点、下線について説明をしています。
+% \subsection{$BO"?t;z!?4A?t;z!?K5E@!?2<@~(B}
+% $B$3$3$G$O!"O"?t;z!"4A?t;z!"K5E@!"2<@~$K$D$$$F@bL@$r$7$F$$$^$9!#(B
 %
-% 連数字と漢数字、および傍点と下線についての詳細は、
-% 『日本語\LaTeXe{}ブック』を参照してください。
-% なお、傍点に使う文字は\file{pldefs.ltx}で定義されています。
+% $BO"?t;z$H4A?t;z!"$*$h$SK5E@$H2<@~$K$D$$$F$N>\:Y$O!"(B
+% $B!XF|K\8l(B\LaTeXe{}$B%V%C%/!Y$r;2>H$7$F$/$@$5$$!#(B
+% $B$J$*!"K5E@$K;H$&J8;z$O(B\file{pldefs.ltx}$B$GDj5A$5$l$F$$$^$9!#(B
 %
-% なお、連数字コマンドは３種類ありましたが、
-% |\rensuji|コマンド一つにまとめました。
-% 新しい連数字コマンドは次の構文となります。
+% $B$J$*!"O"?t;z%3%^%s%I$O#3<oN`$"$j$^$7$?$,!"(B
+% |\rensuji|$B%3%^%s%I0l$D$K$^$H$a$^$7$?!#(B
+% $B?7$7$$O"?t;z%3%^%s%I$O<!$N9=J8$H$J$j$^$9!#(B
 %
 % \medskip
-% |\rensuji[|\meta{pos}|]|\meta{横に並べる半角文字}
+% |\rensuji[|\meta{pos}|]|\meta{$B2#$KJB$Y$kH>3QJ8;z(B}
 %
-% |\rensuji*[|\meta{pos}|]|\meta{横に並べる半角文字}
+% |\rensuji*[|\meta{pos}|]|\meta{$B2#$KJB$Y$kH>3QJ8;z(B}
 % \medskip
 %
-% アスタリスク形式の場合は、行間を連数字の幅に合わせて広げません。
-% \meta{pos}は、連数字を揃える位置です。
-% `|c|'（中央揃え）、`|r|'（右寄せ）、`|l|'（左寄せ）を指定できます。
-% デフォルトでは、中央に揃えます。
+% $B%"%9%?%j%9%/7A<0$N>l9g$O!"9T4V$rO"?t;z$NI}$K9g$o$;$F9-$2$^$;$s!#(B
+% \meta{pos}$B$O!"O"?t;z$rB7$($k0LCV$G$9!#(B
+% `|c|'$B!JCf1{B7$(!K!"(B`|r|'$B!J1&4s$;!K!"(B`|l|'$B!J:84s$;!K$r;XDj$G$-$^$9!#(B
+% $B%G%U%)%k%H$G$O!"Cf1{$KB7$($^$9!#(B
 %
-% 次のフラグが真の場合には、連数字の幅に合わせて行間を広げ\emph{ません}。
-% アスタリスク形式の場合に真になります。
+% $B<!$N%U%i%0$,??$N>l9g$K$O!"O"?t;z$NI}$K9g$o$;$F9T4V$r9-$2(B\emph{$B$^$;$s(B}$B!#(B
+% $B%"%9%?%j%9%/7A<0$N>l9g$K??$K$J$j$^$9!#(B
 %    \begin{macrocode}
 \newif\ifnot@advanceline
 %    \end{macrocode}
 %
-% |\rensujiskip|は連数字の前後に入るアキです。
-% デフォルトは、現在の文字の幅の４分の１を基準にしています。
+% |\rensujiskip|$B$OO"?t;z$NA08e$KF~$k%"%-$G$9!#(B
+% $B%G%U%)%k%H$O!"8=:_$NJ8;z$NI}$N#4J,$N#1$r4p=`$K$7$F$$$^$9!#(B
 %    \begin{macrocode}
 \newskip\rensujiskip
 \rensujiskip=0.25\chs plus.25zw minus.25zw
 %    \end{macrocode}
 %
-% \subsubsection*{連数字}
+% \subsubsection*{$BO"?t;z(B}
 %
 % \begin{macro}{\rensuji}
 % \begin{macro}{\@rensuji}
 % \begin{macro}{\@@rensuji}
-% |\rensuji|は、|*|形式かどうかを調べます。
-% |\@rensuji|は、位置オプションを調べます。
-% |\@@rensuji|が|\rensuji|の内部形式です。
+% |\rensuji|$B$O!"(B|*|$B7A<0$+$I$&$+$rD4$Y$^$9!#(B
+% |\@rensuji|$B$O!"0LCV%*%W%7%g%s$rD4$Y$^$9!#(B
+% |\@@rensuji|$B$,(B|\rensuji|$B$NFbIt7A<0$G$9!#(B
 %    \begin{macrocode}
 \DeclareRobustCommand\rensuji{%
   \@ifstar{\not@advancelinetrue\@rensuji}{\@rensuji}}
@@ -1114,9 +1114,9 @@
 %
 % \begin{macro}{\Rensuji}
 % \begin{macro}{\prensuji}
-% \changes{v1.1d}{1995/11/21}{\cs{Rensuji}, \cs{prensuji}を作成}
-% |\Rensuji|コマンドと|\prensuji|コマンドは、|\rensuji|コマンドで代用でき
-% ます。
+% \changes{v1.1d}{1995/11/21}{\cs{Rensuji}, \cs{prensuji}$B$r:n@.(B}
+% |\Rensuji|$B%3%^%s%I$H(B|\prensuji|$B%3%^%s%I$O!"(B|\rensuji|$B%3%^%s%I$GBeMQ$G$-(B
+% $B$^$9!#(B
 %    \begin{macrocode}
 \let\Rensuji\rensuji
 \let\prensuji\rensuji
@@ -1125,20 +1125,20 @@
 % \end{macro}
 %
 %
-% \subsubsection*{漢数字}
+% \subsubsection*{$B4A?t;z(B}
 %
 % \begin{macro}{\Kanji}
 % \begin{macro}{\@Kanji}
 % \begin{macro}{\kanji}
-% |\Kanji|コマンドを定義します。|\Kanji|コマンドは|\Alpha|と同じように、
-% カウンタに対してのみ使用することができます。
+% |\Kanji|$B%3%^%s%I$rDj5A$7$^$9!#(B|\Kanji|$B%3%^%s%I$O(B|\Alpha|$B$HF1$8$h$&$K!"(B
+% $B%+%&%s%?$KBP$7$F$N$_;HMQ$9$k$3$H$,$G$-$^$9!#(B
 %
-% |\kanji|コマンドは、後続の半角数字を漢数字にします。
-% |\kanji 1989|のように指定をします。
-% ただし、横組モードのときには、何もしません。
-% つねに漢数字にしたい場合は、|\kansuji|プリミティブを使ってください。
+% |\kanji|$B%3%^%s%I$O!"8eB3$NH>3Q?t;z$r4A?t;z$K$7$^$9!#(B
+% |\kanji 1989|$B$N$h$&$K;XDj$r$7$^$9!#(B
+% $B$?$@$7!"2#AH%b!<%I$N$H$-$K$O!"2?$b$7$^$;$s!#(B
+% $B$D$M$K4A?t;z$K$7$?$$>l9g$O!"(B|\kansuji|$B%W%j%_%F%#%V$r;H$C$F$/$@$5$$!#(B
 %
-% \changes{v1.0h}{1996/03/13}{\cs{@Kanji}を追加。英語版と同様にした。}
+% \changes{v1.0h}{1996/03/13}{\cs{@Kanji}$B$rDI2C!#1Q8lHG$HF1MM$K$7$?!#(B}
 %    \begin{macrocode}
 \def\Kanji#1{\expandafter\@Kanji\csname c@#1\endcsname}
 \def\@Kanji#1{\expandafter\kansuji\number #1}
@@ -1148,15 +1148,15 @@
 % \end{macro}
 % \end{macro}
 %
-% \subsubsection*{傍点}
+% \subsubsection*{$BK5E@(B}
 %
 % \begin{macro}{\boutenchar}
 % \begin{macro}{\bou}
-% |\bou|は、傍点を付けるコマンドです。
+% |\bou|$B$O!"K5E@$rIU$1$k%3%^%s%I$G$9!#(B
 %
-% 傍点として出力する文字は|\boutenchar|に指定します。
-% この文字は、いつでも、横組用フォントが使われます。
-% デフォルトは、EUCコード|A1A2|（\hbox{\yoko 、}）です。
+% $BK5E@$H$7$F=PNO$9$kJ8;z$O(B|\boutenchar|$B$K;XDj$7$^$9!#(B
+% $B$3$NJ8;z$O!"$$$D$G$b!"2#AHMQ%U%)%s%H$,;H$o$l$^$9!#(B
+% $B%G%U%)%k%H$O!"(BEUC$B%3!<%I(B|A1A2|$B!J(B\hbox{\yoko $B!"(B}$B!K$G$9!#(B
 %    \begin{macrocode}
 \def\boutenchar{\char\euc"A1A2}
 %    \end{macrocode}
@@ -1185,14 +1185,14 @@
 % \end{macro}
 % \end{macro}
 %
-% \subsubsection*{下線}
+% \subsubsection*{$B2<@~(B}
 %
 % \begin{macro}{\kasen}
-% 下線を引くコマンドです。
-% 横組モードのときは、引数を|\underline|に渡します。
-% 縦組モードでも、回転モードの|\parbox|などで使われたときには、
-% やはり引数を|\underline|に渡します。
-% これ以外の場合は、引数の上に直線を引きます。
+% $B2<@~$r0z$/%3%^%s%I$G$9!#(B
+% $B2#AH%b!<%I$N$H$-$O!"0z?t$r(B|\underline|$B$KEO$7$^$9!#(B
+% $B=DAH%b!<%I$G$b!"2sE>%b!<%I$N(B|\parbox|$B$J$I$G;H$o$l$?$H$-$K$O!"(B
+% $B$d$O$j0z?t$r(B|\underline|$B$KEO$7$^$9!#(B
+% $B$3$l0J30$N>l9g$O!"0z?t$N>e$KD>@~$r0z$-$^$9!#(B
 %    \begin{macrocode}
 \def\kasen#1{%
   \ifydir\underline{#1}%
@@ -1206,15 +1206,15 @@
 %
 %
 %
-% \subsection{参照番号}
-% 参照番号の類を連数字で出力するように再定義します。
-% itemize環境などのリスト型のラベルについては、jarticleなどの
-% パッケージで定義しています。詳細は、\file{jclasses.dtx}を参照してください。
+% \subsection{$B;2>HHV9f(B}
+% $B;2>HHV9f$NN`$rO"?t;z$G=PNO$9$k$h$&$K:FDj5A$7$^$9!#(B
+% itemize$B4D6-$J$I$N%j%9%H7?$N%i%Y%k$K$D$$$F$O!"(Bjarticle$B$J$I$N(B
+% $B%Q%C%1!<%8$GDj5A$7$F$$$^$9!#>\:Y$O!"(B\file{jclasses.dtx}$B$r;2>H$7$F$/$@$5$$!#(B
 %
 % \begin{macro}{\@eqnnum}
 % \begin{macro}{\@thecounter}
-% これらは|\equation|コマンドで作成された数式に付加される番号です。
-% \file{ltmath.dtx}で定義されています。
+% $B$3$l$i$O(B|\equation|$B%3%^%s%I$G:n@.$5$l$??t<0$KIU2C$5$l$kHV9f$G$9!#(B
+% \file{ltmath.dtx}$B$GDj5A$5$l$F$$$^$9!#(B
 %    \begin{macrocode}
 \def\@eqnnum{{\reset@font\rmfamily \normalcolor
   \iftdir\raise.25zh\hbox{\yoko(\theequation)}%
@@ -1225,8 +1225,8 @@
 % \end{macro}
 %
 % \begin{macro}{\@thmcounter}
-% |\newtheorem|コマンドで作成した環境で参照されるラベルです。
-% \file{ltthm.dtx}で定義されています。
+% |\newtheorem|$B%3%^%s%I$G:n@.$7$?4D6-$G;2>H$5$l$k%i%Y%k$G$9!#(B
+% \file{ltthm.dtx}$B$GDj5A$5$l$F$$$^$9!#(B
 %    \begin{macrocode}
 \def\@thmcounter#1{\noexpand\rensuji{\noexpand\arabic{#1}}}
 %</package>

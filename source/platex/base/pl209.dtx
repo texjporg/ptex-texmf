@@ -34,8 +34,8 @@
 % \changes{v1.0b}{1995/08/30}{Based on latex209.dtx v0.46}
 % \changes{v1.0c}{1995/11/21}{Add footnote relatex commands.}
 % \changes{v1.0d}{1997/01/17}{Only define for p\LaTeXe relatex codes.}
-% \changes{v1.0e}{1997/01/28}{書体変更の二文字コマンドを旧版互換にした。}
-% \changes{v1.0f}{1997/06/25}{\cs{em}で和文を強調書体に}
+% \changes{v1.0e}{1997/01/28}{$B=qBNJQ99$NFsJ8;z%3%^%s%I$r5lHG8_49$K$7$?!#(B}
+% \changes{v1.0f}{1997/06/25}{\cs{em}$B$GOBJ8$r6/D4=qBN$K(B}
 % \fi
 %
 % \iffalse
@@ -46,9 +46,9 @@
 %<*driver>
 \documentclass{jltxdoc}
 \GetFileInfo{pl209.dtx}
-\title{p\LaTeXe\\2.09互換モード用マクロ\space\fileversion}
+\title{p\LaTeXe\\2.09$B8_49%b!<%IMQ%^%/%m(B\space\fileversion}
 \author{Ken Nakano \& Hideaki Togashi}
-\date{作成日：\filedate}
+\date{$B:n@.F|!'(B\filedate}
 \begin{document}
    \maketitle
    \DocInput{\filename}
@@ -56,37 +56,37 @@
 %</driver>
 % \fi
 %
-% \section{\dst 用モジュール}
-% \dst で以下のモジュール名を指定することで、対象となる部分を取り出す
-% ことができます。
+% \section{\dst $BMQ%b%8%e!<%k(B}
+% \dst $B$G0J2<$N%b%8%e!<%kL>$r;XDj$9$k$3$H$G!"BP>]$H$J$kItJ,$r<h$j=P$9(B
+% $B$3$H$,$G$-$^$9!#(B
 %
 % \begin{center}
 % \begin{tabular}{ll}
-% pl209 & \file{pl209.def}ファイルを生成\\
-% oldfonts & \file{oldpfonts.sty}を生成\\
+% pl209 & \file{pl209.def}$B%U%!%$%k$r@8@.(B\\
+% oldfonts & \file{oldpfonts.sty}$B$r@8@.(B\\
 % style &
 %    \begin{tabular}[t]{ll}
-%    jarticle & \file{jarticle.sty}ファイルを生成 \\ 
-%    jbook    & \file{jbook.sty}ファイルを生成\\
-%    jreport  & \file{jreport.sty}ファイルを生成\\
-%    tarticle & \file{tarticle.sty}ファイルを生成 \\ 
-%    tbook    & \file{tbook.sty}ファイルを生成\\
-%    treport  & \file{treport.sty}ファイルを生成
+%    jarticle & \file{jarticle.sty}$B%U%!%$%k$r@8@.(B \\ 
+%    jbook    & \file{jbook.sty}$B%U%!%$%k$r@8@.(B\\
+%    jreport  & \file{jreport.sty}$B%U%!%$%k$r@8@.(B\\
+%    tarticle & \file{tarticle.sty}$B%U%!%$%k$r@8@.(B \\ 
+%    tbook    & \file{tbook.sty}$B%U%!%$%k$r@8@.(B\\
+%    treport  & \file{treport.sty}$B%U%!%$%k$r@8@.(B
 %    \end{tabular}
 % \end{tabular}
 % \end{center}
 %
 %
-% \section{2.09互換マクロ}
-% 2.09用のコマンド定義ファイルがロードされたとき、メッセージを出力します。
-% また、\LaTeX{}の2.09コマンドマクロ定義をロードします。
+% \section{2.09$B8_49%^%/%m(B}
+% 2.09$BMQ$N%3%^%s%IDj5A%U%!%$%k$,%m!<%I$5$l$?$H$-!"%a%C%;!<%8$r=PNO$7$^$9!#(B
+% $B$^$?!"(B\LaTeX{}$B$N(B2.09$B%3%^%s%I%^%/%mDj5A$r%m!<%I$7$^$9!#(B
 %    \begin{macrocode}
 %<*pl209>
 \typeout{Entering pLaTeX 2.09 compatibility mode.}
 \input{latex209.def}
 %</pl209>
 %    \end{macrocode}
-% フォント選択コマンドのトレースのために\file{ptrace}パッケージをロードします。
+% $B%U%)%s%HA*Br%3%^%s%I$N%H%l!<%9$N$?$a$K(B\file{ptrace}$B%Q%C%1!<%8$r%m!<%I$7$^$9!#(B
 % \changes{v1.0e}{1997/02/20}{Typemiss:oldlfont from oldlfonts}
 %    \begin{macrocode}
 %<oldfonts>\RequirePackage{oldlfont}
@@ -95,8 +95,8 @@
 %
 % \begin{macro}{\Rensuji}
 % \begin{macro}{\prensuji}
-% p\LaTeXe{}では、|\Rensuji|, |\prensuji|の動作を|\rensuji|コマンドが
-% カバーしています。
+% p\LaTeXe{}$B$G$O!"(B|\Rensuji|, |\prensuji|$B$NF0:n$r(B|\rensuji|$B%3%^%s%I$,(B
+% $B%+%P!<$7$F$$$^$9!#(B
 %    \begin{macrocode}
 %<*pl209>
 \let\Rensuji\rensuji
@@ -108,8 +108,8 @@
 %
 % \begin{macro}{\@footnotemark}
 % \begin{macro}{\@makefnmark}
-% 脚注の印を出力するマクロを、組み方向に応じて、脚注の方向が変わるように
-% します。
+% $B5SCm$N0u$r=PNO$9$k%^%/%m$r!"AH$_J}8~$K1~$8$F!"5SCm$NJ}8~$,JQ$o$k$h$&$K(B
+% $B$7$^$9!#(B
 %    \begin{macrocode}
 %<*pl209>
 \def\@footnotemark{\leavevmode
@@ -141,8 +141,8 @@
 \SetSymbolFont{mincho}{bold}{JY1}{gt}{m}{n}
 \jfam\symmincho
 %    \end{macrocode}
-% \changes{v1.0e}{1997/01/29}{二文字書体変更コマンドの動作を旧版と同等にした。}
-% |\mc|と|\gt|は、和文フォントを変更しますが、欧文フォントには影響しません。
+% \changes{v1.0e}{1997/01/29}{$BFsJ8;z=qBNJQ99%3%^%s%I$NF0:n$r5lHG$HF1Ey$K$7$?!#(B}
+% |\mc|$B$H(B|\gt|$B$O!"OBJ8%U%)%s%H$rJQ99$7$^$9$,!"2$J8%U%)%s%H$K$O1F6A$7$^$;$s!#(B
 %    \begin{macrocode}
 \DeclareRobustCommand\mc{%
     \kanjiencoding{\kanjiencodingdefault}%
@@ -157,14 +157,14 @@
     \kanjishape{\kanjishapedefault}%
     \selectfont\mathgroup\symgothic}
 %    \end{macrocode}
-% |\bf|コマンドは、和文フォントをゴシックにし、欧文フォントをボールドに
-% します。
+% |\bf|$B%3%^%s%I$O!"OBJ8%U%)%s%H$r%4%7%C%/$K$7!"2$J8%U%)%s%H$r%\!<%k%I$K(B
+% $B$7$^$9!#(B
 %    \begin{macrocode}
 \DeclareRobustCommand\bf{\normalfont\bfseries\mathgroup\symbold\jfam\symgothic}
 %    \end{macrocode}
-% |\rm|, |\sf|, |\sl|, |\sc|, |\it|, |\tt|の各コマンドを、欧文ファミリだけを
-% デフォルトフォントから属性を変更するようにし、和文フォントは影響を
-% 受けないように修正します。
+% |\rm|, |\sf|, |\sl|, |\sc|, |\it|, |\tt|$B$N3F%3%^%s%I$r!"2$J8%U%!%_%j$@$1$r(B
+% $B%G%U%)%k%H%U%)%s%H$+$iB0@-$rJQ99$9$k$h$&$K$7!"OBJ8%U%)%s%H$O1F6A$r(B
+% $B<u$1$J$$$h$&$K=$@5$7$^$9!#(B
 %    \begin{macrocode}
 \DeclareRobustCommand\roman@normal{%
     \romanencoding{\encodingdefault}%
@@ -181,8 +181,8 @@
 %    \end{macrocode}
 %
 % \begin{macro}{\em}
-% \changes{v1.0f}{1997/06/25}{\cs{em}で和文を強調書体に}
-% |\em|コマンドで、和文フォントも|\gt|に切り替えるようにしました。
+% \changes{v1.0f}{1997/06/25}{\cs{em}$B$GOBJ8$r6/D4=qBN$K(B}
+% |\em|$B%3%^%s%I$G!"OBJ8%U%)%s%H$b(B|\gt|$B$K@Z$jBX$($k$h$&$K$7$^$7$?!#(B
 %    \begin{macrocode}
 \DeclareRobustCommand\em{%
   \@nomath\em
@@ -209,15 +209,15 @@
 \renewcommand\xxvpt {\edef\f@size{\@xxvpt}\rm\mc}
 %</pl209>
 %    \end{macrocode}
-% そして、最後に\file{pl209.cfg}というファイルがあれば、それをロードします。
+% $B$=$7$F!":G8e$K(B\file{pl209.cfg}$B$H$$$&%U%!%$%k$,$"$l$P!"$=$l$r%m!<%I$7$^$9!#(B
 %    \begin{macrocode}
 %<pl209>\InputIfFileExists{pl209.cfg}{}{}
 %    \end{macrocode}
 %
 %
-% \section{スタイルファイル}
-% 以下は、p\LaTeX~2.09での標準スタイルファイルです。
-% p\LaTeXe{}のクラスファイルをロードするようにしています。
+% \section{$B%9%?%$%k%U%!%$%k(B}
+% $B0J2<$O!"(Bp\LaTeX~2.09$B$G$NI8=`%9%?%$%k%U%!%$%k$G$9!#(B
+% p\LaTeXe{}$B$N%/%i%9%U%!%$%k$r%m!<%I$9$k$h$&$K$7$F$$$^$9!#(B
 %    \begin{macrocode}
 %<*style>
 %<*jarticle|jbook|jreport|tarticle|tbook|treport>

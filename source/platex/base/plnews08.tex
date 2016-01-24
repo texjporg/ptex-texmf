@@ -1,45 +1,45 @@
 %% <2001/10/04>
 \documentclass{plnews}
 
-\publicationyear{2004}% 発行年
-\publicationmonth{08}% 発行月
-\publicationissue{8}% 番号
-\author{田中 禎之（\texttt{<sada-t at ascii.co.jp>}）
+\publicationyear{2004}% $BH/9TG/(B
+\publicationmonth{08}% $BH/9T7n(B
+\publicationissue{8}% $BHV9f(B
+\author{$BEDCf(B $BDwG7!J(B\texttt{<sada-t at ascii.co.jp>}$B!K(B
 }
 
 \begin{document}
 
 \maketitle
 
-\section{この文書について}
-この文書は、p\LaTeXe{}\texttt{<2004/08/10>}版について、
-前回の版（\texttt{<2001/09/04>}）からの更新箇所をまとめたものです。
-それ以前の変更点については、\file{plnews*.tex}や\file{Changes.txt}を
-参照してください。
-\LaTeX{}レベルでの更新箇所は、\LaTeX{}に付属の\file{ltnews*.tex}などを
-参照してください。
+\section{$B$3$NJ8=q$K$D$$$F(B}
+$B$3$NJ8=q$O!"(Bp\LaTeXe{}\texttt{<2004/08/10>}$BHG$K$D$$$F!"(B
+$BA02s$NHG!J(B\texttt{<2001/09/04>}$B!K$+$i$N99?72U=j$r$^$H$a$?$b$N$G$9!#(B
+$B$=$l0JA0$NJQ99E@$K$D$$$F$O!"(B\file{plnews*.tex}$B$d(B\file{Changes.txt}$B$r(B
+$B;2>H$7$F$/$@$5$$!#(B
+\LaTeX{}$B%l%Y%k$G$N99?72U=j$O!"(B\LaTeX{}$B$KIUB0$N(B\file{ltnews*.tex}$B$J$I$r(B
+$B;2>H$7$F$/$@$5$$!#(B
 
 
-\section{和文エンコーディング切り替え対応}
-これまでは和文エンコーディングにはJY1,JT1のみしか使用できませんでしたが、
-新たにエンコーディングを定義して使用できるようにしました。
+\section{$BOBJ8%(%s%3!<%G%#%s%0@Z$jBX$(BP1~(B}
+$B$3$l$^$G$OOBJ8%(%s%3!<%G%#%s%0$K$O(BJY1,JT1$B$N$_$7$+;HMQ$G$-$^$;$s$G$7$?$,!"(B
+$B?7$?$K%(%s%3!<%G%#%s%0$rDj5A$7$F;HMQ$G$-$k$h$&$K$7$^$7$?!#(B
 
-和文エンコーディングは以下のマクロで定義します。
+$BOBJ8%(%s%3!<%G%#%s%0$O0J2<$N%^%/%m$GDj5A$7$^$9!#(B
 
 \begin{itemize}
-\item |\DeclareYokoKanjiEncoding{<エンコーディング名>}{<実行コード>}{<実行コード>}|\\
-	横書き用の和文エンコーディングを宣言する。
-	引数は|\DeclareFontEncoding|と同じ。
-\item |\DeclareTateKanjiEncoding{<エンコーディング名>}{<実行コード>}{<実行コード>}|\\
-	縦書き用の和文エンコーディングを宣言する。
-	引数は|\DeclareFontEncoding|と同じ。
-\item |\KanjiEncodingPair{<横エンコーディング名>}{<縦エンコーディング名>}|\\
-	横書きと縦書きの和文エンコーディングを関連付ける。
+\item |\DeclareYokoKanjiEncoding{<$B%(%s%3!<%G%#%s%0L>(B>}{<$B<B9T%3!<%I(B>}{<$B<B9T%3!<%I(B>}|\\
+	$B2#=q$-MQ$NOBJ8%(%s%3!<%G%#%s%0$r@k8@$9$k!#(B
+	$B0z?t$O(B|\DeclareFontEncoding|$B$HF1$8!#(B
+\item |\DeclareTateKanjiEncoding{<$B%(%s%3!<%G%#%s%0L>(B>}{<$B<B9T%3!<%I(B>}{<$B<B9T%3!<%I(B>}|\\
+	$B=D=q$-MQ$NOBJ8%(%s%3!<%G%#%s%0$r@k8@$9$k!#(B
+	$B0z?t$O(B|\DeclareFontEncoding|$B$HF1$8!#(B
+\item |\KanjiEncodingPair{<$B2#%(%s%3!<%G%#%s%0L>(B>}{<$B=D%(%s%3!<%G%#%s%0L>(B>}|\\
+	$B2#=q$-$H=D=q$-$NOBJ8%(%s%3!<%G%#%s%0$r4XO"IU$1$k!#(B
 \end{itemize}
 
-横書きと縦書きのエンコーディングは以下のように必ず|\KanjiEncodingPair|で
-対応を関連付けてから使用します。
-関連付けられたエンコーディングは|\yoko|, |\tate|の実行時に切り替わります。
+$B2#=q$-$H=D=q$-$N%(%s%3!<%G%#%s%0$O0J2<$N$h$&$KI,$:(B|\KanjiEncodingPair|$B$G(B
+$BBP1~$r4XO"IU$1$F$+$i;HMQ$7$^$9!#(B
+$B4XO"IU$1$i$l$?%(%s%3!<%G%#%s%0$O(B|\yoko|, |\tate|$B$N<B9T;~$K@Z$jBX$o$j$^$9!#(B
 
 \begin{verbatim}
   :
@@ -55,57 +55,57 @@
   :
 \end{verbatim}
 
-現時点では|\DeclareTextCompositeCommand|のようなエンコーディングで動作を
-切り替えるためのマクロには対応していません。そのため、フォントの組み合わせを
-変更する程度にしか利用できません。
+$B8=;~E@$G$O(B|\DeclareTextCompositeCommand|$B$N$h$&$J%(%s%3!<%G%#%s%0$GF0:n$r(B
+$B@Z$jBX$($k$?$a$N%^%/%m$K$OBP1~$7$F$$$^$;$s!#$=$N$?$a!"%U%)%s%H$NAH$_9g$o$;$r(B
+$BJQ99$9$kDxEY$K$7$+MxMQ$G$-$^$;$s!#(B
 
-\section{その他の主な修正箇所}
-次のような不具合の修正や仕様の変更をしました。
+\section{$B$=$NB>$N<g$J=$@52U=j(B}
+$B<!$N$h$&$JIT6q9g$N=$@5$d;EMM$NJQ99$r$7$^$7$?!#(B
 
 \begin{itemize}
-\item |verbatim|環境で余計な前後空きが発生しないように|\fontfamily|を修正。
-\item |\ascii|,|\Ascii|,|\ASCII|マクロのエラーを修正。
-\item 和文フォントサイズの基準値の設定を修正。
-\item 縦組スタイルで|\flushbottom|しないように修正。
-\item |\part|,|\chapter|の直後でインデントが発生しないバグを修正。
-\item 見出しの前後の空きを調整。
-\item \LaTeX 2003/12/01版での動作を確認。
+\item |verbatim|$B4D6-$GM>7W$JA08e6u$-$,H/@8$7$J$$$h$&$K(B|\fontfamily|$B$r=$@5!#(B
+\item |\ascii|,|\Ascii|,|\ASCII|$B%^%/%m$N%(%i!<$r=$@5!#(B
+\item $BOBJ8%U%)%s%H%5%$%:$N4p=`CM$N@_Dj$r=$@5!#(B
+\item $B=DAH%9%?%$%k$G(B|\flushbottom|$B$7$J$$$h$&$K=$@5!#(B
+\item |\part|,|\chapter|$B$ND>8e$G%$%s%G%s%H$,H/@8$7$J$$%P%0$r=$@5!#(B
+\item $B8+=P$7$NA08e$N6u$-$rD4@0!#(B
+\item \LaTeX 2003/12/01$BHG$G$NF0:n$r3NG'!#(B
 \end{itemize}
 
 
-\section{フォーマットファイル作成時の注意}
-現在のp\TeX{}では、8ビットコードの連続を16ビットコードと認識して
-しまう場合があります。そのため、フランス語やキリル文字などの
-8ビットコードが連続するハイフンパターンはまず使えせん。
-例えばcmcyraltパッケージでは、途中でつぎのようなエラーになります。
+\section{$B%U%)!<%^%C%H%U%!%$%k:n@.;~$NCm0U(B}
+$B8=:_$N(Bp\TeX{}$B$G$O!"(B8$B%S%C%H%3!<%I$NO"B3$r(B16$B%S%C%H%3!<%I$HG'<1$7$F(B
+$B$7$^$&>l9g$,$"$j$^$9!#$=$N$?$a!"%U%i%s%98l$d%-%j%kJ8;z$J$I$N(B
+8$B%S%C%H%3!<%I$,O"B3$9$k%O%$%U%s%Q%?!<%s$O$^$:;H$($;$s!#(B
+$BNc$($P(Bcmcyralt$B%Q%C%1!<%8$G$O!"ESCf$G$D$.$N$h$&$J%(%i!<$K$J$j$^$9!#(B
 
 \begin{verbatim}
 (/usr/local/share/texmf/tex/latex/contrib/
 other/cmcyralt/rhyphen.tex Russian hyphena
 tion
 ! Bad \patterns.
-l.107  . え
+l.107  . $B$((B
            2
 ?
 \end{verbatim}
 
-このときは、``|?|''のプロンプトに対して``|x|''で終了してください。
-残念ながら、このハイフンパターンをp\TeX{}で利用することはできません。
+$B$3$N$H$-$O!"(B``|?|''$B$N%W%m%s%W%H$KBP$7$F(B``|x|''$B$G=*N;$7$F$/$@$5$$!#(B
+$B;DG0$J$,$i!"$3$N%O%$%U%s%Q%?!<%s$r(Bp\TeX{}$B$GMxMQ$9$k$3$H$O$G$-$^$;$s!#(B
 
-そこで、hyphen.cfgを用意して、不用意に他のハイフンパターンを
-読み込まないようにしてあります。詳しくはREADME2.txtをご覧ください。
+$B$=$3$G!"(Bhyphen.cfg$B$rMQ0U$7$F!"ITMQ0U$KB>$N%O%$%U%s%Q%?!<%s$r(B
+$BFI$_9~$^$J$$$h$&$K$7$F$"$j$^$9!#>\$7$/$O(BREADME2.txt$B$r$4Mw$/$@$5$$!#(B
 
-\section{その他}
-p\TeX{}やp\LaTeXe{}に関する最新情報は、p\TeX{}ホームページ
+\section{$B$=$NB>(B}
+p\TeX{}$B$d(Bp\LaTeXe{}$B$K4X$9$k:G?7>pJs$O!"(Bp\TeX{}$B%[!<%`%Z!<%8(B
 \begin{verbatim}
     http://www.ascii.co.jp/pb/ptex
 \end{verbatim}
-より、入手することができます。
+$B$h$j!"F~<j$9$k$3$H$,$G$-$^$9!#(B
 
-バグ報告やお問い合わせなどは、電子メールで
+$B%P%0Js9p$d$*Ld$$9g$o$;$J$I$O!"EE;R%a!<%k$G(B
 \begin{verbatim}
-    www-ptex＠ascii.co.jp
+    www-ptex$B!w(Bascii.co.jp
 \end{verbatim}
-までお願いします。
+$B$^$G$*4j$$$7$^$9!#(B
 
 \end{document}
