@@ -48,13 +48,15 @@
 %    ように修正}
 % \changes{v1.2}{2001/09/04}{本文と\cs{footnoterule}が重なってしまうのを修正}
 % \changes{v1.2a}{2001/09/26}{\LaTeX\ \texttt{!<2001/06/01!>}に対応}
+% \changes{v1.2b}{2016/01/26}{2013年以降のe-p\TeX\ で脚注番号の前後の和文文字
+%    との間にxkanjiskipが入ってしまう問題に対応}
 % \fi
 %
 % \iffalse
 %<*driver>
 \NeedsTeXFormat{pLaTeX2e}
 % \fi
-\ProvidesFile{plcore.dtx}[2001/09/26 v1.2a pLaTeX core file]
+\ProvidesFile{plcore.dtx}[2016/01/26 v1.2b pLaTeX core file]
 % \iffalse
 \documentclass{jltxdoc}
 \GetFileInfo{plcore.dtx}
@@ -212,7 +214,7 @@
 \def\@gnewline #1{%
   \ifvmode
     \@nolnerr
-  \else 
+  \else
     \unskip \reserved@e {\reserved@f#1}\nobreak \hfil \break \null
     \ignorespaces
   \fi}
@@ -305,7 +307,7 @@
      \tr@ce {Hence, space added: \the\@tempdima}%
 %</trace>
      \setbox\@outputbox \vbox to \@colht {%
-%       \boxmaxdepth \maxdepth                 
+%       \boxmaxdepth \maxdepth
        \unvbox\@outputbox
        \vskip \@tempdima
        \@textbottom
@@ -707,10 +709,12 @@
 % \changes{v1.0a}{1995/04/12}{縦組でも上付き数字を使うように修正}
 % \changes{v1.1b}{1996/01/26}{脚注マークの後ろに余計なスペースが入るのを修正}
 % \changes{v1.1g}{1997/02/14}{縦組時に脚注マークの書体が正しくないのを修正}
+% \changes{v1.2b}{2016/01/26}{2013年以降のe-p\TeX\ で脚注番号の前後の和文文字
+%    との間にxkanjiskipが入ってしまう問題に対応}
 %    \begin{macrocode}
-\renewcommand\@makefnmark{\hbox{%
-  \ifydir \@textsuperscript{\normalfont\@thefnmark}%
-  \else\hbox{\yoko\@textsuperscript{\normalfont\@thefnmark}}\fi}}
+\renewcommand\@makefnmark{%
+  \ifydir \hbox{}\hbox{\@textsuperscript{\normalfont\@thefnmark}}\hbox{}%
+  \else\hbox{\yoko\@textsuperscript{\normalfont\@thefnmark}}\fi}
 %    \end{macrocode}
 % \end{macro}
 %
