@@ -8,7 +8,7 @@
 %
 % \fi
 %
-% \CheckSum{881}
+% \CheckSum{880}
 %% \CharacterTable
 %%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
 %%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
@@ -49,7 +49,9 @@
 % \changes{v1.2}{2001/09/04}{本文と\cs{footnoterule}が重なってしまうのを修正}
 % \changes{v1.2a}{2001/09/26}{\LaTeX\ \texttt{!<2001/06/01!>}に対応}
 % \changes{v1.2b}{2016/01/26}{2013年以降のe-p\TeX\ で脚注番号の前後の和文文字
-%    との間にxkanjiskipが入ってしまう問題に対応}
+%    との間にxkanjiskipが入ってしまう問題に対応。
+%    \cs{@outputbox}の深さが他のものの位置に影響を与えない
+%    ようにする|\vskip -\dimen@|が縦組モードでは無効になっていたので修正}
 % \fi
 %
 % \iffalse
@@ -254,9 +256,11 @@
 % \changes{v1.1j}{2001/05/10}{\cs{@makecol}で組み立てられる
 %    \cs{@outputbox}の大きさが、縦組で中身が空のボックスだけの場合も適正になる
 %    ように修正}
+% \changes{v1.2b}{2016/01/26}{\cs{@outputbox}の深さが他のものの位置に影響を与えない
+%    ようにする|\vskip -\dimen@|が縦組モードでは無効になっていたので修正}
 %    \begin{macrocode}
-       \iftdir\hskip\z@
-       \else\vskip -\dimen@\fi
+       \iftdir\hskip\z@\fi
+       \vskip -\dimen@
        \@textbottom
        \ifvoid\footins\else % for pLaTeX
          \vskip \skip\footins

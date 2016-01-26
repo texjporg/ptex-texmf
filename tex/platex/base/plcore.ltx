@@ -731,8 +731,8 @@
        \@texttop
        \dimen@ \dp\@outputbox
        \unvbox \@outputbox
-       \iftdir\hskip\z@
-       \else\vskip -\dimen@\fi
+       \iftdir\hskip\z@\fi
+       \vskip -\dimen@
        \@textbottom
        \ifvoid\footins\else % for pLaTeX
          \vskip \skip\footins
