@@ -8,7 +8,7 @@
 %
 % \fi
 %
-% \CheckSum{367}
+% \CheckSum{370}
 %% \CharacterTable
 %%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
 %%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
@@ -39,19 +39,21 @@
 % \changes{v1.0b}{1996/02/01}{\file{omake-sh.ins}, \file{omake-pl.ins}を
 %     \dst{}の変更にともなう変更をした}
 % \changes{v1.0c}{1997/01/23}{\LaTeX\ \textt{!<1996/12/01!>}に合わせて修正}
+% \changes{v1.0d}{2016/01/27}{\file{mkpldoc.sh}を改善。
+%     p\LaTeXe{}に付属するファイルの説明を更新}
 % \fi
 %
 % \iffalse
 %<*driver>
 \NeedsTeXFormat{pLaTeX2e}
 % \fi
-\ProvidesFile{platex.dtx}[1997/01/29 v1.0c pLaTeX document file]
+\ProvidesFile{platex.dtx}[2016/01/27 v1.0d pLaTeX document file]
 % \iffalse
 \documentclass{jltxdoc}
 \usepackage{plext}
 \GetFileInfo{platex.dtx}
 \title{p\LaTeXe{}について}
-\author{Ken Nakano}
+\author{Ken Nakano \& Japanese \TeX\ Development Community}
 \date{作成日：\filedate}
 \begin{document}
    \MakeShortVerb{\+}
@@ -289,6 +291,7 @@
 % 修正箇所には``\texttt{platex}''条件が付けられています。
 % 
 % p\LaTeXe{}に付属のクラスファイルは、次のとおりです。
+% \changes{v1.0d}{2016/01/27}{p\LaTeXe{}に付属するファイルの説明を更新}
 %
 % \begin{itemize}
 % \item jbook.cls,jarticle.cls,jreport.cls\par
@@ -300,10 +303,6 @@
 % \item jltxdoc.cls\par
 %   \file{.dtx}ファイルを組版するためのクラスファイル。
 %   \file{jltxdoc.dtx}から作成される。
-%
-% \item jltxguid.cls\par
-%   \file{usrguide.tex}や\file{fntguide.tex}などを組版するための
-%   クラスファイル。
 % \end{itemize}
 %
 % また、p\LaTeXe{}に付属のパッケージファイルは、次のとおりです。
@@ -322,6 +321,10 @@
 %
 % \item plext.sty\par
 %    縦組用の拡張コマンドなどが定義されているファイル。
+%
+% \item nidanfloat.sty\par
+%   二段組時に段抜きのフロートをページ下部にも配置可能にする
+%   パッケージ。
 % \end{itemize}
 %
 %
@@ -439,7 +442,7 @@
 %    \begin{macrocode}
 \begin{document}
  \title{The p\LaTeXe\ Sources}
- \author{Ken Nakano}
+ \author{Ken Nakano \& Japanese \TeX\ Development Community}
 
 % This command will be used to input the patch file
 % if that file exists.
@@ -566,6 +569,7 @@
 % 目次ファイルや索引ファイルなどを削除します。
 % \changes{v1.0c}{1997/01/23}{Don't copy gind.ist and gglo.ist from
 %        \$TEXMF/tex/latex2e/base directory.}
+% \changes{v1.0d}{2016/01/27}{\file{mkpldoc.sh}を改善}
 %    \begin{macrocode}
 %<*shprog>
 for f in pldoc.toc pldoc.idx pldoc.glo ; do
