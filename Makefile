@@ -59,3 +59,14 @@ $(DOCDIR)/pldoc.pdf: $(addprefix $(SRCDIR)/,$(DOC_SRC))
 	cd $(SRCDIR); $(MAKE) pldoc.pdf
 	mv $(SRCDIR)/pldoc.pdf $(DOCDIR)
 	mv $(SRCDIR)/jltxdoc.cls $(TEXDIR)
+
+.PHONY: clean
+clean:
+	for x in $(addprefix $(TEXDIR)/,$(PLFMT)) \
+	$(addprefix $(TEXDIR)/,$(PLCLS)) \
+	$(addprefix $(TEXDIR)/,$(PL209)) \
+	$(addprefix $(TEXDIR)/,$(NIDAN)) \
+	$(DOCDIR)/platex.pdf $(DOCDIR)/pldoc.pdf \
+	$(TEXDIR)/jltxdoc.cls $(SRCDIR)/pldoc.tex $(SRCDIR)/Xins.ins; do \
+	if [ -e $$x ]; then rm $$x; fi \
+	done
