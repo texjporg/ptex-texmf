@@ -1,0 +1,95 @@
+% \iffalse meta-comment
+%% File: platexrelease.dtx
+%
+%  Copyright 2016 Japanese TeX Development Community.
+%
+%  This file is part of the pLaTeX2e system.
+%  -----------------------------------------
+%
+% \fi
+%
+% \CheckSum{6}
+%% \CharacterTable
+%%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%%   Digits        \0\1\2\3\4\5\6\7\8\9
+%%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%%   Dollar        \$     Percent       \%     Ampersand     \&
+%%   Acute accent  \'     Left paren    \(     Right paren   \)
+%%   Asterisk      \*     Plus          \+     Comma         \,
+%%   Minus         \-     Point         \.     Solidus       \/
+%%   Colon         \:     Semicolon     \;     Less than     \<
+%%   Equals        \=     Greater than  \>     Question mark \?
+%%   Commercial at \@     Left bracket  \[     Backslash     \\
+%%   Right bracket \]     Circumflex    \^     Underscore    \_
+%%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%%   Right brace   \}     Tilde         \~}
+%%
+%
+% \iffalse
+% \changes{v1.0}{2016/02/01}{first edition}
+% \fi
+%
+% \iffalse
+\NeedsTeXFormat{pLaTeX2e}
+%<*driver>
+\ProvidesFile{platexrelease.dtx}
+%</driver>
+%<platexrelease>\ProvidesPackage{platexrelease}
+                [2016/02/01 v1.0 latexrelease support for pLaTeX Kernel]
+%<*driver>
+\documentclass{jltxdoc}
+\GetFileInfo{platexrelease.dtx}
+\author{Japanese \TeX\ Development Community}
+\title{\filename}
+\date{作成日：\filedate}
+\begin{document}
+  \newcommand\Lpack[1]{\textsf{#1}}
+  \maketitle
+  \DocInput{\filename}
+\end{document}
+%</driver>
+% \fi
+%
+% \changes{v1.0}{2016/02/01}{p\LaTeXe 用に\file{latexrelease.dtx}を修正}
+%
+% p\LaTeXe{}がベースにしている\LaTeXe{}は、2015年より前まではカーネルの
+% 互換性を失わせる大きな変更は加えられず、修正は\Lpack{fixltx2e}パッケージ
+% で提供されていました。しかし、2015年以降は\Lpack{fixltx2e}の変更点が
+% すべて\LaTeXe{}のカーネルに取り込まれ、代わりに過去のバージョンの
+% \LaTeXe{}をエミュレートするための\Lpack{latexrelease}パッケージが提供
+% されるようになりました。
+%
+% この\Lpack{platexrelease}パッケージは、p\LaTeXe{}で\Lpack{latexrelease}に
+% 相当する機能を提供するためのパッケージです。
+% 基本的な使い方は
+%\begin{verbatim}
+% \RequirePackage[2015/01/01]{platexrelease}
+% \documentclass{jarticle}
+% ....
+%\end{verbatim}
+% です。\Lpack{latexrelease}の代わりに\Lpack{platexrelease}を読み込まない
+% と、p\LaTeXe{}で日本語用に加えた\LaTeXe{}へのパッチがキャンセルされて
+% しまう場合がありますので注意してください。\Lpack{latexrelease}の使いかた
+% については、\Lpack{latexrelease}のドキュメントを参照してください。
+%
+% \setcounter{StandardModuleDepth}{1}
+% \StopEventually{}
+%
+% \section{コード}
+%
+% \Lpack{latexrelease}パッケージに渡すオプションを扱います。
+%    \begin{macrocode}
+%<*platexrelease>
+\DeclareOption*{%
+  \PassOptionsToPackage{\CurrentOption}{latexrelease}}
+\ProcessOptions\relax
+\RequirePackage{latexrelease}
+%</platexrelease>
+%    \end{macrocode}
+%
+% このあとは、p\LaTeXe{}のカーネルの変更点を示すコードが入ります。
+%
+% \Finale
+%
+\endinput

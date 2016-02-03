@@ -8,7 +8,7 @@
 %
 % \fi
 %
-% \CheckSum{92}
+% \CheckSum{99}
 %% \CharacterTable
 %%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
 %%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
@@ -32,7 +32,7 @@
 % \iffalse
 %<*driver>
 % \fi
-\ProvidesFile{plvers.dtx}[2016/01/26 v1.0r pLaTeX Kernel (Version Info)]
+\ProvidesFile{plvers.dtx}[2016/02/01 v1.0s pLaTeX Kernel (Version Info)]
 % \iffalse
 \documentclass{jltxdoc}
 \GetFileInfo{plvers.dtx}
@@ -70,6 +70,8 @@
 % \changes{v1.0p}{2006/06/27}{plfonts.dtx \LaTeX\ \texttt{!<2005/12/01!>}対応}
 % \changes{v1.0q}{2006/11/10}{plfonts.dtxバグ修正}
 % \changes{v1.0r}{2016/01/26}{plcore.dtx p\TeX\ (r28720)対応}
+% \changes{v1.0s}{2016/02/01}{\LaTeX\ \texttt{!<2015/01/01!>}のlatexreleaseに
+%    対応するためのコードを導入}
 %
 % このバージョンのp\LaTeXe{}は、次のバージョンの\LaTeX{}\footnote{%
 % LaTeX authors: Johannes Braams, David Carlisle, Alan Jeffrey,
@@ -77,7 +79,7 @@
 % もとにしています。
 %    \begin{macrocode}
 %<2ekernel>\def\fmtname{LaTeX2e}
-%<2ekernel>\def\fmtversion{2003/12/01}
+%<2ekernel>\def\fmtversion{2015/01/01}
 %    \end{macrocode}
 %
 % p\LaTeXe{}のフォーマットファイル名とバージョンです。
@@ -85,7 +87,7 @@
 %    \begin{macrocode}
 %<*plcore>
 \def\pfmtname{pLaTeX2e}
-\def\pfmtversion{2016/01/26}
+\def\pfmtversion{2016/02/01}
 %</plcore>
 %    \end{macrocode}
 %
@@ -155,6 +157,25 @@
             patch level \patch@level)}}
   \fi
 \fi
+%    \end{macrocode}
+%
+% 最後に、latexreleaseパッケージへの対応です。\LaTeXe{}が提供
+% するlatexreleaseパッケージが読み込まれていて、かつp\LaTeXe{}が
+% 提供するplatexreleaseパッケージが読み込まれていない場合は、
+% 警告を出します。
+% \changes{v1.0s}{2016/02/01}{latexrelease利用時に警告を出すようにした}
+%    \begin{macrocode}
+\AtBeginDocument{%
+  \@ifpackageloaded{latexrelease}{%
+    \@ifpackageloaded{platexrelease}{}{%
+      \@latex@warning@no@line{%
+        Package latexrelease is loaded.\MessageBreak
+        Some patches in pLaTeX2e core may be overwritten.\MessageBreak
+        Consider using platexrelease.\MessageBreak
+        See platex.pdf for detail}%
+    }%
+  }{}%
+}
 %</plfinal>
 %    \end{macrocode}
 %

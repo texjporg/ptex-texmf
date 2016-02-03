@@ -41,7 +41,7 @@
 %%   Right brace   \}     Tilde         \~}
 %%
 \def\pfmtname{pLaTeX2e}
-\def\pfmtversion{2016/01/26}
+\def\pfmtversion{2016/02/01}
 %% File: plfonts.dtx
 %% \CharacterTable
 %%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -1055,6 +1055,17 @@
             patch level \patch@level)}}
   \fi
 \fi
+\AtBeginDocument{%
+  \@ifpackageloaded{latexrelease}{%
+    \@ifpackageloaded{platexrelease}{}{%
+      \@latex@warning@no@line{%
+        Package latexrelease is loaded.\MessageBreak
+        Some patches in pLaTeX2e core may be overwritten.\MessageBreak
+        Consider using platexrelease.\MessageBreak
+        See platex.pdf for detail}%
+    }%
+  }{}%
+}
 \endinput
 %%
 %% End of file `plcore.ltx'.

@@ -2,8 +2,9 @@ SRCDIR = source/platex/base
 TEXDIR = tex/platex/base
 DOCDIR = doc/platex/base
 
-TARGET1 = platex.ltx jarticle.cls jarticle.sty nidanfloat.sty
-TARGET2 = platex.pdf pldoc.pdf
+TARGET1 = platex.ltx jarticle.cls jarticle.sty nidanfloat.sty \
+	platexrelease.sty
+TARGET2 = platex.pdf platexrelease.pdf pldoc.pdf
 
 all: $(addprefix $(TEXDIR)/,$(TARGET1)) \
 	$(addprefix $(DOCDIR)/,$(TARGET2))
@@ -30,9 +31,15 @@ NIDAN = nidanfloat.sty
 
 NIDAN_SRC = nidanfloat.dtx
 
-INTRO_SRC = platex.dtx
+PLREL = platexrelease.sty
 
-DOC_SRC = platex.dtx plvers.dtx plfonts.dtx plcore.dtx plext.dtx \
+PLREL_SRC = platexrelease.dtx $(PLFMT_SRC)
+
+INTRODOC_SRC = platex.dtx
+
+PLRELDOC_SRC = platexrelease.dtx
+
+PLDOC_SRC = platex.dtx plvers.dtx plfonts.dtx plcore.dtx plext.dtx \
 	pl209.dtx kinsoku.dtx jclasses.dtx jltxdoc.dtx
 
 $(TEXDIR)/platex.ltx: $(addprefix $(SRCDIR)/,$(PLFMT_SRC))
@@ -51,11 +58,19 @@ $(TEXDIR)/nidanfloat.sty: $(addprefix $(SRCDIR)/,$(NIDAN_SRC))
 	cd $(SRCDIR); $(MAKE) nidanfloat.sty
 	for x in $(NIDAN); do mv $(SRCDIR)/$$x $(TEXDIR); done
 
-$(DOCDIR)/platex.pdf: $(addprefix $(SRCDIR)/,$(INTRO_SRC))
+$(TEXDIR)/platexrelease.sty: $(addprefix $(SRCDIR)/,$(PLREL_SRC))
+	cd $(SRCDIR); $(MAKE) platexrelease.sty
+	for x in $(PLREL); do mv $(SRCDIR)/$$x $(TEXDIR); done
+
+$(DOCDIR)/platex.pdf: $(addprefix $(SRCDIR)/,$(INTRODOC_SRC))
 	cd $(SRCDIR); $(MAKE) platex.pdf
 	mv $(SRCDIR)/platex.pdf $(DOCDIR)
 
-$(DOCDIR)/pldoc.pdf: $(addprefix $(SRCDIR)/,$(DOC_SRC))
+$(DOCDIR)/platexrelease.pdf: $(addprefix $(SRCDIR)/,$(PLRELDOC_SRC))
+	cd $(SRCDIR); $(MAKE) platexrelease.pdf
+	mv $(SRCDIR)/platexrelease.pdf $(DOCDIR)
+
+$(DOCDIR)/pldoc.pdf: $(addprefix $(SRCDIR)/,$(PLDOC_SRC))
 	cd $(SRCDIR); $(MAKE) pldoc.pdf
 	mv $(SRCDIR)/pldoc.pdf $(DOCDIR)
 	mv $(SRCDIR)/jltxdoc.cls $(TEXDIR)
@@ -66,7 +81,8 @@ clean:
 	$(addprefix $(TEXDIR)/,$(PLCLS)) \
 	$(addprefix $(TEXDIR)/,$(PL209)) \
 	$(addprefix $(TEXDIR)/,$(NIDAN)) \
-	$(DOCDIR)/platex.pdf $(DOCDIR)/pldoc.pdf \
+	$(addprefix $(TEXDIR)/,$(PLREL)) \
+	$(DOCDIR)/platex.pdf $(DOCDIR)/platexrelease.pdf $(DOCDIR)/pldoc.pdf \
 	$(TEXDIR)/jltxdoc.cls $(SRCDIR)/pldoc.tex $(SRCDIR)/Xins.ins; do \
 	if [ -e $$x ]; then rm $$x; fi \
 	done
