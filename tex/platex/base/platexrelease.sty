@@ -171,6 +171,18 @@ of this package available from CTAN}
 %%   Grave accent  \`     Left brace    \{     Vertical bar  \|
 %%   Right brace   \}     Tilde         \~}
 %%
+\plIncludeInRelease{2016/02/01}{\eminnershape}{\eminnershape}%
+\DeclareRobustCommand\em
+        {\@nomath\em \ifdim \fontdimen\@ne\font >\z@
+                       \eminnershape \else \gtfamily \itshape \fi}%
+\def\eminnershape{\mcfamily \upshape}%
+\plEndIncludeInRelease
+\plIncludeInRelease{0000/00/00}{\eminnershape}{\eminnershape}%
+\DeclareRobustCommand\em
+        {\@nomath\em \ifdim \fontdimen\@ne\font >\z@
+                       \mcfamily \upshape \else \gtfamily \itshape \fi}
+\let\eminnershape\@undefined
+\plEndIncludeInRelease
 %% File: plcore.dtx
 %% \CharacterTable
 %%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
