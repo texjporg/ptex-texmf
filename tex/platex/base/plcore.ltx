@@ -41,7 +41,41 @@
 %%   Right brace   \}     Tilde         \~}
 %%
 \def\pfmtname{pLaTeX2e}
-\def\pfmtversion{2016/02/01}
+\def\pfmtversion
+   {2016/02/03}
+\def\plIncludeInRelease#1{\kernel@ifnextchar[%
+  {\@plIncludeInRelease{#1}}
+  {\@plIncludeInRelease{#1}[#1]}}
+\def\@plIncludeInRelease#1[#2]{\@plIncludeInRele@se{#2}}
+\def\@plIncludeInRele@se#1#2#3{%
+  \toks@{[#1] #3}%
+  \expandafter\ifx\csname\string#2+\@currname+IIR\endcsname\relax
+    \ifnum\expandafter\@parse@version#1//00\@nil
+          >\expandafter\@parse@version\pfmtversion//00\@nil
+      \GenericInfo{}{Skipping: \the\toks@}%
+     \expandafter\expandafter\expandafter\@gobble@plIncludeInRelease
+    \else
+      \GenericInfo{}{Applying: \the\toks@}%
+      \expandafter\let\csname\string#2+\@currname+IIR\endcsname\@empty
+    \fi
+  \else
+    \GenericInfo{}{Already applied: \the\toks@}%
+    \expandafter\@gobble@plIncludeInRelease
+  \fi
+}
+\long\def\@gobble@plIncludeInRelease#1\plEndIncludeInRelease{}
+\let\plEndIncludeInRelease\relax
+\AtBeginDocument{%
+  \@ifpackageloaded{latexrelease}{%
+    \@ifpackageloaded{platexrelease}{}{%
+      \@latex@warning@no@line{%
+        Package latexrelease is loaded.\MessageBreak
+        Some patches in pLaTeX2e core may be overwritten.\MessageBreak
+        Consider using platexrelease.\MessageBreak
+        See platex.pdf for detail}%
+    }%
+  }{}%
+}
 %% File: plfonts.dtx
 %% \CharacterTable
 %%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -1055,17 +1089,6 @@
             patch level \patch@level)}}
   \fi
 \fi
-\AtBeginDocument{%
-  \@ifpackageloaded{latexrelease}{%
-    \@ifpackageloaded{platexrelease}{}{%
-      \@latex@warning@no@line{%
-        Package latexrelease is loaded.\MessageBreak
-        Some patches in pLaTeX2e core may be overwritten.\MessageBreak
-        Consider using platexrelease.\MessageBreak
-        See platex.pdf for detail}%
-    }%
-  }{}%
-}
 \endinput
 %%
 %% End of file `plcore.ltx'.

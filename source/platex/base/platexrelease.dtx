@@ -8,7 +8,7 @@
 %
 % \fi
 %
-% \CheckSum{6}
+% \CheckSum{117}
 %% \CharacterTable
 %%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
 %%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
@@ -28,6 +28,7 @@
 %
 % \iffalse
 % \changes{v1.0}{2016/02/01}{first edition}
+% \changes{v1.0a}{2016/02/03}{latexreleaseをもとにplatexreleaseとして拡張}
 % \fi
 %
 % \iffalse
@@ -36,7 +37,7 @@
 \ProvidesFile{platexrelease.dtx}
 %</driver>
 %<platexrelease>\ProvidesPackage{platexrelease}
-                [2016/02/01 v1.0 latexrelease support for pLaTeX Kernel]
+                [2016/02/03 v1.0a latexrelease support for pLaTeX Kernel]
 %<*driver>
 \documentclass{jltxdoc}
 \GetFileInfo{platexrelease.dtx}
@@ -52,6 +53,7 @@
 % \fi
 %
 % \changes{v1.0}{2016/02/01}{p\LaTeXe 用に\file{latexrelease.dtx}を修正}
+% \changes{v1.0a}{2016/02/03}{latexreleaseをもとにplatexreleaseとして拡張}
 %
 % p\LaTeXe{}がベースにしている\LaTeXe{}は、2015年より前まではカーネルの
 % 互換性を失わせる大きな変更は加えられず、修正は\Lpack{fixltx2e}パッケージ
@@ -73,17 +75,142 @@
 % しまう場合がありますので注意してください。\Lpack{latexrelease}の使いかた
 % については、\Lpack{latexrelease}のドキュメントを参照してください。
 %
+% \section{パッケージオプション}
+%
+% \Lpack{latexrelease}パッケージとほとんど同じですが、|asciimw|オプション
+% が追加されています。
+% \begin{itemize}
+% \item \emph{yyyy/mm/dd}
+% p\LaTeXe{}のフォーマットの日付を指定します。このオプションは同時に
+% \Lpack{latexrelease}パッケージにも引き継がれます。このパッケージより
+% 相対的に未来の日付も指定することができますが、その場合は警告します。
+%
+% \item%
+% |current| これはデフォルトの挙動です。フォーマットの日付は実効的に
+% 変更しませんが、|\plIncludeInRelease|コマンドが定義されることを
+% 保証します。このオプションは同時に\Lpack{latexrelease}パッケージにも
+% 引き継がれます。
+%
+% \item
+% |latest| フォーマットの日付の実効値を、このファイルのリリース日
+% に設定します。したがって、古いフォーマットを使っている場合は
+% 現在利用可能なすべてのパッチが適用されます。このオプションは同時に
+% \Lpack{latexrelease}パッケージにも引き継がれます。
+%
+% \item
+% |asciimw| このオプションだけ他のオプションと異なり、上の3つの
+% オプションのいずれかと併用することができます。|asciimw|オプションを
+% 使用すると、p\LaTeXe{}のフォーマットのみ、2006/11/10にアスキーに
+% よって発表されたp\LaTeXe{}と互換なものをエミュレートします。
+% \LaTeXe{}のフォーマットの日付は、この|asciimw|と同時に指定されている
+% オプションによって規定されます。（未実装）
+% \end{itemize}
+%
 % \setcounter{StandardModuleDepth}{1}
 % \StopEventually{}
 %
 % \section{コード}
 %
-% \Lpack{latexrelease}パッケージに渡すオプションを扱います。
+% オプションを定義します。
 %    \begin{macrocode}
 %<*platexrelease>
 \DeclareOption*{%
-  \PassOptionsToPackage{\CurrentOption}{latexrelease}}
+  \def\@plIncludeInRelease#1[#2]{\@plIncludeInRele@se{#1}}%
+  \let\requestedplpatchdate\CurrentOption
+  \let\latexrelease@temp@ption\CurrentOption}
+\DeclareOption{latest}{%
+  \let\requestedplpatchdate\platexreleaseversion
+  \let\latexrelease@temp@ption\CurrentOption}
+\DeclareOption{current}{%
+  \let\requestedplpatchdate\pfmtversion
+  \let\latexrelease@temp@ption\CurrentOption}
+%    \end{macrocode}
+%
+%    \begin{macrocode}
+\ExecuteOptions{current}
 \ProcessOptions\relax
+%    \end{macrocode}
+%
+%    \begin{macrocode}
+\def\reserved@a{%
+\edef\requestedpLaTeXdate{\the\count@}%
+\reserved@b}
+\def\reserved@b#1\\{%
+\def\reserved@b{#1}%
+\ifx\reserved@b\@empty\else
+\PackageError{platexrelease}%
+             {Unexpected option \requestedplpatchdate}%
+             {The option must be of the form yyyy/mm/dd}%
+\fi}
+\afterassignment\reserved@a
+\count@\expandafter
+  \@parse@version\expandafter0\requestedplpatchdate//00\@nil\\
+%    \end{macrocode}
+%
+%    \begin{macrocode}
+\edef\currentpLaTeXdate{%
+   \expandafter\@parse@version\pfmtversion//00\@nil}
+%    \end{macrocode}
+%
+%    \begin{macrocode}
+\ifnum\requestedpLaTeXdate=\currentpLaTeXdate
+\PackageWarningNoLine{platexrelease}{%
+  Current format date selected, no patches applied.}
+\expandafter\endinput
+\fi
+%    \end{macrocode}
+%
+% より新しいフォーマットに対しては、より新しいバージョンの
+% \Lpack{platexrelease}が提供されているはずです。
+%    \begin{macrocode}
+\ifnum\currentpLaTeXdate
+  >\expandafter\@parse@version\platexreleaseversion//00\@nil
+\PackageWarningNoLine{platexrelease}{%
+The current package is for an older pLaTeX format:\MessageBreak
+pLaTeX \pfmtversion\space\MessageBreak
+Obtain a newer version of this package!}
+\expandafter\endinput
+\fi
+%    \end{macrocode}
+%
+% 将来のp\LaTeXe{}をつくりだすパッチはありませんが、オプションは
+% 現時点では受け入れます。
+%    \begin{macrocode}
+\ifnum\requestedpLaTeXdate
+  >\expandafter\@parse@version\platexreleaseversion//00\@nil
+\PackageWarningNoLine{platexrelease}{%
+The current package is for pLaTeX \platexreleaseversion:\MessageBreak
+It has no patches beyond that date\MessageBreak
+There may be an updated version\MessageBreak
+of this package available from CTAN}
+\expandafter\endinput
+\fi
+%    \end{macrocode}
+%
+% フォーマットのバージョンを要求されている日付に更新します。
+%    \begin{macrocode}
+\let\pfmtversion\requestedplpatchdate
+\let\currentpLaTeXdate\requestedpLaTeXdate
+%    \end{macrocode}
+%
+% この段階で\LaTeXe{}の\Lpack{latexrelease}パッケージを読み込みます。
+% オプションとしては\Lpack{platexrelease}パッケージに指定されたものを
+% 引き継ぎますが、p\LaTeXe{}より新しい\LaTeXe{}が\Lpack{latexrelease}に
+% よってエミュレートされないように、\Lpack{platexrelease}パッケージの
+% オプションが\LaTeXe{}のバージョンより新しい場合には、
+% \Lpack{latexrelease}パッケージに渡すオプションをp\LaTeXe{}が対応して
+% いる\LaTeXe{}のバージョンに合わせます。
+%    \begin{macrocode}
+\ifnum\requestedpLaTeXdate
+  >\expandafter\@parse@version\p@known@latexreleaseversion//00\@nil
+  \let\latexrelease@temp@ption\p@known@latexreleaseversion
+\fi
+%    \end{macrocode}
+%
+% オプションを付けて\Lpack{latexrelease}パッケージを読み込みます。
+%
+%    \begin{macrocode}
+\PassOptionsToPackage{\latexrelease@temp@ption}{latexrelease}
 \RequirePackage{latexrelease}
 %</platexrelease>
 %    \end{macrocode}
