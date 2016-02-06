@@ -5,8 +5,8 @@ tree for typesetting Japanese publications using pTeX. The bundle
 includes fonts, Japanese BibTeX styles, Japanese versions of LaTeX
 classes and macros (called pLaTeX2e), and the like.
 
-The bundle is a community edition, not the same as the original ASCII
-edition. The GitHub repository
+The bundle is a community edition forked from the original ASCII
+edition (ptex-texmf-2.5). The GitHub repository
 
 - https://github.com/texjporg/ptex-texmf
 
