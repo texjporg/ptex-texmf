@@ -1,19 +1,21 @@
 \usepackage{amsmath,amssymb,multicol,comment}
 \usepackage[dvipdfmx]{graphicx}
 \usepackage[T1]{fontenc}
-\usepackage{lmodern,booktabs}
+\usepackage{lmodern,booktabs,enumitem}
+\setlist[description]{style=nextline,itemsep=\medskipamount}
 \usepackage[dvipdfmx]{hyperref}
 \usepackage{pxjahyper}
+\usepackage[bold,deluxe]{otf}
 \makeatletter
 \def\pdfTeX{pdf\/\TeX}\newcommand{\OMEGA}{$\Omega$}
 \def\epTeX{$\varepsilon$-p\kern-.15em\TeX}\def\eTeX{$\varepsilon$-\TeX}
-\def\upTeX{up\TeX}
+\def\upTeX{up\kern-.15em\TeX}
 \def\NTS{\leavevmode\hbox{$\cal N\kern-0.35em\lower0.5ex\hbox{$\cal T$}%
   \kern-0.2emS$}\,}
-\def\headfont{\mathversion{bold}\bfseries\selectfont}
+\def\headfont{\normalfont\mathversion{bold}\gtfamily\bfseries}
 \def\.#1{\texorpdfstring{%
-     \leavevmode\hbox{\texttt{\textbackslash#1}}}{\textbackslash #1}}
-\def\emph#1{{\bfseries\mathversion{bold}#1}}
+     \leavevmode\hbox{\texttt{\textbackslash#1}}\ifmmode\else\textcompwordmark\fi}{\textbackslash #1}}
+\def\emph#1{{\bfseries\gtfamily\mathversion{bold}#1}}
 \def\listx{\def\makelabel{\hbox to 1em{\hfil\textbullet\hfil}}\def\@{\hfill}
 \labelwidth=13zw\leftmargin15zw\itemindent=0zw}
 \def\paragraph#1{\par\medskip\par\noindent\emph{■#1}\par\nobreak}
@@ -27,6 +29,7 @@
 \xspcode`\\=3
 \xspcode`\*=3
 \xspcode`\-=3
+\xspcode23=3 % \textcompwordmark
 \def<#1>{\ensuremath{\langle\hbox{\normalfont\itshape #1\/}\rangle}}
 
 \font\man=manfnt at 12pt
@@ -88,3 +91,8 @@
     7\or8\or9\or A\or B\or C\or D\or E\pr F\fi
 \fi}}
 \clubpenalty=8000\widowpenalty=8000
+
+\normalsize
+\bigskipamount=\baselineskip
+\medskipamount=.5\baselineskip
+\smallskipamount=.25\baselineskip
