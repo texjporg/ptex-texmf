@@ -5,6 +5,7 @@
 \input fam256p.tex
 \usepackage[textwidth=42zw,lines=40,truedimen,centering]{geometry}
 \usepackage{styles}
+\def\_{\leavevmode\vrule width .45em height -.2ex depth .3ex\relax}
 \frenchspacing
 \begin{document}
 \title{\emph{\epTeX について}}
@@ -104,9 +105,9 @@ ${}+{}$\verb+\@tempdima+$)/2$\hfill\null
 
 \noindent という計算を元々の\TeX で書こうとすると，
 \begin{verbatim}
-　　\dimen123=\dimen42
-　　\advance\dimen123by\@tempdima
-　　\dimen123=0.5\@tempdima
+\dimen123=\dimen42
+\advance\dimen123by\@tempdima
+\dimen123=0.5\@tempdima
 \end{verbatim}
 のように書かないといけない．代入，加算代入，乗算代入，除算代入ぐらいしか
 演算が用意されていない状態になっている（上のコードのように，$d_2\mathrel{+\!\!=}
@@ -115,7 +116,7 @@ ${}+{}$\verb+\@tempdima+$)/2$\hfill\null
 \eTeX では，そのレジスタの演算に，他のプログラミング言語で使われているよ
 うな数式の表現が使えるようになった．上のPDFでは実例として
 \begin{verbatim}
-　　\ifdim \dimexpr (2pt-5pt)*\numexpr 3-3*13/5\relax + 34pt/2<\wd20
+\ifdim \dimexpr (2pt-5pt)*\numexpr 3-3*13/5\relax + 34pt/2<\wd20
 \end{verbatim}
 が書かれている．これは，\def\mpt{\,\mathrm{pt}}
 {\catcode`\<12\[
@@ -134,19 +135,16 @@ ${}+{}$\verb+\@tempdima+$)/2$\hfill\null
 \left\{\, \vphantom{\copy0}#1 \,\right|\!\left.\, \vphantom{\copy0}#2 \,\right\}}
 \def\eset#1#2{\left\{\, #1 \,\middle|\, #2 \,\right\}}
 \[ \set{n+\frac12}{n\in \omega} \eset{n+\frac12}{n\in \omega} \]
-
 これは以下のsourceで出力したものである：
 
 {\narrowbaselines
 \begin{verbatim}
-　　\def\set#1#2{\setbox0=\hbox{$\displaystyle #1,#2$}%
-　　\left\{\, \vphantom{\copy0}#1 \,\right|\!\left.\, %
-        \vphantom{\copy0}#2 \,\right\}}
-　　\def\eset#1#2{\left\{\, #1 \,\middle|\, #2 \,\right\}}
-　　\[ \set{n+\frac12}{n\in \omega} \eset{n+\frac12}{n\in \omega} \]
+\def\set#1#2{\setbox0=\hbox{$\displaystyle #1,#2$}%
+  \left\{\, \vphantom{\copy0}#1 \,\right|\!\left.\, %
+  \vphantom{\copy0}#2 \,\right\}}
+\def\eset#1#2{\left\{\, #1 \,\middle|\, #2 \,\right\}}
+\[ \set{n+\frac12}{n\in \omega} \eset{n+\frac12}{n\in \omega} \]
 \end{verbatim}}
-
-
 両方とも集合の表記を行うコマンドである．\TeX 流の\.{set}では2つの
 \.{left}, \.{right}の組で実現させなければならず，そのために$|$の
 左側と右側に入る式の最大寸法を測定するという面倒な方法を使っている．その
@@ -175,14 +173,14 @@ tracing機能や条件判断文の強化などあるが，そこら辺はパッ�
 
 \medskip
 
-\pTeX 拡張では，\TeX と比較して\textit{dir\_node}と\texttt{disp\_node}という2種類のnodeが
+\pTeX 拡張では，\TeX と比較して\textit{dir\_node}と\textit{disp\_node}という2種類のnodeが
 追加された．前者は，現在のリストの中に違う組方向のboxを挿入する際に寸法を補正するために作られ，
 \.{hbox}や\.{vbox}のコンテナとなっている．
 また後者は，欧文文字のベースライン補正のために使われる．
 
 \epTeX~110102 まではこれらのnodeも\.{lastnodetype}の値として出力させるようにしたが，
 両者ともにユーザーが意識する必要はないことから，
-\epTeX~110227以降では\textit{dir\_node}と\texttt{disp\_node}は
+\epTeX~110227以降では\textit{dir\_node}と\textit{disp\_node}は
 \.{lastnodetype}の値として出力しないようにしている．
 \begin{multilist}{3}{\hfil\hskip1.5zw#:&\quad#\qquad\hfil}
 \item $-1$&none (empty list)\cr\item 0&char node\cr\item 1&hlist node\cr
@@ -257,28 +255,28 @@ extended modeの時に限り有効になる．
 \end{tabular}
 \end{center}
 
-\def\bits#1{<{$#1$}-bit\ number>}
+\def\bits#1{<\textup{#1}-bit\ number>}
 \TeX に本来あったプリミティブは互換性維持のために同じ動作とする必要があるので，
 16番から255番のフォントを利用する際には別のプリミティブが必要となる．（実装自
 体に\OMEGA の流儀を使っているから）
 ここでは，\OMEGA のプリミティブ名を流用することにした．
 すなわち，以下のプリミティブが追加されている\footnote{\OMEGA では\bits{8}のところが\bits{16}に
 なっている．}．
-\begin{itemize}
-\item \texttt{\.{omathcode} \bits{8}=\bits{27}}
-\item \texttt{\.{omathcode} \bits{8}}
-\item \texttt{\.{omathchar} \bits{27}}
-\item \texttt{\.{omathaccent} \bits{27}}
-\item \texttt{\.{omathchardef} <control sequence>=\bits{27}}
-\item \texttt{\.{odelcode} \bits{8}=\bits{27}\ \bits{24}}
-\item \texttt{\.{odelimiter} \bits{27}\ \bits{24}}
-\item \texttt{\.{oradical} \bits{27}\ \bits{24}}
-\end{itemize}
+\begin{cslist}[itemsep=\dimexpr-\baselineskip+\medskipamount]
+\csitem[\.{omathcode} \bits{8}\texttt{=}\bits{27}]\ 
+\csitem[\.{omathcode} \bits{8}]\ 
+\csitem[\.{omathchar} \bits{27}]\ 
+\csitem[\.{omathaccent} \bits{27}]\ 
+\csitem[\.{omathchardef} <control sequence>\texttt{=}\bits{27}]\ 
+\csitem[\.{odelcode} \bits{8}\texttt{=}\bits{27}\ \bits{24}]\ 
+\csitem[\.{odelimiter} \bits{27}\ \bits{24}]\ 
+\csitem[\.{oradical} \bits{27}\ \bits{24}]\ 
+\end{cslist}
 ここで，27\,bitとか24\,bitの自然数の意味については，上の表の
 \OMEGA の行を参照して欲しい．上に書いた実装から，
 character codeの指定に使われる16\,bitの数値で，実際に使われるのは下位
 8\,bitであり，上位8\,bitは無視される．
-なお，\.{odelcode}\bits 8として
+なお，\.{odelcode}\ \bits 8として
 delimiter codeを取得しようとしても，現時点のパッチでは，うまく動作しない
 \footnote{51\,bit自然数を返さないといけないですからねえ．やる気があれば
 検討してみます．}．
@@ -353,8 +351,8 @@ delimiter codeを取得しようとしても，現時点のパッチでは，う
 現在の\epTeX で利用できる\pdfTeX 由来のプリミティブの一覧を以下に示す．
 これらはextended modeでないと利用できない．
 
-\begin{description}[font=\normalfont]
- \item [\.{pdfstrcmp} <general text> <general text>]
+\begin{cslist}
+ \csitem [\.{pdfstrcmp} <general text> <general text>]
   2つの引数を文字列化したものを先頭バイトから比較し，
   結果を$-1$（第1引数の方が先），0（等しい），1（第2引数の方が先）として文字列で返す．
   
@@ -365,11 +363,12 @@ delimiter codeを取得しようとしても，現時点のパッチでは，う
 \pdfstrcmp{あ}{^^e3^^81^^83} % 「あ」はUTF-8でE38182
 \end{verbatim}
   の実行結果は$\pdfstrcmp{あ}{^^e3^^81^^83}$である．
- \item [\.{pdfpagewidth}, \.{pdfpageheight}]
+
+ \csitem[\.{pdfpagewidth}, \.{pdfpageheight}]
   ページの「幅」「高さ」を表す内部長さであるが，
   \emph{ここで言う「幅」は「字送り方向」のことではなく，物理的な意味である}．
 
- \item  [\.{pdflastxpos}, \.{pdflastypos}]
+ \csitem[\.{pdflastxpos}, \.{pdflastypos}]
   \.{pdfsavepos}が置かれた場所の，dviにおける出力位置を返す内部整数（読み取り専用）．
   原点は紙の（物理的な意味の）左下隅であり，$y$軸は（物理的な）上方向に向かって増加する．
 
@@ -377,17 +376,17 @@ delimiter codeを取得しようとしても，現時点のパッチでは，う
   「物理的な」向きとすべきか，それとも「組方向に応じた」向きとすべきかは悩みどころである．
   110227版以降，現在までの版では上記のように物理的な向きとしている．
   
- \item[\.{pdfcreationdate}, \.{pdffilemoddate}, \.{pdffilesize}]
+ \csitem[\.{pdfcreationdate}, \.{pdffilemoddate}, \.{pdffilesize}]
   最初にこのプリミティブが実行された時刻を，\texttt{\pdfcreationdate}の形式で表した文字列に展開される．
   これは\Pkg{standalone}パッケージを\epTeX で扱うために2013/06/05に実装されたプリミティブであるが，
   現在時刻の「秒」まで得るためにも使用できる（\TeX 82では分単位でしか取得できない）．
   
- \item[\.{pdffilemoddate} <filename>, \.{pdffilesize} <filename>]
+ \csitem[\.{pdffilemoddate} <filename>, \.{pdffilesize} <filename>]
   それぞれ<filename>の更新時刻（\.{pdfcreationdate}と同じ形式）と
   ファイルサイズを表す文字列に展開する．
   これらも\Pkg{standalone}パッケージのために\epTeX に実装されたプリミティブである．
   
- \item[\.{pdffiledump} \textrm{[}\texttt{offset} <offset>\textrm{]}%
+ \csitem[\.{pdffiledump} \textrm{[}\texttt{offset} <offset>\textrm{]}%
   \ \texttt{length} <length> <filename>]
   <filename>で与えられたファイル名の<offset>バイト目（先頭は0）から<length>バイトを読み込み，
   16進表記（大文字）したものに展開される．
@@ -395,7 +394,7 @@ delimiter codeを取得しようとしても，現時点のパッチでは，う
   本プリミティブはHeiko Oberdiek氏による\Pkg{bmpsize}パッケージを\epTeX でも使うために
   角藤さんが実装したものである(2014/05/06)．
   
- \item[\.{pdfshellescape}]
+ \csitem[\.{pdfshellescape}]
   \.{write18}によるshell-escapeが利用可能になっているかを示す内部整数（読み取り専用）．
   0ならば不許可，1ならば許可，2ならばrestricted shell-escape%
   \footnote{あらかじめ「安全」と認められたプログラム（\texttt{texmf.cnf}中で指定する）
@@ -405,14 +404,14 @@ delimiter codeを取得しようとしても，現時点のパッチでは，う
   本プリミティブは\TeX ユーザの集い2014でリクエストを受けて実装された(\cite{pdfse})．
   
   
- \item[\.{pdfmdfivesum} {[\texttt{file}]} <general text>]
+ \csitem[\.{pdfmdfivesum} {[\texttt{file}]} <general text>]
   引数<general text>のMD5ハッシュ値か，あるいは\texttt{file}が指定された場合は
   ファイル名が<general text>のファイルのMD5ハッシュ値を計算する．
 
   このプリミティブは\cite{xe5}以降の議論を元に，角藤さんがリクエストしたもので，
   2015/07/04に\epTeX に実装されている．
   
- \item[\.{pdfpritimive}, \.{ifpdfprimitive}]
+ \csitem[\.{pdfpritimive}, \.{ifpdfprimitive}]
   \.{pdfprimitive}は次に続く制御綴がプリミティブと同じ名称であった場合に，
   プリミティブ本来の意味で実行させるものである．例えば
 \begin{verbatim}
@@ -426,13 +425,13 @@ delimiter codeを取得しようとしても，現時点のパッチでは，う
   (\cite{15715})ことを受けて実装されたものだが，
   現在ではこれらのプリミティブは使われていない．
 
-\end{description}
+\end{cslist}
 
 \section{\.{lastnodechar}プリミティブ}
-\.{pdfshellescape}と同時に，\TeX ユーザの集い2014で
-リクエストを受けて実装された(\cite{pdfse})プリミティブで，extended modeでしか利用できない．
+本プリミティブは
+\TeX ユーザの集い2014でリクエストを受けて
+実装された(\cite{pdfse})プリミティブで，extended modeでしか利用できない．
 詳細な背景説明・仕様は\cite{lnc}に譲る．
-
 
 \pTeX では
 \begin{verbatim}
@@ -446,14 +445,36 @@ delimiter codeを取得しようとしても，現時点のパッチでは，う
 
 この現象は，（展開し続けた結果）「，」の直後のトークンが「『」ではないことによって，
 「，」の後の半角空きと，「『」の前の半角空きが両方
-入ってしまうという\pTeX の和文処理の仕様による．
+入ってしまうという\pTeX の和文処理の仕様
+\footnote{%
+  \TeX82 の欧文のカーニングや合字処理も同じような仕様になっている．
+  例えば\texttt{W\.{relax}\ oWo}からはW\relax oWoという出力になり，
+  Wとoの間のカーニングが\.{relax}によって挿入されなくなったことがわかる．
+}による．
 min10フォントメトリックで「ちょっと」を組むと「ょっ」の間が詰まるという不具合は有名であるが，
-「\verb+ちょ{}っと+」と空グループを挟むことで回避されるのも，この\pTeX の和文処理の仕様による．
+「\verb+ちょ{}っと+」と空グループを挟むことで回避されるのも，同じ理由である．
 
 \medskip
+
 \.{lastnodechar}プリミティブは，
-\emph{現在構築中のリストの最後のノードが文字由来であれば，その文字コードを内部整数として返す}
-というプリミティブである．
+上で述べた「書体変更命令を間に挟むと和文間グルーが『まともに』ならない」という状況を
+改善する助けになることを目指して実装された．
+
+\begin{cslist}
+  \csitem[\.{lastnodechar}]
+  現在構築中のリストの「最後のノード」が文字由来であれば，その文字コードを内部整数として返す．
+  
+  上記「最後のノード」では，\pTeX によって自動挿入される
+  \begin{itemize}
+    \item JFMによって入るグルー
+    \item 行末禁則処理のために挿入されるペナルティ
+    \item 欧文文字のベースライン補正用のノード
+  \end{itemize}
+  は無視される．また，「最後のノード」が欧文文字のリガチャであった場合は，最後の構成要素の文字の文字コードを返す．
+  「最後のノード」が文字を表すものでなかった場合は，$-1$が返る．
+\end{cslist}
+
+例えば，\.{lastnodechar}を使って
 \begin{verbatim}
 これは，\the\lastnodechar\textmc{『ほげ党宣言』}……
 \end{verbatim}
@@ -461,14 +482,62 @@ min10フォントメトリックで「ちょっと」を組むと「ょっ」の
 \begin{quote}
 これは，\the\lastnodechar\textmc{『ほげ党宣言』}……
 \end{quote}
-のように，\.{lastnodechar}実行時の「最後のノード」（文字「，」を表す）の内部コードが
-出力される．
+のようになり，\.{lastnodechar}実行時の「最後のノード」（文字「，」を表す）の内部コード
+\footnote{%
+  内部コードがEUCの場合は$\texttt{"A1A4} = 41380$，SJISの場合は
+  $\texttt{"8143} = 33091$となる．
+}が得られる．これによって，\.{textmc}等の命令の直前の文字を知ることができるので，
+あとは\TeX マクロ側でなんとかできるだろう，という目論見である．
+
+\medskip
+\begin{curve}
+  「\verb+これは，+」とソース中に入力したときの
+  ノードの状態を\.{showlists}で調べてみると次のようになっており，
+  本当に一番最後のノードはJFMによって挿入される二分空きの空白
+  （「，」と通常の和文文字の間に入るはずのもの）であることがわかる．
 \begin{verbatim}
-aiueo\hskip 10pt\message{\the\lastnodechar}
+### yoko direction, horizontal mode entered at line 465
+\hbox(0.0+0.0)x9.24683
+\JY1/hmc/m/it/10 こ
+\JY1/hmc/m/it/10 れ
+\JY1/hmc/m/it/10 は
+\penalty 10000(for kinsoku)
+\JY1/hmc/m/it/10 ，
+\glue(refer from jfm) 4.62341 minus 4.62341
 \end{verbatim}
-のように，直前のノードが文字以外のものであれば$-1$が返される．
+  しかし，数段落上の説明の通り，\.{lastnodechar}は\pTeX の和文処理によって自動的に挿入された
+  これらJFM由来の空白を無視する．
+\end{curve}
+
+
+
+「最後のノード」を見ているので，
+\begin{verbatim}
+これは，\relax\sffamily{}\the\lastnodechar\textmc{『ほげ党宣言』}……
+\end{verbatim}
+などとノードに関係しないものが途中にあっても，それは単純に無視されて
+\begin{quote}
+これは，\relax\sffamily{}\the\lastnodechar\textmc{『ほげ党宣言』}……
+\end{quote}
+となる．
+
+
 
 \section{\.{epTeXinputencoding}プリミティブ}
+現在読み込んでいるファイルの文字コードを切り替えるプリミティブであり，
+2016/02/01に阿部紀行さんによって実装された．詳細は実装者の解説記事
+\cite{eptexinputenc}を参照してほしいが，おおまかに述べると以下のようになるだろう．
+
+\begin{cslist}
+  \csitem[\.{epTeXinputencoding} <encoding>]
+  現在読み込んでいるファイルの文字コードを<encoding>に変更する．
+  実際に変更されるのは「次の行」であり，また現在のファイルからさらに\.{input}等で
+  読まれたファイルには効力を及ぼさない．
+
+  <encoding>の値は，基本的には\pTeX の\texttt{-kanji}オプションで指定できる値
+  (\texttt{euc}, \texttt{sjis}, \texttt{jis}, \texttt{utf8})である．
+\end{cslist}
+
 
 \begin{comment}
   \section{互換性}
@@ -568,6 +637,8 @@ $3$\,sp）だが，どこか気になるところである．
  \bibitem{15715} tat tsan，「[expl3 / e(u)ptex] 2015/07/15 版 expl3 パッケージが
   、(u)platex で通らない」，\TeX~Forum，2015/07/26．\\
   \url{http://oku.edu.mie-u.ac.jp/tex/mod/forum/discuss.php?d=1632}
+ \bibitem{eptexinputenc} 阿部 紀行，「2016年2月2日」，2016/02/02．\\
+  \url{http://abenori.blogspot.jp/2016/02/e-ptexeptexinputencoding.html}．  
  \bibitem{etexman} The \NTS\!\ Team. \textit{The \eTeX\ manual} (v2.0). \\
   \verb+$TEXMFDIST/doc/etex/base/etex_man.pdf+
  \bibitem{omegaman} J.\ Plaice, Y.\ Haralambous. \textit{Draft
