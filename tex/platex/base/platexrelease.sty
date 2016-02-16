@@ -96,17 +96,21 @@
 %%
 \NeedsTeXFormat{pLaTeX2e}
 \ProvidesPackage{platexrelease}
-                [2016/02/03 v1.0a latexrelease support for pLaTeX Kernel]
+                [2016/02/16 v1.0b latexrelease support for pLaTeX Kernel]
+\RequirePackageWithOptions{latexrelease}
+\ifnum\expandafter\@parse@version\latexreleaseversion//00\@nil
+  >\expandafter\@parse@version\p@known@latexreleaseversion//00\@nil
+  \PackageWarningNoLine{platexrelease}{%
+    Version of `latexrelease' is newer than\MessageBreak
+    what `platexrelease' knows}
+\fi
 \DeclareOption*{%
   \def\@plIncludeInRelease#1[#2]{\@plIncludeInRele@se{#1}}%
-  \let\requestedplpatchdate\CurrentOption
-  \let\latexrelease@temp@ption\CurrentOption}
+  \let\requestedplpatchdate\CurrentOption}
 \DeclareOption{latest}{%
-  \let\requestedplpatchdate\platexreleaseversion
-  \let\latexrelease@temp@ption\CurrentOption}
+  \let\requestedplpatchdate\platexreleaseversion}
 \DeclareOption{current}{%
-  \let\requestedplpatchdate\pfmtversion
-  \let\latexrelease@temp@ption\CurrentOption}
+  \let\requestedplpatchdate\pfmtversion}
 \ExecuteOptions{current}
 \ProcessOptions\relax
 \def\reserved@a{%
@@ -148,12 +152,6 @@ of this package available from CTAN}
 \fi
 \let\pfmtversion\requestedplpatchdate
 \let\currentpLaTeXdate\requestedpLaTeXdate
-\ifnum\requestedpLaTeXdate
-  >\expandafter\@parse@version\p@known@latexreleaseversion//00\@nil
-  \let\latexrelease@temp@ption\p@known@latexreleaseversion
-\fi
-\PassOptionsToPackage{\latexrelease@temp@ption}{latexrelease}
-\RequirePackage{latexrelease}
 %% File: plfonts.dtx
 %% \CharacterTable
 %%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
