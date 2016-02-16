@@ -17,6 +17,7 @@ e-mail: \texttt{h\_kitagawa2001(at)yahoo.co.jp}}}
 
 \tableofcontents
 
+\newpage
 \section{はじめに}
 \epTeX は，東京大学理学部数学科3年生対象の2007年度の授業「計算数学II」
 \footnote{\url{http://ks.ms.u-tokyo.ac.jp/}．}において北川が作成したプログ
@@ -128,7 +129,7 @@ ${}+{}$\verb+\@tempdima+$)/2$\hfill\null
 \paragraph{\.{middle} primitive}
 \TeX に\.{left}, \.{right}というprimitiveがあり，それを使えば括
 弧の大きさが自動調整されるのはよく知られている．\eTeX では，
-さらに\.{middle} primitiveが追加された．
+さらに\.{middle}\index{\.{middle}}\ primitiveが追加された．
 
 具体例を述べる．
 \def\set#1#2{\setbox0=\hbox{$\displaystyle #1,#2$}%
@@ -167,21 +168,28 @@ tracing機能や条件判断文の強化などあるが，そこら辺はパッ�
 \end{quotation}
 
 \epTeX ではここに述べた代表的な機能を含め，ほとんどすべての機能を実装して
-いるつもりである．ただ，\TeXXeT を和文で使うと約物
+いるつもりである
+\footnote{%
+  さらに，レジスタの個数については，各種類65536個まで使えるようになっている（次節参照）．
+}．ただ，\TeXXeT を和文で使うと約物
 の位置がずれたり空白がおかしかったりするけれども，そこの修正は大変に思え
 るし，苦労して実装する意味があるのか疑問なので放置している．
 
 \medskip
 
-\pTeX 拡張では，\TeX と比較して\textit{dir\_node}と\textit{disp\_node}という2種類のnodeが
+\pTeX 拡張では，\TeX と比較して\node{dir\_node}と\node{disp\_node}という2種類のノードが
 追加された．前者は，現在のリストの中に違う組方向のboxを挿入する際に寸法を補正するために作られ，
 \.{hbox}や\.{vbox}のコンテナとなっている．
 また後者は，欧文文字のベースライン補正のために使われる．
 
-\epTeX~110102 まではこれらのnodeも\.{lastnodetype}の値として出力させるようにしたが，
-両者ともにユーザーが意識する必要はないことから，
-\epTeX~110227以降では\textit{dir\_node}と\textit{disp\_node}は
-\.{lastnodetype}の値として出力しないようにしている．
+\epTeX~110102 まではこれらのノードも\.{lastnodetype}の値として出力させるようにした．
+しかし，両者ともに\epTeX が自動的に挿入する（ユーザーが意識する必要はない）ノードであることから，
+\epTeX~110227以降では\node{dir\_node}と\node{disp\_node}は
+\.{lastnodetype}\index{\.{lastnodetype}}の対象とする「最後のノード」とはならないようにしている
+\footnote{%
+  最後のノードが\node{dir\_node}であった場合，\.{lastnodetype}はそのノードが格納している
+  \node{hlist\_node}か\node{vlist\_node}の種類を返す．
+}．
 \begin{multilist}{3}{\hfil\hskip1.5zw#:&\quad#\qquad\hfil}
 \item $-1$&none (empty list)\cr\item 0&char node\cr\item 1&hlist node\cr
 \item 2&vlist node\cr\item 3&rule node\cr\item 4&ins node\cr
@@ -193,8 +201,8 @@ tracing機能や条件判断文の強化などあるが，そこら辺はパッ�
 
 \vskip-\baselineskip
 
-\.{currentiftype}における条件判断文とそれを表す数字との対応は，以
-下のようになっている．21--25が，\pTeX 拡張で追加された条件判断文に対応する．
+\.{currentiftype}\index{\.{currentiftype}}における条件判断文とそれを表す数字との対応は，以
+下のようになっている．21--27が，\pTeX 拡張で追加された条件判断文に対応する．
 28の\.{ifpdfprimitive}は\pdfTeX 由来のプリミティブ（後述）である．
 \begin{multilist}{3}{\hfil\hskip1.5zw#:&\quad#\qquad\hfil}
 \item 1&\.{if}\cr\item 2&\.{ifcat}\cr\item 3&\.{ifnum}\cr\item 4&\.{ifdim}\cr
@@ -204,8 +212,8 @@ tracing機能や条件判断文の強化などあるが，そこら辺はパッ�
 \item 14&\.{ifeof}\cr\item 15&\.{iftrue}\cr\item 16&\.{iffalse}\cr
 \item 17&\.{ifcase}\cr\item 18&\.{ifdefined}\cr\item 19&\.{ifcsname}\cr
 \item 20&\.{iffontchar}\cr\item \bf 21&\.{iftdir}\cr\item \bf 22&\.{ifydir}\cr
-\item \bf 23&\.{ifmdir}\cr\item \bf 24&\.{iftbox}\cr\item \bf 25&\.{ifybox}\cr
-\item \bf 28&\.{ifpdfprimtive}\cr
+\item \bf 23&\.{ifddir}\cr\item \bf 24&\.{ifmdir}\cr\item \bf 25&\.{iftbox}\cr
+\item \bf 26&\.{ifybox}\cr\item \bf 27&\.{ifdbox}\cr\item \bf 28&\.{ifpdfprimtive}\cr
 \end{multilist}
 
 
@@ -248,10 +256,9 @@ extended modeの時に限り有効になる．
 \toprule
     &category&family&char&\multicolumn{1}{c}{math code}
     &\multicolumn{1}{c}{delimiter code}\\\midrule
-\TeX82&3       &4&8 &$3+4+8=15$ &$3+2\cdot(4+8)=27$\\
-\OMEGA&3     &8&16&$3+8+16=27$&$(3+8+16,\ 8+16)=(27,24)$\\
-\epTeX
-    &3       &8&8 &$3+8+8=21$&$(3+8+8,\ 8+8)=(19,16)$\\\bottomrule
+\TeX82&3&4&8 &$3+4+8=15$ &$3+\delbit{4+8}{small}+\delbit{4+8}{large}=27$\\
+\OMEGA&3&8&16&$3+8+16=27$&$(3+\delbit{8+16}{small},\delbit{8+16}{large})=(27,24)$\\
+\epTeX&3&8&8 &$3+8+8=21$&$(3+\delbit{8+8}{small},\delbit{8+8}{large})=(19,16)$\\\bottomrule
 \end{tabular}
 \end{center}
 
@@ -272,10 +279,13 @@ extended modeの時に限り有効になる．
 \csitem[\.{odelimiter} \bits{27}\ \bits{24}]\ 
 \csitem[\.{oradical} \bits{27}\ \bits{24}]\ 
 \end{cslist}
+\vspace{-\baselineskip}
 ここで，27\,bitとか24\,bitの自然数の意味については，上の表の
-\OMEGA の行を参照して欲しい．上に書いた実装から，
-character codeの指定に使われる16\,bitの数値で，実際に使われるのは下位
+\OMEGA の行を参照して欲しい．上に書いた内部のデータ構造から推測できる通り，
+\.{omathchar}等のcharacter codeの指定に使われる16\,bitの数値のうち実際に使われるのは下位
 8\,bitであり，上位8\,bitは無視される．
+例えば，\.{omathchar"4012345}と\.{omathchar"4010045}は内部表現としては全く同じである．
+
 なお，\.{odelcode}\ \bits 8として
 delimiter codeを取得しようとしても，現時点のパッチでは，うまく動作しない
 \footnote{51\,bit自然数を返さないといけないですからねえ．やる気があれば
@@ -462,7 +472,7 @@ min10フォントメトリックで「ちょっと」を組むと「ょっ」の
 
 \begin{cslist}
   \csitem[\.{lastnodechar}]
-  現在構築中のリストの「最後のノード」が文字由来であれば，その文字コードを内部整数として返す．
+  現在構築中のリストの「最後のノード」が文字由来であれば，そのコード番号（内部コード）を内部整数として返す．
   
   上記「最後のノード」では，\pTeX によって自動挿入される
   \begin{itemize}
@@ -470,8 +480,8 @@ min10フォントメトリックで「ちょっと」を組むと「ょっ」の
     \item 行末禁則処理のために挿入されるペナルティ
     \item 欧文文字のベースライン補正用のノード
   \end{itemize}
-  は無視される．また，「最後のノード」が欧文文字のリガチャであった場合は，最後の構成要素の文字の文字コードを返す．
-  「最後のノード」が文字を表すものでなかった場合は，$-1$が返る．
+  は無視される．また，「最後のノード」が欧文文字のリガチャであった場合は，リガチャそれ自身のコード番号ではなく，
+  最後の構成要素の文字のコード番号を返す．「最後のノード」が文字を表すものでなかった場合は，$-1$が返る．
 \end{cslist}
 
 例えば，\.{lastnodechar}を使って
@@ -488,6 +498,18 @@ min10フォントメトリックで「ちょっと」を組むと「ょっ」の
   $\texttt{"8143} = 33091$となる．
 }が得られる．これによって，\.{textmc}等の命令の直前の文字を知ることができるので，
 あとは\TeX マクロ側でなんとかできるだろう，という目論見である．
+
+\newpage
+また，上記の説明にあるとおり，
+\begin{verbatim}
+abcfi\the\lastnodechar, abc\char"1C \the\lastnodechar
+\end{verbatim}
+は
+\begin{quote}
+abcfi\the\lastnodechar, abc\char"1C \the\lastnodechar
+\end{quote}
+となり，見た目では同じ「fi」が\.{lastnodechar}実行時の「最後のノード」であるかのように見えても，
+それが合字の場合（左側）では\.{lastnodechar}の実行結果は最後の構成要素「i」のコード番号105となる．
 
 \medskip
 \begin{curve}
@@ -508,8 +530,6 @@ min10フォントメトリックで「ちょっと」を組むと「ょっ」の
   しかし，数段落上の説明の通り，\.{lastnodechar}は\pTeX の和文処理によって自動的に挿入された
   これらJFM由来の空白を無視する．
 \end{curve}
-
-
 
 「最後のノード」を見ているので，
 \begin{verbatim}

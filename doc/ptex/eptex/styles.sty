@@ -1,7 +1,8 @@
-\usepackage{amsmath,amssymb,multicol,comment}
+\usepackage{amsmath,mathtools,amssymb,multicol,comment}
 \usepackage[dvipdfmx]{graphicx}
 \usepackage[T1]{fontenc}
-\usepackage{lmodern,booktabs,enumitem}
+\usepackage{booktabs,enumitem}
+\usepackage{lmodern}
 \usepackage[dvipdfmx]{hyperref}
 \usepackage{pxjahyper}
 \usepackage[bold,deluxe]{otf}
@@ -15,6 +16,7 @@
 \def\NTS{\leavevmode\hbox{$\cal N\kern-0.35em\lower0.5ex\hbox{$\cal T$}%
   \kern-0.2emS$}\,}
 \def\headfont{\normalfont\mathversion{bold}\gtfamily\bfseries}
+\def\node#1{\textit{#1}}
 \def\.#1{\texorpdfstring{%
      \leavevmode\hbox{\texttt{\textbackslash#1}}\ifmmode\else\textcompwordmark\fi}{\textbackslash #1}}
 \let\orig@cs=\.
@@ -43,6 +45,8 @@
 
 \font\man=manfnt at 10pt
 \def\dbend{\raise0pt\hbox{\man\char'177}}
+\AtBeginDvi{\special{pdf:mapfile otf-ipaex.map}}
+\def\delbit#1#2{\underbracket[0.4pt]{#1}_{\text{#2}}}
 
 % modified from etex_man.sty
 \setbox0=\hbox{\bf dsfh}
@@ -129,4 +133,3 @@
     \end{multicols}
     \clearpage
   }
-
