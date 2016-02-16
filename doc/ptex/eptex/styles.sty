@@ -2,14 +2,12 @@
 \usepackage[dvipdfmx]{graphicx}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern,booktabs,enumitem}
-\newlist{cslist}{description}1
-\setlist[cslist]{%
-  style=nextline,itemsep=\medskipamount,
-  font=\normalfont\mdseries}
-\def\csitem[#1]{\item[\llap{$\blacktriangleright$~}#1]}
 \usepackage[dvipdfmx]{hyperref}
 \usepackage{pxjahyper}
 \usepackage[bold,deluxe]{otf}
+\usepackage{makeidx}\makeindex
+\newif\ifscan@allowed
+\let\pfill\dotfill
 \makeatletter
 \def\pdfTeX{pdf\/\TeX}\newcommand{\OMEGA}{$\Omega$}
 \def\epTeX{$\varepsilon$-\pTeX}\def\eTeX{$\varepsilon$-\TeX}
@@ -19,6 +17,13 @@
 \def\headfont{\normalfont\mathversion{bold}\gtfamily\bfseries}
 \def\.#1{\texorpdfstring{%
      \leavevmode\hbox{\texttt{\textbackslash#1}}\ifmmode\else\textcompwordmark\fi}{\textbackslash #1}}
+\let\orig@cs=\.
+\def\ind@cs#1{\orig@cs{#1}\index{{\texttt{\textbackslash #1}}}}
+\newlist{cslist}{description}1
+\setlist[cslist]{%
+  style=nextline,itemsep=\medskipamount,
+  font=\normalfont\mdseries}
+\def\csitem[#1]{\item[\llap{$\blacktriangleright$~}\let\.=\ind@cs#1]}
 \def\emph#1{{\bfseries\gtfamily\mathversion{bold}#1}}
 \def\listx{\def\makelabel{\hbox to 1em{\hfil\textbullet\hfil}}\def\@{\hfill}
 \labelwidth=13zw\leftmargin15zw\itemindent=0zw}
@@ -109,3 +114,19 @@
   \parindent1zw\noindent\kern-\leftskip\hbox to\leftskip{\dbend\hss}%
   \everypar{\everypar{}}\ignorespaces
 }{\par\medskip}
+
+\renewenvironment{theindex}{%
+    \def\presectionname{}\def\postsectionname{}%
+    \section*{\indexname}
+    \@mkboth{\indexname}{\indexname}%
+    \plainifnotempty % \thispagestyle{plain}
+    \parindent\z@
+    \parskip\z@ \@plus .3\p@\relax
+    \let\item\@idxitem
+    \raggedright
+    \begin{multicols}{2}
+  }{
+    \end{multicols}
+    \clearpage
+  }
+

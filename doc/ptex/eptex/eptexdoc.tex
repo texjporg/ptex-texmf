@@ -1,4 +1,4 @@
-%#!ptex2pdf -l eptexdoc
+%#!platex eptexdoc && mendex -s gind.ist eptexdoc.idx && ptex2pdf -l eptexdoc
 \documentclass[a4paper,11pt]{jsarticle}
 % ソースを簡単にしようとしたためあんまり独自の書式に
 % 凝ったりはしていません．
@@ -648,6 +648,8 @@ $3$\,sp）だが，どこか気になるところである．
 	\pdfTeX\ user manual}, 2015.\\
   \verb+$TEXMFDIST/doc/pdftex/manual/pdftex-a.pdf+
 \end{thebibliography}
+
+\printindex
 
 \newpage\scrollmode
 \input fam256d.tex
