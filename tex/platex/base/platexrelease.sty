@@ -66,17 +66,6 @@
 }
 \long\def\@gobble@plIncludeInRelease#1\plEndIncludeInRelease{}
 \let\plEndIncludeInRelease\relax
-\AtBeginDocument{%
-  \@ifpackageloaded{latexrelease}{%
-    \@ifpackageloaded{platexrelease}{}{%
-      \@latex@warning@no@line{%
-        Package latexrelease is loaded.\MessageBreak
-        Some patches in pLaTeX2e core may be overwritten.\MessageBreak
-        Consider using platexrelease.\MessageBreak
-        See platex.pdf for detail}%
-    }%
-  }{}%
-}
 %% File: platexrelease.dtx
 %% \CharacterTable
 %%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z

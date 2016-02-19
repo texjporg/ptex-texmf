@@ -41,6 +41,7 @@
 % \changes{v1.0c}{1997/01/23}{\LaTeX\ \textt{!<1996/12/01!>}に合わせて修正}
 % \changes{v1.0d}{2016/01/27}{\file{mkpldoc.sh}を改善。
 %     p\LaTeXe{}に付属するファイルの説明を更新}
+% \changes{v1.0e}{2016/02/16}{platexreleaseの説明を追加}
 % \fi
 %
 % \iffalse
@@ -294,10 +295,10 @@
 % \changes{v1.0d}{2016/01/27}{p\LaTeXe{}に付属するファイルの説明を更新}
 %
 % \begin{itemize}
-% \item jbook.cls,jarticle.cls,jreport.cls\par
+% \item jbook.cls, jarticle.cls, jreport.cls\par
 %   横組用の標準クラスファイル。\file{jclasses.dtx}から作成される。
 %
-% \item tbook.cls,tarticle.cls,treport.cls\par
+% \item tbook.cls, tarticle.cls, treport.cls\par
 %   縦組用の標準クラスファイル。\file{jclasses.dtx}から作成される。
 %
 % \item jltxdoc.cls\par
@@ -340,13 +341,21 @@
 % これは、英語版の\LaTeX{}でも同じです。
 % 詳細は、\LaTeXe に付属の\file{usrguide.tex}を参照してください。
 %
-% 多くのクラスファイルやパッケージフィルはそのまま使えると思います。
+% 多くのクラスファイルやパッケージファイルはそのまま使えると思います。
 % ただし、それらがp\LaTeXe{}で拡張しているコマンドと同じ名前のコマンドを
 % 再定義している場合は、コマンドの拡張の仕方によってはエラーになることも
 % あります。用いようとしている、クラスファイルやパッケージファイルが
 % うまく動くかどうかを、完全に確かめる方法は残念ながらありません。
 % 一番簡単なのは、動かしてみることです。不幸にもうまく動かない場合は、
 % ログファイルや付属の文書ファイルを参考に原因を調べてください。
+%
+% \subsection{latexreleaseパッケージへの対応}
+% \changes{v1.0e}{2016/02/16}{platexreleaseの説明を追加}
+% \LaTeX\ \texttt{<2015/01/01>}で導入されたlatexreleaseパッケージを
+% もとに、新しいp\LaTeX{}ではplatexreleaseパッケージを用意しました。
+% platexreleaseパッケージを用いると、過去のp\LaTeX{}をエミュレート
+% することができます。詳細はplatexreleaseのドキュメントを参照して
+% ください。
 %
 %
 %
