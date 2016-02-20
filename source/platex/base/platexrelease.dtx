@@ -71,31 +71,124 @@
 % \documentclass{jarticle}
 % ....
 %\end{verbatim}
-% です。\Lpack{latexrelease}の代わりに\Lpack{platexrelease}を読み込まない
-% と、p\LaTeXe{}で日本語用に加えた\LaTeXe{}へのパッチがキャンセルされて
-% しまう場合がありますので注意してください。\Lpack{latexrelease}の使いかた
-% については、\Lpack{latexrelease}のドキュメントを参照してください。
+% です。\Lpack{latexrelease}の代わりに\Lpack{platexrelease}を読み込まな
+% いと、p\LaTeXe{}で日本語用に加えた\LaTeXe{}へのパッチがキャンセルされ
+% てしまう場合がありますので注意してください。このことをユーザに知らせる
+% ため、p\LaTeX{}のカーネルは、「\Lpack{latexrelease}パッケージが読み込
+% まれたのに\Lpack{platexrelease}パッケージが読み込まれなかった場合」に
+% 警告を出し、\Lpack{platexrelease}パッケージの利用を推奨します。また、
+% 「読み込まれた\Lpack{latexrelease}について\Lpack{platexrelease}が
+% 未知である」場合も、\Lpack{platexrelease}が万全ではありませんので警告
+% を出します。\Lpack{latexrelease}の使いかたについては、
+% \Lpack{latexrelease}のドキュメントを参照してください。
 %
 % \section{パッケージオプション}
 %
 % \Lpack{latexrelease}パッケージと同様です。\Lpack{platexrelease}に
 % 指定されたオプションは、内部で読み込まれる\Lpack{latexrelease}にも
-% そのまま渡ります。
+% そのまま渡ります。\Lpack{platexrelease}と\Lpack{latexrelease}
+% の間の関係もここで具体的に説明します。
 % \begin{itemize}
-% \item \emph{yyyy/mm/dd}
-% p\LaTeXe{}のフォーマットの日付を指定します。任意の日付を指定でき
-% ますが，パッケージよりも未来の日付が指定された場合は警告します。
-%
-% \item%
-% |current| これはデフォルトの挙動です。フォーマットの日付は実効的に
-% 変更しませんが、|\plIncludeInRelease|コマンドが定義されることを
-% 保証します。
-%
-% \item
-% |latest| フォーマットの日付の実効値を、このファイルのリリース日
-% に設定します。したがって、古いフォーマットを使っている場合は
-% 現在利用可能なすべてのパッチが適用されます。
+% \item |\RequirePackage[|\emph{yyyy/mm/dd}|]{platexrelease}| \par
+% p\LaTeXe{}のフォーマットの日付を指定します。任意の日付を指定できます
+% が、パッケージよりも未来の日付が指定された場合は警告します。このオプ
+% ションが指定されると、「\emph{yyyy/mm/dd}時点の\LaTeX{}カーネルを読み
+% 込んだ後に、同じく\emph{yyyy/mm/dd}時点のp\LaTeX{}カーネルを読み込ん
+% だもの」をエミュレートします。
+% \item |\RequirePackage[current]{platexrelease}| \par
+% これはデフォルトの挙動です。フォーマットの日付は実効的に変更しません
+% が、|\plIncludeInRelease|コマンドが定義されることを保証します。
+% 具体的には\LaTeX{}のフォーマットは |\fmtversion| に、% p\LaTeX{}の
+% フォーマットは |\pfmtversion| になります。
+% \item |\RequirePackage[latest]{platexrelease}| \par
+% p\LaTeX{}のフォーマットの日付を、このファイルのリリース日に設定します。
+% したがって、古いフォーマットを使っている場合は現在利用可能なすべての
+% パッチが適用されます。具体的には、「\Lpack{latexrelease}が知っている
+% 最新の\LaTeX{}カーネルを読み込んだ後に、\Lpack{platexrelease}が知って
+% いる最新のp\LaTeX{}カーネルを読み込んだもの」をエミュレートします。
 % \end{itemize}
+%
+% \section{p\LaTeX{}カーネルやパッケージ開発者向け}
+%
+% \subsection{フォーマット作成にかかわるファイルを変更する場合}
+%
+% p\LaTeX{}のフォーマットplatex.fmtのソースを変更する場合は、大まかに
+% 以下のようにガードを付けます。
+% \begin{enumerate}
+% \item 古いコードを \par
+% |\plIncludeInRelease{日付}{ラベル}{メッセージ}| …
+% |\plEndIncludeInRelease| \par
+% に挟み、全体を |<platexrelease>| ガードの下に置きます。新しいコードと
+% 区別がつくように、すべての行にガードを付けます。
+% \item 新しいコードは \par
+% |\plIncludeInRelease{日付}{ラベル}{メッセージ}| …
+% |\plEndIncludeInRelease| \par
+% に挟みます。コード部分は \verb+<*plナントカ|platexrelease>+ ガードの中、
+% |\plIncludeInRelease| と |\plEndIncludeInRelease| には |<platexrelease>|
+% ガードを付けます。
+% \item すべてのコードはもともと |<*plナントカ>| ガードの中にあるはずです
+% ので、|\begin{macrocode}| 直後にいったん |<*plナントカ>| ガードを終了し、
+% |\end{macrocode}| 直前にもう一度 |<*plナントカ>| ガードを開始します。
+% \end{enumerate}
+% 日付は2006/11/10時点のアスキー版のコードなら「0000/00/00」とし、
+% その後なら「コードを入れた日付」とします。すべての日付ブロックは降順に
+% 並べるとよいようです。
+%
+% 典型例を示します。
+% \begin{verbatim}
+% % \begin{macro}{\em}
+% % \begin{macro}{\emph}
+% % \begin{macro}{\eminnershape}
+% % \changes{v1.3d}{1997/06/25}{\cs{em},\cs{emph}で和文を強調書体に}
+% % \changes{v1.6}{2016/02/01}{\LaTeX\ \texttt{!<2015/01/01!>}での\cs{em}の
+% %    定義変更に対応。\cs{eminnershape}を追加。}
+% % 従来は|\em|, |\emph|で和文フォントの切り替えは行っていませんでしたが、
+% % 和文フォントも|\gtfamily|に切り替えるようにしました。
+% % \LaTeX\ \texttt{<2015/01/01>}で追加された|\eminnershape|も取り入れ、
+% % 強調コマンドを入れ子にする場合の書体を自由に再定義できるようになりました。
+% %    \begin{macrocode}
+% %</pldefs>
+% %<platexrelease>\plIncludeInRelease{2016/02/01}{\eminnershape}{\eminnershape}%
+% %<*pldefs|platexrelease>
+% \DeclareRobustCommand\em
+%         {\@nomath\em \ifdim \fontdimen\@ne\font >\z@
+%                        \eminnershape \else \gtfamily \itshape \fi}%
+% \def\eminnershape{\mcfamily \upshape}%
+% %</pldefs|platexrelease>
+% %<platexrelease>\plEndIncludeInRelease
+% %<platexrelease>\plIncludeInRelease{0000/00/00}{\eminnershape}{\eminnershape}%
+% %<platexrelease>\DeclareRobustCommand\em
+% %<platexrelease>        {\@nomath\em \ifdim \fontdimen\@ne\font >\z@ 
+% %<platexrelease>                       \mcfamily \upshape \else \gtfamily \itshape \fi}
+% %<platexrelease>\let\eminnershape\@undefined
+% %<platexrelease>\plEndIncludeInRelease
+% %<*pldefs>
+% %    \end{macrocode}
+% % \end{macro}
+% % \end{macro}
+% % \end{macro}
+% \end{verbatim}
+%
+% あとは、|\ProvidesFile|のバージョン番号、|\CheckSum|、|\changes|と
+% いった従来と同じ変更を行います。
+%
+% \subsection{パッケージ作成にかかわるファイルを変更する場合}
+%
+% フォーマットにかかわる場合と異なる点は、|<platexrelease>| ガードが
+% 不要であるという点です。
+% \begin{enumerate}
+% \item 古いコードを \par
+% |\plIncludeInRelease{日付}[フォーマットの日付]{ラベル}{メッセージ}|
+% … |\plEndIncludeInRelease| \par
+% に挟みます。
+% \item 新しいコードを \par
+% |\plIncludeInRelease{日付}[フォーマットの日付]{ラベル}{メッセージ}|
+% … |\plEndIncludeInRelease| \par
+% に挟みます。
+% \end{enumerate}
+% 日付は2006/11/10時点のアスキー版のコードなら「0000/00/00」とし、
+% その後なら「コードを入れた日付」とします。すべての日付ブロックは降順に
+% 並べるとよいようです。
 %
 % \setcounter{StandardModuleDepth}{1}
 % \StopEventually{}
