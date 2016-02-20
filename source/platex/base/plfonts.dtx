@@ -8,7 +8,7 @@
 %
 % \fi
 %
-% \CheckSum{1685}
+% \CheckSum{1714}
 %% \CharacterTable
 %%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
 %%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
@@ -61,13 +61,15 @@
 %    ありがとう、ymtさん。}
 % \changes{v1.5}{2006/11/10}{\cs{reDeclareMathAlphabet}を修正。
 %    ありがとう、ymtさん。}
+% \changes{v1.6}{2016/02/01}{\LaTeX\ \texttt{!<2015/01/01!>}での\cs{em}の
+%    定義変更に対応。\cs{eminnershape}を追加。}
 % \fi
 %
 % \iffalse
 %<*driver>
 \NeedsTeXFormat{pLaTeX2e}
 % \fi
-\ProvidesFile{plfonts.dtx}[2006/11/10 v1.5 pLaTeX New Font Selection Scheme]
+\ProvidesFile{plfonts.dtx}[2016/02/01 v1.6 pLaTeX New Font Selection Scheme]
 % \iffalse
 \documentclass{jltxdoc}
 \GetFileInfo{plfonts.dtx}
@@ -1713,14 +1715,33 @@
 %
 % \begin{macro}{\em}
 % \begin{macro}{\emph}
+% \begin{macro}{\eminnershape}
 % \changes{v1.3d}{1997/06/25}{\cs{em},\cs{emph}で和文を強調書体に}
+% \changes{v1.6}{2016/02/01}{\LaTeX\ \texttt{!<2015/01/01!>}での\cs{em}の
+%    定義変更に対応。\cs{eminnershape}を追加。}
 % 従来は|\em|, |\emph|で和文フォントの切り替えは行っていませんでしたが、
 % 和文フォントも|\gtfamily|に切り替えるようにしました。
+% \LaTeX\ \texttt{<2015/01/01>}で追加された|\eminnershape|も取り入れ、
+% 強調コマンドを入れ子にする場合の書体を自由に再定義できるようになりました。
 %    \begin{macrocode}
+%</pldefs>
+%<platexrelease>\plIncludeInRelease{2016/02/01}{\eminnershape}{\eminnershape}%
+%<*pldefs|platexrelease>
 \DeclareRobustCommand\em
-        {\@nomath\em \ifdim \fontdimen\@ne\font >\z@ 
-                       \mcfamily \upshape \else \gtfamily \itshape \fi}
+        {\@nomath\em \ifdim \fontdimen\@ne\font >\z@
+                       \eminnershape \else \gtfamily \itshape \fi}%
+\def\eminnershape{\mcfamily \upshape}%
+%</pldefs|platexrelease>
+%<platexrelease>\plEndIncludeInRelease
+%<platexrelease>\plIncludeInRelease{0000/00/00}{\eminnershape}{\eminnershape}%
+%<platexrelease>\DeclareRobustCommand\em
+%<platexrelease>        {\@nomath\em \ifdim \fontdimen\@ne\font >\z@ 
+%<platexrelease>                       \mcfamily \upshape \else \gtfamily \itshape \fi}
+%<platexrelease>\let\eminnershape\@undefined
+%<platexrelease>\plEndIncludeInRelease
+%<*pldefs>
 %    \end{macrocode}
+% \end{macro}
 % \end{macro}
 % \end{macro}
 %

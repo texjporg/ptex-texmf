@@ -8,7 +8,7 @@
 %
 % \fi
 %
-% \CheckSum{92}
+% \CheckSum{164}
 %% \CharacterTable
 %%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
 %%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
@@ -30,9 +30,35 @@
 % \StopEventually{}
 %
 % \iffalse
+% \changes{v1.0}{1995/05/16}{p\LaTeXe\ 用に\file{ltvers.dtx}を修正}
+% \changes{v1.0a}{1995/08/30}{\LaTeX\ \texttt{!<1995/06/01!>}版用に修正}
+% \changes{v1.0b}{1996/01/31}{\LaTeX\ \texttt{!<1995/12/01!>}版用に修正}
+% \changes{v1.0c}{1997/01/11}{\LaTeX\ \texttt{!<1996/06/01!>}版用に修正}
+% \changes{v1.0d}{1997/01/23}{\LaTeX\ \texttt{!<1996/12/01!>}版用に修正}
+% \changes{v1.0e}{1997/07/02}{\LaTeX\ \texttt{!<1997/06/01!>}版用に修正}
+% \changes{v1.0f}{1998/02/17}{\LaTeX\ \texttt{!<1997/12/01!>}版用に修正}
+% \changes{v1.0g}{1998/09/01}{\LaTeX\ \texttt{!<1998/06/01!>}版用に修正}
+% \changes{v1.0h}{1999/04/05}{\LaTeX\ \texttt{!<1998/12/01!>}版用に修正}
+% \changes{v1.0i}{1999/08/09}{\LaTeX\ \texttt{!<1999/06/01!>}版用に修正}
+% \changes{v1.0j}{2000/02/29}{\LaTeX\ \texttt{!<1999/12/01!>}版用に修正}
+% \changes{v1.0k}{2000/11/03}{\LaTeX\ \texttt{!<2000/06/01!>}版用に修正}
+% \changes{v1.0l}{2001/09/04}{\LaTeX\ \texttt{!<2001/06/01!>}版用に修正}
+% \changes{v1.0m}{2004/08/10}{\LaTeX\ \texttt{!<2003/12/01!>}版対応確認}
+% \changes{v1.0n}{2005/01/04}{plfonts.dtxバグ修正}
+% \changes{v1.0o}{2006/01/04}{plfonts.dtxバグ修正}
+% \changes{v1.0p}{2006/06/27}{plfonts.dtx \LaTeX\ \texttt{!<2005/12/01!>}対応}
+% \changes{v1.0q}{2006/11/10}{plfonts.dtxバグ修正}
+% \changes{v1.0r}{2016/01/26}{plcore.dtx p\TeX\ (r28720)対応}
+% \changes{v1.0s}{2016/02/01}{\LaTeX\ \texttt{!<2015/01/01!>}のlatexreleaseに
+%    対応するためのコードを導入}
+% \changes{v1.0t}{2016/02/03}{\cs{plIncludeInRelease}と
+%    \cs{plEndIncludeInRelease}を新設。}
+% \fi
+%
+% \iffalse
 %<*driver>
 % \fi
-\ProvidesFile{plvers.dtx}[2016/01/26 v1.0r pLaTeX Kernel (Version Info)]
+\ProvidesFile{plvers.dtx}[2016/02/03 v1.0t pLaTeX Kernel (Version Info)]
 % \iffalse
 \documentclass{jltxdoc}
 \GetFileInfo{plvers.dtx}
@@ -65,29 +91,40 @@
 % \changes{v1.0k}{2000/11/03}{\LaTeX\ \texttt{!<2000/06/01!>}版用に修正}
 % \changes{v1.0l}{2001/09/04}{\LaTeX\ \texttt{!<2001/06/01!>}版用に修正}
 % \changes{v1.0m}{2004/08/10}{\LaTeX\ \texttt{!<2003/12/01!>}版対応確認}
-% \changes{v1.0n}{2005/01/04}{plfonts.dtxバグ修正}
-% \changes{v1.0o}{2006/01/04}{plfonts.dtxバグ修正}
-% \changes{v1.0p}{2006/06/27}{plfonts.dtx \LaTeX\ \texttt{!<2005/12/01!>}対応}
-% \changes{v1.0q}{2006/11/10}{plfonts.dtxバグ修正}
-% \changes{v1.0r}{2016/01/26}{plcore.dtx p\TeX\ (r28720)対応}
+% \changes{v1.0s}{2016/02/01}{\LaTeX\ \texttt{!<2015/01/01!>}版用に修正}
 %
 % このバージョンのp\LaTeXe{}は、次のバージョンの\LaTeX{}\footnote{%
 % LaTeX authors: Johannes Braams, David Carlisle, Alan Jeffrey,
 %   Leslie Lamport, Frank Mittelbach, Chris Rowley, Rainer Sch\"opf}を
 % もとにしています。
 %    \begin{macrocode}
-%<2ekernel>\def\fmtname{LaTeX2e}
-%<2ekernel>\def\fmtversion{2003/12/01}
+%<*2ekernel>
+%\def\fmtname{LaTeX2e}
+%\edef\fmtversion
+%</2ekernel>
+%<latexrelease>\edef\latexreleaseversion
+%<platexrelease>\edef\p@known@latexreleaseversion
+%<*2ekernel|latexrelease|platexrelease>
+   {2015/01/01}
+%</2ekernel|latexrelease|platexrelease>
 %    \end{macrocode}
 %
 % p\LaTeXe{}のフォーマットファイル名とバージョンです。
 %
+% \begin{macro}{\pfmtname}
+% \begin{macro}{\pfmtversion}
 %    \begin{macrocode}
 %<*plcore>
 \def\pfmtname{pLaTeX2e}
-\def\pfmtversion{2016/01/26}
+\def\pfmtversion
 %</plcore>
+%<platexrelease>\edef\platexreleaseversion
+%<*plcore|platexrelease>
+   {2016/02/03}
+%</plcore|platexrelease>
 %    \end{macrocode}
+% \end{macro}
+% \end{macro}
 %
 % \subsection{パッチファイルのロード}
 %
@@ -155,6 +192,69 @@
             patch level \patch@level)}}
   \fi
 \fi
+%</plfinal>
+%    \end{macrocode}
+%
+% \subsection{latexreleaseパッケージへの対応}
+%
+% 最後に、latexreleaseパッケージへの対応です。
+% \begin{macro}{\plIncludeInRelease}
+% \changes{v1.0t}{2016/02/03}{\cs{plIncludeInRelease}と
+%    \cs{plEndIncludeInRelease}を新設。}
+%    \begin{macrocode}
+%<*plcore|platexrelease>
+\def\plIncludeInRelease#1{\kernel@ifnextchar[%
+  {\@plIncludeInRelease{#1}}
+  {\@plIncludeInRelease{#1}[#1]}}
+%    \end{macrocode}
+%
+%    \begin{macrocode}
+\def\@plIncludeInRelease#1[#2]{\@plIncludeInRele@se{#2}}
+%    \end{macrocode}
+%
+%    \begin{macrocode}
+\def\@plIncludeInRele@se#1#2#3{%
+  \toks@{[#1] #3}%
+  \expandafter\ifx\csname\string#2+\@currname+IIR\endcsname\relax
+    \ifnum\expandafter\@parse@version#1//00\@nil
+          >\expandafter\@parse@version\pfmtversion//00\@nil
+      \GenericInfo{}{Skipping: \the\toks@}%
+     \expandafter\expandafter\expandafter\@gobble@plIncludeInRelease
+    \else
+      \GenericInfo{}{Applying: \the\toks@}%
+      \expandafter\let\csname\string#2+\@currname+IIR\endcsname\@empty
+    \fi
+  \else
+    \GenericInfo{}{Already applied: \the\toks@}%
+    \expandafter\@gobble@plIncludeInRelease
+  \fi
+}
+%    \end{macrocode}
+%
+%    \begin{macrocode}
+\long\def\@gobble@plIncludeInRelease#1\plEndIncludeInRelease{}
+\let\plEndIncludeInRelease\relax
+%</plcore|platexrelease>
+%    \end{macrocode}
+% \end{macro}
+%
+% \LaTeXe{}が提供するlatexreleaseパッケージが読み込まれていて、
+% かつp\LaTeXe{}が提供するplatexreleaseパッケージが読み込まれていない
+% 場合は、警告を出します。
+% \changes{v1.0s}{2016/02/01}{latexrelease利用時に警告を出すようにした}
+%    \begin{macrocode}
+%<*plfinal>
+\AtBeginDocument{%
+  \@ifpackageloaded{latexrelease}{%
+    \@ifpackageloaded{platexrelease}{}{%
+      \@latex@warning@no@line{%
+        Package latexrelease is loaded.\MessageBreak
+        Some patches in pLaTeX2e core may be overwritten.\MessageBreak
+        Consider using platexrelease.\MessageBreak
+        See platex.pdf for detail}%
+    }%
+  }{}%
+}
 %</plfinal>
 %    \end{macrocode}
 %

@@ -82,7 +82,8 @@
 \DeclareTextFontCommand{\textgt}{\gtfamily}
 \DeclareRobustCommand\em
         {\@nomath\em \ifdim \fontdimen\@ne\font >\z@
-                       \mcfamily \upshape \else \gtfamily \itshape \fi}
+                       \eminnershape \else \gtfamily \itshape \fi}%
+\def\eminnershape{\mcfamily \upshape}%
 \DeclarePreloadSizes{JY1}{mc}{m}{n}{5,7,10,12}
 \DeclarePreloadSizes{JY1}{gt}{m}{n}{5,7,10,12}
 \DeclarePreloadSizes{JT1}{mc}{m}{n}{5,7,10,12}
