@@ -4,7 +4,7 @@
 % Modified by Japanese TeX Development Community.
 %
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{tascmac}[2016/02/20 ascmac package (community edition)]
+\ProvidesPackage{tascmac}[2016/02/21 ascmac package (community edition)]
 %
 % Actually `tascmac' requires pLaTeX2e, but LuaTeX-ja can handle the
 % code properly; so \NeedsTeXFormat{LaTeX2e} on purpose.
@@ -23,6 +23,10 @@
   }%
 \fi
 %
+% 2016/02/21 (many thanks to ZR for suggestions in bxascmac)
+%     - Made compatible with pict2e (tate-gumi not supported yet).
+%     - Adjust parameters for drawing rounded rectangles.
+%     - Fix bugs in \maskbox and \Maskbox.
 % 2006/07/14 (ST): itembox, screen environment bug fix.
 % 2002/04/01 (KN): ASCII logo macros
 % 1998/11/27 (KN and FTEXers): itembox
@@ -65,7 +69,9 @@
 %%
 %% screen environment
 \newdimen\@scw
-\def\@hobox#1#2#3{\hbox to\@scw{\@oval(#3,#3)[#1]\hfil\@oval(#3,#3)[#2]}}
+\def\@hobox#1#2#3{\hbox to\@scw{\oval(#3,#3)[#1]\hfil\oval(#3,#3)[#2]%
+\dimen\z@=#3\unitlength\advance\dimen\z@\@wholewidth
+\vrule\@width\z@\@height\z@\@depth.5\dimen\z@}}
 \def\@vrf@#1#2{\vskip#1\leaders\vrule width#2\vfil\vskip#1}
 \def\screen{%
 \@savetbaselineshift\tbaselineshift \tbaselineshift\z@
@@ -87,8 +93,9 @@
 \thinlines\setlength{\unitlength}{1pt}\hrule\kern\@s%
 \@hobox{tl}{tr}{\@r}\kern-\@sx\box\scb@x\@hobox{bl}{br}{\@r}%
 \kern-.4pt\hrule}\hfil}\dimen0=\ht\scscb@x%
-\noindent\hbox to\linewidth{\hbox to.2pt{\vbox to\dimen0{\@vrf@{\@sx}{.4pt}}%
-\hss}\box\scscb@x\hbox to.25pt{\hss\vbox to\dimen0{\@vrf@{\@sx}{.4pt}}}\hss}}%
+\dimen2=\@sx\advance\dimen2 .2pt
+\noindent\hbox to\linewidth{\hbox to.2pt{\vbox to\dimen0{\@vrf@{\dimen2}{.4pt}}%
+\hss}\box\scscb@x\hbox to.2pt{\hss\vbox to\dimen0{\@vrf@{\dimen2}{.4pt}}}\hss}}%
 %% 
 %% itembox environment
 %%   replace \box0 with \@iboxstr; thanks FTEXers (1998/11/27)
@@ -112,8 +119,8 @@
     \space\if r\the\@iboxpos\else \@hleader\fi}\kern9.6pt
   \@hobox{tl}{tr}{20}\kern-10pt\box\scb@x\@hobox{bl}{br}{20}%
   \kern-.8pt\hrule height.8pt}\hfil}\dimen0=\ht\scscb@x%
-  \noindent\hbox to\linewidth{\hbox to.6pt{\vbox to\dimen0{\@vrf@{10pt}{.8pt}}%
-  \hss}\box\scscb@x\hbox to.6pt{\hss\vbox to\dimen0{\@vrf@{10pt}{.9pt}}}%
+  \noindent\hbox to\linewidth{\hbox to.4pt{\vbox to\dimen0{\@vrf@{10.4pt}{.8pt}}%
+  \hss}\box\scscb@x\hbox to.4pt{\hss\vbox to\dimen0{\@vrf@{10.4pt}{.8pt}}}%
   \hss}\egroup}
 %%
 %% \keytop
@@ -166,6 +173,7 @@
 \ifx#4c\skip0=0pt plus1fil\skip1=\skip0\fi
 \ifx#4r\skip0=0pt plus1fil\skip1=0pt\fi
 \ifx#4l\skip1=0pt plus1fil\skip0=0pt\fi
+\leavevmode
 \hbox{\hbox to0pt{\hbox to\dimen0{\leaders\vbox to\dimen1{\leaders
 \hbox{\@ascgrp#3}\vfil}\hfil}\hss}%
 \vrule width#5\vbox to\dimen1{\hrule height#5\vfil
