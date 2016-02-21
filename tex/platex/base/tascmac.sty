@@ -1,6 +1,27 @@
 % "tascmac" document style option for tate gumi.
 %
 % Copyright (C) by 1993, ASCII Corporation & Impress Corporation.
+% Modified by Japanese TeX Development Community.
+%
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{tascmac}[2016/02/20 ascmac package (community edition)]
+%
+% Actually `tascmac' requires pLaTeX2e, but LuaTeX-ja can handle the
+% code properly; so \NeedsTeXFormat{LaTeX2e} on purpose.
+% Check is included below:
+%
+\ifx\kanjiskip\@undefined
+  \@ifpackageloaded{luatexja}{%
+    \PackageInfo{tascmac}{%
+      Patch from LuaTeX-ja will be applied}%
+  }{%
+    \PackageError{tascmac}{%
+      `ascmac' and `tascmac' can be used only in pLaTeX,\MessageBreak
+      upLaTeX or LuaLaTeX with LuaTeX-ja support.\MessageBreak
+      Consider using `bxascmac' instead.\MessageBreak
+      See https://github.com/zr-tex8r/BXptool for detail}{}%
+  }%
+\fi
 %
 % 2006/07/14 (ST): itembox, screen environment bug fix.
 % 2002/04/01 (KN): ASCII logo macros
@@ -168,4 +189,5 @@
 \hbox{\hbox to \shaderule{\copy0\hss}\kern 0pt
 \vrule width\wd0 height0pt depth\shaderule\hskip-\shaderule
 \vrule width\shaderule height\dimen0}}
-
+%
+\endinput
