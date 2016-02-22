@@ -1,57 +1,57 @@
 %#!platex eptexdoc && mendex -s gind.ist eptexdoc.idx && ptex2pdf -l eptexdoc
 \documentclass[a4paper,11pt]{jsarticle}
-% ソースを簡単にしようとしたためあんまり独自の書式に
-% 凝ったりはしていません．
+% $B%=!<%9$r4JC1$K$7$h$&$H$7$?$?$a$"$s$^$jFH<+$N=q<0$K(B
+% $B6E$C$?$j$O$7$F$$$^$;$s!%(B
 \input fam256p.tex
 \usepackage[textwidth=42zw,lines=40,truedimen,centering]{geometry}
 \usepackage{styles}
 \def\_{\leavevmode\vrule width .45em height -.2ex depth .3ex\relax}
 \frenchspacing
 \begin{document}
-\title{\emph{\epTeX について}}
-\author{北川 弘典\null
+\title{\emph{\epTeX $B$K$D$$$F(B}}
+\author{$BKL@n(B $B90E5(B\null
 \thanks{\url{http://osdn.jp/projects/eptex/wiki/},\ 
 e-mail: \texttt{h\_kitagawa2001(at)yahoo.co.jp}}}
-\date{version 160201，\today}
+\date{version 160201$B!$(B\today}
 \maketitle
 
 \tableofcontents
 
 \newpage
-\section{はじめに}
-\epTeX は，東京大学理学部数学科3年生対象の2007年度の授業「計算数学II」
-\footnote{\url{http://ks.ms.u-tokyo.ac.jp/}．}において北川が作成したプログ
-ラムである．もともとは\pTeX\ 3.1.10を基盤として，\eTeX\ 2.2相当の機能や
-10進21桁の浮動小数点演算を追加したものであったが，今では次の点が変わっている．
+\section{$B$O$8$a$K(B}
+\epTeX $B$O!$El5~Bg3XM}3XIt?t3X2J(B3$BG/@8BP>]$N(B2007$BG/EY$N<x6H!V7W;;?t3X(BII$B!W(B
+\footnote{\url{http://ks.ms.u-tokyo.ac.jp/}$B!%(B}$B$K$*$$$FKL@n$,:n@.$7$?%W%m%0(B
+$B%i%`$G$"$k!%$b$H$b$H$O(B\pTeX\ 3.1.10$B$r4pHW$H$7$F!$(B\eTeX\ 2.2$BAjEv$N5!G=$d(B
+10$B?J(B21$B7e$NIbF0>.?tE@1i;;$rDI2C$7$?$b$N$G$"$C$?$,!$:#$G$O<!$NE@$,JQ$o$C$F$$$k!%(B
 \begin{itemize}
-  \item \TeX~Live~2011に取り込まれるにあたり，
-  \eTeX をベースにして，その上に\pTeX 拡張やその他追加機能を載せる方針へと
-  変更された．
-  \item 浮動小数点演算の機能は090927版(2009/9)から削除されている
+  \item \TeX~Live~2011$B$K<h$j9~$^$l$k$K$"$?$j!$(B
+  \eTeX $B$r%Y!<%9$K$7$F!$$=$N>e$K(B\pTeX $B3HD%$d$=$NB>DI2C5!G=$r:\$;$kJ}?K$X$H(B
+  $BJQ99$5$l$?!%(B
+  \item $BIbF0>.?tE@1i;;$N5!G=$O(B090927$BHG(B(2009/9)$B$+$i:o=|$5$l$F$$$k(B
   \footnote{%
-  \TeX ソース中で浮動小数点演算を行う手段としては，例えば\LaTeX3の
-  機能(\Pkg{l3fp})や，\Pkg{xint}パッケージバンドルがあるので，
-  そちらを利用して欲しい．}．
+  \TeX $B%=!<%9Cf$GIbF0>.?tE@1i;;$r9T$&<jCJ$H$7$F$O!$Nc$($P(B\LaTeX3$B$N(B
+  $B5!G=(B(\Pkg{l3fp})$B$d!$(B\Pkg{xint}$B%Q%C%1!<%8%P%s%I%k$,$"$k$N$G!$(B
+  $B$=$A$i$rMxMQ$7$FM_$7$$!%(B}$B!%(B
 \end{itemize}
 
-製作の動機や作業過程などについては，詳しくは\cite{h7k}を参照して欲しいけ
-れども，大雑把に言うと，動機は以下のように要約できる．
+$B@=:n$NF05!$d:n6H2aDx$J$I$K$D$$$F$O!$>\$7$/$O(B\cite{h7k}$B$r;2>H$7$FM_$7$$$1(B
+$B$l$I$b!$Bg;(GD$K8@$&$H!$F05!$O0J2<$N$h$&$KMWLs$G$-$k!%(B
 \begin{itemize}
-\item p\TeX は，\TeX が持っている「レジスタ1種類につき256個まで」という
-      制限をひきずっており，現状でも非常に多数のパッケージを読み込ませた
-      りすると制限にぶち当たってしまう．
-\item 一方，\eTeX 拡張ではこれが「レジスタ1種類につき32768個まで」と緩和
-      されており，欧文で標準となっている\pdfTeX やその後継のLua\TeX，及
-      び\XeTeX でも
-      \eTeX の機能が取り込まれている．
-\item そうすると，\pTeX だけが制限をレジスタ制限を引きずっているのは世界
-      から取り残されることになるのではないか．
+\item p\TeX $B$O!$(B\TeX $B$,;}$C$F$$$k!V%l%8%9%?(B1$B<oN`$K$D$-(B256$B8D$^$G!W$H$$$&(B
+      $B@)8B$r$R$-$:$C$F$*$j!$8=>u$G$bHs>o$KB??t$N%Q%C%1!<%8$rFI$_9~$^$;$?(B
+      $B$j$9$k$H@)8B$K$V$AEv$?$C$F$7$^$&!%(B
+\item $B0lJ}!$(B\eTeX $B3HD%$G$O$3$l$,!V%l%8%9%?(B1$B<oN`$K$D$-(B32768$B8D$^$G!W$H4KOB(B
+      $B$5$l$F$*$j!$2$J8$GI8=`$H$J$C$F$$$k(B\pdfTeX $B$d$=$N8e7Q$N(BLua\TeX$B!$5Z(B
+      $B$S(B\XeTeX $B$G$b(B
+      \eTeX $B$N5!G=$,<h$j9~$^$l$F$$$k!%(B
+\item $B$=$&$9$k$H!$(B\pTeX $B$@$1$,@)8B$r%l%8%9%?@)8B$r0z$-$:$C$F$$$k$N$O@$3&(B
+      $B$+$i<h$j;D$5$l$k$3$H$K$J$k$N$G$O$J$$$+!%(B
 \end{itemize}
 \indent
 
-\section{\eTeX 拡張について}
-前に述べたように，\eTeX は\TeX の拡張の一つである．\eTeX のマニュアル
-\cite{etexman}には，開発目的が以下のように述べられている．
+\section{\eTeX $B3HD%$K$D$$$F(B}
+$BA0$K=R$Y$?$h$&$K!$(B\eTeX $B$O(B\TeX $B$N3HD%$N0l$D$G$"$k!%(B\eTeX $B$N%^%K%e%"%k(B
+\cite{etexman}$B$K$O!$3+H/L\E*$,0J2<$N$h$&$K=R$Y$i$l$F$$$k!%(B
 
 \begin{quotation}
 The \NTS\ project intends to develop an `New Typesetting System' (\NTS)
@@ -66,77 +66,77 @@ Meanwhile \eTeX\ intends to fill the gap between \TeX3 and the future
 \TeX3.
 \end{quotation}
 
-\NTS がどうなったのか僕は知らない．しかし，少なくとも\eTeX 拡張自体は実用
-的な物であり，そのせいか$\aleph$~(Aleph), \pdfTeX, \XeTeX などの他の拡張
-にもマージされており，かなりの人が\eTeX 拡張を使うことができるようになっ
-ている．
+\NTS $B$,$I$&$J$C$?$N$+KM$OCN$i$J$$!%$7$+$7!$>/$J$/$H$b(B\eTeX $B3HD%<+BN$O<BMQ(B
+$BE*$JJ*$G$"$j!$$=$N$;$$$+(B$\aleph$~(Aleph), \pdfTeX, \XeTeX $B$J$I$NB>$N3HD%(B
+$B$K$b%^!<%8$5$l$F$*$j!$$+$J$j$N?M$,(B\eTeX $B3HD%$r;H$&$3$H$,$G$-$k$h$&$K$J$C(B
+$B$F$$$k!%(B
 
-\eTeX 拡張で追加される機能について，詳しくは\cite{etexman}を参照して欲し
-いが，\cite{h7k}中の4.2節「\eTeX の機能」から一部改変して引用する．
+\eTeX $B3HD%$GDI2C$5$l$k5!G=$K$D$$$F!$>\$7$/$O(B\cite{etexman}$B$r;2>H$7$FM_$7(B
+$B$$$,!$(B\cite{h7k}$BCf$N(B4.2$B@a!V(B\eTeX $B$N5!G=!W$+$i0lIt2~JQ$7$F0zMQ$9$k!%(B
 
 \begin{quotation}
-\eTeX にはCompatibility modeとExtended modeの2つが存在し，前者では\eTeX
-特有の拡張は無効になるのでつまらない．後者がおもしろい．
+\eTeX $B$K$O(BCompatibility mode$B$H(BExtended mode$B$N(B2$B$D$,B8:_$7!$A0<T$G$O(B\eTeX
+$BFCM-$N3HD%$OL58z$K$J$k$N$G$D$^$i$J$$!%8e<T$,$*$b$7$m$$!%(B
 
-拡張機能を使うにはファイル名を渡すときに\texttt{*}をつけるか
-コマンドラインオプションとして\texttt{-etex}スイッチをつければいい
-が，\eTeX 拡張に関わる追加マクロは当然ながらそれだけで
-は駄目である．「plainマクロ for \eTeX」（\texttt{etex.fmt}というのが一番マシ
-かな）では自動的に追加マクロである\texttt{etex.src}が呼ばれる．\LaTeX 下では
-ちょうど\texttt{etex.src}に対応した\Pkg{etex}パッケージを読み込む必要がある．
+$B3HD%5!G=$r;H$&$K$O%U%!%$%kL>$rEO$9$H$-$K(B\texttt{*}$B$r$D$1$k$+(B
+$B%3%^%s%I%i%$%s%*%W%7%g%s$H$7$F(B\texttt{-etex}$B%9%$%C%A$r$D$1$l$P$$$$(B
+$B$,!$(B\eTeX $B3HD%$K4X$o$kDI2C%^%/%m$OEvA3$J$,$i$=$l$@$1$G(B
+$B$OBLL\$G$"$k!%!V(Bplain$B%^%/%m(B for \eTeX$B!W!J(B\texttt{etex.fmt}$B$H$$$&$N$,0lHV%^%7(B
+$B$+$J!K$G$O<+F0E*$KDI2C%^%/%m$G$"$k(B\texttt{etex.src}$B$,8F$P$l$k!%(B\LaTeX $B2<$G$O(B
+$B$A$g$&$I(B\texttt{etex.src}$B$KBP1~$7$?(B\Pkg{etex}$B%Q%C%1!<%8$rFI$_9~$`I,MW$,$"$k!%(B
 
-\paragraph{レジスタの増加}
-最初に述べたように，\TeX では6種類のレジスタが各256個ずつ利用できる．それ
-ぞれのレジスタには\.{dimen75}などのように0\,〜\,255の番号で指定できる
-他，予め別名の定義をしておけばそれによって指定することもできる．これらの
-いくつかは特殊な用途に用いられる（例えば\.{count0}はページ番号などの
-ように）ことになっているので，さらにuser が使えるレジスタは減少する．
+\paragraph{$B%l%8%9%?$NA}2C(B}
+$B:G=i$K=R$Y$?$h$&$K!$(B\TeX $B$G$O(B6$B<oN`$N%l%8%9%?$,3F(B256$B8D$:$DMxMQ$G$-$k!%$=$l(B
+$B$>$l$N%l%8%9%?$K$O(B\.{dimen75}$B$J$I$N$h$&$K(B0\,$B!A(B\,255$B$NHV9f$G;XDj$G$-$k(B
+$BB>!$M=$aJLL>$NDj5A$r$7$F$*$1$P$=$l$K$h$C$F;XDj$9$k$3$H$b$G$-$k!%$3$l$i$N(B
+$B$$$/$D$+$OFC<l$JMQES$KMQ$$$i$l$k!JNc$($P(B\.{count0}$B$O%Z!<%8HV9f$J$I$N(B
+$B$h$&$K!K$3$H$K$J$C$F$$$k$N$G!$$5$i$K(Buser $B$,;H$($k%l%8%9%?$O8:>/$9$k!%(B
 
-\eTeX では，追加のレジスタとして番号で言うと256\,〜\,32767が使用できるよ
-うになった．上のpdfによると最初の0\,〜\,255と違って若干の制限はあるようだ
-が，それは些細な話である．追加された（各種類あたり）$32768-256=32512$個の
-レジスタは，メモリの効率を重視するためsparse registerとして，つまり，必要
-な時に始めてツリー構造の中で確保されるようになっている．
+\eTeX $B$G$O!$DI2C$N%l%8%9%?$H$7$FHV9f$G8@$&$H(B256\,$B!A(B\,32767$B$,;HMQ$G$-$k$h(B
+$B$&$K$J$C$?!%>e$N(Bpdf$B$K$h$k$H:G=i$N(B0\,$B!A(B\,255$B$H0c$C$F<c43$N@)8B$O$"$k$h$&$@(B
+$B$,!$$=$l$O:3:Y$JOC$G$"$k!%DI2C$5$l$?!J3F<oN`$"$?$j!K(B$32768-256=32512$$B8D$N(B
+$B%l%8%9%?$O!$%a%b%j$N8zN($r=E;k$9$k$?$a(Bsparse register$B$H$7$F!$$D$^$j!$I,MW(B
+$B$J;~$K;O$a$F%D%j!<9=B$$NCf$G3NJ]$5$l$k$h$&$K$J$C$F$$$k!%(B
 
-\paragraph{式が使用可能に}
-\TeX における数量の計算は充実しているとは言い難い．例えば，
+\paragraph{$B<0$,;HMQ2DG=$K(B}
+\TeX $B$K$*$1$k?tNL$N7W;;$O=<<B$7$F$$$k$H$O8@$$Fq$$!%Nc$($P!$(B
 
 \noindent\null\hfill\verb+\dimen123+${}\leftarrow($\verb+\dimen42+
 ${}+{}$\verb+\@tempdima+$)/2$\hfill\null
 
-\noindent という計算を元々の\TeX で書こうとすると，
+\noindent $B$H$$$&7W;;$r85!9$N(B\TeX $B$G=q$3$&$H$9$k$H!$(B
 \begin{verbatim}
 \dimen123=\dimen42
 \advance\dimen123by\@tempdima
 \dimen123=0.5\@tempdima
 \end{verbatim}
-のように書かないといけない．代入，加算代入，乗算代入，除算代入ぐらいしか
-演算が用意されていない状態になっている（上のコードのように，$d_2\mathrel{+\!\!=}
-0.8 d_1$というような定数倍を冠することは平気）．
+$B$N$h$&$K=q$+$J$$$H$$$1$J$$!%BeF~!$2C;;BeF~!$>h;;BeF~!$=|;;BeF~$0$i$$$7$+(B
+$B1i;;$,MQ0U$5$l$F$$$J$$>uBV$K$J$C$F$$$k!J>e$N%3!<%I$N$h$&$K!$(B$d_2\mathrel{+\!\!=}
+0.8 d_1$$B$H$$$&$h$&$JDj?tG\$r4'$9$k$3$H$OJ?5$!K!%(B
 
-\eTeX では，そのレジスタの演算に，他のプログラミング言語で使われているよ
-うな数式の表現が使えるようになった．上のPDFでは実例として
+\eTeX $B$G$O!$$=$N%l%8%9%?$N1i;;$K!$B>$N%W%m%0%i%_%s%08@8l$G;H$o$l$F$$$k$h(B
+$B$&$J?t<0$NI=8=$,;H$($k$h$&$K$J$C$?!%>e$N(BPDF$B$G$O<BNc$H$7$F(B
 \begin{verbatim}
 \ifdim \dimexpr (2pt-5pt)*\numexpr 3-3*13/5\relax + 34pt/2<\wd20
 \end{verbatim}
-が書かれている．これは，\def\mpt{\,\mathrm{pt}}
+$B$,=q$+$l$F$$$k!%$3$l$O!$(B\def\mpt{\,\mathrm{pt}}
 {\catcode`\<12\[
  32\mpt=(2\mpt-5\mpt)\left(3-\mathop{\mathrm{div}}(3\cdot 13,5)\right)
-+\frac{34\mpt}{2}<\text{{\tt \char'134 box20}の幅}
++\frac{34\mpt}{2}<\text{{\tt \char'134 box20}$B$NI}(B}
 \]}
-が真か偽かを判定していることになる．
+$B$,??$+56$+$rH=Dj$7$F$$$k$3$H$K$J$k!%(B
 
 \paragraph{\.{middle} primitive}
-\TeX に\.{left}, \.{right}というprimitiveがあり，それを使えば括
-弧の大きさが自動調整されるのはよく知られている．\eTeX では，
-さらに\.{middle}\index{\.{middle}}\ primitiveが追加された．
+\TeX $B$K(B\.{left}, \.{right}$B$H$$$&(Bprimitive$B$,$"$j!$$=$l$r;H$($P3g(B
+$B8L$NBg$-$5$,<+F0D4@0$5$l$k$N$O$h$/CN$i$l$F$$$k!%(B\eTeX $B$G$O!$(B
+$B$5$i$K(B\.{middle}\index{\.{middle}}\ primitive$B$,DI2C$5$l$?!%(B
 
-具体例を述べる．
+$B6qBNNc$r=R$Y$k!%(B
 \def\set#1#2{\setbox0=\hbox{$\displaystyle #1,#2$}%
 \left\{\, \vphantom{\copy0}#1 \,\right|\!\left.\, \vphantom{\copy0}#2 \,\right\}}
 \def\eset#1#2{\left\{\, #1 \,\middle|\, #2 \,\right\}}
 \[ \set{n+\frac12}{n\in \omega} \eset{n+\frac12}{n\in \omega} \]
-これは以下のsourceで出力したものである：
+$B$3$l$O0J2<$N(Bsource$B$G=PNO$7$?$b$N$G$"$k!'(B
 
 {\narrowbaselines
 \begin{verbatim}
@@ -146,50 +146,50 @@ ${}+{}$\verb+\@tempdima+$)/2$\hfill\null
 \def\eset#1#2{\left\{\, #1 \,\middle|\, #2 \,\right\}}
 \[ \set{n+\frac12}{n\in \omega} \eset{n+\frac12}{n\in \omega} \]
 \end{verbatim}}
-両方とも集合の表記を行うコマンドである．\TeX 流の\.{set}では2つの
-\.{left}, \.{right}の組で実現させなければならず，そのために$|$の
-左側と右側に入る式の最大寸法を測定するという面倒な方法を使っている．その
-上，この定義では\.{textstyle}以下の数式（文中数式とか）ではそのま
-ま使えず，それにも対応させようとすると面倒になる．一方，\eTeX 流の
-\.{eset}では，何も考えずに
-\.{left}, \.{middle}, \.{right}だけで実現できる．
+$BN>J}$H$b=89g$NI=5-$r9T$&%3%^%s%I$G$"$k!%(B\TeX $BN.$N(B\.{set}$B$G$O(B2$B$D$N(B
+\.{left}, \.{right}$B$NAH$G<B8=$5$;$J$1$l$P$J$i$:!$$=$N$?$a$K(B$|$$B$N(B
+$B:8B&$H1&B&$KF~$k<0$N:GBg@#K!$rB,Dj$9$k$H$$$&LLE]$JJ}K!$r;H$C$F$$$k!%$=$N(B
+$B>e!$$3$NDj5A$G$O(B\.{textstyle}$B0J2<$N?t<0!JJ8Cf?t<0$H$+!K$G$O$=$N$^(B
+$B$^;H$($:!$$=$l$K$bBP1~$5$;$h$&$H$9$k$HLLE]$K$J$k!%0lJ}!$(B\eTeX $BN.$N(B
+\.{eset}$B$G$O!$2?$b9M$($:$K(B
+\.{left}, \.{middle}, \.{right}$B$@$1$G<B8=$G$-$k!%(B
 
 \paragraph{\TeXXeT\ \textmd{(\texttt{TeX-{}-XeT})}}
-left-to-rightとright-to-leftを混植できるという機能であるらしい．
-ヘブライ語あたりの組版に使えるらしいが，よく知らない．
-ここでのRtoLはLtoRに組んだものを逆順にしているだけのような
-気がする．
+left-to-right$B$H(Bright-to-left$B$r:.?"$G$-$k$H$$$&5!G=$G$"$k$i$7$$!%(B
+$B%X%V%i%$8l$"$?$j$NAHHG$K;H$($k$i$7$$$,!$$h$/CN$i$J$$!%(B
+$B$3$3$G$N(BRtoL$B$O(BLtoR$B$KAH$s$@$b$N$r5U=g$K$7$F$$$k$@$1$N$h$&$J(B
+$B5$$,$9$k!%(B
 
 \medskip
 
-とりあえず一目につきそうな拡張機能といったらこれぐらいだろうか．他にも
-tracing機能や条件判断文の強化などあるが，そこら辺はパッとしないのでここ
-で紹介するのは省略することにしよう．
+$B$H$j$"$($:0lL\$K$D$-$=$&$J3HD%5!G=$H$$$C$?$i$3$l$0$i$$$@$m$&$+!%B>$K$b(B
+tracing$B5!G=$d>r7oH=CGJ8$N6/2=$J$I$"$k$,!$$=$3$iJU$O%Q%C$H$7$J$$$N$G$3$3(B
+$B$G>R2p$9$k$N$O>JN,$9$k$3$H$K$7$h$&!%(B
 \end{quotation}
 
-\epTeX ではここに述べた代表的な機能を含め，ほとんどすべての機能を実装して
-いるつもりである
+\epTeX $B$G$O$3$3$K=R$Y$?BeI=E*$J5!G=$r4^$a!$$[$H$s$I$9$Y$F$N5!G=$r<BAu$7$F(B
+$B$$$k$D$b$j$G$"$k(B
 \footnote{%
-  さらに，レジスタの個数については，各種類65536個まで使えるようになっている（次節参照）．
-}．ただ，\TeXXeT を和文で使うと約物
-の位置がずれたり空白がおかしかったりするけれども，そこの修正は大変に思え
-るし，苦労して実装する意味があるのか疑問なので放置している．
+  $B$5$i$K!$%l%8%9%?$N8D?t$K$D$$$F$O!$3F<oN`(B65536$B8D$^$G;H$($k$h$&$K$J$C$F$$$k!J<!@a;2>H!K!%(B
+}$B!%$?$@!$(B\TeXXeT $B$rOBJ8$G;H$&$HLsJ*(B
+$B$N0LCV$,$:$l$?$j6uGr$,$*$+$7$+$C$?$j$9$k$1$l$I$b!$$=$3$N=$@5$OBgJQ$K;W$((B
+$B$k$7!$6lO+$7$F<BAu$9$k0UL#$,$"$k$N$+5?Ld$J$N$GJ|CV$7$F$$$k!%(B
 
 \medskip
 
-\pTeX 拡張では，\TeX と比較して\node{dir\_node}と\node{disp\_node}という2種類のノードが
-追加された．前者は，現在のリストの中に違う組方向のboxを挿入する際に寸法を補正するために作られ，
-\.{hbox}や\.{vbox}のコンテナとなっている．
-また後者は，欧文文字のベースライン補正のために使われる．
+\pTeX $B3HD%$G$O!$(B\TeX $B$HHf3S$7$F(B\node{dir\_node}$B$H(B\node{disp\_node}$B$H$$$&(B2$B<oN`$N%N!<%I$,(B
+$BDI2C$5$l$?!%A0<T$O!$8=:_$N%j%9%H$NCf$K0c$&AHJ}8~$N(Bbox$B$rA^F~$9$k:]$K@#K!$rJd@5$9$k$?$a$K:n$i$l!$(B
+\.{hbox}$B$d(B\.{vbox}$B$N%3%s%F%J$H$J$C$F$$$k!%(B
+$B$^$?8e<T$O!$2$J8J8;z$N%Y!<%9%i%$%sJd@5$N$?$a$K;H$o$l$k!%(B
 
-\epTeX~110102 まではこれらのノードも\.{lastnodetype}の値として出力させるようにした．
-しかし，両者ともに\epTeX が自動的に挿入する（ユーザーが意識する必要はない）ノードであることから，
-\epTeX~110227以降では\node{dir\_node}と\node{disp\_node}は
-\.{lastnodetype}\index{\.{lastnodetype}}の対象とする「最後のノード」とはならないようにしている
+\epTeX~110102 $B$^$G$O$3$l$i$N%N!<%I$b(B\.{lastnodetype}$B$NCM$H$7$F=PNO$5$;$k$h$&$K$7$?!%(B
+$B$7$+$7!$N><T$H$b$K(B\epTeX $B$,<+F0E*$KA^F~$9$k!J%f!<%6!<$,0U<1$9$kI,MW$O$J$$!K%N!<%I$G$"$k$3$H$+$i!$(B
+\epTeX~110227$B0J9_$G$O(B\node{dir\_node}$B$H(B\node{disp\_node}$B$O(B
+\.{lastnodetype}\index{\.{lastnodetype}}$B$NBP>]$H$9$k!V:G8e$N%N!<%I!W$H$O$J$i$J$$$h$&$K$7$F$$$k(B
 \footnote{%
-  最後のノードが\node{dir\_node}であった場合，\.{lastnodetype}はそのノードが格納している
-  \node{hlist\_node}か\node{vlist\_node}の種類を返す．
-}．
+  $B:G8e$N%N!<%I$,(B\node{dir\_node}$B$G$"$C$?>l9g!$(B\.{lastnodetype}$B$O$=$N%N!<%I$,3JG<$7$F$$$k(B
+  \node{hlist\_node}$B$+(B\node{vlist\_node}$B$N<oN`$rJV$9!%(B
+}$B!%(B
 \begin{multilist}{3}{\hfil\hskip1.5zw#:&\quad#\qquad\hfil}
 \item $-1$&none (empty list)\cr\item 0&char node\cr\item 1&hlist node\cr
 \item 2&vlist node\cr\item 3&rule node\cr\item 4&ins node\cr
@@ -201,9 +201,9 @@ tracing機能や条件判断文の強化などあるが，そこら辺はパッ�
 
 \vskip-\baselineskip
 
-\.{currentiftype}\index{\.{currentiftype}}における条件判断文とそれを表す数字との対応は，以
-下のようになっている．21--27が，\pTeX 拡張で追加された条件判断文に対応する．
-28の\.{ifpdfprimitive}は\pdfTeX 由来のプリミティブ（後述）である．
+\.{currentiftype}\index{\.{currentiftype}}$B$K$*$1$k>r7oH=CGJ8$H$=$l$rI=$9?t;z$H$NBP1~$O!$0J(B
+$B2<$N$h$&$K$J$C$F$$$k!%(B21--27$B$,!$(B\pTeX $B3HD%$GDI2C$5$l$?>r7oH=CGJ8$KBP1~$9$k!%(B
+28$B$N(B\.{ifpdfprimitive}$B$O(B\pdfTeX $BM3Mh$N%W%j%_%F%#%V!J8e=R!K$G$"$k!%(B
 \begin{multilist}{3}{\hfil\hskip1.5zw#:&\quad#\qquad\hfil}
 \item 1&\.{if}\cr\item 2&\.{ifcat}\cr\item 3&\.{ifnum}\cr\item 4&\.{ifdim}\cr
 \item 5&\.{ifodd}\cr\item 6&\.{ifvmode}\cr\item 7&\.{ifhmode}\cr
@@ -217,39 +217,39 @@ tracing機能や条件判断文の強化などあるが，そこら辺はパッ�
 \end{multilist}
 
 
-\section{\OMEGA 由来の機能（旧名称：\texttt{FAM256}パッチ）}
-\epTeX には，掲示板\TeX\ Q\ \&\ Aの山本氏の書き込み
-\cite{yamamoto}に刺激されて作った，本節でに説明する\OMEGA の一部
-機能を使えるようにするパッチが存在する．
-これは\texttt{FAM256}パッチと呼ばれ，今までは
-「\epTeX 本体とは一応別扱いで，\epTeX の配布，及び
-W32\TeX, \TeX~Liveのバイナリでは標準で有効になっていただけ」という扱いであったが，
-それでは利用者が混乱するので
-\emph{「\texttt{FAM256}パッチは\epTeX~160201以降からは切り離さない」}
-とここで宣言する．
-本ドキュメントの最後のページ\footnote{ただし，ソースファイルで言えば{\tt
-fam256d.tex}（本文）と\texttt{fam256p.tex}（preamble部）に対応する．}にちょっ
-としたサンプルを載せてある．
+\section{\OMEGA $BM3Mh$N5!G=!J5lL>>N!'(B\texttt{FAM256}$B%Q%C%A!K(B}
+\epTeX $B$K$O!$7G<(HD(B\TeX\ Q\ \&\ A$B$N;3K\;a$N=q$-9~$_(B
+\cite{yamamoto}$B$K;I7c$5$l$F:n$C$?!$K\@a$G$K@bL@$9$k(B\OMEGA $B$N0lIt(B
+$B5!G=$r;H$($k$h$&$K$9$k%Q%C%A$,B8:_$9$k!%(B
+$B$3$l$O(B\texttt{FAM256}$B%Q%C%A$H8F$P$l!$:#$^$G$O(B
+$B!V(B\epTeX $BK\BN$H$O0l1~JL07$$$G!$(B\epTeX $B$NG[I[!$5Z$S(B
+W32\TeX, \TeX~Live$B$N%P%$%J%j$G$OI8=`$GM-8z$K$J$C$F$$$?$@$1!W$H$$$&07$$$G$"$C$?$,!$(B
+$B$=$l$G$OMxMQ<T$,:.Mp$9$k$N$G(B
+\emph{$B!V(B\texttt{FAM256}$B%Q%C%A$O(B\epTeX~160201$B0J9_$+$i$O@Z$jN%$5$J$$!W(B}
+$B$H$3$3$G@k8@$9$k!%(B
+$BK\%I%-%e%a%s%H$N:G8e$N%Z!<%8(B\footnote{$B$?$@$7!$%=!<%9%U%!%$%k$G8@$($P(B{\tt
+fam256d.tex}$B!JK\J8!K$H(B\texttt{fam256p.tex}$B!J(Bpreamble$BIt!K$KBP1~$9$k!%(B}$B$K$A$g$C(B
+$B$H$7$?%5%s%W%k$r:\$;$F$"$k!%(B
 
-本節で述べる追加機能は extendend modeでなくても有効になっている．
-ただし，後に説明する「レジスタが各種類65536個まで」は，
-extended modeの時に限り有効になる．
+$BK\@a$G=R$Y$kDI2C5!G=$O(B extendend mode$B$G$J$/$F$bM-8z$K$J$C$F$$$k!%(B
+$B$?$@$7!$8e$K@bL@$9$k!V%l%8%9%?$,3F<oN`(B65536$B8D$^$G!W$O!$(B
+extended mode$B$N;~$K8B$jM-8z$K$J$k!%(B
 
-\paragraph{数式フォント制限の緩和}
-\OMEGA の大きな特徴としては，\TeX 内部のデータ構造を倍の領域を用いるよう
-に改変し\footnote{詳しい話は\texttt{texk/web2c/texmfmem.h}中の共用体%
-\texttt{memoryword}の定義を参照．大雑把に言うと，1つの「メモリ要素」に2つの32\,bit整
-数を同時に格納できるようになっている．}，\TeX に従来から存在し
-ていた「256個制限」を$2^{16}$個にまで緩和したことが挙げられる．同様に，
-\OMEGA では（\cite{yamamoto}にもあるように）数式フォントを同時に256個まで
-用いることができ，各フォントも65536文字まで許されるようになっている．
+\paragraph{$B?t<0%U%)%s%H@)8B$N4KOB(B}
+\OMEGA $B$NBg$-$JFCD'$H$7$F$O!$(B\TeX $BFbIt$N%G!<%?9=B$$rG\$NNN0h$rMQ$$$k$h$&(B
+$B$K2~JQ$7(B\footnote{$B>\$7$$OC$O(B\texttt{texk/web2c/texmfmem.h}$BCf$N6&MQBN(B%
+\texttt{memoryword}$B$NDj5A$r;2>H!%Bg;(GD$K8@$&$H!$(B1$B$D$N!V%a%b%jMWAG!W$K(B2$B$D$N(B32\,bit$B@0(B
+$B?t$rF1;~$K3JG<$G$-$k$h$&$K$J$C$F$$$k!%(B}$B!$(B\TeX $B$K=>Mh$+$iB8:_$7(B
+$B$F$$$?!V(B256$B8D@)8B!W$r(B$2^{16}$$B8D$K$^$G4KOB$7$?$3$H$,5s$2$i$l$k!%F1MM$K!$(B
+\OMEGA $B$G$O!J(B\cite{yamamoto}$B$K$b$"$k$h$&$K!K?t<0%U%)%s%H$rF1;~$K(B256$B8D$^$G(B
+$BMQ$$$k$3$H$,$G$-!$3F%U%)%s%H$b(B65536$BJ8;z$^$G5v$5$l$k$h$&$K$J$C$F$$$k!%(B
 
 \medskip
 
-\epTeX では，中途半端だが，数式フォント1つあたり
-の使用可能文字数は256個のままで，同時に数式フォントを256個まで使えるよう
-にしている．基本的には\OMEGA と同様の方法を用いているが，
-内部でのデータ構造に違いがある（数字はすべてbit幅）：
+\epTeX $B$G$O!$CfESH>C<$@$,!$?t<0%U%)%s%H(B1$B$D$"$?$j(B
+$B$N;HMQ2DG=J8;z?t$O(B256$B8D$N$^$^$G!$F1;~$K?t<0%U%)%s%H$r(B256$B8D$^$G;H$($k$h$&(B
+$B$K$7$F$$$k!%4pK\E*$K$O(B\OMEGA $B$HF1MM$NJ}K!$rMQ$$$F$$$k$,!$(B
+$BFbIt$G$N%G!<%?9=B$$K0c$$$,$"$k!J?t;z$O$9$Y$F(Bbit$BI}!K!'(B
 \begin{center}
 \small\baselineskip=1.5zw
 \begin{tabular}{crrrrr}%
@@ -263,12 +263,12 @@ extended modeの時に限り有効になる．
 \end{center}
 
 \def\bits#1{<\textup{#1}-bit\ number>}
-\TeX に本来あったプリミティブは互換性維持のために同じ動作とする必要があるので，
-16番から255番のフォントを利用する際には別のプリミティブが必要となる．（実装自
-体に\OMEGA の流儀を使っているから）
-ここでは，\OMEGA のプリミティブ名を流用することにした．
-すなわち，以下のプリミティブが追加されている\footnote{\OMEGA では\bits{8}のところが\bits{16}に
-なっている．}．
+\TeX $B$KK\Mh$"$C$?%W%j%_%F%#%V$O8_49@-0];}$N$?$a$KF1$8F0:n$H$9$kI,MW$,$"$k$N$G!$(B
+16$BHV$+$i(B255$BHV$N%U%)%s%H$rMxMQ$9$k:]$K$OJL$N%W%j%_%F%#%V$,I,MW$H$J$k!%!J<BAu<+(B
+$BBN$K(B\OMEGA $B$NN.57$r;H$C$F$$$k$+$i!K(B
+$B$3$3$G$O!$(B\OMEGA $B$N%W%j%_%F%#%VL>$rN.MQ$9$k$3$H$K$7$?!%(B
+$B$9$J$o$A!$0J2<$N%W%j%_%F%#%V$,DI2C$5$l$F$$$k(B\footnote{\OMEGA $B$G$O(B\bits{8}$B$N$H$3$m$,(B\bits{16}$B$K(B
+$B$J$C$F$$$k!%(B}$B!%(B
 \begin{cslist}[itemsep=\dimexpr-\baselineskip+\medskipamount]
 \csitem[\.{omathcode} \bits{8}\texttt{=}\bits{27}]\ 
 \csitem[\.{omathcode} \bits{8}]\ 
@@ -280,385 +280,385 @@ extended modeの時に限り有効になる．
 \csitem[\.{oradical} \bits{27}\ \bits{24}]\ 
 \end{cslist}
 \vspace{-\baselineskip}
-ここで，27\,bitとか24\,bitの自然数の意味については，上の表の
-\OMEGA の行を参照して欲しい．上に書いた内部のデータ構造から推測できる通り，
-\.{omathchar}等のcharacter codeの指定に使われる16\,bitの数値のうち実際に使われるのは下位
-8\,bitであり，上位8\,bitは無視される．
-例えば，\.{omathchar"4012345}と\.{omathchar"4010045}は内部表現としては全く同じである．
+$B$3$3$G!$(B27\,bit$B$H$+(B24\,bit$B$N<+A3?t$N0UL#$K$D$$$F$O!$>e$NI=$N(B
+\OMEGA $B$N9T$r;2>H$7$FM_$7$$!%>e$K=q$$$?FbIt$N%G!<%?9=B$$+$i?dB,$G$-$kDL$j!$(B
+\.{omathchar}$BEy$N(Bcharacter code$B$N;XDj$K;H$o$l$k(B16\,bit$B$N?tCM$N$&$A<B:]$K;H$o$l$k$N$O2<0L(B
+8\,bit$B$G$"$j!$>e0L(B8\,bit$B$OL5;k$5$l$k!%(B
+$BNc$($P!$(B\.{omathchar"4012345}$B$H(B\.{omathchar"4010045}$B$OFbItI=8=$H$7$F$OA4$/F1$8$G$"$k!%(B
 
-なお，\.{odelcode}\ \bits 8として
-delimiter codeを取得しようとしても，現時点のパッチでは，うまく動作しない
-\footnote{51\,bit自然数を返さないといけないですからねえ．やる気があれば
-検討してみます．}．
+$B$J$*!$(B\.{odelcode}\ \bits 8$B$H$7$F(B
+delimiter code$B$r<hF@$7$h$&$H$7$F$b!$8=;~E@$N%Q%C%A$G$O!$$&$^$/F0:n$7$J$$(B
+\footnote{51\,bit$B<+A3?t$rJV$5$J$$$H$$$1$J$$$G$9$+$i$M$(!%$d$k5$$,$"$l$P(B
+$B8!F$$7$F$_$^$9!%(B}$B!%(B
 
 \medskip
-\LaTeX において数式フォントを同時に16個以上使うには，\.{omathchar}%
-などのプリミティブに対応したマクロを使う必要がある．
-最近の\LaTeX（少なくとも2016-01-01以降）では，
-\emph{\.{DeclareMathAlphabet}を用いて数式用アルファベットを使うだけなら}
+\LaTeX $B$K$*$$$F?t<0%U%)%s%H$rF1;~$K(B16$B8D0J>e;H$&$K$O!$(B\.{omathchar}%
+$B$J$I$N%W%j%_%F%#%V$KBP1~$7$?%^%/%m$r;H$&I,MW$,$"$k!%(B
+$B:G6a$N(B\LaTeX$B!J>/$J$/$H$b(B2016-01-01$B0J9_!K$G$O!$(B
+\emph{\.{DeclareMathAlphabet}$B$rMQ$$$F?t<0MQ%"%k%U%!%Y%C%H$r;H$&$@$1$J$i(B}
 \begin{verbatim}
 \makeatletter
 \mathchardef\e@mathgroup@top=256
 \makeatother
 \end{verbatim}
-をプリアンブルに記述すれば良い．だが，これだけでは記号類の定義に用いられる
-\.{DeclareMathSymbol}や\.{DeclareMathDelimiter}が\.{omathchar}や
-\.{odelcode}を使用しないので不十分である．
-実験的と書かれてはいるが，
-山本氏による「最低限のパッケージ」\cite{yamamoto3}が手っ取り早いような気
-がする．
+$B$r%W%j%"%s%V%k$K5-=R$9$l$PNI$$!%$@$,!$$3$l$@$1$G$O5-9fN`$NDj5A$KMQ$$$i$l$k(B
+\.{DeclareMathSymbol}$B$d(B\.{DeclareMathDelimiter}$B$,(B\.{omathchar}$B$d(B
+\.{odelcode}$B$r;HMQ$7$J$$$N$GIT==J,$G$"$k!%(B
+$B<B83E*$H=q$+$l$F$O$$$k$,!$(B
+$B;3K\;a$K$h$k!V:GDc8B$N%Q%C%1!<%8!W(B\cite{yamamoto3}$B$,<j$C<h$jAa$$$h$&$J5$(B
+$B$,$9$k!%(B
 
-\paragraph{無限のレベル}
-\TeX では，glueの伸縮量に\texttt{fil}, \texttt{fill}, \texttt{filll}
-という3つの無限大のレベルが存在し，\texttt{l}が多いほど無限大のオーダーが高くなっていた．
-\OMEGA では，「inter-letter spacingのために」\texttt{fi}という，有限と
-\texttt{fil}の中間にあたる無限大のレベルが付け加えられ，\.{hfi}, \.{vfi}という2つ
-のプリミティブも追加された．そこで，この無限大レベル
-\texttt{fi}も採用することにした．
+\paragraph{$BL58B$N%l%Y%k(B}
+\TeX $B$G$O!$(Bglue$B$N?-=LNL$K(B\texttt{fil}, \texttt{fill}, \texttt{filll}
+$B$H$$$&(B3$B$D$NL58BBg$N%l%Y%k$,B8:_$7!$(B\texttt{l}$B$,B?$$$[$IL58BBg$N%*!<%@!<$,9b$/$J$C$F$$$?!%(B
+\OMEGA $B$G$O!$!V(Binter-letter spacing$B$N$?$a$K!W(B\texttt{fi}$B$H$$$&!$M-8B$H(B
+\texttt{fil}$B$NCf4V$K$"$?$kL58BBg$N%l%Y%k$,IU$12C$($i$l!$(B\.{hfi}, \.{vfi}$B$H$$$&(B2$B$D(B
+$B$N%W%j%_%F%#%V$bDI2C$5$l$?!%$=$3$G!$$3$NL58BBg%l%Y%k(B
+\texttt{fi}$B$b:NMQ$9$k$3$H$K$7$?!%(B
 
 \medskip
 
-実装方法は，大まかには\OMEGA で\texttt{fi}の実装を行っているchange file\
-\texttt{omfi.ch}の通りであるのだが，これに\pTeX や\eTeX に伴う少々の修正を行っている．
+$B<BAuJ}K!$O!$Bg$^$+$K$O(B\OMEGA $B$G(B\texttt{fi}$B$N<BAu$r9T$C$F$$$k(Bchange file\
+\texttt{omfi.ch}$B$NDL$j$G$"$k$N$@$,!$$3$l$K(B\pTeX $B$d(B\eTeX $B$KH<$&>/!9$N=$@5$r9T$C$F$$$k!%(B
 \begin{itemize}
-\item プリミティブ\.{pagefistretch}を新たに定義している．
-\item \.{gluestretchorder}, \.{glueshrinkorder}の動作を\eTeX のそれと合わせた．
-      具体的には，ある適当なglue~\.{someglue}の伸び量を<stretch>とおくとき，
+\item $B%W%j%_%F%#%V(B\.{pagefistretch}$B$r?7$?$KDj5A$7$F$$$k!%(B
+\item \.{gluestretchorder}, \.{glueshrinkorder}$B$NF0:n$r(B\eTeX $B$N$=$l$H9g$o$;$?!%(B
+      $B6qBNE*$K$O!$$"$kE,Ev$J(Bglue~\.{someglue}$B$N?-$SNL$r(B<stretch>$B$H$*$/$H$-!$(B
 \[
  \hbox{\.{gluestretchorder}\.{someglue}}=
 \begin{cases}
-0&<stretch>\text{が高々\texttt{fi}レベルの量}\\
-1&<stretch>\text{がちょうど\texttt{fil}レベルの無限量}\\
-2&<stretch>\text{がちょうど\texttt{fill}レベルの無限量}\\
-3&<stretch>\text{がちょうど\texttt{filll}レベルの無限量}
+0&<stretch>\text{$B$,9b!9(B\texttt{fi}$B%l%Y%k$NNL(B}\\
+1&<stretch>\text{$B$,$A$g$&$I(B\texttt{fil}$B%l%Y%k$NL58BNL(B}\\
+2&<stretch>\text{$B$,$A$g$&$I(B\texttt{fill}$B%l%Y%k$NL58BNL(B}\\
+3&<stretch>\text{$B$,$A$g$&$I(B\texttt{filll}$B%l%Y%k$NL58BNL(B}
 \end{cases}
 \]
-となっている．内部では\texttt{fi}レベルが1，\texttt{fil}レベルが2，……として処
-      理している．
+$B$H$J$C$F$$$k!%FbIt$G$O(B\texttt{fi}$B%l%Y%k$,(B1$B!$(B\texttt{fil}$B%l%Y%k$,(B2$B!$!D!D$H$7$F=h(B
+      $BM}$7$F$$$k!%(B
 \end{itemize}
 
-\paragraph{レジスタについて}
-\OMEGA では（前にも書いたが）データ構造の変更が行われ，それによってレジ
-スタが各種類あたり65536個使えるようになっている．
+\paragraph{$B%l%8%9%?$K$D$$$F(B}
+\OMEGA $B$G$O!JA0$K$b=q$$$?$,!K%G!<%?9=B$$NJQ99$,9T$o$l!$$=$l$K$h$C$F%l%8(B
+$B%9%?$,3F<oN`$"$?$j(B65536$B8D;H$($k$h$&$K$J$C$F$$$k!%(B
 
-一方，\eTeX では，256番以降のレジスタを専用のsparse treeに格納することにより，
-32767番までのレジスタの使用を可能にしていた．このツリー構造を分析してみる
-と，65536個までレジスタを拡張するのはさほど難しくないことのよう
-に思われた．具体的には，ツリーの階層を1つ増やしてみた（だから，おそらく
-各種類あたり$16\cdot 32768=524288$個まで使えるとは思うが，これはきりが悪
-い）．
-そこで，\epTeX では\eTeX 流の方法を用いながらも，レジスタをさ
-らに65536個まで増やしている．
+$B0lJ}!$(B\eTeX $B$G$O!$(B256$BHV0J9_$N%l%8%9%?$r@lMQ$N(Bsparse tree$B$K3JG<$9$k$3$H$K$h$j!$(B
+32767$BHV$^$G$N%l%8%9%?$N;HMQ$r2DG=$K$7$F$$$?!%$3$N%D%j!<9=B$$rJ,@O$7$F$_$k(B
+$B$H!$(B65536$B8D$^$G%l%8%9%?$r3HD%$9$k$N$O$5$[$IFq$7$/$J$$$3$H$N$h$&(B
+$B$K;W$o$l$?!%6qBNE*$K$O!$%D%j!<$N3,AX$r(B1$B$DA}$d$7$F$_$?!J$@$+$i!$$*$=$i$/(B
+$B3F<oN`$"$?$j(B$16\cdot 32768=524288$$B8D$^$G;H$($k$H$O;W$&$,!$$3$l$O$-$j$,0-(B
+$B$$!K!%(B
+$B$=$3$G!$(B\epTeX $B$G$O(B\eTeX $BN.$NJ}K!$rMQ$$$J$,$i$b!$%l%8%9%?$r$5(B
+$B$i$K(B65536$B8D$^$GA}$d$7$F$$$k!%(B
 
-\section{\pdfTeX 由来の機能}
-開発中の\LaTeX 3では，\eTeX 拡張の他に，\pdfTeX で導入された
-\.{pdfstrcmp}（又はその同等品）が必要となっており，もはや純粋な\eTeX ですら
-\LaTeX 3を利用することはできない状況である (\cite{expl31,expl32,expl33})．
-その他にも，\pdfTeX 由来のいくつかのプリミティブ(\cite{pdftexman})の実装が
-日本の\TeX ユーザからあり，
-ほとんど\pdfTeX における実装をそのまま真似する形で実装している．
+\section{\pdfTeX $BM3Mh$N5!G=(B}
+$B3+H/Cf$N(B\LaTeX 3$B$G$O!$(B\eTeX $B3HD%$NB>$K!$(B\pdfTeX $B$GF3F~$5$l$?(B
+\.{pdfstrcmp}$B!JKt$O$=$NF1EyIJ!K$,I,MW$H$J$C$F$*$j!$$b$O$d=c?h$J(B\eTeX $B$G$9$i(B
+\LaTeX 3$B$rMxMQ$9$k$3$H$O$G$-$J$$>u67$G$"$k(B (\cite{expl31,expl32,expl33})$B!%(B
+$B$=$NB>$K$b!$(B\pdfTeX $BM3Mh$N$$$/$D$+$N%W%j%_%F%#%V(B(\cite{pdftexman})$B$N<BAu$,(B
+$BF|K\$N(B\TeX $B%f!<%6$+$i$"$j!$(B
+$B$[$H$s$I(B\pdfTeX $B$K$*$1$k<BAu$r$=$N$^$^??;w$9$k7A$G<BAu$7$F$$$k!%(B
 
-現在の\epTeX で利用できる\pdfTeX 由来のプリミティブの一覧を以下に示す．
-これらはextended modeでないと利用できない．
+$B8=:_$N(B\epTeX $B$GMxMQ$G$-$k(B\pdfTeX $BM3Mh$N%W%j%_%F%#%V$N0lMw$r0J2<$K<($9!%(B
+$B$3$l$i$O(Bextended mode$B$G$J$$$HMxMQ$G$-$J$$!%(B
 
 \begin{cslist}
  \csitem [\.{pdfstrcmp} <general text> <general text>]
-  2つの引数を文字列化したものを先頭バイトから比較し，
-  結果を$-1$（第1引数の方が先），0（等しい），1（第2引数の方が先）として文字列で返す．
+  2$B$D$N0z?t$rJ8;zNs2=$7$?$b$N$r@hF,%P%$%H$+$iHf3S$7!$(B
+  $B7k2L$r(B$-1$$B!JBh(B1$B0z?t$NJ}$,@h!K!$(B0$B!JEy$7$$!K!$(B1$B!JBh(B2$B0z?t$NJ}$,@h!K$H$7$FJ8;zNs$GJV$9!%(B
   
-  比較する文字列中に和文文字がある場合には，（\epTeX の内部漢字コードにかかわらず）
-  UTF-8で符号化して比較する．
-  そのため，例えば
+  $BHf3S$9$kJ8;zNsCf$KOBJ8J8;z$,$"$k>l9g$K$O!$!J(B\epTeX $B$NFbIt4A;z%3!<%I$K$+$+$o$i$:!K(B
+  UTF-8$B$GId9f2=$7$FHf3S$9$k!%(B
+  $B$=$N$?$a!$Nc$($P(B
 \begin{verbatim}
-\pdfstrcmp{あ}{^^e3^^81^^83} % 「あ」はUTF-8でE38182
+\pdfstrcmp{$B$"(B}{^^e3^^81^^83} % $B!V$"!W$O(BUTF-8$B$G(BE38182
 \end{verbatim}
-  の実行結果は$\pdfstrcmp{あ}{^^e3^^81^^83}$である．
+  $B$N<B9T7k2L$O(B$\pdfstrcmp{$B$"(B}{^^e3^^81^^83}$$B$G$"$k!%(B
 
  \csitem[\.{pdfpagewidth}, \.{pdfpageheight}]
-  ページの「幅」「高さ」を表す内部長さであるが，
-  \emph{ここで言う「幅」は「字送り方向」のことではなく，物理的な意味である}．
+  $B%Z!<%8$N!VI}!W!V9b$5!W$rI=$9FbItD9$5$G$"$k$,!$(B
+  \emph{$B$3$3$G8@$&!VI}!W$O!V;zAw$jJ}8~!W$N$3$H$G$O$J$/!$J*M}E*$J0UL#$G$"$k(B}$B!%(B
 
  \csitem[\.{pdflastxpos}, \.{pdflastypos}]
-  \.{pdfsavepos}が置かれた場所の，dviにおける出力位置を返す内部整数（読み取り専用）．
-  原点は紙の（物理的な意味の）左下隅であり，$y$軸は（物理的な）上方向に向かって増加する．
+  \.{pdfsavepos}$B$,CV$+$l$?>l=j$N!$(Bdvi$B$K$*$1$k=PNO0LCV$rJV$9FbIt@0?t!JFI$_<h$j@lMQ!K!%(B
+  $B86E@$O;f$N!JJ*M}E*$J0UL#$N!K:82<6y$G$"$j!$(B$y$$B<4$O!JJ*M}E*$J!K>eJ}8~$K8~$+$C$FA}2C$9$k!%(B
 
-  \pTeX では横組・縦組と組方向が複数あるので，\.{pdflastxpos}, \.{pdflastypos}の値の座標系を
-  「物理的な」向きとすべきか，それとも「組方向に応じた」向きとすべきかは悩みどころである．
-  110227版以降，現在までの版では上記のように物理的な向きとしている．
+  \pTeX $B$G$O2#AH!&=DAH$HAHJ}8~$,J#?t$"$k$N$G!$(B\.{pdflastxpos}, \.{pdflastypos}$B$NCM$N:BI87O$r(B
+  $B!VJ*M}E*$J!W8~$-$H$9$Y$-$+!$$=$l$H$b!VAHJ}8~$K1~$8$?!W8~$-$H$9$Y$-$+$OG:$_$I$3$m$G$"$k!%(B
+  110227$BHG0J9_!$8=:_$^$G$NHG$G$O>e5-$N$h$&$KJ*M}E*$J8~$-$H$7$F$$$k!%(B
   
  \csitem[\.{pdfcreationdate}, \.{pdffilemoddate}, \.{pdffilesize}]
-  最初にこのプリミティブが実行された時刻を，\texttt{\pdfcreationdate}の形式で表した文字列に展開される．
-  これは\Pkg{standalone}パッケージを\epTeX で扱うために2013/06/05に実装されたプリミティブであるが，
-  現在時刻の「秒」まで得るためにも使用できる（\TeX 82では分単位でしか取得できない）．
+  $B:G=i$K$3$N%W%j%_%F%#%V$,<B9T$5$l$?;~9o$r!$(B\texttt{\pdfcreationdate}$B$N7A<0$GI=$7$?J8;zNs$KE83+$5$l$k!%(B
+  $B$3$l$O(B\Pkg{standalone}$B%Q%C%1!<%8$r(B\epTeX $B$G07$&$?$a$K(B2013/06/05$B$K<BAu$5$l$?%W%j%_%F%#%V$G$"$k$,!$(B
+  $B8=:_;~9o$N!VIC!W$^$GF@$k$?$a$K$b;HMQ$G$-$k!J(B\TeX 82$B$G$OJ,C10L$G$7$+<hF@$G$-$J$$!K!%(B
   
  \csitem[\.{pdffilemoddate} <filename>, \.{pdffilesize} <filename>]
-  それぞれ<filename>の更新時刻（\.{pdfcreationdate}と同じ形式）と
-  ファイルサイズを表す文字列に展開する．
-  これらも\Pkg{standalone}パッケージのために\epTeX に実装されたプリミティブである．
+  $B$=$l$>$l(B<filename>$B$N99?7;~9o!J(B\.{pdfcreationdate}$B$HF1$87A<0!K$H(B
+  $B%U%!%$%k%5%$%:$rI=$9J8;zNs$KE83+$9$k!%(B
+  $B$3$l$i$b(B\Pkg{standalone}$B%Q%C%1!<%8$N$?$a$K(B\epTeX $B$K<BAu$5$l$?%W%j%_%F%#%V$G$"$k!%(B
   
  \csitem[\.{pdffiledump} \textrm{[}\texttt{offset} <offset>\textrm{]}%
   \ \texttt{length} <length> <filename>]
-  <filename>で与えられたファイル名の<offset>バイト目（先頭は0）から<length>バイトを読み込み，
-  16進表記（大文字）したものに展開される．
+  <filename>$B$GM?$($i$l$?%U%!%$%kL>$N(B<offset>$B%P%$%HL\!J@hF,$O(B0$B!K$+$i(B<length>$B%P%$%H$rFI$_9~$_!$(B
+  16$B?JI=5-!JBgJ8;z!K$7$?$b$N$KE83+$5$l$k!%(B
   
-  本プリミティブはHeiko Oberdiek氏による\Pkg{bmpsize}パッケージを\epTeX でも使うために
-  角藤さんが実装したものである(2014/05/06)．
+  $BK\%W%j%_%F%#%V$O(BHeiko Oberdiek$B;a$K$h$k(B\Pkg{bmpsize}$B%Q%C%1!<%8$r(B\epTeX $B$G$b;H$&$?$a$K(B
+  $B3QF#$5$s$,<BAu$7$?$b$N$G$"$k(B(2014/05/06)$B!%(B
   
  \csitem[\.{pdfshellescape}]
-  \.{write18}によるshell-escapeが利用可能になっているかを示す内部整数（読み取り専用）．
-  0ならば不許可，1ならば許可，2ならばrestricted shell-escape%
-  \footnote{あらかじめ「安全」と認められたプログラム（\texttt{texmf.cnf}中で指定する）
-    のみ実行を許可する仕組み．}%
-  である．
+  \.{write18}$B$K$h$k(Bshell-escape$B$,MxMQ2DG=$K$J$C$F$$$k$+$r<($9FbIt@0?t!JFI$_<h$j@lMQ!K!%(B
+  0$B$J$i$PIT5v2D!$(B1$B$J$i$P5v2D!$(B2$B$J$i$P(Brestricted shell-escape%
+  \footnote{$B$"$i$+$8$a!V0BA4!W$HG'$a$i$l$?%W%m%0%i%`!J(B\texttt{texmf.cnf}$BCf$G;XDj$9$k!K(B
+    $B$N$_<B9T$r5v2D$9$k;EAH$_!%(B}%
+  $B$G$"$k!%(B
   
-  本プリミティブは\TeX ユーザの集い2014でリクエストを受けて実装された(\cite{pdfse})．
+  $BK\%W%j%_%F%#%V$O(B\TeX $B%f!<%6$N=8$$(B2014$B$G%j%/%(%9%H$r<u$1$F<BAu$5$l$?(B(\cite{pdfse})$B!%(B
   
   
  \csitem[\.{pdfmdfivesum} {[\texttt{file}]} <general text>]
-  引数<general text>のMD5ハッシュ値か，あるいは\texttt{file}が指定された場合は
-  ファイル名が<general text>のファイルのMD5ハッシュ値を計算する．
+  $B0z?t(B<general text>$B$N(BMD5$B%O%C%7%eCM$+!$$"$k$$$O(B\texttt{file}$B$,;XDj$5$l$?>l9g$O(B
+  $B%U%!%$%kL>$,(B<general text>$B$N%U%!%$%k$N(BMD5$B%O%C%7%eCM$r7W;;$9$k!%(B
 
-  このプリミティブは\cite{xe5}以降の議論を元に，角藤さんがリクエストしたもので，
-  2015/07/04に\epTeX に実装されている．
+  $B$3$N%W%j%_%F%#%V$O(B\cite{xe5}$B0J9_$N5DO@$r85$K!$3QF#$5$s$,%j%/%(%9%H$7$?$b$N$G!$(B
+  2015/07/04$B$K(B\epTeX $B$K<BAu$5$l$F$$$k!%(B
   
  \csitem[\.{pdfpritimive}, \.{ifpdfprimitive}]
-  \.{pdfprimitive}は次に続く制御綴がプリミティブと同じ名称であった場合に，
-  プリミティブ本来の意味で実行させるものである．例えば
+  \.{pdfprimitive}$B$O<!$KB3$/@)8fDV$,%W%j%_%F%#%V$HF1$8L>>N$G$"$C$?>l9g$K!$(B
+  $B%W%j%_%F%#%VK\Mh$N0UL#$G<B9T$5$;$k$b$N$G$"$k!%Nc$($P(B
 \begin{verbatim}
 \pdfprimitive\par
 \end{verbatim}
-  は，\.{par}が再定義されていようが，本来の\.{par}の意味（段落終了）となる．
-  また，\.{ifpdfprimitive}は，次に続く制御綴が同名のプリミティブの意味を持っていれば
-  真，そうでなければ偽となる条件判断文である．
+  $B$O!$(B\.{par}$B$,:FDj5A$5$l$F$$$h$&$,!$K\Mh$N(B\.{par}$B$N0UL#!JCJMn=*N;!K$H$J$k!%(B
+  $B$^$?!$(B\.{ifpdfprimitive}$B$O!$<!$KB3$/@)8fDV$,F1L>$N%W%j%_%F%#%V$N0UL#$r;}$C$F$$$l$P(B
+  $B??!$$=$&$G$J$1$l$P56$H$J$k>r7oH=CGJ8$G$"$k!%(B
 
-  これらのプリミティブは2015/07/15版の\Pkg{expl3}パッケージで使われた
-  (\cite{15715})ことを受けて実装されたものだが，
-  現在ではこれらのプリミティブは使われていない．
+  $B$3$l$i$N%W%j%_%F%#%V$O(B2015/07/15$BHG$N(B\Pkg{expl3}$B%Q%C%1!<%8$G;H$o$l$?(B
+  (\cite{15715})$B$3$H$r<u$1$F<BAu$5$l$?$b$N$@$,!$(B
+  $B8=:_$G$O$3$l$i$N%W%j%_%F%#%V$O;H$o$l$F$$$J$$!%(B
 
 \end{cslist}
 
-\section{\.{lastnodechar}プリミティブ}
-本プリミティブは
-\TeX ユーザの集い2014でリクエストを受けて
-実装された(\cite{pdfse})プリミティブで，extended modeでしか利用できない．
-詳細な背景説明・仕様は\cite{lnc}に譲る．
+\section{\.{lastnodechar}$B%W%j%_%F%#%V(B}
+$BK\%W%j%_%F%#%V$O(B
+\TeX $B%f!<%6$N=8$$(B2014$B$G%j%/%(%9%H$r<u$1$F(B
+$B<BAu$5$l$?(B(\cite{pdfse})$B%W%j%_%F%#%V$G!$(Bextended mode$B$G$7$+MxMQ$G$-$J$$!%(B
+$B>\:Y$JGX7J@bL@!&;EMM$O(B\cite{lnc}$B$K>y$k!%(B
 
-\pTeX では
+\pTeX $B$G$O(B
 \begin{verbatim}
-これは，\textmc{『ほげ党宣言』}の……
+$B$3$l$O!$(B\textmc{$B!X$[$2E^@k8@!Y(B}$B$N!D!D(B
 \end{verbatim}
-という入力からは
+$B$H$$$&F~NO$+$i$O(B
 \begin{quote}
-これは，\textmc{『ほげ党宣言』}の……
+$B$3$l$O!$(B\textmc{$B!X$[$2E^@k8@!Y(B}$B$N!D!D(B
 \end{quote}
-という出力が得られ，コンマと二重鍵括弧の間が全角空きになってしまうことが以前から知られている．
+$B$H$$$&=PNO$,F@$i$l!$%3%s%^$HFs=E803g8L$N4V$,A43Q6u$-$K$J$C$F$7$^$&$3$H$,0JA0$+$iCN$i$l$F$$$k!%(B
 
-この現象は，（展開し続けた結果）「，」の直後のトークンが「『」ではないことによって，
-「，」の後の半角空きと，「『」の前の半角空きが両方
-入ってしまうという\pTeX の和文処理の仕様
+$B$3$N8=>]$O!$!JE83+$7B3$1$?7k2L!K!V!$!W$ND>8e$N%H!<%/%s$,!V!X!W$G$O$J$$$3$H$K$h$C$F!$(B
+$B!V!$!W$N8e$NH>3Q6u$-$H!$!V!X!W$NA0$NH>3Q6u$-$,N>J}(B
+$BF~$C$F$7$^$&$H$$$&(B\pTeX $B$NOBJ8=hM}$N;EMM(B
 \footnote{%
-  \TeX82 の欧文のカーニングや合字処理も同じような仕様になっている．
-  例えば\texttt{W\.{relax}\ oWo}からはW\relax oWoという出力になり，
-  Wとoの間のカーニングが\.{relax}によって挿入されなくなったことがわかる．
-}による．
-min10フォントメトリックで「ちょっと」を組むと「ょっ」の間が詰まるという不具合は有名であるが，
-「\verb+ちょ{}っと+」と空グループを挟むことで回避されるのも，同じ理由である．
+  \TeX82 $B$N2$J8$N%+!<%K%s%0$d9g;z=hM}$bF1$8$h$&$J;EMM$K$J$C$F$$$k!%(B
+  $BNc$($P(B\texttt{W\.{relax}\ oWo}$B$+$i$O(BW\relax oWo$B$H$$$&=PNO$K$J$j!$(B
+  W$B$H(Bo$B$N4V$N%+!<%K%s%0$,(B\.{relax}$B$K$h$C$FA^F~$5$l$J$/$J$C$?$3$H$,$o$+$k!%(B
+}$B$K$h$k!%(B
+min10$B%U%)%s%H%a%H%j%C%/$G!V$A$g$C$H!W$rAH$`$H!V$g$C!W$N4V$,5M$^$k$H$$$&IT6q9g$OM-L>$G$"$k$,!$(B
+$B!V(B\verb+$B$A$g(B{}$B$C$H(B+$B!W$H6u%0%k!<%W$r64$`$3$H$G2sHr$5$l$k$N$b!$F1$8M}M3$G$"$k!%(B
 
 \medskip
 
-\.{lastnodechar}プリミティブは，
-上で述べた「書体変更命令を間に挟むと和文間グルーが『まともに』ならない」という状況を
-改善する助けになることを目指して実装された．
+\.{lastnodechar}$B%W%j%_%F%#%V$O!$(B
+$B>e$G=R$Y$?!V=qBNJQ99L?Na$r4V$K64$`$HOBJ84V%0%k!<$,!X$^$H$b$K!Y$J$i$J$$!W$H$$$&>u67$r(B
+$B2~A1$9$k=u$1$K$J$k$3$H$rL\;X$7$F<BAu$5$l$?!%(B
 
 \begin{cslist}
   \csitem[\.{lastnodechar}]
-  現在構築中のリストの「最後のノード」が文字由来であれば，そのコード番号（内部コード）を内部整数として返す．
+  $B8=:_9=C[Cf$N%j%9%H$N!V:G8e$N%N!<%I!W$,J8;zM3Mh$G$"$l$P!$$=$N%3!<%IHV9f!JFbIt%3!<%I!K$rFbIt@0?t$H$7$FJV$9!%(B
   
-  上記「最後のノード」では，\pTeX によって自動挿入される
+  $B>e5-!V:G8e$N%N!<%I!W$G$O!$(B\pTeX $B$K$h$C$F<+F0A^F~$5$l$k(B
   \begin{itemize}
-    \item JFMによって入るグルー
-    \item 行末禁則処理のために挿入されるペナルティ
-    \item 欧文文字のベースライン補正用のノード
+    \item JFM$B$K$h$C$FF~$k%0%k!<(B
+    \item $B9TKv6XB'=hM}$N$?$a$KA^F~$5$l$k%Z%J%k%F%#(B
+    \item $B2$J8J8;z$N%Y!<%9%i%$%sJd@5MQ$N%N!<%I(B
   \end{itemize}
-  は無視される．また，「最後のノード」が欧文文字のリガチャであった場合は，リガチャそれ自身のコード番号ではなく，
-  最後の構成要素の文字のコード番号を返す．「最後のノード」が文字を表すものでなかった場合は，$-1$が返る．
+  $B$OL5;k$5$l$k!%$^$?!$!V:G8e$N%N!<%I!W$,2$J8J8;z$N%j%,%A%c$G$"$C$?>l9g$O!$%j%,%A%c$=$l<+?H$N%3!<%IHV9f$G$O$J$/!$(B
+  $B:G8e$N9=@.MWAG$NJ8;z$N%3!<%IHV9f$rJV$9!%!V:G8e$N%N!<%I!W$,J8;z$rI=$9$b$N$G$J$+$C$?>l9g$O!$(B$-1$$B$,JV$k!%(B
 \end{cslist}
 
-例えば，\.{lastnodechar}を使って
+$BNc$($P!$(B\.{lastnodechar}$B$r;H$C$F(B
 \begin{verbatim}
-これは，\the\lastnodechar\textmc{『ほげ党宣言』}……
+$B$3$l$O!$(B\the\lastnodechar\textmc{$B!X$[$2E^@k8@!Y(B}$B!D!D(B
 \end{verbatim}
-と入力すると，
+$B$HF~NO$9$k$H!$(B
 \begin{quote}
-これは，\the\lastnodechar\textmc{『ほげ党宣言』}……
+$B$3$l$O!$(B\the\lastnodechar\textmc{$B!X$[$2E^@k8@!Y(B}$B!D!D(B
 \end{quote}
-のようになり，\.{lastnodechar}実行時の「最後のノード」（文字「，」を表す）の内部コード
+$B$N$h$&$K$J$j!$(B\.{lastnodechar}$B<B9T;~$N!V:G8e$N%N!<%I!W!JJ8;z!V!$!W$rI=$9!K$NFbIt%3!<%I(B
 \footnote{%
-  内部コードがEUCの場合は$\texttt{"A1A4} = 41380$，SJISの場合は
-  $\texttt{"8143} = 33091$となる．
-}が得られる．これによって，\.{textmc}等の命令の直前の文字を知ることができるので，
-あとは\TeX マクロ側でなんとかできるだろう，という目論見である．
+  $BFbIt%3!<%I$,(BEUC$B$N>l9g$O(B$\texttt{"A1A4} = 41380$$B!$(BSJIS$B$N>l9g$O(B
+  $\texttt{"8143} = 33091$$B$H$J$k!%(B
+}$B$,F@$i$l$k!%$3$l$K$h$C$F!$(B\.{textmc}$BEy$NL?Na$ND>A0$NJ8;z$rCN$k$3$H$,$G$-$k$N$G!$(B
+$B$"$H$O(B\TeX $B%^%/%mB&$G$J$s$H$+$G$-$k$@$m$&!$$H$$$&L\O@8+$G$"$k!%(B
 
 \newpage
-また，上記の説明にあるとおり，
+$B$^$?!$>e5-$N@bL@$K$"$k$H$*$j!$(B
 \begin{verbatim}
 abcfi\the\lastnodechar, abc\char"1C \the\lastnodechar
 \end{verbatim}
-は
+$B$O(B
 \begin{quote}
 abcfi\the\lastnodechar, abc\char"1C \the\lastnodechar
 \end{quote}
-となり，見た目では同じ「fi」が\.{lastnodechar}実行時の「最後のノード」であるかのように見えても，
-それが合字の場合（左側）では\.{lastnodechar}の実行結果は最後の構成要素「i」のコード番号105となる．
+$B$H$J$j!$8+$?L\$G$OF1$8!V(Bfi$B!W$,(B\.{lastnodechar}$B<B9T;~$N!V:G8e$N%N!<%I!W$G$"$k$+$N$h$&$K8+$($F$b!$(B
+$B$=$l$,9g;z$N>l9g!J:8B&!K$G$O(B\.{lastnodechar}$B$N<B9T7k2L$O:G8e$N9=@.MWAG!V(Bi$B!W$N%3!<%IHV9f(B105$B$H$J$k!%(B
 
 \medskip
 \begin{curve}
-  「\verb+これは，+」とソース中に入力したときの
-  ノードの状態を\.{showlists}で調べてみると次のようになっており，
-  本当に一番最後のノードはJFMによって挿入される二分空きの空白
-  （「，」と通常の和文文字の間に入るはずのもの）であることがわかる．
+  $B!V(B\verb+$B$3$l$O!$(B+$B!W$H%=!<%9Cf$KF~NO$7$?$H$-$N(B
+  $B%N!<%I$N>uBV$r(B\.{showlists}$B$GD4$Y$F$_$k$H<!$N$h$&$K$J$C$F$*$j!$(B
+  $BK\Ev$K0lHV:G8e$N%N!<%I$O(BJFM$B$K$h$C$FA^F~$5$l$kFsJ,6u$-$N6uGr(B
+  $B!J!V!$!W$HDL>o$NOBJ8J8;z$N4V$KF~$k$O$:$N$b$N!K$G$"$k$3$H$,$o$+$k!%(B
 \begin{verbatim}
 ### yoko direction, horizontal mode entered at line 465
 \hbox(0.0+0.0)x9.24683
-\JY1/hmc/m/it/10 こ
-\JY1/hmc/m/it/10 れ
-\JY1/hmc/m/it/10 は
+\JY1/hmc/m/it/10 $B$3(B
+\JY1/hmc/m/it/10 $B$l(B
+\JY1/hmc/m/it/10 $B$O(B
 \penalty 10000(for kinsoku)
-\JY1/hmc/m/it/10 ，
+\JY1/hmc/m/it/10 $B!$(B
 \glue(refer from jfm) 4.62341 minus 4.62341
 \end{verbatim}
-  しかし，数段落上の説明の通り，\.{lastnodechar}は\pTeX の和文処理によって自動的に挿入された
-  これらJFM由来の空白を無視する．
+  $B$7$+$7!$?tCJMn>e$N@bL@$NDL$j!$(B\.{lastnodechar}$B$O(B\pTeX $B$NOBJ8=hM}$K$h$C$F<+F0E*$KA^F~$5$l$?(B
+  $B$3$l$i(BJFM$BM3Mh$N6uGr$rL5;k$9$k!%(B
 \end{curve}
 
-「最後のノード」を見ているので，
+$B!V:G8e$N%N!<%I!W$r8+$F$$$k$N$G!$(B
 \begin{verbatim}
-これは，\relax\sffamily{}\the\lastnodechar\textmc{『ほげ党宣言』}……
+$B$3$l$O!$(B\relax\sffamily{}\the\lastnodechar\textmc{$B!X$[$2E^@k8@!Y(B}$B!D!D(B
 \end{verbatim}
-などとノードに関係しないものが途中にあっても，それは単純に無視されて
+$B$J$I$H%N!<%I$K4X78$7$J$$$b$N$,ESCf$K$"$C$F$b!$$=$l$OC1=c$KL5;k$5$l$F(B
 \begin{quote}
-これは，\relax\sffamily{}\the\lastnodechar\textmc{『ほげ党宣言』}……
+$B$3$l$O!$(B\relax\sffamily{}\the\lastnodechar\textmc{$B!X$[$2E^@k8@!Y(B}$B!D!D(B
 \end{quote}
-となる．
+$B$H$J$k!%(B
 
 
 
-\section{\.{epTeXinputencoding}プリミティブ}
-現在読み込んでいるファイルの文字コードを切り替えるプリミティブであり，
-2016/02/01に阿部紀行さんによって実装された．詳細は実装者の解説記事
-\cite{eptexinputenc}を参照してほしいが，おおまかに述べると以下のようになるだろう．
+\section{\.{epTeXinputencoding}$B%W%j%_%F%#%V(B}
+$B8=:_FI$_9~$s$G$$$k%U%!%$%k$NJ8;z%3!<%I$r@Z$jBX$($k%W%j%_%F%#%V$G$"$j!$(B
+2016/02/01$B$K0$It5*9T$5$s$K$h$C$F<BAu$5$l$?!%>\:Y$O<BAu<T$N2r@b5-;v(B
+\cite{eptexinputenc}$B$r;2>H$7$F$[$7$$$,!$$*$*$^$+$K=R$Y$k$H0J2<$N$h$&$K$J$k$@$m$&!%(B
 
 \begin{cslist}
   \csitem[\.{epTeXinputencoding} <encoding>]
-  現在読み込んでいるファイルの文字コードを<encoding>に変更する．
-  実際に変更されるのは「次の行」であり，また現在のファイルからさらに\.{input}等で
-  読まれたファイルには効力を及ぼさない．
+  $B8=:_FI$_9~$s$G$$$k%U%!%$%k$NJ8;z%3!<%I$r(B<encoding>$B$KJQ99$9$k!%(B
+  $B<B:]$KJQ99$5$l$k$N$O!V<!$N9T!W$G$"$j!$$^$?8=:_$N%U%!%$%k$+$i$5$i$K(B\.{input}$BEy$G(B
+  $BFI$^$l$?%U%!%$%k$K$O8zNO$r5Z$\$5$J$$!%(B
 
-  <encoding>の値は，基本的には\pTeX の\texttt{-kanji}オプションで指定できる値
-  (\texttt{euc}, \texttt{sjis}, \texttt{jis}, \texttt{utf8})である．
+  <encoding>$B$NCM$O!$4pK\E*$K$O(B\pTeX $B$N(B\texttt{-kanji}$B%*%W%7%g%s$G;XDj$G$-$kCM(B
+  (\texttt{euc}, \texttt{sjis}, \texttt{jis}, \texttt{utf8})$B$G$"$k!%(B
 \end{cslist}
 
 
 \begin{comment}
-  \section{互換性}
-\eTeX, \pTeX との互換性をはかるのに有効な手段としては，まず\texttt{TRIP}
-testがある．\cite{h7k}にも書いたが，これは\TeX のソースの全行を実行する
-ようなテストソースであり，\texttt{TRIP} testの実行結果が違えば，どこかの
-動作が違っていることが分かるという仕掛けである．
+  \section{$B8_49@-(B}
+\eTeX, \pTeX $B$H$N8_49@-$r$O$+$k$N$KM-8z$J<jCJ$H$7$F$O!$$^$:(B\texttt{TRIP}
+test$B$,$"$k!%(B\cite{h7k}$B$K$b=q$$$?$,!$$3$l$O(B\TeX $B$N%=!<%9$NA49T$r<B9T$9$k(B
+$B$h$&$J%F%9%H%=!<%9$G$"$j!$(B\texttt{TRIP} test$B$N<B9T7k2L$,0c$($P!$$I$3$+$N(B
+$BF0:n$,0c$C$F$$$k$3$H$,J,$+$k$H$$$&;E3]$1$G$"$k!%(B
 
-幸いにも，\epTeX の（compatibility modeにおける）\texttt{TRIP} testの実行結果は，\pTeX のそれとほとん
-ど同じであり，違う点は以下のみであった：
+$B9,$$$K$b!$(B\epTeX $B$N!J(Bcompatibility mode$B$K$*$1$k!K(B\texttt{TRIP} test$B$N<B9T7k2L$O!$(B\pTeX $B$N$=$l$H$[$H$s(B
+$B$IF1$8$G$"$j!$0c$&E@$O0J2<$N$_$G$"$C$?!'(B
 \begin{itemize}
-\item \texttt{Memory usage}の違い：
+\item \texttt{Memory usage}$B$N0c$$!'(B
 \begin{alltt}
   Memory usage before: \(x\,\)&\(\,y\); after: \(z\,\)\&\(\,w\); still untouched: \(u\)
 \end{alltt}
-のところで，$x$, $z$が4多く，$u$が4少ない．
-\item （\texttt{FAM256}パッチのおかげで）数式フォントが256個同時に
-扱えるようになったことによる，エラーの未発生やエラーメッセージの違い．
-\item ログの最後に出てくる，メモリ総使用量．
+$B$N$H$3$m$G!$(B$x$, $z$$B$,(B4$BB?$/!$(B$u$$B$,(B4$B>/$J$$!%(B
+\item $B!J(B\texttt{FAM256}$B%Q%C%A$N$*$+$2$G!K?t<0%U%)%s%H$,(B256$B8DF1;~$K(B
+$B07$($k$h$&$K$J$C$?$3$H$K$h$k!$%(%i!<$NL$H/@8$d%(%i!<%a%C%;!<%8$N0c$$!%(B
+\item $B%m%0$N:G8e$K=P$F$/$k!$%a%b%jAm;HMQNL!%(B
 \end{itemize}
-また，extended modeと
-compatibility modeによる出力の違いを検証すると，Memory usageの違いやメモリ総使用量の他に
-は，\texttt{e-TRIP}の説明書p.\ 4の項目4.にある違いしか見受けられなかった，
+$B$^$?!$(Bextended mode$B$H(B
+compatibility mode$B$K$h$k=PNO$N0c$$$r8!>Z$9$k$H!$(BMemory usage$B$N0c$$$d%a%b%jAm;HMQNL$NB>$K(B
+$B$O!$(B\texttt{e-TRIP}$B$N@bL@=q(Bp.\ 4$B$N9`L\(B4.$B$K$"$k0c$$$7$+8+<u$1$i$l$J$+$C$?!$(B
 
 \par\vskip0.5\baselineskip\par
 
-次に，\eTeX には，\eTeX によって拡張された部分を調べる，同様の
-\texttt{e-TRIP} testが存在する．\pTeX 系列では，\verb+\showbox+などでい
-ちいち組方向を表示するので，それを
+$B<!$K!$(B\eTeX $B$K$O!$(B\eTeX $B$K$h$C$F3HD%$5$l$?ItJ,$rD4$Y$k!$F1MM$N(B
+\texttt{e-TRIP} test$B$,B8:_$9$k!%(B\pTeX $B7ONs$G$O!$(B\verb+\showbox+$B$J$I$G$$(B
+$B$A$$$AAHJ}8~$rI=<($9$k$N$G!$$=$l$r(B
 \begin{verbatim}
   $ alias sep='sed "s/, yoko direction//;s/yoko direction, //;\
     s/yoko(math) direction, //"'
 \end{verbatim}
-というaliasを利用することでlog fileから除去し，それと\eTeX での
-\texttt{e-TRIP} testの出力と比べた結果，
+$B$H$$$&(Balias$B$rMxMQ$9$k$3$H$G(Blog file$B$+$i=|5n$7!$$=$l$H(B\eTeX $B$G$N(B
+\texttt{e-TRIP} test$B$N=PNO$HHf$Y$?7k2L!$(B
 \begin{itemize}
-\item Memory Usageの違い（略）
-\item レジスタの使用可能個数を65536個/種類としたことによるエラーの未発生
-\item （和文文字のため）character codeに256以上も許すことによる
-      エラーの未発生．
+\item Memory Usage$B$N0c$$!JN,!K(B
+\item $B%l%8%9%?$N;HMQ2DG=8D?t$r(B65536$B8D(B/$B<oN`$H$7$?$3$H$K$h$k%(%i!<$NL$H/@8(B
+\item $B!JOBJ8J8;z$N$?$a!K(Bcharacter code$B$K(B256$B0J>e$b5v$9$3$H$K$h$k(B
+      $B%(%i!<$NL$H/@8!%(B
 \end{itemize}
-という違いを得た．
+$B$H$$$&0c$$$rF@$?!%(B
 
 \par\vskip0.5\baselineskip\par
 
-すると，最後に，\pTeX 特有の拡張部分のテストをしたくなるわけだが，北川の
-知る限りにおいては，そのようなテストソースは公式には存在しないようである．
-しかし，やはり気になる問題であり{\tiny （さる方面から圧力もきたので）}，
-個人的に作ってみたものが\texttt{ptex-qtrip}である．詳細な説明はそちらの
-ドキュメントに譲る．ともかく，これを動作させてlog fileを比べてみると，メ
-モリ関連や\texttt{FAM256}関連以外は
+$B$9$k$H!$:G8e$K!$(B\pTeX $BFCM-$N3HD%ItJ,$N%F%9%H$r$7$?$/$J$k$o$1$@$,!$KL@n$N(B
+$BCN$k8B$j$K$*$$$F$O!$$=$N$h$&$J%F%9%H%=!<%9$O8x<0$K$OB8:_$7$J$$$h$&$G$"$k!%(B
+$B$7$+$7!$$d$O$j5$$K$J$kLdBj$G$"$j(B{\tiny $B!J$5$kJ}LL$+$i05NO$b$-$?$N$G!K(B}$B!$(B
+$B8D?ME*$K:n$C$F$_$?$b$N$,(B\texttt{ptex-qtrip}$B$G$"$k!%>\:Y$J@bL@$O$=$A$i$N(B
+$B%I%-%e%a%s%H$K>y$k!%$H$b$+$/!$$3$l$rF0:n$5$;$F(Blog file$B$rHf$Y$F$_$k$H!$%a(B
+$B%b%j4XO"$d(B\texttt{FAM256}$B4XO"0J30$O(B
 \begin{verbatim}
   -% split2 to -0.01802,6.94444 p=-10000
   +% split2 to -0.01806,6.94444 p=-10000
 \end{verbatim}
-以外の違いしかなかった．わずか$0.00004$の違い（単位がもしpointだとしたら
-$3$\,sp）だが，どこか気になるところである．
+$B0J30$N0c$$$7$+$J$+$C$?!%$o$:$+(B$0.00004$$B$N0c$$!JC10L$,$b$7(Bpoint$B$@$H$7$?$i(B
+$3$\,sp$B!K$@$,!$$I$3$+5$$K$J$k$H$3$m$G$"$k!%(B
 
-上の箇所もあるし，また\texttt{ptex-qtrip}自体がまだ完全なものではなのだ
-が，\pTeX と\epTeX は実用上においては互換と言えそうな気もしなくもない．
+$B>e$N2U=j$b$"$k$7!$$^$?(B\texttt{ptex-qtrip}$B<+BN$,$^$@40A4$J$b$N$G$O$J$N$@(B
+$B$,!$(B\pTeX $B$H(B\epTeX $B$O<BMQ>e$K$*$$$F$O8_49$H8@$($=$&$J5$$b$7$J$/$b$J$$!%(B
 
 \end{comment}
 
 \begin{thebibliography}{99}
- \bibitem{h7k} 北川 弘典，「計算数学II　作業記録」，2008．\\
-  \url{https://osdn.jp/projects/eptex/document/resume/ja/1/resume.pdf}ほか，
-  本pdfと同じディレクトリにある\texttt{resume.pdf}がそれにあたる．
- \bibitem{yamamoto} 山本 和義，「数式famの制限とluatex」，掲示板「\TeX\
-  Q\ \&\ A」，2009/02/12．
+ \bibitem{h7k} $BKL@n(B $B90E5!$!V7W;;?t3X(BII$B!!:n6H5-O?!W!$(B2008$B!%(B\\
+  \url{https://osdn.jp/projects/eptex/document/resume/ja/1/resume.pdf}$B$[$+!$(B
+  $BK\(Bpdf$B$HF1$8%G%#%l%/%H%j$K$"$k(B\texttt{resume.pdf}$B$,$=$l$K$"$?$k!%(B
+ \bibitem{yamamoto} $B;3K\(B $BOB5A!$!V?t<0(Bfam$B$N@)8B$H(Bluatex$B!W!$7G<(HD!V(B\TeX\
+  Q\ \&\ A$B!W!$(B2009/02/12$B!%(B
   \url{http://oku.edu.mie-u.ac.jp/~okumura/texfaq/qa/52744.html}
- \bibitem{yamamoto2} 山本 和義，「Re: 数式famの制限とluatex」，掲示板「\TeX\
-  Q\ \&\ A」，2009/02/16．
+ \bibitem{yamamoto2} $B;3K\(B $BOB5A!$!V(BRe: $B?t<0(Bfam$B$N@)8B$H(Bluatex$B!W!$7G<(HD!V(B\TeX\
+  Q\ \&\ A$B!W!$(B2009/02/16$B!%(B
   \url{http://oku.edu.mie-u.ac.jp/~okumura/texfaq/qa/52767.html}
-\bibitem{yamamoto3} 山本 和義，「数式fam拡張マクロ for e-pTeX等」，掲示板「\TeX\
-  Q\ \&\ A」，2009/02/21．
+\bibitem{yamamoto3} $B;3K\(B $BOB5A!$!V?t<0(Bfam$B3HD%%^%/%m(B for e-pTeX$BEy!W!$7G<(HD!V(B\TeX\
+  Q\ \&\ A$B!W!$(B2009/02/21$B!%(B
   \url{http://oku.edu.mie-u.ac.jp/~okumura/texfaq/qa/52799.html}
-\bibitem{expl31} 河原，「パッケージとディストリビューションについて」，掲示板「\TeX\
-  Q\ \&\ A」，2010/12/16．
+\bibitem{expl31} $B2O86!$!V%Q%C%1!<%8$H%G%#%9%H%j%S%e!<%7%g%s$K$D$$$F!W!$7G<(HD!V(B\TeX\
+  Q\ \&\ A$B!W!$(B2010/12/16$B!%(B
   \url{http://oku.edu.mie-u.ac.jp/~okumura/texfaq/qa/55464.html}
- \bibitem{expl32} 角藤 亮，「Re: パッケージとディストリビューションについて」，掲示板「\TeX\
-  Q\ \&\ A」，2010/12/19．
+ \bibitem{expl32} $B3QF#(B $BN<!$!V(BRe: $B%Q%C%1!<%8$H%G%#%9%H%j%S%e!<%7%g%s$K$D$$$F!W!$7G<(HD!V(B\TeX\
+  Q\ \&\ A$B!W!$(B2010/12/19$B!%(B
   \url{http://oku.edu.mie-u.ac.jp/~okumura/texfaq/qa/55478.html}
- \bibitem{expl33} zrbabbler，「LaTeX3 と expl3 パッケージ」，ブログ「マクロツイーター」内
-  ，2010/12/22．
+ \bibitem{expl33} zrbabbler$B!$!V(BLaTeX3 $B$H(B expl3 $B%Q%C%1!<%8!W!$%V%m%0!V%^%/%m%D%$!<%?!<!WFb(B
+  $B!$(B2010/12/22$B!%(B
   \url{http://d.hatena.ne.jp/zrbabbler/20101222/1293050561}
- \bibitem{strcmp} 角藤 亮，「Re: e-pTeX 101231」，掲示板「\TeX\
-  Q\ \&\ A」，2011/01/01．\\
+ \bibitem{strcmp} $B3QF#(B $BN<!$!V(BRe: e-pTeX 101231$B!W!$7G<(HD!V(B\TeX\
+  Q\ \&\ A$B!W!$(B2011/01/01$B!%(B\\
   \url{http://oku.edu.mie-u.ac.jp/~okumura/texfaq/qa/55528.html}
- \bibitem{pdfse} Dora TeX，「Re: \textbackslash pdfshellescape,
-  \textbackslash lastnodechar の実装」，\TeX~Forum，2014/11/19．
+ \bibitem{pdfse} Dora TeX$B!$!V(BRe: \textbackslash pdfshellescape,
+  \textbackslash lastnodechar $B$N<BAu!W!$(B\TeX~Forum$B!$(B2014/11/19$B!%(B
   \url{http://oku.edu.mie-u.ac.jp/tex/mod/forum/discuss.php?d=1435#p8053}
- \bibitem{lnc} 北川 弘典，「\textbackslash lastnodechar プリミティブについて」，2014/12/15．\\
+ \bibitem{lnc} $BKL@n(B $B90E5!$!V(B\textbackslash lastnodechar $B%W%j%_%F%#%V$K$D$$$F!W!$(B2014/12/15$B!%(B\\
  \url{https://osdn.jp/projects/eptex/wiki/lastnodechar}
  \bibitem{xe5} Joseph Wright, ``[XeTeX] \textbackslash (pdf)mdfivesum'',
   2015/07/01,\\
   \url{http://tug.org/pipermail/xetex/2015-July/026044.html}
- \bibitem{15715} tat tsan，「[expl3 / e(u)ptex] 2015/07/15 版 expl3 パッケージが
-  、(u)platex で通らない」，\TeX~Forum，2015/07/26．\\
+ \bibitem{15715} tat tsan$B!$!V(B[expl3 / e(u)ptex] 2015/07/15 $BHG(B expl3 $B%Q%C%1!<%8$,(B
+  $B!"(B(u)platex $B$GDL$i$J$$!W!$(B\TeX~Forum$B!$(B2015/07/26$B!%(B\\
   \url{http://oku.edu.mie-u.ac.jp/tex/mod/forum/discuss.php?d=1632}
- \bibitem{eptexinputenc} 阿部 紀行，「2016年2月2日」，2016/02/02．\\
-  \url{http://abenori.blogspot.jp/2016/02/e-ptexeptexinputencoding.html}．  
+ \bibitem{eptexinputenc} $B0$It(B $B5*9T!$!V(B2016$BG/(B2$B7n(B2$BF|!W!$(B2016/02/02$B!%(B\\
+  \url{http://abenori.blogspot.jp/2016/02/e-ptexeptexinputencoding.html}$B!%(B  
  \bibitem{etexman} The \NTS\!\ Team. \textit{The \eTeX\ manual} (v2.0). \\
   \verb+$TEXMFDIST/doc/etex/base/etex_man.pdf+
  \bibitem{omegaman} J.\ Plaice, Y.\ Haralambous. \textit{Draft
