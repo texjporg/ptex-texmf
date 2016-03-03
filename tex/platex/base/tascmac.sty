@@ -4,7 +4,7 @@
 % Modified by Japanese TeX Development Community.
 %
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{tascmac}[2016/02/21 ascmac package (community edition)]
+\ProvidesPackage{tascmac}[2016/03/04 ascmac package (community edition)]
 %
 % Actually `tascmac' requires pLaTeX2e, but LuaTeX-ja can handle the
 % code properly; so \NeedsTeXFormat{LaTeX2e} on purpose.
@@ -51,7 +51,7 @@
 \font\@ascgrp=ascgrp
 \newbox\scb@x \newbox\scscb@x
 \newdimen\@bw\newbox\@nbox\newbox\@nbody
-\def\boxnote{\par\vspace{\baselineskip}
+\def\boxnote{\par\vspace{.3\baselineskip}%
 \@savetbaselineshift\tbaselineshift\tbaselineshift\z@
 \setbox\@nbox=\hbox{\@ascgrp\vrule width1.08pt depth35pt b\hss a\hss b}
 \@whiledim \wd\@nbox<\hsize \do{
@@ -184,15 +184,16 @@
 %
 %% shadebox environment
 \newdimen\shaderule\shaderule 5pt
-\def\shadebox{\dimen0\linewidth \advance\dimen0-20pt 
+\def\shadebox{\par\vspace{.3\baselineskip}%
+\dimen0\linewidth \advance\dimen0-20pt
 \advance\dimen0-2\fboxrule \advance\dimen0-\shaderule
 \setbox\@tempboxa=\hbox\bgroup\minipage{\dimen0}}
-\def\endshadebox{\endminipage\egroup\dimen0=10pt \advance\dimen0-\fboxrule
+\def\endshadebox{\endminipage\egroup\dimen0=10pt
 \setbox\@tempboxa=\hbox{\kern\dimen0\unhbox\@tempboxa\kern\dimen0}%
 \setbox0=\vbox{\hrule \@height \fboxrule
-\hbox{\vrule \@width \fboxrule \hskip-\fboxrule
+\hbox{\vrule \@width \fboxrule
 \vbox{\vskip\fboxsep \box\@tempboxa\vskip\fboxsep}%
-\hskip-\fboxrule\vrule \@width \fboxrule}\hrule \@height \fboxrule}%
+\vrule \@width \fboxrule}\hrule \@height \fboxrule}%
 \dimen0=\ht0 \advance\dimen0-\shaderule
 \hbox{\hbox to \shaderule{\copy0\hss}\kern 0pt
 \vrule width\wd0 height0pt depth\shaderule\hskip-\shaderule
