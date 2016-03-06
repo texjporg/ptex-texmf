@@ -4,7 +4,7 @@
 % Modified by Japanese TeX Development Community.
 %
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{tascmac}[2016/03/04 ascmac package (community edition)]
+\ProvidesPackage{tascmac}[2016/03/06 ascmac package (community edition)]
 %
 % Actually `tascmac' requires pLaTeX2e, but LuaTeX-ja can handle the
 % code properly; so \NeedsTeXFormat{LaTeX2e} on purpose.
@@ -23,6 +23,13 @@
   }%
 \fi
 %
+% 2016/03/06
+%     - Set \tbaselineshift in itembox str and shadebox env.
+%     - Delete \tbaselineshift\z@ in \mask and \Maskbox.
+%     - Save \ybaselineshift.
+% 2016/03/04
+%     - boxnote, shadebox begin with \par\vspace{.3\baselineskip}.
+%     - Adjust the width of shadebox environment.
 % 2016/02/21 (many thanks to ZR for suggestions in bxascmac)
 %     - Made compatible with pict2e (tate-gumi not supported yet).
 %     - Adjust parameters for drawing rounded rectangles.
@@ -52,6 +59,7 @@
 \newbox\scb@x \newbox\scscb@x
 \newdimen\@bw\newbox\@nbox\newbox\@nbody
 \def\boxnote{\par\vspace{.3\baselineskip}%
+\@saveybaselineshift\ybaselineshift\ybaselineshift\z@
 \@savetbaselineshift\tbaselineshift\tbaselineshift\z@
 \setbox\@nbox=\hbox{\@ascgrp\vrule width1.08pt depth35pt b\hss a\hss b}
 \@whiledim \wd\@nbox<\hsize \do{
@@ -60,7 +68,7 @@
 \vrule width1.08pt depth35pt}
 \@bw=\wd\@nbox\advance\@bw -40pt
 \begin{lrbox}{\@nbody}\begin{minipage}{\@bw}% (KN:1998/02/27)
-  \tbaselineshift\@savetbaselineshift}%
+  \ybaselineshift\@saveybaselineshift \tbaselineshift\@savetbaselineshift}%
 \def\endboxnote{\end{minipage}\end{lrbox}%
 \vbox{\parindent=0pt\offinterlineskip\copy\@nbox
 \hbox to\wd\@nbox{\vrule width1.08pt\hfil\box\@nbody\hfil\vrule width1.08pt}
@@ -74,6 +82,7 @@
 \vrule\@width\z@\@height\z@\@depth.5\dimen\z@}}
 \def\@vrf@#1#2{\vskip#1\leaders\vrule width#2\vfil\vskip#1}
 \def\screen{%
+\@saveybaselineshift\ybaselineshift \ybaselineshift\z@
 \@savetbaselineshift\tbaselineshift \tbaselineshift\z@
 \@ifnextchar[{\@screen}{\@screen[0]}}
 \def\@screen[#1]{\ifcase#1\def\@r{20}\def\@s{9.8pt}\def\@sx{10pt}\or
@@ -87,7 +96,7 @@
 \def\@r{4}\def\@s{1.8pt}\def\@sx{2pt}\fi
 \par\vspace{.3\baselineskip}\@scw\linewidth \advance\@scw -\@r pt
 \setbox\scb@x=\hbox to\@scw\bgroup\begin{minipage}{\@scw}% (KN:1998/02/27)
-  \tbaselineshift\@savetbaselineshift}%
+  \ybaselineshift\@saveybaselineshift \tbaselineshift\@savetbaselineshift}%
 \def\endscreen{\end{minipage}\egroup%
 \setbox\scscb@x=\hbox to\linewidth{\hfil\vbox{\offinterlineskip%
 \thinlines\setlength{\unitlength}{1pt}\hrule\kern\@s%
@@ -103,12 +112,16 @@
 \def\@hleader{\leaders\hrule height .8pt\hfil}
 \def\itembox{\@ifnextchar[{\@itembox}{\@itembox[c]}}
 \def\@itembox[#1]#2{%
+  \@saveybaselineshift\ybaselineshift\ybaselineshift\z@
   \@savetbaselineshift\tbaselineshift\tbaselineshift\z@
   \par\vspace{.3\baselineskip}%
-  \setbox\@iboxstr=\hbox{#2}\@itemh\ht\@iboxstr\advance\@itemh\dp\@iboxstr
+  \setbox\@iboxstr=\hbox{%
+  \ybaselineshift\@saveybaselineshift \tbaselineshift\@savetbaselineshift #2}%
+  \@itemh\ht\@iboxstr\advance\@itemh\dp\@iboxstr
   \vspace{.5\@itemh}\bgroup\@scw\linewidth
   \advance\@scw-20pt\@iboxpos={#1}%
   \setbox\scb@x=\hbox to\@scw\bgroup\begin{minipage}{\@scw}%
+  \ybaselineshift\@saveybaselineshift
   \tbaselineshift\@savetbaselineshift% (KN:1998/02/27)
   \vspace*{.5\@itemh}}%
 \def\enditembox{\end{minipage}\egroup%
@@ -125,7 +138,9 @@
 %%
 %% \keytop
 \def\keytop{\@ifnextchar[{\@keytop}{\@keytop[d]}}
-\def\@keytop[#1]#2{\tbaselineshift\z@
+\def\@keytop[#1]#2{%
+\@saveybaselineshift\ybaselineshift\ybaselineshift\z@
+\@savetbaselineshift\tbaselineshift\tbaselineshift\z@
 {\setbox0=\hbox{\shortstack{#2}}%
 \dimen0=\wd0\advance\dimen0 5pt\dimen1=\dp0\advance\dimen1 2.5pt%
 \setbox\scscb@x=\hbox to\dimen0{%
@@ -136,7 +151,8 @@
 \setbox0=\vbox{\hbox{\hbox to0pt{\hss\vtop to\dimen0{\@vrf@{2.5pt}{.4pt}}}%
 \box\scscb@x\hbox to.2pt{\hss\vtop to\dimen0{\@vrf@{2.5pt}{.4pt}}}}}%
 \if #1c $\vcenter{\box0}$ \else \if #1t\else\if #1b\boxmaxdepth=0pt\else
-\boxmaxdepth=\dimen1\fi\fi \mbox{}\vbox{\box0}\fi}}
+\boxmaxdepth=\dimen1\fi\fi \mbox{}\vbox{\box0}\fi}%
+\ybaselineshift\@saveybaselineshift \tbaselineshift\@savetbaselineshift}
 %
 %% \yen
 %
@@ -154,7 +170,7 @@
 %% \mask & \maskbox
 \newbox\@bwsp \newbox\@@bwsp\newcount\@bcal
 \def\setdim@#1#2{\@bcal=#2\divide#1\@bcal\multiply#1\@bcal\advance#1 1.001#2}
-\def\mask#1#2{\tbaselineshift\z@
+\def\mask#1#2{%\tbaselineshift\z@
 {\setbox\@bwsp=\hbox{#1}\setbox0=\hbox{\@ascgrp#2}%
 \dimen0=\wd\@bwsp\dimen1=\ht\@bwsp\advance\dimen1\dp\@bwsp\dimen2=-\dimen1
 \setdim@{\dimen0}{\wd0}\setdim@{\dimen1}{\ht0}%
@@ -167,7 +183,7 @@
 %
 %  \Maskbox{width}{height}{mask_char}{pos}{rule_wid}{body}
 \def\@setdim#1#2{\@bcal=#2\divide#1\@bcal\multiply#1\@bcal\advance#1 .001#2}
-\def\Maskbox#1#2#3#4#5#6{{\tbaselineshift\z@
+\def\Maskbox#1#2#3#4#5#6{{%\tbaselineshift\z@
 \setbox0=\hbox{\@ascgrp#3}%
 \dimen0=#1\@setdim{\dimen0}{\wd0}\dimen1=#2\@setdim{\dimen1}{\ht0}%
 \ifx#4c\skip0=0pt plus1fil\skip1=\skip0\fi
@@ -185,9 +201,12 @@
 %% shadebox environment
 \newdimen\shaderule\shaderule 5pt
 \def\shadebox{\par\vspace{.3\baselineskip}%
+\@saveybaselineshift\ybaselineshift\ybaselineshift\z@
+\@savetbaselineshift\tbaselineshift\tbaselineshift\z@
 \dimen0\linewidth \advance\dimen0-20pt
 \advance\dimen0-2\fboxrule \advance\dimen0-\shaderule
-\setbox\@tempboxa=\hbox\bgroup\minipage{\dimen0}}
+\setbox\@tempboxa=\hbox\bgroup\minipage{\dimen0}%
+  \ybaselineshift\@saveybaselineshift \tbaselineshift\@savetbaselineshift}
 \def\endshadebox{\endminipage\egroup\dimen0=10pt
 \setbox\@tempboxa=\hbox{\kern\dimen0\unhbox\@tempboxa\kern\dimen0}%
 \setbox0=\vbox{\hrule \@height \fboxrule
