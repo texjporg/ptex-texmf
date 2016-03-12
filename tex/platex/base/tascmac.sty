@@ -146,15 +146,17 @@
 \def\@keytop[#1]#2{%
   \@saveybaselineshift\ybaselineshift\ybaselineshift\z@
   \@savetbaselineshift\tbaselineshift\tbaselineshift\z@
-  {\setbox0=\hbox{\shortstack{#2}}%
+  {\setbox0=\hbox{\ybaselineshift\@saveybaselineshift
+  \tbaselineshift\@savetbaselineshift\shortstack{#2}}%
   \dimen0=\wd0\advance\dimen0 5pt\dimen1=\dp0\advance\dimen1 2.5pt%
   \setbox\scscb@x=\hbox to\dimen0{%
   \iftdir\tate\else\yoko\fi
   \@scw\wd0\hfil\vtop{\offinterlineskip
   \thinlines\setlength{\unitlength}{1pt}\hrule\kern2.3pt\@hobox{tl}{tr}5%
-  \kern-2.4pt\box0\@hobox{bl}{br}5\kern-.25pt\hrule}\hfil}\dimen0=\dp\scscb@x%
-  \setbox0=\vbox{\hbox{\hbox to0pt{\hss\vtop to\dimen0{\@vrf@{2.5pt}{.4pt}}}%
-  \box\scscb@x\hbox to.2pt{\hss\vtop to\dimen0{\@vrf@{2.5pt}{.4pt}}}}}%
+  \kern-2.4pt\box0\@hobox{bl}{br}5\kern-.4pt\hrule}\hfil}%
+  \dimen0=\dp\scscb@x\advance\dimen0 -.4pt
+  \setbox0=\vbox{\hbox{\hbox to.2pt{\vtop to\dimen0{\@vrf@{2.3pt}{.4pt}}\hss}%
+  \box\scscb@x\hbox to.2pt{\hss\vtop to\dimen0{\@vrf@{2.3pt}{.4pt}}}}}%
   \if #1c\mbox{}$\vcenter{\box0}$\mbox{}\else
   \if #1t\else\if #1b\boxmaxdepth=0pt\else
   \boxmaxdepth=\dimen1\fi\fi \mbox{}\vbox{\box0}\fi}%
