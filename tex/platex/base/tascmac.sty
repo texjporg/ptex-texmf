@@ -4,7 +4,7 @@
 % Modified by Japanese TeX Development Community.
 %
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{tascmac}[2016/03/06 ascmac package (community edition)]
+\ProvidesPackage{tascmac}[2016/03/12 ascmac package (community edition)]
 %
 % Actually `tascmac' requires pLaTeX2e, but LuaTeX-ja can handle the
 % code properly; so \NeedsTeXFormat{LaTeX2e} on purpose.
@@ -23,6 +23,8 @@
   }%
 \fi
 %
+% 2016/03/12
+%     - Remove extra spaces before/after \keytop[c]{...}.
 % 2016/03/06
 %     - Set \tbaselineshift in itembox str and shadebox env.
 %     - Delete \tbaselineshift\z@ in \mask and \Maskbox.
@@ -150,7 +152,8 @@
 \kern-2.4pt\box0\@hobox{bl}{br}5\kern-.25pt\hrule}\hfil}\dimen0=\dp\scscb@x%
 \setbox0=\vbox{\hbox{\hbox to0pt{\hss\vtop to\dimen0{\@vrf@{2.5pt}{.4pt}}}%
 \box\scscb@x\hbox to.2pt{\hss\vtop to\dimen0{\@vrf@{2.5pt}{.4pt}}}}}%
-\if #1c $\vcenter{\box0}$ \else \if #1t\else\if #1b\boxmaxdepth=0pt\else
+\if #1c\mbox{}$\vcenter{\box0}$\mbox{}\else
+\if #1t\else\if #1b\boxmaxdepth=0pt\else
 \boxmaxdepth=\dimen1\fi\fi \mbox{}\vbox{\box0}\fi}%
 \ybaselineshift\@saveybaselineshift \tbaselineshift\@savetbaselineshift}
 %
