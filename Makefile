@@ -2,9 +2,10 @@ SRCDIR = source/platex/base
 TEXDIR = tex/platex/base
 DOCDIR = doc/platex/base
 
-TARGET1 = platex.ltx jarticle.cls jarticle.sty nidanfloat.sty \
-	platexrelease.sty
-TARGET2 = platex.pdf platexrelease.pdf pldoc.pdf
+TARGET1 = platex.ltx jarticle.cls pl209.def platexrelease.sty \
+	nidanfloat.sty tascmac.sty
+TARGET2 = platex.pdf platexrelease.pdf pldoc.pdf \
+	nidanfloat.pdf ascmac.pdf
 
 all: $(addprefix $(TEXDIR)/,$(TARGET1)) \
 	$(addprefix $(DOCDIR)/,$(TARGET2))
@@ -27,13 +28,17 @@ PL209 = pl209.def oldpfont.sty jarticle.sty tarticle.sty \
 
 PL209_SRC = pl209.dtx
 
+PLREL = platexrelease.sty
+
+PLREL_SRC = platexrelease.dtx $(PLFMT_SRC)
+
 NIDAN = nidanfloat.sty
 
 NIDAN_SRC = nidanfloat.dtx
 
-PLREL = platexrelease.sty
+ASCMAC = tascmac.sty ascmac.sty
 
-PLREL_SRC = platexrelease.dtx $(PLFMT_SRC)
+ASCMAC_SRC = ascmac.dtx
 
 INTRODOC_SRC = platex.dtx
 
@@ -50,17 +55,21 @@ $(TEXDIR)/jarticle.cls: $(addprefix $(SRCDIR)/,$(PLCLS_SRC))
 	cd $(SRCDIR); $(MAKE) jarticle.cls
 	for x in $(PLCLS); do mv $(SRCDIR)/$$x $(TEXDIR); done
 
-$(TEXDIR)/jarticle.sty: $(addprefix $(SRCDIR)/,$(PL209_SRC))
-	cd $(SRCDIR); $(MAKE) jarticle.sty
+$(TEXDIR)/pl209.def: $(addprefix $(SRCDIR)/,$(PL209_SRC))
+	cd $(SRCDIR); $(MAKE) pl209.def
 	for x in $(PL209); do mv $(SRCDIR)/$$x $(TEXDIR); done
+
+$(TEXDIR)/platexrelease.sty: $(addprefix $(SRCDIR)/,$(PLREL_SRC))
+	cd $(SRCDIR); $(MAKE) platexrelease.sty
+	for x in $(PLREL); do mv $(SRCDIR)/$$x $(TEXDIR); done
 
 $(TEXDIR)/nidanfloat.sty: $(addprefix $(SRCDIR)/,$(NIDAN_SRC))
 	cd $(SRCDIR); $(MAKE) nidanfloat.sty
 	for x in $(NIDAN); do mv $(SRCDIR)/$$x $(TEXDIR); done
 
-$(TEXDIR)/platexrelease.sty: $(addprefix $(SRCDIR)/,$(PLREL_SRC))
-	cd $(SRCDIR); $(MAKE) platexrelease.sty
-	for x in $(PLREL); do mv $(SRCDIR)/$$x $(TEXDIR); done
+$(TEXDIR)/tascmac.sty: $(addprefix $(SRCDIR)/,$(ASCMAC_SRC))
+	cd $(SRCDIR); $(MAKE) tascmac.sty
+	for x in $(ASCMAC); do mv $(SRCDIR)/$$x $(TEXDIR); done
 
 $(DOCDIR)/platex.pdf: $(addprefix $(SRCDIR)/,$(INTRODOC_SRC))
 	cd $(SRCDIR); $(MAKE) platex.pdf
@@ -75,14 +84,24 @@ $(DOCDIR)/pldoc.pdf: $(addprefix $(SRCDIR)/,$(PLDOC_SRC))
 	mv $(SRCDIR)/pldoc.pdf $(DOCDIR)
 	mv $(SRCDIR)/jltxdoc.cls $(TEXDIR)
 
+$(DOCDIR)/nidanfloat.pdf: $(addprefix $(SRCDIR)/,$(NIDAN_SRC))
+	cd $(SRCDIR); $(MAKE) nidanfloat.pdf
+	mv $(SRCDIR)/nidanfloat.pdf $(DOCDIR)
+
+$(DOCDIR)/ascmac.pdf: $(addprefix $(SRCDIR)/,$(ASCMAC_SRC))
+	cd $(SRCDIR); $(MAKE) ascmac.pdf
+	mv $(SRCDIR)/ascmac.pdf $(DOCDIR)
+
 .PHONY: clean
 clean:
 	for x in $(addprefix $(TEXDIR)/,$(PLFMT)) \
 	$(addprefix $(TEXDIR)/,$(PLCLS)) \
 	$(addprefix $(TEXDIR)/,$(PL209)) \
-	$(addprefix $(TEXDIR)/,$(NIDAN)) \
 	$(addprefix $(TEXDIR)/,$(PLREL)) \
+	$(addprefix $(TEXDIR)/,$(NIDAN)) \
+	$(addprefix $(TEXDIR)/,$(ASCMAC)) \
 	$(DOCDIR)/platex.pdf $(DOCDIR)/platexrelease.pdf $(DOCDIR)/pldoc.pdf \
+	$(DOCDIR)/nidanfloat.pdf $(DOCDIR)/ascmac.pdf \
 	$(TEXDIR)/jltxdoc.cls $(SRCDIR)/pldoc.tex $(SRCDIR)/Xins.ins; do \
 	if [ -e $$x ]; then rm $$x; fi \
 	done

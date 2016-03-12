@@ -1,5 +1,7 @@
-all: platex.ltx jarticle.cls jarticle.sty nidanfloat.sty \
-	platexrelease.sty platex.pdf platexrelease.pdf pldoc.pdf
+all: platex.ltx jarticle.cls pl209.def platexrelease.sty \
+	nidanfloat.sty tascmac.sty \
+	platex.pdf platexrelease.pdf pldoc.pdf \
+	nidanfloat.pdf ascmac.pdf
 
 .PHONY: $(TARGET1) $(TARGET2)
 
@@ -11,17 +13,21 @@ jarticle.cls:
 	platex --kanji=jis plcls.ins
 	rm plcls.log
 
-jarticle.sty:
+pl209.def:
 	platex --kanji=jis pl209.ins
 	rm pl209.log
+
+platexrelease.sty:
+	platex --kanji=jis platexrelease.ins
+	rm platexrelease.log
 
 nidanfloat.sty:
 	platex --kanji=jis nidanfloat.ins
 	rm nidanfloat.log
 
-platexrelease.sty:
-	platex --kanji=jis platexrelease.ins
-	rm platexrelease.log
+tascmac.sty:
+	platex --kanji=jis ascmac.ins
+	rm ascmac.log
 
 platex.pdf:
 	platex --kanji=jis platex.dtx && \
@@ -45,3 +51,15 @@ pldoc.pdf:
 	rm *.aux *.log pldoc.toc pldoc.idx pldoc.ind pldoc.ilg
 	rm pldoc.glo pldoc.gls *.dvi
 	rm *.cfg pldoc.dic mkpldoc.sh dstcheck.pl
+
+nidanfloat.pdf:
+	platex --kanji=jis nidanfloat.dtx && \
+	platex --kanji=jis nidanfloat.dtx && \
+	dvipdfmx nidanfloat.dvi
+	rm nidanfloat.aux nidanfloat.log nidanfloat.dvi
+
+ascmac.pdf:
+	platex --kanji=jis ascmac.dtx && \
+	platex --kanji=jis ascmac.dtx && \
+	dvipdfmx ascmac.dvi
+	rm ascmac.aux ascmac.log ascmac.toc ascmac.dvi
