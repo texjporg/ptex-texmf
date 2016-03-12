@@ -23,7 +23,7 @@
 %%
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{tascmac}
-  [2016/03/12 v2.0
+  [2016/03/13 v2.0a
   ascmac package (community edition)
   ]
 %%
@@ -174,12 +174,12 @@
 %% \mask
 \newbox\@bwsp \newbox\@@bwsp\newcount\@bcal
 \def\setdim@#1#2{\@bcal=#2\divide#1\@bcal\multiply#1\@bcal\advance#1 1.001#2}
-\def\mask#1#2{%\tbaselineshift\z@
-  {\setbox\@bwsp=\hbox{#1}\setbox0=\hbox{\@ascgrp#2}%
+\def\mask#1#2{{\setbox\@bwsp=\hbox{#1}%
+  \setbox0=\hbox{\ybaselineshift\z@\tbaselineshift\z@ \@ascgrp#2}%
   \dimen0=\wd\@bwsp\dimen1=\ht\@bwsp\advance\dimen1\dp\@bwsp\dimen2=-\dimen1
   \setdim@{\dimen0}{\wd0}\setdim@{\dimen1}{\ht0}%
   \setbox\@@bwsp=\hbox to\dimen0{\leaders
-  \vtop to\dimen1{\leaders\hbox{\@ascgrp#2}\vfil}\hfil}%
+  \vtop to\dimen1{\leaders\box0\vfil}\hfil}%
   \advance\dimen2\dp\@@bwsp\divide\dimen2 2
   \advance\dimen2\dp\@bwsp\boxmaxdepth=\dimen2
   \setbox\@@bwsp=\vbox{\box\@@bwsp}%
@@ -188,15 +188,15 @@
 %% \Maskbox{width}{height}{mask_char}{pos}{rule_wid}{body}
 %% \maskbox{width}{height}{mask_char}{pos}{body}
 \def\@setdim#1#2{\@bcal=#2\divide#1\@bcal\multiply#1\@bcal\advance#1 .001#2}
-\def\Maskbox#1#2#3#4#5#6{{%\tbaselineshift\z@
-  \setbox0=\hbox{\@ascgrp#3}%
+\def\Maskbox#1#2#3#4#5#6{{%
+  \setbox0=\hbox{\ybaselineshift\z@\tbaselineshift\z@ \@ascgrp#3}%
   \dimen0=#1\@setdim{\dimen0}{\wd0}\dimen1=#2\@setdim{\dimen1}{\ht0}%
   \ifx#4c\skip0=0pt plus1fil\skip1=\skip0\fi
   \ifx#4r\skip0=0pt plus1fil\skip1=0pt\fi
   \ifx#4l\skip1=0pt plus1fil\skip0=0pt\fi
   \leavevmode
   \hbox{\hbox to0pt{\hbox to\dimen0{\leaders\vbox to\dimen1{\leaders
-  \hbox{\@ascgrp#3}\vfil}\hfil}\hss}%
+  \box0\vfil}\hfil}\hss}%
   \vrule width#5\vbox to\dimen1{\hrule height#5\vfil
   \dimen3=#5\advance\dimen0-2\dimen3\advance\dimen0 .15pt
   \hbox to\dimen0{\hskip\skip0\relax#6\hskip\skip1}%

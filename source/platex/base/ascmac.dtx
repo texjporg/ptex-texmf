@@ -8,7 +8,7 @@
 %
 % \fi
 %
-% \CheckSum{840}
+% \CheckSum{842}
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
 %   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
@@ -27,6 +27,8 @@
 %
 % \iffalse
 %
+% 2016/03/13 v2.0a
+%     - Avoid arithmetic overflow in \mask/\maskbox.
 % 2016/03/12 v2.0
 %     - Converted to DTX file.
 %     - Remove extra spaces before/after \keytop[c]{...}.
@@ -72,7 +74,7 @@
 %</driver>
 %<tascmac>\ProvidesPackage{tascmac}
 %<ascmac>\ProvidesPackage{ascmac}
-  [2016/03/12 v2.0
+  [2016/03/13 v2.0a
 %<driver|tascmac>  ascmac package (community edition)
 %<ascmac>  ascmac wrapper (community edition)
   ]
@@ -547,12 +549,12 @@
 % \begin{macro}{\mask}
 % |\mask| 命令を定義します。
 %    \begin{macrocode}
-\def\mask#1#2{%\tbaselineshift\z@
-  {\setbox\@bwsp=\hbox{#1}\setbox0=\hbox{\@ascgrp#2}%
+\def\mask#1#2{{\setbox\@bwsp=\hbox{#1}%
+  \setbox0=\hbox{\ybaselineshift\z@\tbaselineshift\z@ \@ascgrp#2}%
   \dimen0=\wd\@bwsp\dimen1=\ht\@bwsp\advance\dimen1\dp\@bwsp\dimen2=-\dimen1
   \setdim@{\dimen0}{\wd0}\setdim@{\dimen1}{\ht0}%
   \setbox\@@bwsp=\hbox to\dimen0{\leaders
-  \vtop to\dimen1{\leaders\hbox{\@ascgrp#2}\vfil}\hfil}%
+  \vtop to\dimen1{\leaders\box0\vfil}\hfil}%
   \advance\dimen2\dp\@@bwsp\divide\dimen2 2
   \advance\dimen2\dp\@bwsp\boxmaxdepth=\dimen2
   \setbox\@@bwsp=\vbox{\box\@@bwsp}%
@@ -572,15 +574,15 @@
 % \begin{macro}{\maskbox}
 % |\maskbox| 命令と |\Maskbox| 命令を定義します。
 %    \begin{macrocode}
-\def\Maskbox#1#2#3#4#5#6{{%\tbaselineshift\z@
-  \setbox0=\hbox{\@ascgrp#3}%
+\def\Maskbox#1#2#3#4#5#6{{%
+  \setbox0=\hbox{\ybaselineshift\z@\tbaselineshift\z@ \@ascgrp#3}%
   \dimen0=#1\@setdim{\dimen0}{\wd0}\dimen1=#2\@setdim{\dimen1}{\ht0}%
   \ifx#4c\skip0=0pt plus1fil\skip1=\skip0\fi
   \ifx#4r\skip0=0pt plus1fil\skip1=0pt\fi
   \ifx#4l\skip1=0pt plus1fil\skip0=0pt\fi
   \leavevmode
   \hbox{\hbox to0pt{\hbox to\dimen0{\leaders\vbox to\dimen1{\leaders
-  \hbox{\@ascgrp#3}\vfil}\hfil}\hss}%
+  \box0\vfil}\hfil}\hss}%
   \vrule width#5\vbox to\dimen1{\hrule height#5\vfil
   \dimen3=#5\advance\dimen0-2\dimen3\advance\dimen0 .15pt
   \hbox to\dimen0{\hskip\skip0\relax#6\hskip\skip1}%
