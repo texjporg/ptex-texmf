@@ -8,7 +8,7 @@
 %
 % \fi
 %
-% \CheckSum{981}
+% \CheckSum{983}
 %% \CharacterTable
 %%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
 %%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
@@ -54,6 +54,7 @@
 %    ようにする\texttt{\cs{vskip}~-\cs{dimen@}}が縦組モードでは無効になっていたので修正}
 % \changes{v1.2c}{2016/02/28}{1.2bと同様の修正を
 %     tabular環境、\cs{parbox}命令、\cs{underline}命令にも行った}
+% \changes{v1.2d}{2016/04/01}{multicolパッケージを使うとトンボの下端が縮む問題を修正}
 % \fi
 %
 % \iffalse
@@ -536,10 +537,12 @@
 %
 % \begin{macro}{\@outputtombow}
 % |\@outputtombow|コマンドは、トンボを出力するのに用います。
+% \changes{v1.2d}{2016/04/01}{multicolパッケージを使うとトンボの下端が縮む問題を修正}
 %    \begin{macrocode}
 \def\@outputtombow{%
   \iftombow
   \vbox to\z@{\kern-13mm\relax
+    \boxmaxdepth\maxdimen%% Added (Apr 1, 2016)
     \moveleft3mm\vbox to\@@paperheight{%
       \hbox to\@@paperwidth{\hskip3mm\relax
          \copy\@TL\hfill\copy\@TC\hfill\copy\@TR\hskip3mm}%
