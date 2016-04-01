@@ -857,8 +857,10 @@
 % \subsection{tabular環境など}
 % \changes{v1.2c}{2016/02/28}{1.2bと同様の修正を
 %     tabular環境、\cs{parbox}命令、\cs{underline}命令にも行った}
-%
+% \LaTeXe{}のカーネルのコードをそのまま使うと、p\TeX{}の|\xkanjiskip|由来の
+% アキが前後に入ってしまうことがありました。そうした命令にパッチをあてます。
 % \begin{macro}{\@tabular}
+% tabular環境の内部命令です。もとは\file{lttab.dtx}で定義されています。
 %    \begin{macrocode}
 \def\@tabular{\leavevmode \null\hbox \bgroup $\let\@acol\@tabacol
    \let\@classz\@tabclassz
@@ -876,6 +878,7 @@
 % \end{macro}
 %
 % \begin{macro}{\@iiiparbox}
+% |\parbox|の内部命令です。もとは\file{ltboxes.dtx}で定義されています。
 %    \begin{macrocode}
 \let\@parboxto\@empty
 \long\def\@iiiparbox#1#2[#3]#4#5{%
@@ -900,6 +903,7 @@
 % \end{macro}
 %
 % \begin{macro}{\underline}
+% 下線を引く命令です。もとは\file{ltboxes.dtx}で定義されています。
 %    \begin{macrocode}
 \def\underline#1{%
   \relax

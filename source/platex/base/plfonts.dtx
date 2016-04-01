@@ -71,7 +71,7 @@
 %<*driver>
 \NeedsTeXFormat{pLaTeX2e}
 % \fi
-\ProvidesFile{plfonts.dtx}[2016/04/01 v1.6 pLaTeX New Font Selection Scheme]
+\ProvidesFile{plfonts.dtx}[2016/04/01 v1.6a pLaTeX New Font Selection Scheme]
 % \iffalse
 \documentclass{jltxdoc}
 \GetFileInfo{plfonts.dtx}
@@ -1622,14 +1622,16 @@
 %    \begin{macrocode}
 %<*pldefs>
 \ProvidesFile{pldefs.ltx}
-      [2000/07/13 v1.2 pLaTeX Kernel (Default settings)] 
+      [2016/04/01 v1.6a pLaTeX Kernel (Default settings)] 
 %    \end{macrocode}
 %
 % \subsection{合成文字}
-% \changes{v1.6a}{2016/04/01}{ベースライン補正量が0でないときに
-%    \cs{AA}など一部の合成文字がおかしくなることへの対応。}
 % \begin{macro}{\@text@composite}
 % \begin{macro}{\@text@composite@x}
+% \LaTeXe{}のカーネルのコードをそのまま使うと、p\TeX{}のベースライン
+% 補正量がゼロでないときに合成文字がおかしくなっていたため、対策します。
+% \changes{v1.6a}{2016/04/01}{ベースライン補正量が0でないときに
+%    \cs{AA}など一部の合成文字がおかしくなることへの対応。}
 %    \begin{macrocode}
 \def\@text@composite#1#2#3#{%
   \begingroup
