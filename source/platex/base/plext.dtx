@@ -645,7 +645,7 @@
 %    \end{macrocode}
 % \end{macro}
 %
-% \begin{macro}{\X@minpage}
+% \begin{macro}{\X@minipage}
 % 位置オプションを調べます。
 %    \begin{macrocode}
 \def\X@minipage<#1>{\@ifnextchar[%]
@@ -653,7 +653,7 @@
 %    \end{macrocode}
 % \end{macro}
 %
-% \begin{macro}{\@iminpage}
+% \begin{macro}{\@iminipage}
 % 高さオプションを調べます。
 %    \begin{macrocode}
 \def\@iminipage<#1>[#2]{\@ifnextchar[%]
@@ -661,7 +661,7 @@
 %    \end{macrocode}
 % \end{macro}
 %
-% \begin{macro}{\@iiminpage}
+% \begin{macro}{\@iiminipage}
 % 内部位置オプションを調べます。
 %    \begin{macrocode}
 \def\@iiminipage<#1>#2[#3]{\@ifnextchar[%]
@@ -669,10 +669,10 @@
 %    \end{macrocode}
 % \end{macro}
 % 
-% \begin{macro}{\@iiiminpage}
+% \begin{macro}{\@iiiminipage}
 % minipage環境の内部形式です。
 % \changes{v1.1g}{1996/01/12}{\break Grouping \cs{@iiiminipage}}
-% \cs{levevmode}の後の\cs{bgroup}は、
+% \cs{leavevmode}の後の\cs{bgroup}は、
 % 回転オプションが指定されたときのフラグ|\if@rotsw|が、このマクロの内部だけ
 % で有効になるようにするためです。この括弧は、\cs{endminipage}コマンドで
 % 閉じます。
@@ -712,7 +712,7 @@
 %    \end{macrocode}
 % \end{macro}
 %
-% \begin{macro}{\endminpage}
+% \begin{macro}{\endminipage}
 % minipage環境の終了コマンドです。
 %    \begin{macrocode}
 \def\endminipage{%
