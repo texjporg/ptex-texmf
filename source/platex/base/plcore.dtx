@@ -8,7 +8,7 @@
 %
 % \fi
 %
-% \CheckSum{983}
+% \CheckSum{1266}
 %% \CharacterTable
 %%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
 %%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
@@ -238,6 +238,9 @@
 % このマクロが組み立てる部分の中心となります。
 % \file{ltoutput.dtx}で定義されているものです。
 %    \begin{macrocode}
+%</plcore>
+%<platexrelease>\plIncludeInRelease{2016/04/17}{\@makecol}{\@makecol}%
+%<*plcore|platexrelease>
 \gdef\@makecol{%
    \setbox\@outputbox\box\@cclv%
    \xdef\@freelist{\@freelist\@midlist}%
@@ -277,7 +280,38 @@
    \fi
    \global \maxdepth \@maxdepth
 }
-%</plcore>
+%</plcore|platexrelease>
+%<platexrelease>\plEndIncludeInRelease
+%<platexrelease>\plIncludeInRelease{0000/00/00}{\@makecol}{\@makecol}%
+%<platexrelease>\gdef\@makecol{%
+%<platexrelease>   \setbox\@outputbox\box\@cclv%
+%<platexrelease>   \xdef\@freelist{\@freelist\@midlist}%
+%<platexrelease>   \global \let \@midlist \@empty
+%<platexrelease>   \@combinefloats
+%<platexrelease>   \ifvbox\@kludgeins
+%<platexrelease>     \@makespecialcolbox
+%<platexrelease>   \else
+%<platexrelease>     \setbox\@outputbox \vbox to\@colht {%
+%<platexrelease>%       \boxmaxdepth \@maxdepth		% comment out on LaTeX 1997/12/01
+%<platexrelease>       \@texttop
+%<platexrelease>       \dimen@ \dp\@outputbox
+%<platexrelease>       \unvbox \@outputbox
+%<platexrelease>       \iftdir\hskip\z@
+%<platexrelease>       \else\vskip -\dimen@\fi
+%<platexrelease>       \@textbottom
+%<platexrelease>       \ifvoid\footins\else % for pLaTeX
+%<platexrelease>         \vskip \skip\footins
+%<platexrelease>         \color@begingroup
+%<platexrelease>            \normalcolor
+%<platexrelease>            \footnoterule
+%<platexrelease>            \unvbox \footins
+%<platexrelease>         \color@endgroup
+%<platexrelease>       \fi
+%<platexrelease>       }%
+%<platexrelease>   \fi
+%<platexrelease>   \global \maxdepth \@maxdepth
+%<platexrelease>}
+%<platexrelease>\plEndIncludeInRelease
 %    \end{macrocode}
 % \end{macro}
 %
@@ -539,6 +573,9 @@
 % |\@outputtombow|コマンドは、トンボを出力するのに用います。
 % \changes{v1.2d}{2016/04/01}{multicolパッケージを使うとトンボの下端が縮む問題を修正}
 %    \begin{macrocode}
+%</plcore>
+%<platexrelease>\plIncludeInRelease{2016/04/17}{\@outputtombow}{\@outputtombow}%
+%<*plcore|platexrelease>
 \def\@outputtombow{%
   \iftombow
   \vbox to\z@{\kern-13mm\relax
@@ -559,6 +596,30 @@
   }%
   \fi
 }
+%</plcore|platexrelease>
+%<platexrelease>\plEndIncludeInRelease
+%<platexrelease>\plIncludeInRelease{0000/00/00}{\@outputtombow}{\@outputtombow}%
+%<platexrelease>\def\@outputtombow{%
+%<platexrelease>  \iftombow
+%<platexrelease>  \vbox to\z@{\kern-13mm\relax
+%<platexrelease>    \moveleft3mm\vbox to\@@paperheight{%
+%<platexrelease>      \hbox to\@@paperwidth{\hskip3mm\relax
+%<platexrelease>         \copy\@TL\hfill\copy\@TC\hfill\copy\@TR\hskip3mm}%
+%<platexrelease>      \kern-10mm
+%<platexrelease>      \hbox to\@@paperwidth{\copy\@Tl\hfill\copy\@Tr}%
+%<platexrelease>      \vfill
+%<platexrelease>      \hbox to\@@paperwidth{\copy\@CL\hfill\copy\@CR}%
+%<platexrelease>      \vfill
+%<platexrelease>      \hbox to\@@paperwidth{\copy\@Bl\hfill\copy\@Br}%
+%<platexrelease>      \kern-10mm
+%<platexrelease>      \hbox to\@@paperwidth{\hskip3mm\relax
+%<platexrelease>         \copy\@BL\hfill\copy\@BC\hfill\copy\@BR\hskip3mm}%
+%<platexrelease>    }\vss
+%<platexrelease>  }%
+%<platexrelease>  \fi
+%<platexrelease>}
+%<platexrelease>\plEndIncludeInRelease
+%<*plcore>
 %    \end{macrocode}
 % \end{macro}
 %
@@ -721,9 +782,22 @@
 % \changes{v1.2b}{2016/01/26}{2013年以降のp\TeX\ (r28720)で脚注番号の前後の和文文字
 %    との間にxkanjiskipが入ってしまう問題に対応}
 %    \begin{macrocode}
+%</plcore>
+%<platexrelease>\plIncludeInRelease{2016/04/17}{\@makefnmark}
+%<platexrelease>                   {Remove extra \xkanjiskip}%
+%<*plcore|platexrelease>
 \renewcommand\@makefnmark{%
   \ifydir \hbox{}\hbox{\@textsuperscript{\normalfont\@thefnmark}}\hbox{}%
   \else\hbox{\yoko\@textsuperscript{\normalfont\@thefnmark}}\fi}
+%</plcore|platexrelease>
+%<platexrelease>\plEndIncludeInRelease
+%<platexrelease>\plIncludeInRelease{0000/00/00}{\@makefnmark}
+%<platexrelease>                   {Remove extra \xkanjiskip}%
+%<platexrelease>\renewcommand\@makefnmark{\hbox{%
+%<platexrelease>  \ifydir \@textsuperscript{\normalfont\@thefnmark}%
+%<platexrelease>  \else\hbox{\yoko\@textsuperscript{\normalfont\@thefnmark}}\fi}}
+%<platexrelease>\plEndIncludeInRelease
+%<*plcore>
 %    \end{macrocode}
 % \end{macro}
 %
@@ -862,17 +936,39 @@
 % \begin{macro}{\@tabular}
 % tabular環境の内部命令です。もとは\file{lttab.dtx}で定義されています。
 %    \begin{macrocode}
+%</plcore>
+%<platexrelease>\plIncludeInRelease{2016/04/17}{\@tabular}
+%<platexrelease>                   {Remove extra \xkanjiskip}%
+%<*plcore|platexrelease>
 \def\@tabular{\leavevmode \null\hbox \bgroup $\let\@acol\@tabacol
    \let\@classz\@tabclassz
    \let\@classiv\@tabclassiv \let\\\@tabularcr\@tabarray}
+%</plcore|platexrelease>
+%<platexrelease>\plEndIncludeInRelease
+%<platexrelease>\plIncludeInRelease{0000/00/00}{\@tabular}
+%<platexrelease>                   {Remove extra \xkanjiskip}%
+%<platexrelease>\def\@tabular{\leavevmode \hbox \bgroup $\let\@acol\@tabacol
+%<platexrelease>   \let\@classz\@tabclassz
+%<platexrelease>   \let\@classiv\@tabclassiv \let\\\@tabularcr\@tabarray}
+%<platexrelease>\plEndIncludeInRelease
 %    \end{macrocode}
 % \end{macro}
 %
 % \begin{macro}{\endtabular}
 % \begin{macro}{\endtabular*}
 %    \begin{macrocode}
+%<platexrelease>\plIncludeInRelease{2016/04/17}{\endtabular}
+%<platexrelease>                   {Remove extra \xkanjiskip}%
+%<*plcore|platexrelease>
 \def\endtabular{\crcr\egroup\egroup $\egroup\null}
 \expandafter \let \csname endtabular*\endcsname = \endtabular
+%</plcore|platexrelease>
+%<platexrelease>\plEndIncludeInRelease
+%<platexrelease>\plIncludeInRelease{0000/00/00}{\endtabular}
+%<platexrelease>                   {Remove extra \xkanjiskip}%
+%<platexrelease>\def\endtabular{\crcr\egroup\egroup $\egroup}
+%<platexrelease>\expandafter \let \csname endtabular*\endcsname = \endtabular
+%<platexrelease>\plEndIncludeInRelease
 %    \end{macrocode}
 % \end{macro}
 % \end{macro}
@@ -880,6 +976,9 @@
 % \begin{macro}{\@iiiparbox}
 % |\parbox|の内部命令です。もとは\file{ltboxes.dtx}で定義されています。
 %    \begin{macrocode}
+%<platexrelease>\plIncludeInRelease{2016/04/17}{\@iiiparbox}
+%<platexrelease>                   {Remove extra \xkanjiskip}%
+%<*plcore|platexrelease>
 \let\@parboxto\@empty
 \long\def\@iiiparbox#1#2[#3]#4#5{%
   \leavevmode
@@ -899,22 +998,54 @@
        \csname bm@#3\endcsname}%
     \if@pboxsw \m@th$\null\fi% !!!
   \@end@tempboxa}
+%</plcore|platexrelease>
+%<platexrelease>\plEndIncludeInRelease
+%<platexrelease>\plIncludeInRelease{0000/00/00}{\@iiiparbox}
+%<platexrelease>                   {Remove extra \xkanjiskip}%
+%<platexrelease>\let\@parboxto\@empty
+%<platexrelease>\long\def\@iiiparbox#1#2[#3]#4#5{%
+%<platexrelease>  \leavevmode
+%<platexrelease>  \@pboxswfalse
+%<platexrelease>  \setlength\@tempdima{#4}%
+%<platexrelease>  \@begin@tempboxa\vbox{\hsize\@tempdima\@parboxrestore#5\@@par}%
+%<platexrelease>    \ifx\relax#2\else
+%<platexrelease>      \setlength\@tempdimb{#2}%
+%<platexrelease>      \edef\@parboxto{to\the\@tempdimb}%
+%<platexrelease>    \fi
+%<platexrelease>    \if#1b\vbox
+%<platexrelease>    \else\if #1t\vtop
+%<platexrelease>    \else\ifmmode\vcenter
+%<platexrelease>    \else\@pboxswtrue $\vcenter
+%<platexrelease>    \fi\fi\fi
+%<platexrelease>    \@parboxto{\let\hss\vss\let\unhbox\unvbox
+%<platexrelease>       \csname bm@#3\endcsname}%
+%<platexrelease>    \if@pboxsw \m@th$\fi
+%<platexrelease>  \@end@tempboxa}
+%<platexrelease>\plEndIncludeInRelease
 %    \end{macrocode}
 % \end{macro}
 %
 % \begin{macro}{\underline}
 % 下線を引く命令です。もとは\file{ltboxes.dtx}で定義されています。
 %    \begin{macrocode}
+%<platexrelease>\plIncludeInRelease{2016/04/17}{\underline}
+%<platexrelease>                   {Remove extra \xkanjiskip}%
+%<*plcore|platexrelease>
 \def\underline#1{%
   \relax
   \ifmmode\@@underline{#1}%
   \else \leavevmode\null$\@@underline{\hbox{#1}}\m@th$\null\relax\fi}
+%</plcore|platexrelease>
+%<platexrelease>\plEndIncludeInRelease
+%<platexrelease>\plIncludeInRelease{0000/00/00}{\underline}
+%<platexrelease>                   {Remove extra \xkanjiskip}%
+%<platexrelease>\def\underline#1{%
+%<platexrelease>  \relax
+%<platexrelease>  \ifmmode\@@underline{#1}%
+%<platexrelease>  \else $\@@underline{\hbox{#1}}\m@th$\relax\fi}
+%<platexrelease>\plEndIncludeInRelease
 %    \end{macrocode}
 % \end{macro}
-%
-%    \begin{macrocode}
-%</plcore>
-%    \end{macrocode}
 %
 % \Finale
 \endinput

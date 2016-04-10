@@ -8,7 +8,7 @@
 %
 % \fi
 %
-% \CheckSum{1761}
+% \CheckSum{1808}
 %% \CharacterTable
 %%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
 %%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
@@ -1633,6 +1633,10 @@
 % \changes{v1.6a}{2016/04/01}{ベースライン補正量が0でないときに
 %    \cs{AA}など一部の合成文字がおかしくなることへの対応。}
 %    \begin{macrocode}
+%</pldefs>
+%<platexrelease>\plIncludeInRelease{2016/04/17}{\@text@composite}
+%<platexrelease>                   {Fix for non-zero baselineshift}%
+%<*pldefs|platexrelease>
 \def\@text@composite#1#2#3#{%
   \begingroup
   \setbox\z@=\hbox\bgroup%
@@ -1659,6 +1663,22 @@
     \fi
     \box\z@
   \endgroup}
+%</pldefs|platexrelease>
+%<platexrelease>\plEndIncludeInRelease
+%<platexrelease>\plIncludeInRelease{0000/00/00}{\@text@composite}
+%<platexrelease>                   {Fix for non-zero baselineshift}%
+%<platexrelease>\def\@text@composite#1#2#3\@text@composite{%
+%<platexrelease>   \expandafter\@text@composite@x
+%<platexrelease>      \csname\string#1-\string#2\endcsname}
+%<platexrelease>\def\@text@composite@x#1{%
+%<platexrelease>   \ifx#1\relax
+%<platexrelease>      \expandafter\@secondoftwo
+%<platexrelease>   \else
+%<platexrelease>      \expandafter\@firstoftwo
+%<platexrelease>   \fi
+%<platexrelease>   #1}
+%<platexrelease>\plEndIncludeInRelease
+%<*pldefs>
 %    \end{macrocode}
 % \end{macro}
 % \end{macro}
@@ -1765,13 +1785,19 @@
 % 強調コマンドを入れ子にする場合の書体を自由に再定義できるようになりました。
 %    \begin{macrocode}
 %</pldefs>
-%<platexrelease>\plIncludeInRelease{2016/02/01}{\eminnershape}{\eminnershape}%
+%<platexrelease>\plIncludeInRelease{2016/04/17}{\eminnershape}{\eminnershape}%
 %<*pldefs|platexrelease>
 \DeclareRobustCommand\em
         {\@nomath\em \ifdim \fontdimen\@ne\font >\z@
                        \eminnershape \else \gtfamily \itshape \fi}%
 \def\eminnershape{\mcfamily \upshape}%
 %</pldefs|platexrelease>
+%<platexrelease>\plEndIncludeInRelease
+%<platexrelease>\plIncludeInRelease{2015/01/01}{\eminnershape}{\eminnershape}%
+%<platexrelease>\DeclareRobustCommand\em
+%<platexrelease>        {\@nomath\em \ifdim \fontdimen\@ne\font >\z@ 
+%<platexrelease>                       \mcfamily \upshape \else \gtfamily \itshape \fi}
+%<platexrelease>\def\eminnershape{\upshape}% defined by LaTeX, but not used by pLaTeX
 %<platexrelease>\plEndIncludeInRelease
 %<platexrelease>\plIncludeInRelease{0000/00/00}{\eminnershape}{\eminnershape}%
 %<platexrelease>\DeclareRobustCommand\em
