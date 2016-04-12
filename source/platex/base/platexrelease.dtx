@@ -30,6 +30,7 @@
 % \changes{v1.0}{2016/02/01}{first edition}
 % \changes{v1.0a}{2016/02/03}{latexreleaseをもとにplatexreleaseとして拡張}
 % \changes{v1.0b}{2016/02/16}{latexreleaseのバージョン確認を導入}
+% \changes{v1.0c}{2016/04/12}{ドキュメントを更新}
 % \fi
 %
 % \iffalse
@@ -38,7 +39,7 @@
 \ProvidesFile{platexrelease.dtx}
 %</driver>
 %<platexrelease>\ProvidesPackage{platexrelease}
-                [2016/02/16 v1.0b latexrelease support for pLaTeX Kernel]
+                [2016/04/12 v1.0c latexrelease support for pLaTeX Kernel]
 %<*driver>
 \documentclass{jltxdoc}
 \GetFileInfo{platexrelease.dtx}
@@ -131,8 +132,8 @@
 % |\end{macrocode}| 直前にもう一度 |<*plナントカ>| ガードを開始します。
 % \end{enumerate}
 % 日付は2006/11/10時点のアスキー版のコードなら「0000/00/00」とし、
-% その後なら「コードを入れた日付」とします。すべての日付ブロックは降順に
-% 並べるとよいようです。
+% その後なら「次回リリース（予定）日」とします。すべての日付ブロックは
+% 降順に並べるとよいようです。
 %
 % 典型例を示します。
 % \begin{verbatim}
@@ -148,7 +149,7 @@
 % % 強調コマンドを入れ子にする場合の書体を自由に再定義できるようになりました。
 % %    \begin{macrocode}
 % %</pldefs>
-% %<platexrelease>\plIncludeInRelease{2016/02/01}{\eminnershape}{\eminnershape}%
+% %<platexrelease>\plIncludeInRelease{2016/04/17}{\eminnershape}{\eminnershape}%
 % %<*pldefs|platexrelease>
 % \DeclareRobustCommand\em
 %         {\@nomath\em \ifdim \fontdimen\@ne\font >\z@
@@ -187,8 +188,8 @@
 % に挟みます。
 % \end{enumerate}
 % 日付は2006/11/10時点のアスキー版のコードなら「0000/00/00」とし、
-% その後なら「コードを入れた日付」とします。すべての日付ブロックは降順に
-% 並べるとよいようです。
+% その後なら「次回リリース（予定）日」とします。すべての日付ブロックは
+% 降順に並べるとよいようです。
 %
 % \setcounter{StandardModuleDepth}{1}
 % \StopEventually{}
