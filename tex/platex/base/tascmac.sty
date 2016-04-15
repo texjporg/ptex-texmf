@@ -23,7 +23,7 @@
 %%
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{tascmac}
-  [2016/03/13 v2.0a
+  [2016/04/15 v2.0b
   ascmac package (community edition)
   ]
 %%
@@ -144,10 +144,7 @@
 %% \keytop
 \def\keytop{\@ifnextchar[{\@keytop}{\@keytop[d]}}
 \def\@keytop[#1]#2{%
-  \@saveybaselineshift\ybaselineshift\ybaselineshift\z@
-  \@savetbaselineshift\tbaselineshift\tbaselineshift\z@
-  {\setbox0=\hbox{\ybaselineshift\@saveybaselineshift
-  \tbaselineshift\@savetbaselineshift\shortstack{#2}}%
+  {\setbox0=\hbox{\shortstack{#2}}\ybaselineshift\z@\tbaselineshift\z@%
   \dimen0=\wd0\advance\dimen0 5pt\dimen1=\dp0\advance\dimen1 2.5pt%
   \setbox\scscb@x=\hbox to\dimen0{%
   \iftdir\tate\else\yoko\fi
@@ -159,8 +156,7 @@
   \box\scscb@x\hbox to.2pt{\hss\vtop to\dimen0{\@vrf@{2.3pt}{.4pt}}}}}%
   \if #1c\mbox{}$\vcenter{\box0}$\mbox{}\else
   \if #1t\else\if #1b\boxmaxdepth=0pt\else
-  \boxmaxdepth=\dimen1\fi\fi \mbox{}\vbox{\box0}\fi}%
-  \ybaselineshift\@saveybaselineshift \tbaselineshift\@savetbaselineshift}
+  \boxmaxdepth=\dimen1\fi\fi \mbox{}\vbox{\box0}\fi}}
 %%
 %% \yen
 \def\yen{\leavevmode\hbox{\iftdir\yoko\fi
