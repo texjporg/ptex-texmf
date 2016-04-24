@@ -10,8 +10,7 @@ edition (ptex-texmf-2.5). The GitHub repository
 
 - https://github.com/texjporg/ptex-texmf
 
-is now maintained by Japanese TeX Development Community
-(http://texjp.org).
+is now maintained by [Japanese TeX Development Community](http://texjp.org).
 
 The original ASCII edition can be obtained from:
 
@@ -21,9 +20,12 @@ The original ASCII edition can be obtained from:
 
 See the documents (platex.pdf, pldoc.pdf, platexrelease.pdf) for more information.
 
-- Fix macros which are inconsistent with the latest e-pTeX (e.g. \footnote, tabular, \parbox, \underline).
+- Fix macros which are inconsistent with the latest e-pTeX
+  (e.g. \footnote, tabular, \parbox, \underline).
 - Fix several bugs in pLaTeX2e and ascmac.sty.
-- Add platexrelease.sty. As with the latexrelease package, this package enables us to use the old versions of pLaTeX2e (from 2006/11/10 the ASCII edition).
+- Add platexrelease.sty. As with the latexrelease package, this
+  package enables us to use the old versions of pLaTeX2e (from
+  2006/11/10 the ASCII edition).
 - Include files and documents for e-pTeX.
 
 ## Documentation
