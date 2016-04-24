@@ -19,6 +19,13 @@ The original ASCII edition can be obtained from:
 
 ## Changes from the original ASCII edition
 
+See the documents (platex.pdf, pldoc.pdf, platexrelease.pdf) for more information.
+
+- Fix macros which are inconsistent with the latest e-pTeX (e.g. \footnote, tabular, \parbox, \underline).
+- Fix several bugs in pLaTeX2e and ascmac.sty.
+- Add platexrelease.sty. As with the latexrelease package, this package enables us to use the old versions of pLaTeX2e (from 2006/11/10 the ASCII edition).
+- Include files and documents for e-pTeX.
+
 ## Documentation
 
 A brief exposition of pLaTeX2e is provided in platex.pdf.
