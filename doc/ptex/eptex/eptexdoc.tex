@@ -1,10 +1,135 @@
 %#!platex eptexdoc && mendex -s gind.ist eptexdoc.idx && ptex2pdf -l eptexdoc
 \documentclass[a4paper,11pt]{jsarticle}
-% ソースを簡単にしようとしたためあんまり独自の書式に
-% 凝ったりはしていません．
 \input fam256p.tex
 \usepackage[textwidth=42zw,lines=40,truedimen,centering]{geometry}
-\usepackage{styles}
+\usepackage{amsmath,mathtools,amssymb,multicol,comment}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage[T1]{fontenc}
+\usepackage{booktabs,enumitem}
+\usepackage{lmodern}
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{pxjahyper}
+\usepackage[bold,deluxe]{otf}
+\usepackage{hologo}
+\usepackage{makeidx}\makeindex
+
+%%%%%%%%%%%%%%%%
+\makeatletter
+\newcommand{\OMEGA}{$\Omega$}
+\def\epTeX{$\varepsilon$-\pTeX}\def\eTeX{$\varepsilon$-\TeX}
+\def\upTeX{u\pTex}\def\upTeX{p\kern-.15em\TeX}
+\def\NTS{\leavevmode\hbox{$\cal N\kern-0.35em\lower0.5ex\hbox{$\cal T$}%
+  \kern-0.2emS$}\,}
+\def\headfont{\normalfont\mathversion{bold}\gtfamily\bfseries}
+\def\node#1{\textit{#1}}
+\def\.#1{\texorpdfstring{%
+     \leavevmode\hbox{\texttt{\textbackslash#1}}\ifmmode\else\textcompwordmark\fi}{\textbackslash #1}}
+\let\orig@cs=\.
+\def\ind@cs#1{\orig@cs{#1}\index{{\texttt{\textbackslash #1}}}}
+\newlist{cslist}{description}1
+\setlist[cslist]{%
+  style=nextline,itemsep=\medskipamount,
+  font=\normalfont\mdseries}
+\def\csitem[#1]{\item[\llap{$\blacktriangleright$~}\let\.=\ind@cs#1]}
+\def\emph#1{{\bfseries\gtfamily\mathversion{bold}#1}}
+\def\listx{\def\makelabel{\hbox to 1em{\hfil\textbullet\hfil}}\def\@{\hfill}
+\labelwidth=13zw\leftmargin15zw\itemindent=0zw}
+\def\paragraph#1{\par\medskip\par\noindent\emph{■#1}\par\nobreak}
+\def\Pkg#1{\textsf{#1}}
+\catcode`\<=13
+\xspcode`\\=3
+\xspcode`\*=3
+\xspcode`\-=3
+\xspcode23=3 % \textcompwordmark
+\def<#1>{\ensuremath{\langle\hbox{\normalfont\itshape #1\/}\rangle}}
+
+\font\man=manfnt at 10pt
+\def\dbend{\raise0pt\hbox{\man\char'177}}
+\AtBeginDvi{\special{pdf:mapfile otf-ipaex.map}}
+\def\delbit#1#2{\underbracket[0.4pt]{#1}_{\text{#2}}}
+
+\def\TeXXeT{\TeX-\reflectbox{\bfseries \TeX-}}
+
+\newenvironment{multilist}[2]%
+ {$$\setbox\z@=\hbox\bgroup  % catch some funny things -> \mathord
+  \let\a=\empty
+  \let\b=\empty
+  \count@=\z@
+  \toks@={#2}%
+  \def\item##1\cr
+   {\ifnum \count@=\z@
+      \count@=#1%
+      \expandafter\def\expandafter\b\expandafter{\b\y{}}%
+    \fi
+    \advance\count@ by\m@ne
+    \expandafter\def\expandafter\a\expandafter{\a\x{##1}}}%
+  \ignorespaces}%
+ {\loop
+  \ifnum \count@>\z@
+    \expandafter\def\expandafter\a\expandafter{\a\expandafter\z\b\relax}%
+    \advance\count@ by\m@ne
+  \repeat
+  \def\x##1{\expandafter\y\b\relax{##1}}%
+  \def\y\y##1##2\relax##3%
+   {\ifx @##1@%
+      \def\b{##2\y{##3}}%
+    \else
+      \def\b{##2\y{##1&##3}}%
+    \fi}%
+  \def\z\y##1##2\relax{\def\b{##2\y{##1}}}%
+  \a
+  \def\x
+   {\expandafter\egroup\expandafter\halign\expandafter\bgroup
+    \expandafter&\the\toks@\cr}%
+  \def\y##1{\expandafter\def\expandafter\x\expandafter{\x##1\cr}}%
+  \b
+  \x\egroup $$}
+
+\makeatletter
+\def\hex#1{%
+{\count@=#1\@tempcnta=#1\@tempcntb=\@tempcnta\relax
+\divide\@tempcntb by 16%
+\ifnum\count@=0\else
+  \multiply\@tempcntb by16%
+  \advance\@tempcnta-\@tempcntb
+  \divide\@tempcntb by16%
+  \hex{\the\@tempcntb}%
+  \ifcase\@tempcnta\relax 0\or1\or2\or3\or4\or5\or6\or
+    7\or8\or9\or A\or B\or C\or D\or E\pr F\fi
+\fi}}
+\clubpenalty=8000\widowpenalty=8000
+
+\normalsize
+\bigskipamount=\baselineskip
+\medskipamount=.5\baselineskip
+\smallskipamount=.25\baselineskip
+
+\usepackage{etoolbox}
+\patchcmd\@verbatim\@totalleftmargin{\dimexpr\@totalleftmargin+3zw\relax}{}{}
+
+\newenvironment{curve}{%
+  \par\small\leftskip=\dimexpr\textwidth-44zw\relax\@totalleftmargin=\leftskip
+  \parindent1zw\noindent\kern-\leftskip\hbox to\leftskip{\dbend\hss}%
+  \everypar{\everypar{}}\ignorespaces
+}{\par\medskip}
+
+\renewenvironment{theindex}{%
+    \def\presectionname{}\def\postsectionname{}%
+    \section*{\indexname}
+    \@mkboth{\indexname}{\indexname}%
+    \plainifnotempty % \thispagestyle{plain}
+    \parindent\z@
+    \parskip\z@ \@plus .3\p@\relax
+    \let\item\@idxitem
+    \raggedright
+    \begin{multicols}{2}
+  }{
+    \end{multicols}
+    \clearpage
+  }
+\makeatother
+%%%%%%%%%%%%%%%%
+
 \def\_{\leavevmode\vrule width .45em height -.2ex depth .3ex\relax}
 \frenchspacing
 \begin{document}
