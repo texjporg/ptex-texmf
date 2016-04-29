@@ -6,11 +6,12 @@
 \usepackage[dvipdfmx]{hyperref}
 \usepackage{pxjahyper}
 \usepackage[bold,deluxe]{otf}
+\usepackage{hologo}
 \usepackage{makeidx}\makeindex
 \newif\ifscan@allowed
 \let\pfill\dotfill
 \makeatletter
-\def\pdfTeX{pdf\/\TeX}\newcommand{\OMEGA}{$\Omega$}
+\newcommand{\OMEGA}{$\Omega$}
 \def\epTeX{$\varepsilon$-\pTeX}\def\eTeX{$\varepsilon$-\TeX}
 \def\upTeX{u\pTex}\def\upTeX{p\kern-.15em\TeX}
 \def\NTS{\leavevmode\hbox{$\cal N\kern-0.35em\lower0.5ex\hbox{$\cal T$}%
@@ -30,11 +31,6 @@
 \def\listx{\def\makelabel{\hbox to 1em{\hfil\textbullet\hfil}}\def\@{\hfill}
 \labelwidth=13zw\leftmargin15zw\itemindent=0zw}
 \def\paragraph#1{\par\medskip\par\noindent\emph{■#1}\par\nobreak}
-\def\XeTeX{\leavevmode
-  \setbox0=\hbox{X\lower.5ex
-  \hbox{\kern-.15em\revrm E}\kern-.1667em \TeX}%
-  \dp0=0pt \ht0=0pt \box0 } 
-\DeclareFontShape{OT1}{cmtt}{bx}{n}{<->cmttb10}{}
 \def\Pkg#1{\textsf{#1}}
 \catcode`\<=13
 \xspcode`\\=3
@@ -48,13 +44,7 @@
 \AtBeginDvi{\special{pdf:mapfile otf-ipaex.map}}
 \def\delbit#1#2{\underbracket[0.4pt]{#1}_{\text{#2}}}
 
-% modified from etex_man.sty
-\setbox0=\hbox{\bf dsfh}
-\DeclareFontShape{T1}{lmr}{rev}{n}{<-> rmc10}{} % for right-to-left text
-\DeclareFontShape{T1}{lmr}{bxrev}{n}{<-> xbmc10}{} % for boldface right-to-left text
-\DeclareTextFontCommand{\revbf}{\fontseries{bxrev}\fontshape{n}\selectfont}
-\DeclareTextFontCommand{\revrm}{\fontseries{rev}\fontshape{n}\selectfont}
-\def\TeXXeT{\TeX-\revbf{\TeXXeTstate=1\beginR\TeX-\endR}}
+\def\TeXXeT{\TeX-\reflectbox{\bfseries \TeX-}}
 
 \newenvironment{multilist}[2]%
  {$$\setbox\z@=\hbox\bgroup  % catch some funny things -> \mathord

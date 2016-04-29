@@ -37,12 +37,12 @@ e-mail: \texttt{h\_kitagawa2001(at)yahoo.co.jp}}}
 製作の動機や作業過程などについては，詳しくは\cite{h7k}を参照して欲しいけ
 れども，大雑把に言うと，動機は以下のように要約できる．
 \begin{itemize}
-\item p\TeX は，\TeX が持っている「レジスタ1種類につき256個まで」という
+\item \pTeX は，\TeX が持っている「レジスタ1種類につき256個まで」という
       制限をひきずっており，現状でも非常に多数のパッケージを読み込ませた
       りすると制限にぶち当たってしまう．
 \item 一方，\eTeX 拡張ではこれが「レジスタ1種類につき32768個まで」と緩和
-      されており，欧文で標準となっている\pdfTeX やその後継のLua\TeX，及
-      び\XeTeX でも
+      されており，欧文で標準となっている\hologo{pdfTeX}やその後継の\hologo{LuaTeX}，
+      及び\hologo{XeTeX}でも
       \eTeX の機能が取り込まれている．
 \item そうすると，\pTeX だけが制限をレジスタ制限を引きずっているのは世界
       から取り残されることになるのではないか．
@@ -67,7 +67,7 @@ Meanwhile \eTeX\ intends to fill the gap between \TeX3 and the future
 \end{quotation}
 
 \NTS がどうなったのか僕は知らない．しかし，少なくとも\eTeX 拡張自体は実用
-的な物であり，そのせいか$\aleph$~(Aleph), \pdfTeX, \XeTeX などの他の拡張
+的な物であり，そのせいか$\aleph$~(Aleph), \hologo{pdfTeX}, \hologo{XeTeX}などの他の拡張
 にもマージされており，かなりの人が\eTeX 拡張を使うことができるようになっ
 ている．
 
@@ -203,7 +203,7 @@ tracing機能や条件判断文の強化などあるが，そこら辺はパッとしないのでここ
 
 \.{currentiftype}\index{\.{currentiftype}}における条件判断文とそれを表す数字との対応は，以
 下のようになっている．21--27が，\pTeX 拡張で追加された条件判断文に対応する．
-28の\.{ifpdfprimitive}は\pdfTeX 由来のプリミティブ（後述）である．
+28の\.{ifpdfprimitive}は\hologo{pdfTeX}由来のプリミティブ（後述）である．
 \begin{multilist}{3}{\hfil\hskip1.5zw#:&\quad#\qquad\hfil}
 \item 1&\.{if}\cr\item 2&\.{ifcat}\cr\item 3&\.{ifnum}\cr\item 4&\.{ifdim}\cr
 \item 5&\.{ifodd}\cr\item 6&\.{ifvmode}\cr\item 7&\.{ifhmode}\cr
@@ -350,15 +350,15 @@ delimiter codeを取得しようとしても，現時点のパッチでは，うまく動作しない
 そこで，\epTeX では\eTeX 流の方法を用いながらも，レジスタをさ
 らに65536個まで増やしている．
 
-\section{\pdfTeX 由来の機能}
-開発中の\LaTeX 3では，\eTeX 拡張の他に，\pdfTeX で導入された
+\section{\hologo{pdfTeX}由来の機能}
+開発中の\LaTeX 3では，\eTeX 拡張の他に，\hologo{pdfTeX}で導入された
 \.{pdfstrcmp}（又はその同等品）が必要となっており，もはや純粋な\eTeX ですら
 \LaTeX 3を利用することはできない状況である (\cite{expl31,expl32,expl33})．
-その他にも，\pdfTeX 由来のいくつかのプリミティブ(\cite{pdftexman})の実装が
+その他にも，\hologo{pdfTeX}由来のいくつかのプリミティブ(\cite{pdftexman})の実装が
 日本の\TeX ユーザからあり，
-ほとんど\pdfTeX における実装をそのまま真似する形で実装している．
+ほとんど\hologo{pdfTeX}における実装をそのまま真似する形で実装している．
 
-現在の\epTeX で利用できる\pdfTeX 由来のプリミティブの一覧を以下に示す．
+現在の\epTeX で利用できる\hologo{pdfTeX}由来のプリミティブの一覧を以下に示す．
 これらはextended modeでないと利用できない．
 
 \begin{cslist}
@@ -665,7 +665,7 @@ $3$\,sp）だが，どこか気になるところである．
   documentation for the $\it\Omega$ system}, 1999.\\
   \verb+$TEXMFDIST/doc/omega/base/doc-1.8.tex+
  \bibitem{pdftexman} H\`an Th\'{\^e} Th\`anh et al. \textit{The 
-	\pdfTeX\ user manual}, 2015.\\
+	\hologo{pdfTeX}\ user manual}, 2015.\\
   \verb+$TEXMFDIST/doc/pdftex/manual/pdftex-a.pdf+
 \end{thebibliography}
 
