@@ -8,7 +8,7 @@
 %
 % \fi
 %
-% \CheckSum{1808}
+% \CheckSum{1811}
 %% \CharacterTable
 %%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
 %%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
@@ -42,7 +42,7 @@
 % \changes{v1.3d}{1997/06/25}{\cs{em},\cs{emph}で和文を強調書体に}
 % \changes{v1.3e}{1997/07/10}{fdファイル名の小文字化が効いていなかったのを修正}
 % \changes{v1.3f}{1998/08/10}{\cs{DeclareFixedCommand}を\cs{@onlypreamble}に
-%	 してしまっていたのを修正}
+%    してしまっていたのを修正}
 % \changes{v1.3g}{1999/04/05}{plpatch.ltxの内容を反映}
 % \changes{v1.3h}{1999/08/09}{\cs{strut}の改善}
 % \changes{v1.3i}{2000/07/13}{\cs{text..}コマンドの左側に\cs{xkanjiskip}が
@@ -65,13 +65,15 @@
 %    定義変更に対応。\cs{eminnershape}を追加。}
 % \changes{v1.6a}{2016/04/01}{ベースライン補正量が0でないときに
 %    \cs{AA}など一部の合成文字がおかしくなることへの対応。}
+% \changes{v1.6b}{2016/04/30}{ptrace.styの冒頭でtracefnt.styを
+%    \cs{RequirePackageWithOptions}するようにした}
 % \fi
 %
 % \iffalse
 %<*driver>
 \NeedsTeXFormat{pLaTeX2e}
 % \fi
-\ProvidesFile{plfonts.dtx}[2016/04/01 v1.6a pLaTeX New Font Selection Scheme]
+\ProvidesFile{plfonts.dtx}[2016/04/30 v1.6b pLaTeX New Font Selection Scheme]
 % \iffalse
 \documentclass{jltxdoc}
 \GetFileInfo{plfonts.dtx}
@@ -138,6 +140,17 @@
 % 和文フォントの属性を格納するオブジェクトや長さ変数、
 % 属性を切替える際の判断材料として使うリストなどを定義しています。
 %
+% \file{ptrace}パッケージは\LaTeX{}の\file{tracefnt}パッケージに依存します。
+% \changes{v1.6b}{2016/04/30}{ptrace.styの冒頭でtracefnt.styを
+%    \cs{RequirePackageWithOptions}するようにした}
+%    \begin{macrocode}
+%<*trace>
+\NeedsTeXFormat{pLaTeX2e}
+\ProvidesPackage{ptrace}
+     [2016/04/30 v1.6b Standard pLaTeX package (font tracing)]
+\RequirePackageWithOptions{tracefnt}
+%</trace>
+%    \end{macrocode}
 %
 % \subsubsection{和文フォント属性}
 % ここでは、和文フォントの属性を格納するためのオブジェクトについて
@@ -1032,8 +1045,8 @@
   \xdef\font@name{\csname\curr@fontshape/\f@size\endcsname}%
   \pickup@font
   \font@name
-%<trace>\ifnum \tracingfonts>\tw@
-%<trace>  \@font@info{Roman:Switching to \font@name}\fi
+%<trace>  \ifnum \tracingfonts>\tw@
+%<trace>    \@font@info{Roman:Switching to \font@name}\fi
   \enc@update
 %    \end{macrocode}
 % 最後に、サイズが変更されていれば、ベースラインの調整などを行ないます。
@@ -1524,7 +1537,7 @@
     \romanseries{\seriesdefault}%
     \romanshape{\shapedefault}%
     \selectfont\ignorespaces}
-	\adjustbaseline
+\adjustbaseline
 \let\reset@font\normalfont
 %    \end{macrocode}
 % \end{macro}

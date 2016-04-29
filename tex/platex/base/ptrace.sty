@@ -37,6 +37,10 @@
 %%   Grave accent  \`     Left brace    \{     Vertical bar  \|
 %%   Right brace   \}     Tilde         \~}
 %%
+\NeedsTeXFormat{pLaTeX2e}
+\ProvidesPackage{ptrace}
+     [2016/04/30 v1.6b Standard pLaTeX package (font tracing)]
+\RequirePackageWithOptions{tracefnt}
 \DeclareRobustCommand\selectfont{%
   \let\tmp@error@fontshape\error@fontshape
   \let\error@fontshape\error@kfontshape
@@ -85,8 +89,8 @@
   \xdef\font@name{\csname\curr@fontshape/\f@size\endcsname}%
   \pickup@font
   \font@name
-\ifnum \tracingfonts>\tw@
-  \@font@info{Roman:Switching to \font@name}\fi
+  \ifnum \tracingfonts>\tw@
+    \@font@info{Roman:Switching to \font@name}\fi
   \enc@update
   \ifx\f@linespread\baselinestretch \else
     \set@fontsize\baselinestretch\f@size\f@baselineskip
